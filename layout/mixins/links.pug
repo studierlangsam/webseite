@@ -1,0 +1,9 @@
+mixin extlink(address)
+	a(href=address,target='_blank').ext&attributes(attributes)
+		if block
+			block
+		else
+			| #{address}
+
+mixin maillink(address) 
+	a(href=`mailto:${address}`)&attributes(attributes)= address
