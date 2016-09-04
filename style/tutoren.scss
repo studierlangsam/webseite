@@ -1,0 +1,74 @@
+@import 'responsive';
+
+$layout-change: 36em;
+
+.tutoren {
+	display: flex;
+
+	margin-top: 3em;
+
+	flex-direction: column;
+}
+
+.tutor {
+	margin-top: -10%;
+
+	@include from-width(40em) {
+		margin-top: -5%;
+	}
+
+	@include from-width($layout-change) {
+		margin-top: 2em;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	img {
+		width: 30%;
+
+		border-radius: .5em;
+
+		@include from-width($layout-change) {
+			width: 40%;
+		}
+	}
+
+	span {
+		display: inline-block;
+
+		width: 30%;
+
+		@include from-width($layout-change) {
+			width: 55%;
+		}
+	}
+
+	h3 {
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	p {
+		margin-top: 0;
+	}
+
+	&:nth-child(odd) {
+		img {
+			float: left;
+
+			margin-right: 3%;
+		}
+	}
+
+	&:nth-child(even) {
+		text-align: right;
+
+		img {
+			float: right;
+
+			margin-left: 3%;
+		}
+	}
+}

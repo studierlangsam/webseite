@@ -1,0 +1,63 @@
+.day {
+	margin-bottom: 1.5rem;
+
+	&:first-of-type {
+		margin-top: 3rem;
+	}
+
+	h3 {
+		display: inline-block;
+
+		width: auto;
+
+		vertical-align: baseline;
+	}
+
+	.date {
+		margin-left: .8em;
+
+		font-size: .9rem;
+	}
+}
+
+.event {
+	margin-top: .3rem;
+	margin-left: 1.5rem;
+
+	.time {
+		display: block;
+
+		float: left;
+
+		margin-top: .1em;
+
+		width: 4rem;
+
+		vertical-align: baseline;
+		text-align: right;
+
+		font-size: .9rem;
+	}
+
+	h4 {
+		display: inline-block;
+
+		margin: 0;
+		margin-left: 1rem;
+
+		line-height: 1rem;
+
+		font-size: 1.1rem;
+	}
+
+	p {
+		margin-top: .2em;
+		margin-left: 5rem;
+	}
+
+	.place {
+		display: block;
+
+		font-size: .9rem;
+	}
+}
