@@ -1,0 +1,37 @@
+extends ../layout/page.pug
+
+block properties
+	- const title = 'Tutoren'
+	- const filelink = '/tutoren'
+
+block append style
+	+stylesheet('/style/tutoren.css')
+
+mixin Tutor(Name, Studiengang, Studienbeginn)
+	// +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
+	- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0)
+	.tutor
+		img(src=`/images/tutoren/${Name}.jpg`,alt='')
+		span
+			h3= Name
+			p #{Studiengang}
+				br
+				| #{Studiendauer(Studienbeginn)}. Semester
+
+block main
+	h1 Tutoren
+	p Wir sind die Menschen, die dich durch deine O-Phase begleiten werden. Falls du irgendwelche Fragen hast, kannst du uns jederzeit eine Email an #[+maillink('tutoren@studierlangsam.de')] schreiben.
+	-
+		const Tutorenarrays = [
+			// Name, Studiengang, Jahr des Studienbeginns
+			['Annika Berger', 'Bachelor Informatik', 2014],
+			['Joshua Gleitze', 'Bachelor Informatik', 2014],
+			['Roman Langrehr', 'Bachelor Informatik', 2014],
+			['Nathanael Funk', 'Bachelor Informatik', 2014],
+			//['Fabian König', 'Bachelor Mathematik', 2015],
+			//['Juliano Sommer', 'Bachelor Mathematik', 2015],
+			//['Kansei Hara', 'Bachelor Informatik', 2014]
+		]
+	.tutoren
+		each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
+			+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2])

@@ -1,0 +1,15 @@
+extends ../layout/base.pug
+
+block append style
+	+stylesheet('style/index.css')
+
+
+block prepend content
+	.banner
+		img(src='graphic/banner.svg',alt='Studier Langsam – jetzt erst recht!')
+
+block append main 
+	h2 Hallo Erstie!
+	p #[a(href='tutoren') Wir] sind die O-Phasen-Gruppe „Studier Langsam“ für Mathematiker und Informatiker. Vom #[strong 10.] bis zum #[strong 16. Oktober] ist wieder #[+extlink('https://o-phase.com') O-Phase] für alle Ersties am #[+extlink('https://www.kit.edu') KIT]. Wir würden uns freuen, dich bei uns begrüßen zu dürfen!
+	p Wir sind eine Gruppe von Bachelor-Studenten, die sich darauf freuen, dir alles zu zeigen, was für’s Studium wichtig ist und was Karlsruhe sonst noch zu bieten hat. Außerhalb der O-Phase treffen wir und regelmäßig zu Stammtischen.
+	p Hier findest du Informationen über uns, die O-Phase und das Studium am KIT.

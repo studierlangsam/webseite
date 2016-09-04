@@ -1,0 +1,29 @@
+extends ../layout/page.pug
+
+block properties
+	- const title = 'Informationen'
+	- const filelink = '/infos'
+
+mixin Frage
+	h3
+		block
+
+mixin Antwort
+	p
+		block
+
+block main
+	h1 Fragen und Antworten
+	p Auf viele Fragen hat die Fachschaft schon auf ihrer #[+extlink('http://o-phase.com/o16ws/faq') FAQ-Seite] Antwort gegeben.
+
+	+Frage Was ist die O-Phase?
+	+Antwort Die
+
+	+Frage Habe ich bei euch auch Spaß, wenn ich kein Alkohol trinke?
+	+Antwort Definitiv. Es gibt andere O-Phasen-Gruppen, bei denen das Trinken deutlich im Vordergrund steht. Wir legen dagegen mehr Wert darauf, Kontakte zu knüpfen und coole Aktionen zu veranstalten. Und wenn wir abend weggehen, haben die Nicht-Alkoholiker auch ihren Spaß.
+
+	+Frage Ist Studieren schwierig?
+	+Antwort Ja. Studieren ist anstrengend und viel Arbeit. Die Prüfungen an der Uni sind deutlich schwieriger als die in der Schule. Aber da wächst jeder irgendwie rein. Und zu viel Stress darf man sich auch nicht machen. Du weißt ja: Studier langsam! ;)
+
+	+Frage Warum wollen alle, dass ich schon Kontakte knüpfe, bevor ich überhaupt angefangen habe, zu studieren?
+	+Antwort Studieren ist ein Mannschaftssport. Gerade durch die Mathevorlesungen am Anfang des Studiums kommt man viel leichter, wenn man eine Lerngruppe hat, mit der man Aufgaben lösen und sich austauschen kann. Und die meisten von uns habe ihre Lerngruppe (und viele Freunde!) in der O-Phase gefunden.
