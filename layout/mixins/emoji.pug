@@ -1,0 +1,5 @@
+- const emojione = require('emojione')
+- emojione.imageType = 'svg'
+
+mixin emoji(name)
+	span!= emojione.shortnameToImage(`:${name}:`)

@@ -28,7 +28,11 @@ function style() {
  */
 function content() {
 	return gulp.src(contentsources)
-		.pipe(pug())
+		.pipe(pug({
+			data: {
+				require: require
+			}
+		}))
 		.pipe(htmlmin({
 			minifyJS: true,
 			minifyCSS: true,
