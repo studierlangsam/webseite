@@ -34,7 +34,19 @@ function content() {
 			}
 		}))
 		.pipe(htmlmin({
-			minifyJS: true,
+			minifyJS: {
+				mangle: true,
+				compress: {
+					sequences: true,
+					dead_code: true,
+					conditionals: true,
+					booleans: true,
+					unused: true,
+					if_return: true,
+					join_vars: true,
+					drop_console: true
+				}
+			},
 			minifyCSS: true,
 			collapseBooleanAttributes: true,
 			collapseWhitespace: true,

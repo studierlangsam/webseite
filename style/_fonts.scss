@@ -1,8 +1,9 @@
 @mixin impact {
 	font-family: 'Coda', sans-serif;
 	font-weight: 800;
-	transform: scale(1, 1.5) translateY(-.1em);
+	transform: scale(1, 1.5);
 	display: inline-block;
+	transform-origin: bottom;
 }
 
 @mixin text-font {
