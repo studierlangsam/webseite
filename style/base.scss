@@ -70,6 +70,8 @@ h3 {
 	@include impact;
 
 	margin-bottom: .2em;
+
+	width: 100%;
 }
 
 a {
@@ -78,16 +80,11 @@ a {
 	&:hover {
 		color: $highlight;
 	}
-/*
-	&.ext::after {
-		content: '↗';
-		font-size: .8em;
-		vertical-align: super;
-	}
-	*/
 }
 
 p {
+	margin-top: .2em;
+	margin-bottom: .6em;
 	margin-left: 1.5rem;
 
 	max-width: 42rem;
@@ -105,9 +102,10 @@ p {
 
 code {
 	&.block {
-		display: block;
+		display: inline-block;
 
 		margin: .5em auto;
+
 
 		border-radius: .5em;
 
@@ -118,6 +116,7 @@ code {
 		padding-left: 2em;
 		padding-right: 1em;
 
+		width: 100%;
 		max-width: 40rem;
 
 		text-indent: -1em;
