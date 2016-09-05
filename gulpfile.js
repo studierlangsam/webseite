@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const rmrf = require('rimraf');
 const sourcemaps = require('gulp-sourcemaps');
+const rsync = require('gulp-rsync');
 
 const builddir = 'build';
 const stylesheets = 'style/**/*.scss';
@@ -110,6 +111,22 @@ function clean(done) {
 	rmrf(builddir, done);
 }
 
+/**
+ * Uploads the built files to the webserver.
+ */
+function upload() {
+	return gulp.src(`${builddir}/**`)
+		.pipe(rsync({
+			root: 'build',
+			hostname: 'studierlangsam@studierlangsam.de',
+			destination: '/var/www/studierlangsam',
+			archive: true,
+			progress: true,
+			clean: true
+		}));
+}
+
 gulp.task('clean', clean);
 gulp.task('build', gulp.parallel(style, content, images));
 gulp.task('watch', gulp.series('clean', 'build', watch));
+gulp.task('deploy', gulp.series('clean', 'build', upload));
