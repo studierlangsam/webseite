@@ -11,7 +11,7 @@ const rsync = require('gulp-rsync');
 const builddir = 'build';
 const stylesheets = 'style/**/*.scss';
 const contentsources = 'content/**/*.pug';
-const imagefiles = ['graphic/**/*', 'images/**/*'];
+const imagefiles = ['graphic/**/*', 'images/**/*', 'favicon.ico'];
 
 /**
  * Render the stylesheets.
