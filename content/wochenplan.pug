@@ -34,6 +34,10 @@ block main
 	- const Karte_Altes_Stadion = 'https://www.google.de/maps/place/AKK+-+Arbeitskreis+Kultur+und+Kommunikation/@49.011154,8.4124523,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063259717ec1:0x343954b4efbf72b!8m2!3d49.011154!4d8.414641?hl=de'
 	- const Karte_Forum = "https://www.google.de/maps/place/49%C2%B000'42.2%22N+8%C2%B024'55.8%22E/@49.01173,8.4143927,18z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d49.01173!4d8.415487?hl=de"
 	- const Karte_Hertz = 'https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de'
+	- const Karte_Lago = 'https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de'
+	- const Karte_SCC = 'https://www.google.de/maps/place/Steinbuch+Centre+for+Computing+(SCC)/@49.0122915,8.4058661,17z/data=!3m1!4b1!4m5!3m4!1s0x4797064975dddd03:0x5249774f83c382a2!8m2!3d49.0122915!4d8.4080548?hl=de'
+	- const Karte_HaDiKo = 'https://www.google.de/maps/place/Hans-Dickmann-Kolleg/@49.0201791,8.4207664,17z/data=!3m1!4b1!4m5!3m4!1s0x479707cdb2e27c8f:0x909cb0a2a6e1329!8m2!3d49.0201791!4d8.4229551?hl=de'
+	- const Karte_Mensa = 'https://www.google.de/maps/place/Mensa+am+Adenauerring/@49.0201787,8.4142003,15z/data=!4m8!1m2!2m1!1smensa+kit!3m4!1s0x0:0x2d93d5ea5b39cdbe!8m2!3d49.0118745!4d8.416898?hl=de'
 
 	+Tag('Montag', '10. Oktober 2016')
 		+Event('11:00', 'Eröffnung')
@@ -42,27 +46,46 @@ block main
 				+extlink(Karte_Hasaf) Hörsaal am Fasanengarten
 		+Event('13:00', 'Kennenlernen')
 		+Event('16:00', 'Campus-Führung')
+		+Event('18:00', 'Abendessen')
 
 	+Tag('Dienstag', '11. Oktober 2016')
 		+Event('12:00', 'Mittagessen')
 		+Event('14:00', 'Fachbereichsinformation (FBI)')
+		+Event('15:30', 'Bowlen')
+			| Wir gehen ins #[+extlink('http://www.lago-bowling.de/') Lago]. Neben Bowling kann man sich dort mit einem Riesen-Tischkicker, Billiard, Air-Hockey, Dart und anderen schönen Dingen vergnügen.
+			+Ort #[+extlink(Karte_Lago) LAGO]
 		+Event('18:00', 'O-Phest')
 			| Gemeinsames Fest aller O-Phasen.
 			+Ort #[+extlink('https://www.akk.org/') AKK] (im #[+extlink(Karte_Altes_Stadion) Alten Stadion])
 
 	+Tag('Mittwoch', '12. Oktober 2016')
+		+Event('9:00', 'Frühstück')
+			| Gemeinsames Frühstück in unserem Seminarraum. Bringt Geschirr, Besteck und was aufs Brot mit!
+		+Event('10:00', 'O-Reallye')
+			| Reallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
 		+Event('15:30', 'Lehramt-Information')
 			| Informationen für Lehramtstudenten.
+		+Event('20:00', 'Kneipen-Tour')
+			| Wir ziehen durch die schönsten Karlsruher Kneipen.
 
 	+Tag('Donnerstag', '13. Oktober 2016')
+		+Event('10:00', 'Frühstück')
+		+Event('11:30', 'SCC-Führung')
+			| Führung durch das #[+extlink('https://www.scc.kit.edu/') SCC], das Rechenzentrum des KIT.
+			+Ort #[+extlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('12:45', 'O-Lympia')
 			| Olympiade der O-Phase. Falls es regnet veranstalten wir ein Alternativprogramm aus wahlweise Schwimmbad, Kino und Gesellschaftsspielen.
 			+Ort #[+extlink(Karte_Forum) Forum] (vor dem Audimax)
+		+Event('20:00', 'Cocktail-Abend')
+			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
+			+Ort K2-Bar im #[+extlink(Karte_HaDiKo) HaDiKo]
 
 
 	+Tag('Freitag', '14. Oktober 2016')
 		+Event('11:00', 'Abschlussveranstaltung')
 			| Die offizielle Abschlussveranstaltung der O-Phase mit Siegerehrung der O-Really.
+		+Event('12:30', 'Mittagessen in der Mensa')
+			+Ort #[+extlink(Karte_Mensa) Mensa am Andenauerring]
 
 	+Tag('Samstag', '15. Oktober 2016')
 		+Event('20:00', 'Uni-Kino')
