@@ -90,7 +90,9 @@ a {
 p {
 	margin-left: 1.5rem;
 
-	max-width: 40rem;
+	max-width: 42rem;
+
+	line-height: 1.4em;
 
 	hyphens: auto;
 
@@ -129,6 +131,8 @@ code {
 .emojione {
 	width: 1.1em;
 	height: 1.1em;
+
+	vertical-align: -.1em;
 }
 
 footer {
