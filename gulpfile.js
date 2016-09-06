@@ -7,6 +7,8 @@ const htmlmin = require('gulp-htmlmin');
 const rmrf = require('rimraf');
 const sourcemaps = require('gulp-sourcemaps');
 const rsync = require('gulp-rsync');
+const w3cjs = require('gulp-w3cjs');
+const scsslint = require('gulp-scss-lint');
 
 const builddir = 'build';
 const stylesheets = 'style/**/*.scss';
@@ -112,6 +114,26 @@ function clean(done) {
 }
 
 /**
+ * Validates the rendered HTML.
+ */
+function checkHTML() {
+	return gulp.src(`${builddir}/**/*.html`)
+		.pipe(w3cjs({
+			charset: 'utf-8'
+		}))
+		.pipe(w3cjs.reporter());
+}
+
+/**
+ * Lints the stylesheets.
+ */
+function checkStyle() {
+	return gulp.src('style/**/*.scss')
+		.pipe(scsslint())
+		.pipe(scsslint.failReporter());
+}
+
+/**
  * Uploads the built files to the webserver.
  */
 function upload() {
@@ -129,4 +151,5 @@ function upload() {
 gulp.task('clean', clean);
 gulp.task('build', gulp.parallel(style, content, images));
 gulp.task('watch', gulp.series('clean', 'build', watch));
+gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
 gulp.task('deploy', gulp.series('clean', 'build', upload));

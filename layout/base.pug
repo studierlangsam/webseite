@@ -11,7 +11,8 @@ block properties
 doctype html
 html(lang='de')
 	head
-		title= 'Studier Langsam' + (title ? ' – ' + title : '')
+		meta(charset='UTF-8')
+		title= (title ? title + ' – ' : '') + 'Studier Langsam'
 
 		block meta
 			meta(name='viewport',content='width=device-width, initial-scale=1')
