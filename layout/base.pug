@@ -2,8 +2,8 @@ include mixins/stylesheet.pug
 include mixins/links.pug
 include mixins/emoji.pug
 
-mixin navlink(link)
-	a(href=link,class=(link === filelink ? 'here' : false))
+mixin navlink(href)
+	a(href=href,class=(href === Link ? 'here' : false))
 		block
 
 block properties
@@ -12,7 +12,7 @@ doctype html
 html(lang='de')
 	head
 		meta(charset='UTF-8')
-		title= (title ? title + ' – ' : '') + 'Studier Langsam'
+		title= (Titel ? Titel + ' – ' : '') + 'Studier Langsam'
 
 		block meta
 			meta(name='viewport',content='width=device-width, initial-scale=1')
