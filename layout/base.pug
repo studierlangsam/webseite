@@ -31,24 +31,7 @@ html(lang='de')
 				}
 
 	body
-		// Piwik
-		script(type='text/javascript').
-			var _paq = _paq || [];
-			_paq.push(["setDomains", ["*.studierlangsam.de","*.studierlangsam.de"]]);
-			_paq.push(['trackPageView']);
-			_paq.push(['enableLinkTracking']);
-			(function() {
-				var u="//analytics.studierlangsam.de/";
-				_paq.push(['setTrackerUrl', u+'piwik.php']);
-				_paq.push(['setSiteId', '3']);
-				// heart beat timer: track user’s time spent on the site.
-				_paq.push(['enableHeartBeatTimer', 10]);
-				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-				g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-			})();
-		noscript
-			p
-				img(src='//analytics.joshuagleitze.de/piwik.php?idsite=3',style='border:0;', alt='')
+		include parts/piwik-tracking.pug
 
 		block content
 			nav
@@ -63,14 +46,5 @@ html(lang='de')
 				| |
 				+maillink('tutoren@studierlangsam.de')
 
-			script(type='text/javascript').
-				(function() {
-					var tagNames = ['h1', 'h2', 'h3'];
-					for (var i = 0, li = tagNames.length; i < li; i++) {
-						var tags = document.getElementsByTagName(tagNames[i]);
-						for (var j = 0, lj = tags.length; j < lj; j++) {
-							var el = tags[j];
-							el.style.paddingTop = (0.5 * el.offsetHeight) + 'px';
-						}
-					}
-				})();
+			script(type='text/javascript')
+				include ../script/heading-style-fix.js
