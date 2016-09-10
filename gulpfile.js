@@ -9,6 +9,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rsync = require('gulp-rsync');
 const w3cjs = require('gulp-w3cjs');
 const scsslint = require('gulp-scss-lint');
+const cleanCss = require('gulp-clean-css');
 
 const builddir = 'build';
 const stylesheets = 'style/**/*.scss';
@@ -22,6 +23,9 @@ function style() {
 	return gulp.src(stylesheets)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
+		.pipe(cleanCss({
+			shorthandCompacting: true
+		}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(`${builddir}/style`));
 }
