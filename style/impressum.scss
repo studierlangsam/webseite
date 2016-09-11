@@ -14,6 +14,7 @@ p {
 
 	@include from-width(55rem) {
 		display: block;
+
 		position: relative;
 		right: auto;
 
