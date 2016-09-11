@@ -1,7 +1,6 @@
 @import 'colors';
 @import 'sizes';
 
-
 nav {
 	position: fixed;
 	top: 0;
@@ -51,6 +50,8 @@ nav {
 }
 
 main {
+	margin-bottom: -$footer-height;
+
 	padding-top: $navigation-height + 3rem;
 	padding-bottom: $footer-height + 4rem;
 
