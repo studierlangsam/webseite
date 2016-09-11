@@ -24,11 +24,25 @@ linters:
         # separators.
         order:
             - display
+            - flex-direction
+            - flex-wrap
+            - flex-direction
+            - justify-content
+            - align-content
+            - align-items
+            -
             - position
             - top
             - right
             - bottom
             - left
+            -
+            - order
+            - flex
+            - flex-basis
+            - flex-grow
+            - flex-shrink
+            - align-self
             -
             - columns
             - column-gap
