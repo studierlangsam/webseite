@@ -1,3 +1,6 @@
+$time-width: 5rem;
+$time-spacing: 1rem;
+
 .day {
 	margin-bottom: 1.5rem;
 
@@ -19,8 +22,10 @@
 }
 
 .event {
+	clear: both;
+
 	margin-top: .3rem;
-	margin-left: 1.5rem;
+	margin-left: .5rem;
 
 	.time {
 		display: block;
@@ -29,7 +34,7 @@
 
 		margin-top: .1em;
 
-		width: 4rem;
+		width: $time-width;
 
 		vertical-align: baseline;
 		text-align: right;
@@ -41,7 +46,7 @@
 		display: inline-block;
 
 		margin: 0;
-		margin-left: 1rem;
+		margin-left: $time-spacing;
 
 		line-height: 1rem;
 
@@ -50,7 +55,7 @@
 
 	p {
 		margin-top: .2em;
-		margin-left: 5rem;
+		margin-left: $time-width + $time-spacing;
 	}
 
 	.place {
