@@ -38,6 +38,5 @@ block main
 			['Michael Vogt', 'Bachelor Informatik', 2013],
 			['Timo Kuch', 'Bachelor Informatik', 2015]
 		]
-	.tutoren
-		each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
-			+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2])
+	each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
+		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2])

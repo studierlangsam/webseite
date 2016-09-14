@@ -2,27 +2,22 @@
 
 $layout-change: 36em;
 
-.tutoren {
-	display: flex;
-
-	flex-direction: column;
-
-	margin-top: 3em;
-}
-
 .tutor {
-	margin-top: -10%;
+	display: flex;
+	align-items: flex-start;
+
+	margin-top: -8%;
 
 	@include from-width(40em) {
-		margin-top: -5%;
+		margin-top: -3%;
 	}
 
 	@include from-width($layout-change) {
 		margin-top: 2em;
 	}
 
-	&:first-child {
-		margin-top: 0;
+	&:first-of-type {
+		margin-top: 3rem;
 	}
 
 	img {
@@ -55,19 +50,19 @@ $layout-change: 36em;
 	}
 
 	&:nth-child(odd) {
-		img {
-			float: left;
+		flex-direction: row;
 
+		img {
 			margin-right: 3%;
 		}
 	}
 
 	&:nth-child(even) {
+		flex-direction: row-reverse;
+
 		text-align: right;
 
 		img {
-			float: right;
-
 			margin-left: 3%;
 		}
 	}
