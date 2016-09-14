@@ -31,8 +31,6 @@ $layout-change: 36em;
 	}
 
 	div {
-		display: inline-block;
-
 		width: 30%;
 
 		@include from-width($layout-change) {
