@@ -10,11 +10,17 @@ const rsync = require('gulp-rsync');
 const w3cjs = require('gulp-w3cjs');
 const scsslint = require('gulp-scss-lint');
 const cleanCss = require('gulp-clean-css');
+const parallel = require('concurrent-transform');
+const os = require('os');
+const plainresize = require('gulp-image-resize');
+const resize = options => parallel(plainresize(options), os.cpus().length);
+
 
 const builddir = 'build';
 const stylesheets = 'style/**/*.scss';
 const contentsources = 'content/**/*.pug';
-const imagefiles = ['graphic/**/*', 'images/**/*', 'favicon.ico'];
+const graphicfiles = ['graphic/**/*', 'favicon.ico'];
+const tutorenfiles = 'images/tutoren/*.jpg';
 
 /**
  * Render the stylesheets.
@@ -72,10 +78,23 @@ function content() {
 }
 
 /**
- * Copies images to the build dir.
+ * Copies static images to the build dir.
+ */
+function graphics() {
+	return gulp.src(graphicfiles, {base: '.'})
+		.pipe(gulp.dest(builddir));
+}
+
+/**
+ * Copies an resizes images to the build dir.
  */
 function images() {
-	return gulp.src(imagefiles, {base: '.'})
+	return gulp.src(tutorenfiles, {base: '.'})
+		.pipe(resize({
+			width: Math.floor(0.4 * 16 * 36), // 40% * font size * layout breakpoint, see tutoren.scss
+			quality: 0.9,
+			filter: 'Catrom'
+		}))
 		.pipe(gulp.dest(builddir));
 }
 
@@ -107,7 +126,8 @@ function watch() {
 
 	gulp.watch(stylesheets, stylesheetReload);
 	gulp.watch([contentsources, 'layout'], gulp.series(content, reload));
-	gulp.watch(imagefiles, gulp.series(images, reload));
+	gulp.watch(graphicfiles, gulp.series(graphics, reload));
+	gulp.watch(tutorenfiles, gulp.series(images, reload));
 }
 
 /**
@@ -153,7 +173,7 @@ function upload() {
 }
 
 gulp.task('clean', clean);
-gulp.task('build', gulp.parallel(style, content, images));
+gulp.task('build', gulp.parallel(style, content, graphics, images));
 gulp.task('watch', gulp.series('clean', 'build', watch));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
 gulp.task('deploy', gulp.series('clean', 'build', upload));
