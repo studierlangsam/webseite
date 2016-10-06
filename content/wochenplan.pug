@@ -40,11 +40,13 @@ block main
 	- const Karte_SCC = 'https://www.google.de/maps/place/Steinbuch+Centre+for+Computing+(SCC)/@49.0122915,8.4058661,17z/data=!3m1!4b1!4m5!3m4!1s0x4797064975dddd03:0x5249774f83c382a2!8m2!3d49.0122915!4d8.4080548?hl=de'
 	- const Karte_HaDiKo = 'https://www.google.de/maps/place/Hans-Dickmann-Kolleg/@49.0201791,8.4207664,17z/data=!3m1!4b1!4m5!3m4!1s0x479707cdb2e27c8f:0x909cb0a2a6e1329!8m2!3d49.0201791!4d8.4229551?hl=de'
 	- const Karte_Mensa = 'https://www.google.de/maps/place/Mensa+am+Adenauerring/@49.0201787,8.4142003,15z/data=!4m8!1m2!2m1!1smensa+kit!3m4!1s0x0:0x2d93d5ea5b39cdbe!8m2!3d49.0118745!4d8.416898?hl=de'
+	- const Karte_Marktplatz = 'https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0094048,8.395791,18.25z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de'
+	- const Karte_Brauhaus = 'https://www.google.de/maps/place/Badisch+Brauhaus/@49.008726,8.3933296,17z/data=!4m8!1m2!2m1!1sbrauhaus!3m4!1s0x47970650e027dfef:0x8669971215d642bd!8m2!3d49.0118517!4d8.3939437?hl=de'
 
 	+Tag('Montag', '10. Oktober 2016')
 		+Event('11:00', 'Eröffnung')
 			| Die offizielle Eröffnungsveranstaltung der O-Phase.
-			+Ort 
+			+Ort
 				+extlink(Karte_Gerthsen) Gerthsen-Hörsaal
 		+Event('13:00', 'Kennenlernen')
 		+Event('16:00', 'Campus-Führung')
@@ -53,28 +55,35 @@ block main
 
 	+Tag('Dienstag', '11. Oktober 2016')
 		+Event('12:00', 'Mittagessen')
+			+Ort #[+extlink('http://www.badisch-brauhaus.de/') Badisch Brauhaus] (#[+extlink(Karte_Brauhaus) Stephanienstraße 38])
 		+Event('14:00', 'Fachbereichsinformation (FBI)')
+			| In der Fachbereichsinformation werden alle organisatorischen Fragen zu eurem Studiengang geklärt.
+			+Ort Treffpunkt: #[+extlink(Karte_Altes_Stadion) vor dem AKK]
 		+Event('15:30', 'Bowlen')
 			| Wir gehen ins #[+extlink('http://www.lago-bowling.de/') Lago]. Neben Bowling kann man sich dort mit einem Riesen-Tischkicker, Billiard, Air-Hockey, Dart und anderen schönen Dingen vergnügen.
 			+Ort #[+extlink('http://www.lago-bowling.de/') LAGO Bowling Center] (#[+extlink(Karte_Lago) Gablonzer Straße 13])
 		+Event('18:00', 'O-Phest')
-			| Gemeinsames Fest aller O-Phasen.
+			| Gemeinsames Fest verschiedener O-Phasen.
 			+Ort #[+extlink('https://www.akk.org/') AKK] (im #[+extlink(Karte_Altes_Stadion) Alten Stadion])
 
 	+Tag('Mittwoch', '12. Oktober 2016')
 		+Event('9:00', 'Frühstück')
 			| Gemeinsames Frühstück in unserem Seminarraum. Bringt Geschirr, Besteck und was aufs Brot mit!
+			+Ort Seminarraum
 		+Event('10:00', 'O-Rallye')
-			| Reallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
+			| Rallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
 		+Event('14:30', 'Lehramt-Information')
 			| Informationen für Lehramtstudenten.
 		+Event('20:00', 'Kneipen-Tour')
 			| Wir ziehen durch die schönsten Karlsruher Kneipen.
+			+Ort Treffpunkt: #[+extlink(Karte_Marktplatz) Marktplatz]
 
 	+Tag('Donnerstag', '13. Oktober 2016')
-		+Event('10:00', 'Frühstück')
+		+Event('10:00', 'Frühstück im Café')
+			| Gemeinsames Frühstück in Karlsruher Studenten-Cafés.
+			+Ort Teffpunkt: #[+extlink(Karte_Marktplatz) Marktplatz]
 		+Event('11:30', 'SCC-Führung')
-			| Führung durch das #[+extlink('https://www.scc.kit.edu/') SCC], das Rechenzentrum des KIT.
+			| Führung durch das #[+extlink('https://www.scc.kit.edu/') SCC], das Rechenzentrum des KIT für alle Interssierten. Neben den Angeboten für Studenten wird auch der  Landeshöchstleistungsrechner vorgestellt.
 			+Ort #[+extlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('12:45', 'O-Lympia')
 			| Olympiade der O-Phase. Falls es regnet veranstalten wir ein Alternativprogramm aus wahlweise Schwimmbad, Kino und Gesellschaftsspielen.
@@ -98,4 +107,4 @@ block main
 
 	+Tag('Sonntag', '16. Oktober 2016')
 		+Event('11:00', 'Mädelsbrunch')
-			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen. 
+			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen.
