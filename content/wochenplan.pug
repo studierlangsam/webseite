@@ -42,12 +42,13 @@ block main
 	- const Karte_Mensa = 'https://www.google.de/maps/place/Mensa+am+Adenauerring/@49.0201787,8.4142003,15z/data=!4m8!1m2!2m1!1smensa+kit!3m4!1s0x0:0x2d93d5ea5b39cdbe!8m2!3d49.0118745!4d8.416898?hl=de'
 	- const Karte_Marktplatz = 'https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0094048,8.395791,18.25z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de'
 	- const Karte_Brauhaus = 'https://www.google.de/maps/place/Badisch+Brauhaus/@49.008726,8.3933296,17z/data=!4m8!1m2!2m1!1sbrauhaus!3m4!1s0x47970650e027dfef:0x8669971215d642bd!8m2!3d49.0118517!4d8.3939437?hl=de'
+	- const Karte_Plank = 'https://www.google.de/maps/place/Plank-H%C3%B6rsaal,+76131+Karlsruhe/@49.014428,8.4160806,18z/data=!3m1!4b1!4m12!1m6!3m5!1s0x4797064d7da356a3:0xbdaeb296b0747bed!2sKarlsruher+Institut+f%C3%BCr+Technologie!8m2!3d49.0119199!4d8.4170303!3m4!1s0x4797063468da3b09:0xbe1d55cee6996c0f!8m2!3d49.014518!4d8.4173264?hl=de'
+	- const Karte_Redtenbacher = 'https://www.google.de/maps/place/Redtenbacher+H%C3%B6rsaal,+76131+Karlsruhe/@49.0099248,8.411487,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a91445f5:0xa785a73eefe7c8af!8m2!3d49.0099434!4d8.4136681?hl=de'
 
 	+Tag('Montag', '10. Oktober 2016')
 		+Event('11:00', 'Eröffnung')
 			| Die offizielle Eröffnungsveranstaltung der O-Phase.
-			+Ort
-				+extlink(Karte_Gerthsen) Gerthsen-Hörsaal
+			+Ort: +extlink(Karte_Gerthsen) Gerthsen-Hörsaal
 		+Event('13:00', 'Kennenlernen')
 		+Event('16:00', 'Campus-Führung')
 		+Event('18:00', 'Abendessen')
@@ -74,6 +75,7 @@ block main
 			| Rallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
 		+Event('14:30', 'Lehramt-Information')
 			| Informationen für Lehramtstudenten.
+			+Ort: +extlink(Karte_Plank) Rudolf-Plank-Hörsaal
 		+Event('20:00', 'Kneipen-Tour')
 			| Wir ziehen durch die schönsten Karlsruher Kneipen.
 			+Ort Treffpunkt: #[+extlink(Karte_Marktplatz) Marktplatz]
@@ -96,9 +98,9 @@ block main
 	+Tag('Freitag', '14. Oktober 2016')
 		+Event('11:00', 'Abschlussveranstaltung')
 			| Die offizielle Abschlussveranstaltung der O-Phase mit Siegerehrung der O-Rallye.
+			+Ort: +extlink(Karte_Redtenbacher) Redtenbacher-Hörsaal
 		+Event('12:30', 'Mittagessen in der Mensa')
-			+Ort
-				+extlink(Karte_Mensa) Mensa am Andenauerring
+			+Ort: +extlink(Karte_Mensa) Mensa am Andenauerring
 
 	+Tag('Samstag', '15. Oktober 2016')
 		+Event('20:00', 'Uni-Kino')
