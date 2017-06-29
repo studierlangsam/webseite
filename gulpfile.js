@@ -165,7 +165,7 @@ function upload() {
 		.pipe(rsync({
 			root: 'build',
 			hostname: 'studierlangsam@studierlangsam.de',
-			destination: '/var/www/studierlangsam',
+			destination: 'studierlangsam.de',
 			archive: true,
 			progress: true,
 			clean: true
