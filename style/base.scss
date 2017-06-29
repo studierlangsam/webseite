@@ -78,6 +78,14 @@ a {
 	&:hover {
 		color: $highlight;
 	}
+
+	// disable outline on click
+	&:active,
+	&:focus, {
+		outline: 0;
+
+		border: none;
+	}
 }
 
 p {
