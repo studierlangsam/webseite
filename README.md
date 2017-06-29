@@ -8,7 +8,13 @@ To build the page, you need to install Node JS. See [the official download page]
 
 Then you can install all dependencies by running `npm install` from the project folder.
 
-In order install gulp’s CLI globally (which is much more comfortable), run
+Aditionally, you’ll need to install [`graphicsmagick`](http://www.graphicsmagick.org/) and [`imagemagick`](https://www.imagemagick.org/script/index.php). For more information about that, see [`gulp-image-resize`](https://www.npmjs.com/package/gulp-image-resize). On Debian, run:
+
+```
+sudo apt install imagemagick graphicsmagick
+```
+
+In order install gulp’s CLI globally (which is *much* more comfortable), run (on Debian):
 
 ```
 sudo npm install gulp-cli -g
@@ -26,7 +32,7 @@ The project consists of these folders:
  * `node_modules` (not in git) is used by `npm` to store dependencies.
  * `script` contains Javascript files for the page. They are currently not copied to the web pages as all scripts are being inlined into the result HTML.
  * `style` contains [SCSS](http://sass-lang.com/) files that will be rendered into the web page.
- 
+
 ## Building
 
 During development, run `gulp watch` from the project folder. This will start a development server at `localhost:3000` (or the next free port after that). The page is automatically rebuilt and reloaded in the browser as you make changes to the source files.

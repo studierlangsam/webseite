@@ -3,20 +3,22 @@
   "version": "1.0.0",
   "description": "Website der O-Phasen-Gruppe „Studier Langsam“ am KIT",
   "main": "gulpfile.js",
-  "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.14.3",
-    "emojione": "^2.2.6",
-    "gulp": "^4.0.0-alpha.2",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-pug": "^3.0.4",
+    "browser-sync": "^2.18.12",
+    "concurrent-transform": "^1.0.0",
+    "emojione": "^3.0.3",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean-css": "^3.5.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-image-resize": "^0.12.0",
+    "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-rsync": "0.0.6",
-    "gulp-sass": "^2.3.2",
+    "gulp-rsync": "0.0.8",
+    "gulp-sass": "^3.1.0",
     "gulp-scss-lint": "^0.4.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-w3cjs": "^1.2.0",
-    "rimraf": "^2.5.4"
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-w3cjs": "^1.3.0",
+    "rimraf": "^2.6.1"
   },
   "scripts": {
     "test": "gulp check"
