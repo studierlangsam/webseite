@@ -24,22 +24,27 @@ sudo npm install gulp-cli -g
 
 The project consists of these folders:
 
- * `build` (not in git) contains the built page, as it will be uploaded to the server.
+ * `build` (not in git) contains the development build of the page.
  * `content` contains the content pages. These pages use the layouts from the `layout` folder. The contained `.pug` files will be rendered using [Pug](https://pugjs.org/api/getting-started.html) and be copied to the web page root. Any file `[name].pug` will be copied to `[name]/index.html` if `[name]` is not already `index`. Keep that in mind when creating links!
  * `graphic` contains graphics that are part of the pages’ layout. The folder will be copied to the web page without modification. Some contained SVG pages will be inlined into the rendered HTML pages.
  * `images` contains content images in their original resolution and quality. They will be copied to the web page after being scaled as needed.
  * `layout` contains [Pug](https://pugjs.org/api/getting-started.html) files that form the page’s layout. These layouts are used in the content pages using [Pug’s Inheritance and Blocks](https://pugjs.org/language/inheritance.html) mechanism.
  * `node_modules` (not in git) is used by `npm` to store dependencies.
+ * `release` (not in git) contains the release build of the page. These are the exact files that will be uploaded by `gulp deploy`.
  * `script` contains Javascript files for the page. They are currently not copied to the web pages as all scripts are being inlined into the result HTML.
  * `style` contains [SCSS](http://sass-lang.com/) files that will be rendered into the web page.
 
 ## Building
 
+There are *two* types of builds for this project: Development builds and release builds. The page should look the same for both builds. However, the results produced by  a development build are better suited for debugging, while the results of a release build are significantly better optimised.
+
 During development, run `gulp watch` from the project folder. This will start a development server at `localhost:3000` (or the next free port after that). The page is automatically rebuilt and reloaded in the browser as you make changes to the source files.
 
 To check the source files against the coding conventions, run `gulp check` from the project folder.
 
-In order to upload the site to the production server, you have to ask Joshua Gleitze (mail@joshuagleitze.de) to add your SSH key to the web server. After that, you can upload the page by running `gulp deploy` from the project folder (requires `rsync`!).
+In order to upload the site to the production server, you have to ask Joshua Gleitze (mail@joshuagleitze.de) to add your SSH key to the web server. After that, you can upload the page by running `gulp deploy` from the project folder. It will produce a release build and upload it to the web server (requires `rsync`!)
+
+If you want to preview what *exactly* will be uploaded, run `gulp watchrelease`. The command works like `gulp watch`, but produces a release build.
 
 ## Writing
 

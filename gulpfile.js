@@ -13,10 +13,19 @@ const cleanCss = require('gulp-clean-css');
 const parallel = require('concurrent-transform');
 const os = require('os');
 const plainresize = require('gulp-image-resize');
+const revall = require('gulp-rev-all');
+const clean = require('gulp-clean');
+const read = require('gulp-read');
+const gIf = require('gulp-if');
 const resize = options => parallel(plainresize(options), os.cpus().length);
 
 
-const builddir = 'build';
+// whether we are building a release version, as opposed to a development build.
+let release = false;
+// the built page will be put into this directory for development builds.
+let builddir = 'build';
+// the built page will be put into this directory for release builds.
+const releasedir = 'release'
 const stylesheets = 'style/**/*.scss';
 const contentsources = 'content/**/*.pug';
 const graphicfiles = ['graphic/**/*', 'favicon.ico'];
@@ -29,10 +38,10 @@ function style() {
 	return gulp.src(stylesheets)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(cleanCss({
+		.pipe(gIf(release, cleanCss({
 			shorthandCompacting: true
-		}))
-		.pipe(sourcemaps.write('.'))
+		})))
+		.pipe(gIf(!release, sourcemaps.write('.')))
 		.pipe(gulp.dest(`${builddir}/style`));
 }
 
@@ -46,7 +55,7 @@ function content() {
 				require: require
 			}
 		}))
-		.pipe(htmlmin({
+		.pipe(gIf(release, htmlmin({
 			minifyJS: {
 				mangle: true,
 				compress: {
@@ -67,7 +76,7 @@ function content() {
 			useShortDoctype: true,
 			sortAttributes: true,
 			sortClassName: true
-		}))
+		})))
 		.pipe(rename(path => {
 			if (path.basename !== 'index') {
 				path.dirname += '/' + path.basename;
@@ -133,7 +142,7 @@ function watch() {
 /**
  * Cleans all build files.
  */
-function clean(done) {
+function cleanbuilddir(done) {
 	rmrf(builddir, done);
 }
 
@@ -158,6 +167,34 @@ function checkStyle() {
 }
 
 /**
+ * Adds revision hashes to assets and adapts links to them.
+ */
+function revision() {
+	// only revision some files.
+	return gulp.src([
+		`${builddir}/{graphic,script,style}/**/*.{css,jpg,png,svg,html,ico,js,ttf,otf,eot}`,
+		`${builddir}/**/*.html`
+	])
+		.pipe(read())
+		.pipe(clean())
+		.pipe(revall.revision({
+			dontRenameFile: [/^\/favicon.ico$/g, '.html'],
+			dontGlobal: [/^\/google.*.html$/, 'content'],
+			hashLength: 6
+		}))
+		.pipe(gulp.dest(builddir));
+}
+
+/**
+ * Changes the build directory to the release directory.
+ */
+function setreleasemode(done) {
+	builddir = releasedir;
+	release = true;
+	done();
+}
+
+/**
  * Uploads the built files to the webserver.
  */
 function upload() {
@@ -175,8 +212,10 @@ function upload() {
 		}));
 }
 
-gulp.task('clean', clean);
+gulp.task('clean', cleanbuilddir);
 gulp.task('build', gulp.parallel(style, content, graphics, images));
+gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision));
 gulp.task('watch', gulp.series('clean', 'build', watch));
+gulp.task('watchrelease', gulp.series('buildrelease', watch));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
-gulp.task('deploy', gulp.series('clean', 'build', upload));
+gulp.task('deploy', gulp.series('buildrelease', upload));
