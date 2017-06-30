@@ -161,13 +161,16 @@ function checkStyle() {
  * Uploads the built files to the webserver.
  */
 function upload() {
-	return gulp.src(`${builddir}/**`)
+	return gulp.src(builddir)
 		.pipe(rsync({
 			root: 'build',
 			hostname: 'studierlangsam@studierlangsam.de',
 			destination: 'studierlangsam.de',
-			archive: true,
+			archive: false,
+			recursive: true,
+			incremental: true,
 			progress: true,
+			links: true,
 			clean: true
 		}));
 }
