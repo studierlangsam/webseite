@@ -1,0 +1,10 @@
+extends ../layout/page.pug
+
+block properties
+	- const Titel = 'Ausschluss von der Webanalyse'
+	- const Link = '/analyseausschluss'
+	- const Schlagwörter = 'Analyse,Piwik'
+
+block main
+	h1 Ausschluss von der Webanalyse
+	iframe(style="border: 0; height: 400px; width: 600px;",src="https://analytics.studierlangsam.de/index.php?module=CoreAdminHome&action=optOut&language=de")
