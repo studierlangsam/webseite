@@ -200,7 +200,7 @@ function setreleasemode(done) {
 function upload() {
 	return gulp.src(builddir)
 		.pipe(rsync({
-			root: 'build',
+			root: builddir,
 			hostname: 'studierlangsam@studierlangsam.de',
 			destination: 'studierlangsam.de',
 			archive: false,
