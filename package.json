@@ -2,6 +2,7 @@
   "name": "studierlangsam.de",
   "version": "1.0.0",
   "description": "Website der O-Phasen-Gruppe „Studier Langsam“ am KIT",
+  "repository": "git@studierlangsam.de:studierlangsam.de",
   "main": "gulpfile.js",
   "devDependencies": {
     "browser-sync": "^2.18.12",
