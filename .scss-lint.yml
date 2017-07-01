@@ -172,3 +172,6 @@ linters:
 
     TransitionAll:
         enabled: true
+
+    IdSelector:
+        enabled: false
