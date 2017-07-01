@@ -91,11 +91,11 @@ a {
 p {
 	margin-top: .2em;
 	margin-bottom: .6em;
-	margin-left: 1.5rem;
+	margin-left: $paragraph-indent;
 
-	max-width: 42rem;
+	max-width: $paragraph-max-width;
 
-	line-height: 1.4em;
+	line-height: $text-line-height;
 
 	a {
 		text-decoration: none;

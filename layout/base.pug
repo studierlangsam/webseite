@@ -31,7 +31,8 @@ html(lang='de')
 				}
 
 	body
-		include parts/piwik-tracking.pug
+		block tracking
+			include parts/piwik-tracking.pug
 
 		block content
 			nav
@@ -45,6 +46,3 @@ html(lang='de')
 				a(href='/impressum') Impressum
 				| |
 				+maillink('tutoren@studierlangsam.de')
-
-			script(type='text/javascript')
-				include ../script/heading-style-fix.js

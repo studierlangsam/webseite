@@ -1,0 +1,35 @@
+// This stylesheet will be injected into the frame containing the controls to
+// exclude oneself from Piwik analytics.
+
+@import 'base';
+
+body {
+	margin: 0;
+
+	padding-left: $paragraph-indent;
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: $paragraph-max-width;
+	height: 100%;
+
+	line-height: $text-line-height;
+}
+
+form {
+	display: flex;
+	align-items: center;
+}
+
+// input
+[name=trackVisits] {
+	flex-shrink: 0;
+
+	margin-left: .7em;
+}
+
+// label
+[for=trackVisits] {
+	margin-left: 1em;
+	margin-right: 2em;
+}

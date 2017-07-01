@@ -181,8 +181,12 @@ function revision() {
 		.pipe(read())
 		.pipe(clean())
 		.pipe(revall.revision({
-			dontRenameFile: [/^\/favicon.ico$/g, '.html'],
-			dontGlobal: [/^\/google.*.html$/, 'content'],
+			dontRenameFile: [
+				/^\/favicon.ico$/g, // must be called that way to be detected
+				'.html', // must rename their name on the web server
+				'analyseausschluss-frame.css' // is included by external means, must thus not be renamed
+			],
+			dontGlobal: [/^\/google.*.html$/],
 			hashLength: 6
 		}))
 		.pipe(gulp.dest(builddir));
