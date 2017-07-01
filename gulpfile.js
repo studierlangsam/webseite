@@ -11,12 +11,13 @@ const w3cjs = require('gulp-w3cjs');
 const scsslint = require('gulp-scss-lint');
 const cleanCss = require('gulp-clean-css');
 const parallel = require('concurrent-transform');
-const os = require('os');
-const plainresize = require('gulp-image-resize');
 const revall = require('gulp-rev-all');
 const clean = require('gulp-clean');
 const read = require('gulp-read');
 const gIf = require('gulp-if');
+const plumber = require('gulp-plumber');
+const os = require('os');
+const plainresize = require('gulp-image-resize');
 const resize = options => parallel(plainresize(options), os.cpus().length);
 
 
@@ -25,7 +26,7 @@ let release = false;
 // the built page will be put into this directory for development builds.
 let builddir = 'build';
 // the built page will be put into this directory for release builds.
-const releasedir = 'release'
+const releasedir = 'release';
 const stylesheets = 'style/**/*.scss';
 const contentsources = 'content/**/*.pug';
 const graphicfiles = ['graphic/**/*', 'favicon.ico'];
@@ -50,11 +51,13 @@ function style() {
  */
 function content() {
 	return gulp.src(contentsources)
+		.pipe(plumber())
 		.pipe(pug({
 			data: {
 				require: require
 			}
 		}))
+		.pipe(plumber.stop())
 		.pipe(gIf(release, htmlmin({
 			minifyJS: {
 				mangle: true,
