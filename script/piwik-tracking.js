@@ -1,6 +1,8 @@
 /*
  * Piwik tracking code. This code is provided by Piwik and loads the tracking
- * script into the page. The script is inlined into the output html.
+ * script into the page.
+ *
+ * This script is inlined into the output html.
  */
 
 var _paq = _paq || [];
