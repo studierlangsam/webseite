@@ -15,6 +15,7 @@
 	 *
 	 * @param func
 	 * 		The function to run as soon as the DOM is read.
+	 * @return The unchanged `func`.
 	 */
 	function onDOM(func) {
 		if (document.readyState === 'complete') {
@@ -22,16 +23,33 @@
 		} else {
 			document.addEventListener('DOMContentLoaded', func, false);
 		}
+		return func;
 	}
 
-	onDOM(function() {
+	/**
+	 * Ansynchronously runs the provided function whenever the browser window is
+	 * resized.
+	 *
+	 * @param func
+	 * 		The function to run on every browser window resize.
+	 * @return The unchanged `func`.
+	 */
+	function onResize(func) {
+		window.addEventListener('resize', func);
+		return func;
+	}
+
+	onResize(onDOM(function() {
 		var tagNames = ['h1', 'h2', 'h3'];
 		for (var i = 0, li = tagNames.length; i < li; i++) {
 			var tags = document.getElementsByTagName(tagNames[i]);
 			for (var j = 0, lj = tags.length; j < lj; j++) {
 				var el = tags[j];
+				// reset the top padding so it doesn’t influence the
+				// offsetHeight measurement in the next line.
+				el.style.paddingTop = '0';
 				el.style.paddingTop = (0.5 * el.offsetHeight) + 'px';
 			}
 		}
-	});
+	}));
 })();
