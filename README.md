@@ -44,7 +44,7 @@ To check the source files against the coding conventions, run `gulp check` from 
 
 In order to upload the site to the production server, you have to ask Joshua Gleitze (mail@joshuagleitze.de) to add your SSH key to the web server. After that, you can upload the page by running `gulp deploy` from the project folder. It will produce a release build and upload it to the web server (requires `rsync`!)
 
-If you want to preview what *exactly* will be uploaded, run `gulp watchrelease`. The command works like `gulp watch`, but produces a release build.
+If you want to preview what *exactly* will be uploaded, run `gulp serverelease`. The command serves the release build through a local web server. It will however, unlike `gulp watch`, not pick up any changes to the source files.
 
 ## Writing
 

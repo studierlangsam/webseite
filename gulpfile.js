@@ -127,7 +127,7 @@ function stylesheetReload() {
 }
 
 /**
- * Watch file for changes and server the website through a local server.
+ * Watch file for changes and trigger the according tasks
  */
 function watch() {
 	browserSync.init({
@@ -141,6 +141,18 @@ function watch() {
 	gulp.watch([contentsources, 'layout', scripts], gulp.series(content, reload));
 	gulp.watch(graphicfiles, gulp.series(graphics, reload));
 	gulp.watch(tutorenfiles, gulp.series(images, reload));
+}
+
+/**
+ * Serves the build directory through a local web server.
+ */
+function serve() {
+	browserSync.init({
+		server: {
+			baseDir: builddir
+		},
+		open: false
+	});
 }
 
 /**
@@ -223,7 +235,7 @@ function upload() {
 gulp.task('clean', cleanbuilddir);
 gulp.task('build', gulp.parallel(style, content, graphics, images));
 gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision));
-gulp.task('watch', gulp.series('clean', 'build', watch));
-gulp.task('watchrelease', gulp.series('buildrelease', watch));
+gulp.task('watch', gulp.series('clean', 'build', gulp.parallel(watch, serve)));
+gulp.task('serverelease', gulp.series('buildrelease', serve));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
 gulp.task('deploy', gulp.series('buildrelease', upload));
