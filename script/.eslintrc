@@ -80,7 +80,7 @@ rules:
     object-shorthand:
         - warn
         - methods
-    prefer-arrow-callback: warn
+    prefer-arrow-callback: off
     prefer-const: warn
     prefer-rest-params: warn
     prefer-spread: warn
