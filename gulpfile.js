@@ -28,6 +28,7 @@ let builddir = 'build';
 // the built page will be put into this directory for release builds.
 const releasedir = 'release';
 const stylesheets = 'style/**/*.scss';
+const scripts = 'script/**/*.js';
 const contentsources = 'content/**/*.pug';
 const graphicfiles = ['graphic/**/*', 'favicon.ico'];
 const tutorenfiles = 'images/tutoren/*.jpg';
@@ -137,7 +138,7 @@ function watch() {
 	});
 
 	gulp.watch(stylesheets, stylesheetReload);
-	gulp.watch([contentsources, 'layout'], gulp.series(content, reload));
+	gulp.watch([contentsources, 'layout', scripts], gulp.series(content, reload));
 	gulp.watch(graphicfiles, gulp.series(graphics, reload));
 	gulp.watch(tutorenfiles, gulp.series(images, reload));
 }
