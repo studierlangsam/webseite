@@ -130,13 +130,6 @@ function stylesheetReload() {
  * Watch file for changes and trigger the according tasks
  */
 function watch() {
-	browserSync.init({
-		server: {
-			baseDir: builddir
-		},
-		open: false
-	});
-
 	gulp.watch(stylesheets, stylesheetReload);
 	gulp.watch([contentsources, 'layout', scripts], gulp.series(content, reload));
 	gulp.watch(graphicfiles, gulp.series(graphics, reload));
