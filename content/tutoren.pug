@@ -9,7 +9,7 @@ block append style
 	+stylesheet('/style/tutoren.css')
 
 mixin Tutor(Name, Studiengang, Studienbeginn)
-	// +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
+	//- +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
 	- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0)
 	.tutor
 		img(src=encodeURI(`/images/tutoren/${Name}.jpg`),alt='')
