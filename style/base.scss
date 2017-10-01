@@ -3,6 +3,8 @@
 @import 'responsive';
 @import 'sizes';
 
+@import 'fontdefinitions';
+
 html,
 body {
 	@include text-font;
