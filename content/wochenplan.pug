@@ -30,19 +30,17 @@ block main
 	mixin Ort(link)
 		span.place
 			block
-	
-	mixin Kartenlink(link, Ort)
-		span.place
-			+extlink(link[0]) #{Ort} 
-			if link[1]
-				| #[+extlink(link[1]) #[img(src='/graphic/openstreetmap.svg', alt='osm')]]
-			else
-				| no osm
+
+	mixin Kartenlink(link)
+		+extlink(link[0])
+			block
+		if link[1]
+			|  #[+extlink(link[1]): img(src='/graphic/openstreetmap.svg', alt='osm')]
 
 	-
 		const Karte_Gerthsen = ['https://www.google.de/maps/place/Gerthsen-H%C3%B6rsaal,+76131+Karlsruhe/@49.0125142,8.4093303,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063602b00347:0xb8e1d87ee9ea5ebb!8m2!3d49.0125401!4d8.4115629?hl=de', '1234']
 		const Karte_Audimax = ['https://www.google.de/maps/place/KIT+Audimax/@49.0125189,8.415711,18.25z/data=!4m8!1m2!2m1!1sKIT+Audimax,+Karlsruhe!3m4!1s0x479706369d955555:0x3b783f6c36bbeb29!8m2!3d49.0126825!4d8.4158314']
-		const Karte_Ox = ['https://www.google.com/maps/place/Oxford+Pub/@49.0086606,8.4125303,19z/data=!4m13!1m7!3m6!1s0x479706379b45b279:0x7584e25c70a262f4!2sFasanenstra%C3%9Fe+6,+76131+Karlsruhe,+Deutschland!3b1!8m2!3d49.0086606!4d8.4130775!3m4!1s0x0:0x823aadf9ebe8bb1d!8m2!3d49.0085683!4d8.4129196', 
+		const Karte_Ox = ['https://www.google.com/maps/place/Oxford+Pub/@49.0086606,8.4125303,19z/data=!4m13!1m7!3m6!1s0x479706379b45b279:0x7584e25c70a262f4!2sFasanenstra%C3%9Fe+6,+76131+Karlsruhe,+Deutschland!3b1!8m2!3d49.0086606!4d8.4130775!3m4!1s0x0:0x823aadf9ebe8bb1d!8m2!3d49.0085683!4d8.4129196',
 			'https://www.openstreetmap.org/node/2334081402']
 		const Karte_Altes_Stadion = ['https://www.google.de/maps/place/AKK+-+Arbeitskreis+Kultur+und+Kommunikation/@49.011154,8.4124523,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063259717ec1:0x343954b4efbf72b!8m2!3d49.011154!4d8.414641?hl=de']
 		const Karte_Forum = ["https://www.google.de/maps/place/49%C2%B000'42.2%22N+8%C2%B024'55.8%22E/@49.01173,8.4143927,18z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d49.01173!4d8.415487?hl=de"]
@@ -64,25 +62,25 @@ block main
 	+Tag('Montag', '9. Oktober 2017')
 		+Event('9:00', 'Eröffnung')
 			| Die offizielle Eröffnungsveranstaltung der O-Phase.
-			+Ort: +extlink(Karte_Audimax) Audimax
+			+Ort: +Kartenlink(Karte_Audimax) Audimax
 		+Event('13:00', 'Kennenlernen')
 		+Event('15:00', 'Campus-Führung')
 		+Event('17:00', 'Fachschaftsgrillen')
 		+Event('19:00', 'Abendessen')
-			+Ort #[+extlink('https://www.badisch-brauhaus.de/') Badisch Brauhaus] (#[+extlink(Karte_Brauhaus) Stephanienstraße 38])
+			+Ort #[+extlink('https://www.badisch-brauhaus.de/') Badisch Brauhaus] (#[+Kartenlink(Karte_Brauhaus) Stephanienstraße 38])
 
 	+Tag('Dienstag', '10. Oktober 2017')
 		+Event('11:30', 'Mittagessen')
-			+Ort #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+extlink(Karte_Ox) Fasanenstraße 6])
+			+Ort #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
 		+Event('14:00', 'Fachbereichsinformation (FBI)')
 			| In der Fachbereichsinformation werden alle organisatorischen Fragen zu eurem Studiengang geklärt.
-			+Ort Treffpunkt: #[+extlink(Karte_Altes_Stadion) vor dem AKK]
+			+Ort Treffpunkt: #[+Kartenlink(Karte_Altes_Stadion) vor dem AKK]
 		+Event('16:00', 'Bowlen')
 			| Wir gehen ins #[+extlink('http://www.lago-bowling.de/') Lago]. Neben Bowling kann man sich dort mit einem Riesen-Tischkicker, Billiard, Air-Hockey, Dart und anderen schönen Dingen vergnügen.
-			+Ort #[+extlink('http://www.lago-bowling.de/') LAGO Bowling Center] (#[+extlink(Karte_Lago) Gablonzer Straße 13])
+			+Ort #[+extlink('http://www.lago-bowling.de/') LAGO Bowling Center] (#[+Kartenlink(Karte_Lago) Gablonzer Straße 13])
 		+Event('18:00', 'O-Phest')
 			| Gemeinsames Fest verschiedener O-Phasen.
-			+Ort #[+extlink('https://www.akk.org/') AKK] (im #[+extlink(Karte_Altes_Stadion) Alten Stadion])
+			+Ort #[+extlink('https://www.akk.org/') AKK] (im #[+Kartenlink(Karte_Altes_Stadion) Alten Stadion])
 
 	+Tag('Mittwoch', '11. Oktober 2017')
 		+Event('9:00', 'Frühstück')
@@ -92,18 +90,18 @@ block main
 			| Rallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
 		+Event('15:30', 'Lehramt-Information')
 			| Informationen für Lehramtstudenten.
-			+Ort: +extlink(Karte_Lehmann) Lehmann-Hörsaal
+			+Ort: +Kartenlink(Karte_Lehmann) Lehmann-Hörsaal
 		+Event('20:00', 'Kneipentour')
 			| Wir ziehen durch die schönsten Karlsruher Kneipen.
-			+Ort Treffpunkt: #[+extlink(Karte_Marktplatz) Marktplatz]
+			+Ort Treffpunkt: #[+Kartenlink(Karte_Marktplatz) Marktplatz]
 
 	+Tag('Donnerstag', '12. Oktober 2017')
 		+Event('11:00', 'Frühstück im Cafe')
 			| Gemeinsames Frühstück im Café Emaille.
-			+Ort Teffpunkt: #[+extlink(Karte_Emaille) Café Emaille]
+			+Ort Teffpunkt: #[+Kartenlink(Karte_Emaille) Café Emaille]
 		+Event('12:45', 'O-Lympia')
 			| Olympiade der O-Phase. Falls es regnet veranstalten wir ein Alternativprogramm aus wahlweise Schwimmbad, Kino und Gesellschaftsspielen.
-			+Ort #[+extlink(Karte_Forum) Forum] (vor dem Audimax)
+			+Ort #[+Kartenlink(Karte_Forum) Forum] (vor dem Audimax)
 		+Event('20:00', 'Spieleabend')
 			| Spieleabend mit Gesellschaftsspielen. Ihr seid herzlich eingeladen eure Lieblingsspiele mitzubringen.
 			+Ort Seminarraum
@@ -111,23 +109,23 @@ block main
 	+Tag('Freitag', '13. Oktober 2017')
 		+Event('11:00', 'Abschlussveranstaltung')
 			| Die offizielle Abschlussveranstaltung der O-Phase mit Siegerehrung der O-Rallye.
-			+Ort: +extlink(Karte_Redtenbacher) Redtenbacher-Hörsaal
+			+Ort: +Kartenlink(Karte_Redtenbacher) Redtenbacher-Hörsaal
 		+Event('12:30', 'Mittagessen in der Mensa')
-			+Ort: +extlink(Karte_Mensa) Mensa am Andenauerring
+			+Ort: +Kartenlink(Karte_Mensa) Mensa am Andenauerring
 		+Event('14:00', 'SCC-Führung')
 			| Führung durch das #[+extlink('https://www.scc.kit.edu/') SCC], das Rechenzentrum des KIT. Neben den Angeboten für Studenten wird auch der  Landeshöchstleistungsrechner vorgestellt.
-			+Ort #[+extlink(Karte_SCC) Steinbuch Centre for Computing]
+			+Ort #[+Kartenlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('20:00', 'Cocktail-Abend')
 			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
-			+Ort Bar in der #[+extlink(Karte_Insterburg) Insterburg]
+			+Ort Bar in der #[+Kartenlink(Karte_Insterburg) Insterburg]
 
 	+Tag('Samstag', '14. Oktober 2017')
 		+Event('11:00', 'Mädelsbrunch')
 			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen.
-			+Ort Raum 0.001 im #[+extlink(Karte_Mathebau) Mathebau]
+			+Ort Raum 0.001 im #[+Kartenlink(Karte_Mathebau) Mathebau]
 		+Event('20:00', 'O-Philm')
-			| Eine spezielle Vorstellung des Uni-Kinos für die O-Phase. 
-			+Ort #[+extlink('http://afk-filmkreis.de/') AFK] (im #[+extlink(Karte_Hertz) Hertz-Hörsaal])
+			| Eine spezielle Vorstellung des Uni-Kinos für die O-Phase.
+			+Ort #[+extlink('http://afk-filmkreis.de/') AFK] (im #[+Kartenlink(Karte_Hertz) Hertz-Hörsaal])
 
 	+Tag('Montag', '16. Oktober 2017')
 		+Event('19:15', 'Kick-Off Mentorenprogramm')
