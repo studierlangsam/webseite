@@ -64,8 +64,14 @@ $time-spacing: 1rem;
 		font-size: .9rem;
 	}
 
-	.place img {
-		height: 1em;
-		width: auto;
+	.osm {
+		margin-left: .4em;
+
+		img {
+			width: auto;
+			height: 1.1em;
+
+			vertical-align: -.2em;
+		}
 	}
 }

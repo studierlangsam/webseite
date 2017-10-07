@@ -35,7 +35,7 @@ block main
 		+extlink(link[0])
 			block
 		if link[1]
-			|  #[+extlink(link[1]): img(src='/graphic/openstreetmap.svg', alt='osm')]
+			+extlink(link[1]).osm: img(src='/graphic/openstreetmap.svg', alt='OSM')
 
 	-
 		const Karte_Gerthsen = ['https://www.google.de/maps/place/Gerthsen-H%C3%B6rsaal,+76131+Karlsruhe/@49.0125142,8.4093303,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063602b00347:0xb8e1d87ee9ea5ebb!8m2!3d49.0125401!4d8.4115629?hl=de',
