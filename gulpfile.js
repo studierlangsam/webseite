@@ -29,6 +29,7 @@ let builddir = 'build';
 const releasedir = 'release';
 const stylesheets = 'style/**/*.scss';
 const scripts = 'script/**/*.js';
+const miscstaticfiles = 'static/**/*';
 const contentsources = 'content/**/*.pug';
 const graphicfiles = ['graphic/**/*', 'favicon.ico'];
 const tutorenfiles = 'images/tutoren/*.jpg';
@@ -95,6 +96,14 @@ function content() {
  */
 function graphics() {
 	return gulp.src(graphicfiles, {base: '.'})
+		.pipe(gulp.dest(builddir));
+}
+
+/**
+ * Copies miscelangelous static files to the build dir.
+ */
+function miscstatic() {
+	return gulp.src(miscstaticfiles)
 		.pipe(gulp.dest(builddir));
 }
 
@@ -226,7 +235,7 @@ function upload() {
 }
 
 gulp.task('clean', cleanbuilddir);
-gulp.task('build', gulp.parallel(style, content, graphics, images));
+gulp.task('build', gulp.parallel(style, content, graphics, images, miscstatic));
 gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision));
 gulp.task('watch', gulp.series('clean', 'build', gulp.parallel(watch, serve)));
 gulp.task('serverelease', gulp.series('buildrelease', serve));
