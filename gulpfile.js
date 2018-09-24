@@ -225,6 +225,7 @@ function upload() {
 			root: builddir,
 			hostname: 'studierlangsam@studierlangsam.de',
 			destination: 'studierlangsam.de',
+			port: 2222,
 			archive: false,
 			recursive: true,
 			incremental: true,
