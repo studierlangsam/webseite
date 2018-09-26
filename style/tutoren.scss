@@ -26,6 +26,7 @@ $layout-change: 36em;
 		border-radius: .5em;
 
 		width: 30%;
+
 		@include from-width($layout-change) {
 			width: 40%;
 		}
