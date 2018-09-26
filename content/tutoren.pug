@@ -9,9 +9,9 @@ block properties
 block append style
 	+stylesheet('/style/tutoren.css')
 
-mixin Tutor(Name, Studiengang, Studienbeginn)
+mixin Tutor(Name, Studiengang, Studienbeginn, Studienpause)
 	//- +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
-	- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0)
+	- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0) - (Studienpause ? Studienpause : 0)
 	- 
 		var fs = require('fs');
 		var image = 'images/tutoren/' + Name + '.jpg';
@@ -31,7 +31,7 @@ block main
 		const Tutorenarrays = [
 			// Name, Studiengang, Jahr des Studienbeginns
 			//['Annika Berger', 'Bachelor Informatik', 2014],
-			//['Joshua Gleitze', 'Bachelor Informatik', 2014],
+			//['Joshua Gleitze', 'Bachelor Informatik', 2014, 2],
 			['Roman Langrehr', 'Master Informatik', 2017],
 			['Paula Klein', 'Bachelor Informatik', 2014],
 			['Nathanael Funk', 'Bachelor Informatik', 2014],
@@ -57,4 +57,4 @@ block main
 			['Joshua Sommer', 'Bachelor Informatik', 2016]
 		]
 	each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
-		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2])
+		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2], Tutorarray[3])
