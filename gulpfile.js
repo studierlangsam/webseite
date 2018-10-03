@@ -168,7 +168,7 @@ function cleanbuilddir(done) {
  * Validates the rendered HTML.
  */
 function checkHTML() {
-	return gulp.src(`${builddir}/**/*.html`)
+	return gulp.src([`${builddir}/**/*.html`, `!${builddir}/google*.html`])
 		.pipe(w3cjs({
 			charset: 'utf-8'
 		}))
