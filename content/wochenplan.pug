@@ -58,6 +58,7 @@ block main
 			'https://www.openstreetmap.org/way/356386058']
 		const Karte_Insterburg = ['https://www.google.de/maps/place/Insterburg/@49.0363994,8.4328968,18.75z/data=!4m5!3m4!1s0x479707dd64444147:0xe5f0e7db443810b5!8m2!3d49.03645!4d8.43354',
 			'https://www.openstreetmap.org/way/136032188']
+		const Karte_Normannia = ['https://www.google.com/maps/place/K.D.St.V.+Normannia/@49.0149153,8.4215328,17z/data=!3m1!4b1!4m5!3m4!1s0x479706328bcdc411:0x2ba47d6980ec857d!8m2!3d49.0149118!4d8.4237215', 'https://www.openstreetmap.org/way/173717520#map=18/49.01476/8.42405']
 		const Karte_Mensa = ['https://www.google.de/maps/place/Mensa+am+Adenauerring/@49.0201787,8.4142003,15z/data=!4m8!1m2!2m1!1smensa+kit!3m4!1s0x0:0x2d93d5ea5b39cdbe!8m2!3d49.0118745!4d8.416898?hl=de',
 			'https://www.openstreetmap.org/node/442956482#map=19/49.01193/8.41683']
 		const Karte_Marktplatz = ['https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de',
@@ -76,6 +77,7 @@ block main
 			'https://www.openstreetmap.org/way/244951291']
 		const Karte_Mathebau = ['https://www.google.de/maps/place/Geb%C3%A4ude+20.30,+Englerstra%C3%9Fe+2,+76131+Karlsruhe/@49.0110813,8.4085909,19z/data=!3m1!4b1!4m5!3m4!1s0x47970649b6bc7e79:0x9feab4e37b8ca4a6!8m2!3d49.0110804!4d8.4091381?hl=de',
 			'https://www.openstreetmap.org/way/42321004#map=19/49.01108/8.40914']
+		const Karte_Infobau = ['https://www.google.com/maps/place/Informatik-Hauptgeb%C3%A4ude,+Am+Fasanengarten+5,+76131+Karlsruhe/@49.0138249,8.4190117,18z/data=!3m1!4b1!4m5!3m4!1s0x47970633960ce621:0xa47be102bfa7364!8m2!3d49.0138237!4d8.4197592', 'https://www.openstreetmap.org/way/155674961']
 		const Karte_Benz = ['https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813','https://www.openstreetmap.org/way/288535407']
 
 
@@ -140,6 +142,8 @@ block main
 			+Ort #[+Kartenlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('20:00', 'Cocktail-Abend')
 			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
+			+Ort #[+Kartenlink(Karte_Normannia) Normannia]
+			+Ort Treffpunkt: #[+Kartenlink(Karte_Infobau) Infobau]
 
 	+Tag('Samstag', '13. Oktober 2018')
 		+Event('10:00', 'Mädelsbrunch')
