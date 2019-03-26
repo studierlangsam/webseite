@@ -3,15 +3,13 @@
 
 @import 'base';
 
+html {
+	height: auto;
+}
+
 body {
-	margin: 0;
-
-	padding-left: $paragraph-indent;
-
 	box-sizing: border-box;
-	width: 100%;
 	max-width: $paragraph-max-width;
-	height: 100%;
 
 	line-height: $text-line-height;
 }
@@ -19,6 +17,8 @@ body {
 form {
 	display: flex;
 	align-items: center;
+
+	margin-left: $paragraph-indent;
 }
 
 // input
