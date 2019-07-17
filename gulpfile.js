@@ -7,7 +7,6 @@ const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const rmrf = require('rimraf');
 const sourcemaps = require('gulp-sourcemaps');
-const rsync = require('gulp-rsync');
 const w3cjs = require('gulp-w3cjs');
 const scsslint = require('gulp-scss-lint');
 const cleanCss = require('gulp-clean-css');
@@ -20,6 +19,8 @@ const plumber = require('gulp-plumber');
 const os = require('os');
 const plainresize = require('gulp-image-resize');
 const resize = options => parallel(plainresize(options), os.cpus().length);
+const run = require('gulp-run-command').default;
+const yargs = require('yargs');
 
 
 // whether we are building a release version, as opposed to a development build.
@@ -217,24 +218,42 @@ function setreleasemode(done) {
 	done();
 }
 
-/**
- * Uploads the built files to the webserver.
- */
-function upload() {
-	return gulp.src(builddir)
-		.pipe(rsync({
-			root: builddir,
-			hostname: 'studierlangsam@studierlangsam.de',
-			destination: 'studierlangsam.de',
-			port: 2222,
-			archive: false,
-			recursive: true,
-			incremental: true,
-			progress: true,
-			links: true,
-			clean: true
-		}));
+function getVersion() {
+	return yargs
+		.alias('dv', 'dversion')
+		.argv["dversion"];
 }
+
+function imageName() {
+	return `dockerimages.studierlangsam.de/studierlangsam.de:${getVersion()}`
+}
+
+function checkVersion() {
+	const version = getVersion();
+	if (!version) {
+		throw new Error("Please specify this deployment’s version by providing it via --dversion!");
+	}
+	console.log(`Deploying version ${version}`);
+	return Promise.resolve();
+}
+
+gulp.task('buildDocker',
+	run(`sudo docker build . -t ${imageName()}`)
+)
+gulp.task('pushDocker',
+	run(`sudo docker push ${imageName()}`)
+)
+gulp.task('deployKubernetes',
+	run(`bash -c "` + (
+		`cat deployment.yaml`
+		+ ` | envsubst '$DEPLOYMENT_VERSION'`
+		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de`
+	) + `"`, {
+			env: {
+				DEPLOYMENT_VERSION: getVersion()
+			}
+		})
+)
 
 gulp.task('clean', cleanbuilddir);
 gulp.task('build', gulp.parallel(style, content, graphics, images, miscstatic));
@@ -242,4 +261,4 @@ gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision
 gulp.task('watch', gulp.series('clean', 'build', gulp.parallel(watch, serve)));
 gulp.task('serverelease', gulp.series('buildrelease', serve));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
-gulp.task('deploy', gulp.series('buildrelease', upload));
+gulp.task('deploy', gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker', 'deployKubernetes'));

@@ -1,0 +1,110 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studierlangsam-de
+  namespace: studierlangsam
+  labels:
+    app: studierlangsam.de
+spec:
+  selector:
+    matchLabels:
+      app: studierlangsam.de
+  template:
+    metadata:
+      name: studierlangsam-de
+      labels:
+        app: studierlangsam.de
+    spec:
+      containers:
+        - name: studierlangsam-de
+          image: dockerimages.studierlangsam.de/studierlangsam.de:${DEPLOYMENT_VERSION}
+          ports:
+            - containerPort: 80
+              name: web
+          readinessProbe:
+            httpGet:
+              path: /
+              port: web
+            timeoutSeconds: 30
+            periodSeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /
+              port: web
+            timeoutSeconds: 30
+            periodSeconds: 15
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+      imagePullSecrets:
+        - name: local-registry
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+  minReadySeconds: 20
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: studierlangsam-de
+  namespace: studierlangsam
+  labels:
+    app: studierlangsam.de
+spec:
+  ports:
+    - port: 80
+      targetPort: web
+      name: web
+  selector:
+    app: studierlangsam.de
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: studierlangsam-de
+  namespace: studierlangsam
+  labels:
+    app: studierlangsam.de
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+spec:
+  rules:
+    - host: studierlangsam.de
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: studierlangsam-de
+              servicePort: web
+  tls:
+    - secretName: studierlangsam-de-tls
+
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: studierlangsam-de
+  namespace: studierlangsam
+  labels:
+    app: studierlangsam.de
+spec:
+  secretName: studierlangsam-de-tls
+  renewBefore: 360h # 15d
+  commonName: studierlangsam.de
+  dnsNames:
+    - studierlangsam.de
+    - www.studierlangsam.de
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  acme:
+    config:
+      - http01: {}
+        domains:
+          - studierlangsam.de
+          - www.studierlangsam.de

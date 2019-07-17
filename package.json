@@ -19,13 +19,14 @@
     "gulp-read": "1.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-rev-all": "^1.0.0",
-    "gulp-rsync": "0.0.8",
+    "gulp-run-command": "0.0.9",
     "gulp-sass": "^4.0.2",
     "gulp-scss-lint": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-w3cjs": "^1.3.0",
     "rimraf": "^2.6.1",
-    "sass": "^1.17.3"
+    "sass": "^1.17.3",
+    "yargs": "^13.3.0"
   },
   "scripts": {
     "test": "gulp check"
