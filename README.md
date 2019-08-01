@@ -1,14 +1,19 @@
 # studierlangsam.de Website
 
-This website is written using [Pug](https://pugjs.org/api/getting-started.html), a template language. Styling is done in [SCSS](http://sass-lang.com/). The site can be built using [gulp](http://gulpjs.com/).
+This website is written using [Pug](https://pugjs.org/api/getting-started.html), a template language.
+Styling is done in [SCSS](http://sass-lang.com/).
+The site can be built using [gulp](http://gulpjs.com/).
 
 ## Getting started
 
-To build the page, you need to install Node JS. See [the official download page](https://nodejs.org/en/download/) for Windows and Mac and the [official documentation for package managers](https://nodejs.org/en/download/package-manager/) for Linux distributions.
+To build the page, you need to install Node JS.
+See [the official download page](https://nodejs.org/en/download/) for Windows and Mac and the [official documentation for package managers](https://nodejs.org/en/download/package-manager/) for Linux distributions.
 
 Then you can install all dependencies by running `npm install` from the project folder.
 
-Aditionally, you’ll need to install [`graphicsmagick`](http://www.graphicsmagick.org/) and [`imagemagick`](https://www.imagemagick.org/script/index.php). For more information about that, see [`gulp-image-resize`](https://www.npmjs.com/package/gulp-image-resize). On Debian, run:
+Additionally, you’ll need to install [`graphicsmagick`](http://www.graphicsmagick.org/) and [`imagemagick`](https://www.imagemagick.org/script/index.php).
+For more information about that, see [`gulp-image-resize`](https://www.npmjs.com/package/gulp-image-resize).
+On Debian, run:
 
 ```
 sudo apt install imagemagick graphicsmagick
@@ -36,20 +41,42 @@ The project consists of these folders:
 
 ## Building
 
-There are *two* types of builds for this project: Development builds and release builds. The page should look the same for both builds. However, the results produced by  a development build are better suited for debugging, while the results of a release build are significantly better optimised.
+There are *two* types of builds for this project: Development builds and release builds.
+The page should look the same for both builds.
+However, the results produced by a development build are better suited for debugging, while the results of a release build are significantly better optimised.
 
-During development, run `gulp watch` from the project folder. This will start a development server at `localhost:3000` (or the next free port after that). The page is automatically rebuilt and reloaded in the browser as you make changes to the source files.
+During development, run `gulp watch` from the project folder.
+This will start a development server at `localhost:3000` (or the next free port after that).
+The page is automatically rebuilt and reloaded in the browser as you make changes to the source files.
 
 To check the source files against the coding conventions, run `gulp check` from the project folder.
 
-In order to upload the site to the production server, you have to ask Joshua Gleitze (mail@joshuagleitze.de) to add your SSH key to the web server. After that, you can upload the page by running `gulp deploy` from the project folder. It will produce a release build and upload it to the web server (requires `rsync`!)
+In order to upload the site to the production server, you need to have [`docker`](https://docs.docker.com/install/) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
+Additionally, you have to ask Joshua Gleitze (mail@joshuagleitze.de) for credentials.
+After that, you can upload the page by running `gulp deploy --dversion <version>` from the project folder.
+The command will produce a release build, build a docker image with it, and deploy a container using the image.
+Replace `<version>` in the command with the new deployment version.
+Please pick the new deployment version according to [Semantic Versioning](https://semver.org/) rules.
+You can query the currently deployed version by running:
+```
+kubectl -n studierlangsam get pod --selector app=studierlangsam.de --output "custom-columns=deployed image:.spec.containers[0].image"
+```
 
-If you want to preview what *exactly* will be uploaded, run `gulp serverelease`. The command serves the release build through a local web server. It will however, unlike `gulp watch`, not pick up any changes to the source files.
+
+If you want to preview what *exactly* will be uploaded, run `gulp serverelease`.
+The command serves the release build through a local web server.
+It will however, unlike `gulp watch`, not pick up any changes to the source files.
 
 ## Writing
 
 When writing, please look at other pages to get the general structure and style of this project. Some notes:
 
- * Helper mixins, like for creating mail links and including emojis, can be found in `layout/mixins`. Please look at what is already there and always use the mixins if applicable. Feel free to add other helper mixins there and include them in `layout/base.pug`.
- * Content pages should set page metadata in the Pug block `properties` by defining them as Javascript constants. Constants that should always be set are `Titel` (page title), `Link` (URI path to the page) and `Schlagwörter` (keywords for the page). Other constants can be set for later usage in the page.
- * Try to keep the markup simple. For example, long links should be defined in constants and used from that constants to improve readability. Such constants are named in German and using uppercased words and underscores by convention.
+ * Helper mixins, like for creating mail links and including emojis, can be found in `layout/mixins`.
+   Please look at what is already there and always use the mixins if applicable.
+   Feel free to add other helper mixins there and include them in `layout/base.pug`.
+ * Content pages should set page metadata in the Pug block `properties` by defining them as Javascript constants.
+   Constants that should always be set are `Titel` (page title), `Link` (URI path to the page) and `Schlagwörter` (keywords for the page).
+   Other constants can be set for later usage in the page.
+ * Try to keep the markup simple.
+   For example, long links should be defined in constants and used from that constants to improve readability.
+   Such constants are named in German and using uppercased words and underscores by convention.
