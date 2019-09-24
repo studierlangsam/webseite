@@ -79,9 +79,11 @@ block main
 			'https://www.openstreetmap.org/way/42321004#map=19/49.01108/8.40914']
 		const Karte_Infobau = ['https://www.google.com/maps/place/Informatik-Hauptgeb%C3%A4ude,+Am+Fasanengarten+5,+76131+Karlsruhe/@49.0138249,8.4190117,18z/data=!3m1!4b1!4m5!3m4!1s0x47970633960ce621:0xa47be102bfa7364!8m2!3d49.0138237!4d8.4197592', 'https://www.openstreetmap.org/way/155674961']
 		const Karte_Benz = ['https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813','https://www.openstreetmap.org/way/288535407']
+		const Karte_HSaF = ['https://goo.gl/maps/6HbPJZSq2RokjL457', 'https://www.openstreetmap.org/way/37787402#map=19/49.01472/8.42037']
+		const Karte_EAS = ['https://goo.gl/maps/r4w57wyk1khrNS5L6','https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301']
+		const Karte_K1 = ['https://goo.gl/maps/Lwr55t1rgU9szKaZA', 'https://www.openstreetmap.org/relation/5320078']
 
-
-	+Tag('Montag', '8. Oktober 2018')
+	+Tag('Montag', '7. Oktober 2019')
 		+Event('9:00', 'Eröffnung')
 			| Die offizielle Eröffnungsveranstaltung der O-Phase.
 			+Ort: +Kartenlink(Karte_Audimax) Audimax
@@ -91,8 +93,8 @@ block main
 			+Ort Turing: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
 			+Ort Lovelace: #[+extlink('https://www.vogelbraeu.de/') Der Vogelbräu] (#[+Kartenlink(Karte_Vogelbraeu) Kapellenstraße 50])
 
-	+Tag('Dienstag', '9. Oktober 2018')
-		+Event('11:30', 'Mittagessen')
+	+Tag('Dienstag', '8. Oktober 2019')
+		+Event('12:30', 'Mittagessen')
 			+Ort Turing: #[+extlink('https://www.vogelbraeu.de/') Der Vogelbräu] (#[+Kartenlink(Karte_Vogelbraeu) Kapellenstraße 50])
 			+Ort Lovelace: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
 		+Event('14:00', 'Fachbereichsinformation (FBI)')
@@ -101,27 +103,27 @@ block main
 		+Event('16:00', 'Bowlen')
 			| Wir gehen ins #[+extlink('http://www.lago-bowling.de/') Lago]. Neben Bowling kann man sich dort mit einem Riesen-Tischkicker, Billiard, Air-Hockey, Dart und anderen schönen Dingen vergnügen.
 			+Ort #[+extlink('http://www.lago-bowling.de/') LAGO Bowling Center] (#[+Kartenlink(Karte_Lago) Gablonzer Straße 13])
-		+Event('18:30', 'O-Phest')
+		+Event('18:00', 'O-Phest')
 			| Gemeinsames Fest verschiedener O-Phasen.
-			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
+			+Ort #[+Kartenlink(Karte_Altes_Stadion) AKK]
 
-	+Tag('Mittwoch', '10. Oktober 2018')
+	+Tag('Mittwoch', '9. Oktober 2019')
 		+Event('9:30', 'Frühstück')
 			| Gemeinsames Frühstück in unseren Seminarräumen. Bringt Geschirr, Besteck und was aufs Brot mit!
 			+Ort Seminarräume
 		+Event('11:00', 'O-Phasen-Rallye')
 			| Rallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
-		+Event('15:30', 'Lehramt-Information')
+		+Event('11:30', 'Lehramt-Information')
 			| Informationen für Lehramtstudenten.
-			+Ort: +Kartenlink(Karte_Benz) Benz-Hörsaal
+			+Ort: +Kartenlink(Karte_EAS) EAS
 		+Event('20:00', 'Kneipentour')
 			| Wir ziehen durch die schönsten Karlsruher Kneipen.
 			+Ort Treffpunkt Turing: #[+Kartenlink(Karte_Marktplatz) Marktplatz]
 			+Ort Treffpunkt Lovelace: #[+Kartenlink(Karte_Europaplatz) Europaplatz]
 
-	+Tag('Donnerstag', '11. Oktober 2018')
+	+Tag('Donnerstag', '10. Oktober 2019')
 		+Event('11:00', 'Frühstück im Cafe')
-			| Frühstück im Café Emaille.
+			| Frühstück im Café Emaille bzw. Café Bleu.
 			+Ort Turing: #[+Kartenlink(Karte_Emaille) Café Emaille]
 			+Ort Lovelace: #[+Kartenlink(Karte_Bleu) Café Bleu]
 		+Event('13:30', 'O-Lympia')
@@ -131,10 +133,10 @@ block main
 			| Spieleabend mit Gesellschaftsspielen. Ihr seid herzlich eingeladen eure Lieblingsspiele mitzubringen.
 			+Ort Seminarräume
 
-	+Tag('Freitag', '12. Oktober 2018')
+	+Tag('Freitag', '11. Oktober 2019')
 		+Event('11:30', 'Abschlussveranstaltung')
 			| Die offizielle Abschlussveranstaltung der O-Phase mit Siegerehrung der O-Rallye.
-			+Ort: +Kartenlink(Karte_Benz) Benz-Hörsaal
+			+Ort: +Kartenlink(Karte_HSaF) Fasanengarten-Hörsaal
 		+Event('12:30', 'Mittagessen in der Mensa')
 			+Ort: +Kartenlink(Karte_Mensa) Mensa am Andenauerring
 		+Event('14:30', 'SCC-Führung')
@@ -142,16 +144,13 @@ block main
 			+Ort #[+Kartenlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('20:00', 'Cocktail-Abend')
 			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
-			+Ort #[+Kartenlink(Karte_Normannia) Normannia]
+			+Ort #[+Kartenlink(Karte_K1) K1-Bar]
 			+Ort Treffpunkt: #[+Kartenlink(Karte_Infobau) Infobau]
 
-	+Tag('Samstag', '13. Oktober 2018')
+	+Tag('Samstag', '12. Oktober 2019')
 		+Event('10:00', 'Mädelsbrunch')
 			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen.
-			+Ort Raum 0.001 im #[+Kartenlink(Karte_Mathebau) Mathebau]
-		+Event('20:00', 'O-Philm')
-			| Eine spezielle Vorstellung des Uni-Kinos für die O-Phase.
-			+Ort #[+extlink('http://afk-filmkreis.de/') AFK] (im #[+Kartenlink(Karte_Hertz) Hertz-Hörsaal])
+			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
 
 	//+Tag('Montag', '22. Oktober 2017')
 		+Event('19:15', 'Kick-Off Mentorenprogramm')
