@@ -238,11 +238,11 @@ function checkVersion() {
 }
 
 gulp.task('buildDocker',
-	run(`sudo docker build . -t ${imageName()}`)
-)
+	run(`podman build . -t ${imageName()}`)
+);
 gulp.task('pushDocker',
-	run(`sudo docker push ${imageName()}`)
-)
+	run(`podman push ${imageName()}`)
+);
 gulp.task('deployKubernetes',
 	run(`bash -c "` + (
 		`cat deployment.yaml`
@@ -253,7 +253,7 @@ gulp.task('deployKubernetes',
 				DEPLOYMENT_VERSION: getVersion()
 			}
 		})
-)
+);
 
 gulp.task('clean', cleanbuilddir);
 gulp.task('build', gulp.parallel(style, content, graphics, images, miscstatic));
