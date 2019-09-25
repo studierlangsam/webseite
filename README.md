@@ -51,10 +51,10 @@ The page is automatically rebuilt and reloaded in the browser as you make change
 
 To check the source files against the coding conventions, run `gulp check` from the project folder.
 
-In order to upload the site to the production server, you need to have [`docker`](https://docs.docker.com/install/) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
+In order to upload the site to the production server, you need to have [`podman`](https://podman.io/getting-started/installation) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 Additionally, you have to ask Joshua Gleitze (mail@joshuagleitze.de) for credentials.
 After that, you can upload the page by running `gulp deploy --dversion <version>` from the project folder.
-The command will produce a release build, build a docker image with it, and deploy a container using the image.
+The command will produce a release build, build a container image with it, and deploy a container using the image.
 Replace `<version>` in the command with the new deployment version.
 Please pick the new deployment version according to [Semantic Versioning](https://semver.org/) rules.
 You can query the currently deployed version by running:
