@@ -82,6 +82,7 @@ block main
 		const Karte_HSaF = ['https://goo.gl/maps/6HbPJZSq2RokjL457', 'https://www.openstreetmap.org/way/37787402#map=19/49.01472/8.42037']
 		const Karte_EAS = ['https://goo.gl/maps/r4w57wyk1khrNS5L6','https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301']
 		const Karte_K1 = ['https://goo.gl/maps/Lwr55t1rgU9szKaZA', 'https://www.openstreetmap.org/relation/5320078']
+		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
 
 	+Tag('Montag', '7. Oktober 2019')
 		+Event('9:00', 'Eröffnung')
@@ -91,7 +92,7 @@ block main
 		+Event('15:00', 'Campus-Führung')
 		+Event('19:00', 'Abendessen')
 			+Ort Turing: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
-			+Ort Lovelace: Informationen folgen
+			+Ort Lovelace: #[+extlink('https://pfannestiel.business.site/') Pfannestiel] (#[+Kartenlink(Karte_Ox) Am Künstlerhaus 53])
 
 	+Tag('Dienstag', '8. Oktober 2019')
 		+Event('12:30', 'Mittagessen')
@@ -144,8 +145,7 @@ block main
 			+Ort #[+Kartenlink(Karte_SCC) Steinbuch Centre for Computing]
 		+Event('20:00', 'Cocktail-Abend')
 			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
-			+Ort #[+Kartenlink(Karte_K1) K1-Bar]
-			+Ort Treffpunkt: #[+Kartenlink(Karte_Infobau) Infobau]
+			+Ort #[+Kartenlink(Karte_K1) K1-Bar] (Wer das nicht findet: 20:00 am #[+Kartenlink(Karte_Infobau) Infobau])
 
 	+Tag('Samstag', '12. Oktober 2019')
 		+Event('10:00', 'Mädelsbrunch')
