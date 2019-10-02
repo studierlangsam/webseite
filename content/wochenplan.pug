@@ -83,6 +83,7 @@ block main
 		const Karte_EAS = ['https://goo.gl/maps/r4w57wyk1khrNS5L6','https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301']
 		const Karte_K1 = ['https://goo.gl/maps/Lwr55t1rgU9szKaZA', 'https://www.openstreetmap.org/relation/5320078']
 		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
+		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6','https://www.openstreetmap.org/way/155277825']
 
 	+Tag('Montag', '7. Oktober 2019')
 		+Event('9:00', 'Eröffnung')
@@ -92,9 +93,12 @@ block main
 		+Event('15:00', 'Campus-Führung')
 		+Event('19:00', 'Abendessen')
 			+Ort Turing: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
-			+Ort Lovelace: #[+extlink('https://pfannestiel.business.site/') Pfannestiel] (#[+Kartenlink(Karte_Ox) Am Künstlerhaus 53])
+			+Ort Lovelace: #[+extlink('https://pfannestiel.business.site/') Pfannestiel] (#[+Kartenlink(Karte_Pfannestiel) Am Künstlerhaus 53])
 
 	+Tag('Dienstag', '8. Oktober 2019')
+		+Event('10:00', 'Abholen der KIT-Karten')
+			| Wir gehen gemeinsam die KIT-Karten abholen. Auch wenn noch weitere Formalitäten zu klären sind, kann das hier erledigt werden.
+			+Ort #[+Kartenlink(Karte_Studentenhaus) Studentenhaus]
 		+Event('12:30', 'Mittagessen')
 			+Ort Turing: #[+extlink('https://www.vogelbraeu.de/') Der Vogelbräu] (#[+Kartenlink(Karte_Vogelbraeu) Kapellenstraße 50])
 			+Ort Lovelace: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
