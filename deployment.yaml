@@ -62,7 +62,7 @@ spec:
     app: studierlangsam.de
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: studierlangsam-de
@@ -85,7 +85,7 @@ spec:
     - secretName: studierlangsam-de-tls
 
 ---
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: studierlangsam-de
@@ -94,7 +94,7 @@ metadata:
     app: studierlangsam.de
 spec:
   secretName: studierlangsam-de-tls
-  renewBefore: 360h # 15d
+  renewBefore: 576h # 24d
   commonName: studierlangsam.de
   dnsNames:
     - studierlangsam.de
@@ -102,9 +102,3 @@ spec:
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
-  acme:
-    config:
-      - http01: {}
-        domains:
-          - studierlangsam.de
-          - www.studierlangsam.de
