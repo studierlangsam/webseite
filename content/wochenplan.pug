@@ -10,14 +10,13 @@ block append style
 	+stylesheet('/style/wochenplan.css')
 
 block main
-	- const calendarUrl = 'https://calendar.google.com/calendar/ical/jf8et9j9k1keiruuqkgh7sokck%40group.calendar.google.com/public/basic.ics'
+	- const calendarUrl = 'https://airtable.com/shrw8XGZnotB27Iji/iCal?timeZone=Europe%2FBerlin&userLocale=de'
 	h1 Wochenplan
-	p: em in Arbeit
-//-	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzukommen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommilitonen kennenzulernen. Zumindest zur FBI solltest du aber auf jeden Fall kommen.
+	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzumachen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommiliton:inn:en kennenzulernen. Zumindest die FBI deines Studiengangs solltest du dir aber auf jeden Fall ansehen!
 	p Unsere Termine sind auch im #[code iCal]-Format online verfügbar, sodass du sie einfach in deinen digitalen Kalender importieren kannst:
 	code.block= calendarUrl
 
-//-	mixin Tag(Name, Datum)
+	mixin Tag(Name, Datum)
 		.day
 			h3= Name
 			span.date= Datum
@@ -86,80 +85,103 @@ block main
 		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
 		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6','https://www.openstreetmap.org/way/155277825']
 
-	+Tag('Montag', '7. Oktober 2019')
-		+Event('9:00', 'Eröffnung')
-			| Die offizielle Eröffnungsveranstaltung der O-Phase.
-			+Ort: +Kartenlink(Karte_Audimax) Audimax
-		+Event('12:00', 'Kennenlernen')
-		+Event('15:00', 'Campus-Führung')
-		+Event('19:00', 'Abendessen')
-			+Ort Turing: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
-			+Ort Lovelace: #[+extlink('https://pfannestiel.business.site/') Pfannestiel] (#[+Kartenlink(Karte_Pfannestiel) Am Künstlerhaus 53])
+	+Tag('Freitag', '16. Oktober 2020')
+		+Event('14:00', 'Eröffnungsveranstaltung der Fachschaft')
+			| Die offizielle Eröffnungsveranstaltung der Fachschafte Mathematik und Informatik.
+			+Ort: +extlink('https://o-phase.live') o-phase.live
 
-	+Tag('Dienstag', '8. Oktober 2019')
-		+Event('10:00', 'Abholen der KIT-Karten')
-			| Wir gehen gemeinsam eure KIT-Karten abholen. Falls ihr noch weitere Formalitäten klären müsst, erledigen wir das auch mit euch.
-			+Ort #[+Kartenlink(Karte_Studentenhaus) Studentenhaus]
-		+Event('12:30', 'Mittagessen')
-			+Ort Turing: #[+extlink('https://www.vogelbraeu.de/') Der Vogelbräu] (#[+Kartenlink(Karte_Vogelbraeu) Kapellenstraße 50])
-			+Ort Lovelace: #[+extlink('https://www.oxfordpub.de/') Oxford Pub] (#[+Kartenlink(Karte_Ox) Fasanenstraße 6])
-		+Event('14:00', 'Fachbereichsinformation (FBI)')
-			| In der Fachbereichsinformation werden alle organisatorischen Fragen zu eurem Studiengang geklärt.
-			+Ort Treffpunkt um 13:30: #[+Kartenlink(Karte_Altes_Stadion) vor dem AKK]
-		+Event('16:30', 'Bowlen')
-			| Wir gehen ins #[+extlink('http://www.lago-bowling.de/') Lago]. Neben Bowling kann man sich dort mit einem Riesen-Tischkicker, Billiard, Air-Hockey, Dart und anderen schönen Dingen vergnügen.
-			+Ort #[+extlink('http://www.lago-bowling.de/') LAGO Bowling Center] (#[+Kartenlink(Karte_Lago) Gablonzer Straße 13])
-		+Event('18:00', 'O-Phest')
-			| Gemeinsames Fest verschiedener O-Phasen.
-			+Ort #[+Kartenlink(Karte_Altes_Stadion) AKK]
+	+Tag('Montag', '19. Oktober 2020')
+		+Event('16:00', 'Eröffnungsveranstaltung')
+			| Die gemeinsame Eröffnungsveranstaltung von Studier Langsam.
+			+Ort Twitch
+		+Event('17:00', 'Kennenlernprogramm')
+			| Die Kleingruppen lernen sich besser kennen.
+			+Ort Twitch
 
-	+Tag('Mittwoch', '9. Oktober 2019')
-		+Event('9:30', 'Frühstück')
-			| Gemeinsames Frühstück in unseren Seminarräumen. Bringt Geschirr, Besteck und was aufs Brot mit!
-			+Ort Turing: Seminarraum SR -1.012 im #[+Kartenlink(Karte_Mathebau) Mathebau]
-			+Ort Lovelace: Seminarraum SR -1.013 im #[+Kartenlink(Karte_Mathebau) Mathebau]
-		+Event('11:00', 'O-Phasen-Rallye')
-			| Rallye über den gesamten Campus. Die verschiedenen O-Phasen-Gruppen treten gegeneinander an.
-		+Event('11:30', 'Lehramt-Information')
-			| Informationen für Lehramtstudenten.
-			+Ort: +Kartenlink(Karte_EAS) Engelbert-Arnold-Hörsaal
-		+Event('20:00', 'Kneipentour')
-			| Wir ziehen durch die schönsten Karlsruher Kneipen.
-			+Ort Treffpunkt Turing: #[+Kartenlink(Karte_Marktplatz) Marktplatz]
-			+Ort Treffpunkt Lovelace: #[+Kartenlink(Karte_Europaplatz) Europaplatz]
+	+Tag('Dienstag', '20. Oktober 2020')
+		+Event('14:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+		+Event('14:00', 'FBI B.Sc. Mathematik')
+			| Die Fachbereichsinformation für alle, die Mathematik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('15:00', 'Online-Spielenachmittag & -abend')
+			+Ort Discord
 
-	+Tag('Donnerstag', '10. Oktober 2019')
-		+Event('11:00', 'Frühstück im Cafe')
-			| Frühstück im Café Emaille bzw. Café Bleu.
-			+Ort Turing: #[+Kartenlink(Karte_Emaille) Café Emaille]
-			+Ort Lovelace: #[+Kartenlink(Karte_Bleu) Café Bleu]
-		+Event('13:30', 'O-Lympia')
-			| Olympiade der O-Phase. Falls es regnet veranstalten wir ein Alternativprogramm aus wahlweise Kino oder Gesellschaftsspielen.
-			+Ort #[+Kartenlink(Karte_Forum) Forum] (vor dem Audimax)
-		+Event('20:00', 'Spieleabend')
-			| Spieleabend mit Gesellschaftsspielen. Ihr seid herzlich eingeladen eure Lieblingsspiele mitzubringen.
-			+Ort Turing: Seminarraum SR -1.012 im #[+Kartenlink(Karte_Mathebau) Mathebau]
-			+Ort Lovelace: Seminarraum SR -1.013 im #[+Kartenlink(Karte_Mathebau) Mathebau]
+	+Tag('Mittwoch', '21. Oktober 2020')
+		+Event('14:00', 'FBI M.Sc. Informatik')
+			| Die Fachbereichsinformation für alle, die Informatik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('18:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
 
-	+Tag('Freitag', '11. Oktober 2019')
-		+Event('11:30', 'Abschlussveranstaltung')
-			| Die offizielle Abschlussveranstaltung der O-Phase mit Siegerehrung der O-Rallye.
-			+Ort: +Kartenlink(Karte_HSaF) Fasanengarten-Hörsaal
-		+Event('12:30', 'Mittagessen in der Mensa')
-			+Ort: +Kartenlink(Karte_Mensa) Mensa am Andenauerring
-		+Event('14:30', 'SCC-Führung')
-			| Führung durch das #[+extlink('https://www.scc.kit.edu/') SCC], das Rechenzentrum des KIT. Neben den Angeboten für Studenten wird auch der  Landeshöchstleistungsrechner vorgestellt.
-			+Ort #[+Kartenlink(Karte_SCC) Steinbuch Centre for Computing]
-		+Event('20:00', 'Cocktail-Abend')
-			| Gegen einen günstigen Festpreis bereiten wir euch den ganzen Abend lang leckere Cocktails zu – mit und ohne Alkohol.
-			+Ort #[+Kartenlink(Karte_K1) K1-Bar] (Wer das nicht findet: 20:00 am #[+Kartenlink(Karte_Infobau) Infobau])
+	+Tag('Donnerstag', '22. Oktober 2020')
+		+Event('10:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+		+Event('14:00', 'FBI M.Sc. Mathematik')
+			| Die Fachbereichsinformation für alle, die Mathematik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('15:00', 'Distributed Kekse backen')
+			+Ort Discord
+		+Event('15:00', 'Zocken')
+			+Ort Discord
 
-	+Tag('Samstag', '12. Oktober 2019')
-		+Event('10:00', 'Mädelsbrunch')
-			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen.
-			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
+	+Tag('Freitag', '23. Oktober 2020')
+		+Event('14:00', 'FBI B.Sc. Informatik')
+			| Die Fachbereichsinformation für alle, die Informatik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('16:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
 
-	+Tag('Montag', '22. Oktober 2017')
-		+Event('19:15', 'Kick-Off Mentorenprogramm')
-			| Das Mentorenprogramm der Fakultät stellt Erstis eine(n) Student(in) höheren Semesters zur Verfügung, um sich über Studium, Lerntechniken &amp; Co. auszutauschen.
-			+Ort: +Kartenlink(Karte_Audimax) Audimax
+	+Tag('Montag', '26. Oktober 2020')
+		+Event('14:00', 'FBI M.Sc. Informatik')
+			| Die Fachbereichsinformation für alle, die Informatik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('16:00', 'Distributed Kochen')
+			+Ort Discord
+		+Event('18:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+
+	+Tag('Dienstag', '27. Oktober 2020')
+		+Event('10:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+		+Event('14:00', 'FBI M.Sc. Mathematik')
+			| Die Fachbereichsinformation für alle, die Mathematik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+
+	+Tag('Mittwoch', '28. Oktober 2020')
+		+Event('14:00', 'FBI B.Sc. Mathematik')
+			| Die Fachbereichsinformation für alle, die Mathematik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('15:00', 'Online-Spielenachmittag & -abend')
+			+Ort Discord
+		+Event('16:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+
+	+Tag('Donnerstag', '29. Oktober 2020')
+		+Event('14:00', 'FBI B.Sc. Informatik')
+			| Die Fachbereichsinformation für alle, die Informatik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+		+Event('14:30', 'Campusführung')
+			+Ort Discord
+		+Event('18:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+
+	+Tag('Freitag', '30. Oktober 2020')
+		+Event('10:00', 'Sprechstunde')
+			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
+			+Ort Discord
+		+Event('13:30', 'Abschlussveranstaltung')
+			| Die gemeinsame Abschlussveranstaltung von Studier Langsam.
+			+Ort Twitch
+		+Event('14:00', 'Abschlussveranstaltung der Fachschaft')
+			| Die offizielle Abschlussveranstaltung der Fachschafte Mathematik und Informatik.
+			+Ort: +extlink('https://o-phase.live') o-phase.live
+
