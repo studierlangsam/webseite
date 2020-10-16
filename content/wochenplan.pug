@@ -12,11 +12,12 @@ block append style
 block main
 	- const calendarUrl = 'https://calendar.google.com/calendar/ical/jf8et9j9k1keiruuqkgh7sokck%40group.calendar.google.com/public/basic.ics'
 	h1 Wochenplan
-	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzukommen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommilitonen kennenzulernen. Zumindest zur FBI solltest du aber auf jeden Fall kommen.
+	p: em in Arbeit
+//-	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzukommen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommilitonen kennenzulernen. Zumindest zur FBI solltest du aber auf jeden Fall kommen.
 	p Unsere Termine sind auch im #[code iCal]-Format online verfügbar, sodass du sie einfach in deinen digitalen Kalender importieren kannst:
 	code.block= calendarUrl
 
-	mixin Tag(Name, Datum)
+//-	mixin Tag(Name, Datum)
 		.day
 			h3= Name
 			span.date= Datum
@@ -158,7 +159,7 @@ block main
 			| Frauen sind in unseren Fächern leider immer noch stark untervertreten. Deswegen sind alle Frauen unter den Erstis herzlich zu einem gemeinsamen, O-Phasen-Gruppen übergreifenden Brunch eingeladen.
 			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
 
-	//+Tag('Montag', '22. Oktober 2017')
+	+Tag('Montag', '22. Oktober 2017')
 		+Event('19:15', 'Kick-Off Mentorenprogramm')
 			| Das Mentorenprogramm der Fakultät stellt Erstis eine(n) Student(in) höheren Semesters zur Verfügung, um sich über Studium, Lerntechniken &amp; Co. auszutauschen.
 			+Ort: +Kartenlink(Karte_Audimax) Audimax

@@ -12,7 +12,7 @@ block append style
 mixin Tutor(Name, Studiengang, Studienbeginn, Studienpause)
 	//- +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
 	- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0) - (Studienpause ? Studienpause : 0)
-	- 
+	-
 		var fs = require('fs');
 		var image = 'images/tutoren/' + Name + '.jpg';
 		image = fs.existsSync(image) ? '/' + image : '/images/tutoren/default.jpg';
@@ -31,53 +31,58 @@ block main
 		const Tutorenarrays = [
 			// Name, Studiengang, Jahr des Studienbeginns
 			//['Annika Berger', 'Bachelor Informatik', 2014],
-			['Joshua Gleitze', 'Master Informatik', 2018],
+			//['Joshua Gleitze', 'Master Informatik', 2018],
 			//['Roman Langrehr', 'Master Informatik', 2017],
 			//['Paula Klein', 'Bachelor Informatik', 2014],
 			//['Nathanael Funk', 'Bachelor Informatik', 2014],
 			//['Fabian König', 'Bachelor Mathematik', 2015],
 			//['Juliano Sommer', 'Bachelor Mathematik', 2015],
 			//['Kansei Hara', 'Bachelor Informatik', 2014],
-			['Moritz Halm', 'Master Informatik', 2018, 1],
-			['Philip Andris', 'Bachelor Informatik', 2014, 1],
+			//['Moritz Halm', 'Master Informatik', 2018, 1],
+			//['Philip Andris', 'Bachelor Informatik', 2014, 1],
 			//['Michael Vogt', 'Bachelor Informatik', 2013],
 			//['Timo Kuch', 'Bachelor Mathematik', 2015],
 			//['Timo Steidinger', 'Bachelor Informatik', 2014],
-			//['Max Göttlicher', 'Bachelor Informatik', 2015],
-			['Laura Merker', 'Master Informatik', 2018],
+			['Max Göttlicher', 'Master Informatik', 2018],
+			//['Laura Merker', 'Master Informatik', 2018],
 			//['Malte Sönnichsen', 'Bachelor Informatik', 2015],
 			//['Pascal Bothe', 'Bachelor Mathematik', 2015],
-			['David Oberacker', 'Bachelor Informatik', 2016],
-			//['Daniel Bösch', 'Bachelor Informatik', 2016],
+			['David Oberacker', 'Master Informatik', 2020],
+			['Daniel Bösch', 'Bachelor Informatik', 2016],
 			//['David Nguyen', 'Bachelor Informatik', 2016],
 			//['Paul von der Ahe', 'Bachelor Mathematik', 2015],
 			//['Tabea Friedrich', 'Bachelor Physik', 2015],
 			//['Henning Heister', 'Bachelor Mathematik', 2015],
 			//['Jan Christian Grünhage', 'Bachelor Informatik', 2016],
 			//['Joshua Sommer', 'Bachelor Informatik', 2016]
-			['Alexander von Heyden', 'Bachelor Informatik', 2015],
-			['Falko Kübler', 'Bachelor Informatik', 2017],
+			//['Alexander von Heyden', 'Bachelor Informatik', 2015],
+			//['Falko Kübler', 'Bachelor Informatik', 2017],
 			//['Marco Fuchs', 'Bachelor Informatik', 2017],
 			//['Michelle Nickel', 'Bachelor Informatik', 2016],
 			//['Norbert Kozsir', 'Bachelor Informatik', 2016],
 			['Titia Gemeinhardt', 'Bachelor Informatik', 2017],
-			['Wendy Yi', 'Bachelor Informatik', 2017],
+			//['Wendy Yi', 'Bachelor Informatik', 2017],
 			['Jonas Ludwig', 'Bachelor Informatik', 2017],
 			//['Lisa Weigel', 'Bachelor Informatik', 2017],
 			['Svenja Fellbaum', 'Bachelor Informatik', 2017],
-			['Christoph Müller', 'Bachelor Mathematik', 2018],
-			['Fabian Richter', 'Master Informatik', 2018],
-			['Ingo Pablo Gerner', 'Bachelor Informatik', 2018],
-			['Johannes Feuchter', 'Bachelor Mathematik', 2018],
+			//['Christoph Müller', 'Bachelor Mathematik', 2018],
+			//['Fabian Richter', 'Master Informatik', 2018],
+			//['Ingo Pablo Gerner', 'Bachelor Informatik', 2018],
+			//['Johannes Feuchter', 'Bachelor Mathematik', 2018],
 			['Jonas Seiler', 'Bachelor Informatik', 2018],
-			['Louis Lutzweiler', 'Master Informatik', 2018],
-			['Max Scholle', 'Bachelor Mathematik & Geographie Lehramt', 2018],
-			['Nadine Merker', 'Bachelor Mathematik', 2018],
-			['Johanna Greiner', 'Bachelor Mathematik & Kunst Lehramt', 2018],
+			//['Louis Lutzweiler', 'Master Informatik', 2018],
+			//['Max Scholle', 'Bachelor Mathematik & Geographie Lehramt', 2018],
+			//['Nadine Merker', 'Bachelor Mathematik', 2018],
+			//['Johanna Greiner', 'Bachelor Mathematik & Kunst Lehramt', 2018],
 			['Luca Buchholz', 'Bachelor Informatik', 2018],
-			['Michael Zündorf', 'Master Informatik', 2019],
+			//['Michael Zündorf', 'Master Informatik', 2019],
 			['Valentin Weber', 'Bachelor Informatik & Geographie Lehramt', 2018],
-			['Peter Maucher', 'Master Informatik', 2018, 1]
+			['Peter Maucher', 'Master Informatik', 2018, 1],
+			['Anne Hoff', 'Bachelor Informatik', 2019],
+			['Lea Kaiser', 'Bachelor Informatik', 2019],
+			['Ole Banning', 'Bachelor Informatik', 2019],
+			['Paul Zauner', 'Bachelor Informatik', 2019],
+			['Yussuf Khalil', 'Master Informatik', 2018]
 		]
 	each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
 		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2], Tutorarray[3])
