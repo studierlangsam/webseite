@@ -1,7 +1,8 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass');
-sass.compiler = require('sass');
+
+// load the sass compiler in node 16
+const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
