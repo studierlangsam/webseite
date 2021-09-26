@@ -10,11 +10,15 @@ block append style
 	+stylesheet('/style/wochenplan.css')
 
 block main
-	- const calendarUrl = 'https://airtable.com/shrw8XGZnotB27Iji/iCal?timeZone=Europe%2FBerlin&userLocale=de'
+	- const calendarUrlWeek1 = 'https://airtable.com/shrGa2gBYSaToeNaF/iCal?timeZone=Europe%2FBerlin&userLocale=de'
+	- const calendarUrlWeek2 = 'https://airtable.com/shrmOyHC6iUh0q7Xp/iCal?timeZone=Europe%2FBerlin&userLocale=de'
 	h1 Wochenplan
 	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzumachen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommiliton:inn:en kennenzulernen. Zumindest die FBI deines Studiengangs solltest du dir aber auf jeden Fall ansehen!
 	p Unsere Termine sind auch im #[code iCal]-Format online verfügbar, sodass du sie einfach in deinen digitalen Kalender importieren kannst:
-	code.block= calendarUrl
+	p Woche 1: 04. - 09. Oktober 2021
+	code.block= calendarUrlWeek1
+	p Woche 2: 11. - 16. Oktober 2021
+	code.block= calendarUrlWeek2
 
 	mixin Tag(Name, Datum)
 		.day
@@ -37,6 +41,12 @@ block main
 		if link[1]
 			+extlink(link[1]).osm: img(src='/graphic/openstreetmap32.png', alt='OSM')
 
+	mixin Hinweis(hinweis)
+		.hint 
+			h4= hinweis 
+			block
+
+
 	-
 		const Karte_Gerthsen = ['https://www.google.de/maps/place/Gerthsen-H%C3%B6rsaal,+76131+Karlsruhe/@49.0125142,8.4093303,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063602b00347:0xb8e1d87ee9ea5ebb!8m2!3d49.0125401!4d8.4115629?hl=de',
 			'https://www.openstreetmap.org/way/407200529#map=19/49.01251/8.41151']
@@ -46,7 +56,7 @@ block main
 		const Karte_Vogelbraeu = ['https://www.google.com/maps/place/Vogelbr%C3%A4u+Karlsruhe/@49.0074459,8.4117799,17z/data=!3m1!4b1!4m5!3m4!1s0x479706375ff80665:0x8481b564b9038680!8m2!3d49.0074424!4d8.4139686', 'https://www.openstreetmap.org/node/534790866#map=19/49.00739/8.41401']
 		const Karte_Altes_Stadion = ['https://www.google.de/maps/place/AKK+-+Arbeitskreis+Kultur+und+Kommunikation/@49.011154,8.4124523,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063259717ec1:0x343954b4efbf72b!8m2!3d49.011154!4d8.414641?hl=de',
 			'https://www.openstreetmap.org/way/37799411#map=19/49.01117/8.41460']
-		const Karte_Forum = ["https://www.google.de/maps/place/49%C2%B000'42.2%22N+8%C2%B024'55.8%22E/@49.01173,8.4143927,18z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d49.01173!4d8.415487?hl=de",
+		const Karte_Forum = ['https://www.google.de/maps/place/49%C2%B000"42.2%22N+8%C2%B024"55.8%22E/@49.01173,8.4143927,18z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d49.01173!4d8.415487?hl=de',
 			'https://www.openstreetmap.org/way/260318329']
 		const Karte_Hertz = ['https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de',
 			'https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287']
@@ -56,6 +66,8 @@ block main
 			'https://www.openstreetmap.org/way/154765886']
 		const Karte_HaDiKo = ['https://www.google.de/maps/place/Hans-Dickmann-Kolleg/@49.0201791,8.4207664,17z/data=!3m1!4b1!4m5!3m4!1s0x479707cdb2e27c8f:0x909cb0a2a6e1329!8m2!3d49.0201791!4d8.4229551?hl=de',
 			'https://www.openstreetmap.org/way/356386058']
+		const Karte_HaDiKo_K4Bar = ['https://www.google.de/maps/place/49%C2%B001"14.6%22N+8%C2%B025"25.1%22E/@49.0207245,8.4234559,20z/data=!4m5!3m4!1s0x0:0x0!8m2!3d49.0207202!4d8.4236287',
+			'https://www.openstreetmap.org/directions?from=&to=49.02071%2C8.42364#map=19/49.02073/8.42370']
 		const Karte_Insterburg = ['https://www.google.de/maps/place/Insterburg/@49.0363994,8.4328968,18.75z/data=!4m5!3m4!1s0x479707dd64444147:0xe5f0e7db443810b5!8m2!3d49.03645!4d8.43354',
 			'https://www.openstreetmap.org/way/136032188']
 		const Karte_Normannia = ['https://www.google.com/maps/place/K.D.St.V.+Normannia/@49.0149153,8.4215328,17z/data=!3m1!4b1!4m5!3m4!1s0x479706328bcdc411:0x2ba47d6980ec857d!8m2!3d49.0149118!4d8.4237215', 'https://www.openstreetmap.org/way/173717520#map=18/49.01476/8.42405']
@@ -63,7 +75,7 @@ block main
 			'https://www.openstreetmap.org/node/442956482#map=19/49.01193/8.41683']
 		const Karte_Marktplatz = ['https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de',
 			'https://www.openstreetmap.org/relation/5559765']
-		const Karte_Europaplatz = ['https://www.google.com/maps/place/Europaplatz,+76133+Karlsruhe/@49.0099302,8.3920208,17z/data=!3m1!4b1!4m8!1m2!2m1!1sEuropaplatz!3m4!1s0x479706508f790955:0x6ba7b951b59d896!8m2!3d49.0099421!4d8.3946948', 'https://www.openstreetmap.org/relation/4208150#map=19/49.00997/8.39421']
+		const Karte_Europaplatz = ['https://www.google.com/maps/place/Europaplatz,+76133+Karlsruhe/@49.0099302,8.3920218,17z/data=!3m1!4b1!4m8!1m2!2m1!1sEuropaplatz!3m4!1s0x479706508f790955:0x6ba7b951b59d896!8m2!3d49.0099421!4d8.3946948', 'https://www.openstreetmap.org/relation/4208150#map=19/49.00997/8.39421']
 		const Karte_Emaille = ['https://www.google.de/maps/place/Cafe+Emaille/@49.009953,8.3931562,17z/data=!4m5!3m4!1s0x479706506723051b:0xcc0568a06fe0430e!8m2!3d49.0101677!4d8.3954093',
 			'https://www.openstreetmap.org/node/259777680']
 		const Karte_Bleu = ['https://www.google.com/maps/place/Caf%C3%A9+Bleu/@49.0099555,8.3824693,17z/data=!3m1!4b1!4m5!3m4!1s0x479706f806ddd73f:0x67b8118f64337f0a!8m2!3d49.009952!4d8.384658', 'https://www.openstreetmap.org/node/289245159']
@@ -85,101 +97,110 @@ block main
 		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
 		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6','https://www.openstreetmap.org/way/155277825']
 
-	+Tag('Freitag', '16. Oktober 2020')
+	+Tag('Freitag', '01. Oktober 2021')
 		+Event('14:00', 'Eröffnungsveranstaltung der Fachschaft')
 			| Die offizielle Eröffnungsveranstaltung der Fachschafte Mathematik und Informatik.
-			+Ort: +extlink('https://o-phase.live') o-phase.live
+			+Ort Audimax
+			+Kartenlink(Karte_Audimax)
 
-	+Tag('Montag', '19. Oktober 2020')
-		p: em —Programm wegen neuer Corona-Verordnung des Landes verschoben—
+	+Tag('Montag', '04./11. Oktober 2021')
+		+Event('10:00', 'Kennenlernen')
+			| Ein kleines Kennenlernen untereinander. Studieren ist ein Mannschaftssport! 
+			+Ort ?
+		+Event('12:30', 'Pizza-Mittag')
+			| Gemeinsames füllen der leeren Mägen mit Karlsruhe's besten Pizzen :)
+			+Ort ?
+		+Event('15:00', 'Campustour')
+			| Die wichtigsten Orte eurer nächsten Jahre, zumindest von Montag bis Freitag.
+			+Ort ?
+		+Event('18:30', 'Abendessen')
+			| Eine weitere Möglichkeit sich kennen zu lernen bei unserem gemeinsamen Abendessen in Karlsruhe's beliebten und vielfältigen Restaurants! 
+			+Ort ?
 
-	+Tag('Dienstag', '20. Oktober 2020')
-		+Event('14:00', 'FBI B.Sc. Mathematik')
-			| Die Fachbereichsinformation für alle, die Mathematik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('16:00', 'Eröffnungsveranstaltung')
-			| Die gemeinsame Eröffnungsveranstaltung von Studier Langsam.
-			+Ort Twitch
-		+Event('17:00', 'Kennenlernprogramm')
-			| Die Kleingruppen lernen sich besser kennen.
-			+Ort Twitch
+	+Tag('Dienstag', '05./12. Oktober 2021')
+		+Event('10:00', 'Frühstück')
+			| Der frühe Vogel fängt den Wurm.. oder so. Jedenfalls startet dieser nicht mit einem leeren Magen, also warum sollten wir?
+			+Ort ?
+		+Event('12:00', 'FBI Master')
+			| Eine ca. 2h Veranstaltung der Fachschaft für alle Informatik-Master-Studierenden. Hier erfährst du, wie dein Studium abläuft!
+			
+			p Informatik am 05. Oktober 2021:
+				+Ort Neue Chemie
+			p Informatik am 12. Oktober 2021:
+				+Ort Hörsaal am Fasanengarten 
+				+Kartenlink(Karte_HSaF)
+			p Mathematik am 05. Oktober 2021:
+				+Ort Tulla-Hörsaal 
+			p Mathematik am 12. Oktober 2021:
+				+Ort Daimler-Hörsaal
 
-	+Tag('Mittwoch', '21. Oktober 2020')
-		+Event('14:00', 'FBI M.Sc. Informatik')
-			| Die Fachbereichsinformation für alle, die Informatik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('15:00', 'Online-Spielenachmittag & -abend')
-			+Ort Discord
-		+Event('18:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
+		+Event('14:00', 'FBI Bachelor')
+			| Eine ca. 2h Veranstaltung der Fachschaft für alle Informatik-Bachelor-Studierenden. Hier erfährst du, wie dein Studium abläuft!
+			
+			p Informatik am 05. Oktober 2021:
+				+Ort Neue Chemie
+			p Informatik am 12. Oktober 2021:
+				+Ort Hörsaal am Fasanengarten 
+				+Kartenlink(Karte_HSaF)
+			p Mathematik am 05. Oktober 2021:
+				+Ort Tulla-Hörsaal 
+			p Mathematik am 12. Oktober 2021:
+				+Ort Daimler-Hörsaal
 
-	+Tag('Donnerstag', '22. Oktober 2020')
-		+Event('10:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
-		+Event('14:00', 'FBI M.Sc. Mathematik')
-			| Die Fachbereichsinformation für alle, die Mathematik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('15:00', 'Distributed Kekse backen')
-			+Ort Discord
-		+Event('15:00', 'Online-Spielenachmittag & -abend')
-			+Ort Discord
+		+Event('17:00', 'Stadtführung und Abendessen')
+			| Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehen? Welche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonders gut entspannen? Mitsamt Abendessen natürlich! 
+			+Ort ?
 
-	+Tag('Freitag', '23. Oktober 2020')
-		+Event('14:00', 'FBI B.Sc. Informatik')
-			| Die Fachbereichsinformation für alle, die Informatik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('16:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
+	+Tag('Mittwoch', '06./13. Oktober 2021')
+		+Event('09:30', 'Frühstück')
+			| Ein weiterer Morgen, ein weiteres Frühstück fürs Gold im Mund, diesmal zur frühen Stund'!
+			+Ort ?
+		+Event('11:00', 'O-Rallye')
+			| Nichts geht doch ohne eine gute alte Rallye!
+			+Ort ?
+		+Event('20:00', 'Kneipentour')
+			| Zuerst gezeigt bekommen und dann nicht rein? Nicht mit uns! Eine Eingeh-Tour durch sämtliche gute Kneipen Karlsruhes. Auch Non-Alc sehr gerne willkommen!
+			+Ort ?
 
-	+Tag('Montag', '26. Oktober 2020')
-		+Event('14:00', 'FBI M.Sc. Informatik')
-			| Die Fachbereichsinformation für alle, die Informatik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('16:00', 'Distributed Kochen')
-			+Ort Discord
-		+Event('18:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
+	+Tag('Donnerstag', '07./14. Oktober 2021')
+		+Event('10:00', 'Frühstück')
+			| Aufstehen tu` ich nur mit gutem Grund! Dieses mal wieder zur späten Stund'.
+			+Ort ?
+		+Event('13:00', 'O-Lympia')
+			| Für jeden schlechten Wortwitz eine Liegestütze und ihr gewinnt uns die O-Lympia!
+			+Ort ?
+		+Event('19:30', 'Spieleabend')
+			| Spiel, Spaß und Spannung. Freunde von Gemeinschafts- und Brettspielen kennen das, dieses mal mit uns!
+			+Ort ?
 
-	+Tag('Dienstag', '27. Oktober 2020')
-		+Event('10:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
-		+Event('14:00', 'FBI M.Sc. Mathematik')
-			| Die Fachbereichsinformation für alle, die Mathematik im Master studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
+	+Tag('Freitag', '08./15. Oktober 2021')
+		+Event('12:00', 'Ab in die Mensa!')
+			| Die gute Mensa, ein Ort, an dem das Herz der meisten Studenten anfängt höher zu schlagen. Manch einer munkelt, das läge nur an der günstigen und guten Verpflegung, wir findens gemeinsam raus!
+			+Ort Mensa am Adenauerplatz
+		+Event('14:00', 'Museen- und SCC-Führung')
+			| Ob still und alt oder leise und neu, unseren Führungen widmen wir heu' Nachmittag. Warnung: Bildungs- und Erstaunensgefahr, vergesst nicht euren Mund zu schließen!
+			+Ort ?
+		+Hinweis('2. Woche und Mathe-Studenten only')
+		+Event('18:00', 'Mathe-Treff')
+			| Da wir um die Schwierigkeit des Kennenlernens anderer Mathe-Studenten wissen, hier ein Treffen euresgleichen. Mathe-Studenten, versammelt euch!
+			+Ort ?
 
-	+Tag('Mittwoch', '28. Oktober 2020')
-		+Event('14:00', 'FBI B.Sc. Mathematik')
-			| Die Fachbereichsinformation für alle, die Mathematik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('15:00', 'Online-Spielenachmittag & -abend')
-			+Ort Discord
-		+Event('16:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
+	+Tag('Samstag', '09./16. Oktober 2021')
+		+Hinweis('2. Woche und Mädels only')
+		+Event('10:00', 'Mädelsbrunch')
+			| Ein organisierter Mädelsbrunch der Fachschaft, damit keine von euch alleine ist. Cheers!
+			+Ort Mathebau 
+			//- +Kartenlink(Karte_Mathebau)
+		+Hinweis('2. Woche only')
+		+Event('14:00', 'Abschlussveranstaltung')
+			| Zum Ende der O-Phase noch ein paar abschließende Worte der Fachschaft für einen guten Start in das Studium. Es werden auch die Ergebnisse der O-Rallye bekannt gegeben!
+			+Ort Hörsaal am Fasanengarten 
+			//- +Kartenlink(Karte_HSaF)
+		+Hinweis('Beide Wochen :)')
+		+Event('20:00', 'Cocktailabend')
+			| Wir präsentieren unseren hausgemachten Cocktailabend! Ob mit oder ohne, ein gemeinsames Ausklingen dieser Woche untereinander muss sein!
+			+Ort HaDiKo K4 Bar 
+			//- +Kartenlink(Karte_HaDiKo_K4Bar)
 
-	+Tag('Donnerstag', '29. Oktober 2020')
-		+Event('14:00', 'FBI B.Sc. Informatik')
-			| Die Fachbereichsinformation für alle, die Informatik im Bachelor studieren. Hier erfährst du, wie dein Studium abläuft!
-			+Ort: +extlink('https://o-phase.live') o-phase.live
-		+Event('14:30', 'Campusführung')
-			+Ort Discord
-		+Event('18:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
 
-	+Tag('Freitag', '30. Oktober 2020')
-		+Event('10:00', 'Sprechstunde')
-			| Deine Möglichkeit, alle Fragen zu stellen, die dir auf der Seele brennen!
-			+Ort Discord
-		+Event('13:30', 'Abschlussveranstaltung')
-			| Die gemeinsame Abschlussveranstaltung von Studier Langsam.
-			+Ort Twitch
-		+Event('14:00', 'Abschlussveranstaltung der Fachschaft')
-			| Die offizielle Abschlussveranstaltung der Fachschafte Mathematik und Informatik.
-			+Ort: +extlink('https://o-phase.live') o-phase.live
 
