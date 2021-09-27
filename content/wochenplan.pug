@@ -41,10 +41,13 @@ block main
 		if link[1]
 			+extlink(link[1]).osm: img(src='/graphic/openstreetmap32.png', alt='OSM')
 
-	mixin Hinweis(hinweis)
-		.hint 
-			h4= hinweis 
-			block
+	mixin EventWithNote(Start, Titel, Hinweis)
+		.event
+			h4= Titel
+			span.time #{Start} Uhr
+			h5= Hinweis
+			p
+				block
 
 
 	-
@@ -98,8 +101,7 @@ block main
 	+Tag('Freitag', '01. Oktober 2021')
 		+Event('14:00', 'Eröffnungsveranstaltung der Fachschaft')
 			| Die offizielle Eröffnungsveranstaltung der Fachschafte Mathematik und Informatik.
-			+Ort Audimax
-			+Kartenlink(Karte_Audimax)
+			+Ort #[+Kartenlink(Karte_Audimax) Audimax] und #[+extlink('https://o-phase.live') online]
 
 	+Tag('Montag', '04./11. Oktober 2021')
 		+Event('10:00', 'Kennenlernen')
@@ -125,8 +127,7 @@ block main
 			p Informatik am 05. Oktober 2021:
 				+Ort Neue Chemie
 			p Informatik am 12. Oktober 2021:
-				+Ort Hörsaal am Fasanengarten 
-				+Kartenlink(Karte_HSaF)
+				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
 			p Mathematik am 05. Oktober 2021:
 				+Ort Tulla-Hörsaal 
 			p Mathematik am 12. Oktober 2021:
@@ -138,8 +139,7 @@ block main
 			p Informatik am 05. Oktober 2021:
 				+Ort Neue Chemie
 			p Informatik am 12. Oktober 2021:
-				+Ort Hörsaal am Fasanengarten 
-				+Kartenlink(Karte_HSaF)
+				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
 			p Mathematik am 05. Oktober 2021:
 				+Ort Tulla-Hörsaal 
 			p Mathematik am 12. Oktober 2021:
@@ -174,28 +174,24 @@ block main
 	+Tag('Freitag', '08./15. Oktober 2021')
 		+Event('12:00', 'Ab in die Mensa!')
 			| Die gute Mensa, ein Ort, an dem das Herz der meisten Studenten anfängt höher zu schlagen. Manch einer munkelt, das läge nur an der günstigen und guten Verpflegung, wir findens gemeinsam raus!
-			+Ort Mensa am Adenauerplatz
+			+Ort #[+Kartenlink(Karte_Mensa) Mensa am Adenauerplatz]
 		+Event('14:00', 'Museen- und SCC-Führung')
 			| Ob still und alt oder leise und neu, unseren Führungen widmen wir heu' Nachmittag. Warnung: Bildungs- und Erstaunensgefahr, vergesst nicht euren Mund zu schließen!
 			+Ort ?
-		+Hinweis('2. Woche und Mathe-Studenten only')
-		+Event('18:00', 'Mathe-Treff')
+		+EventWithNote('18:00', 'Mathe-Treff', '2. Woche und Mathe-Studenten only')
 			| Da wir um die Schwierigkeit des Kennenlernens anderer Mathe-Studenten wissen, hier ein Treffen euresgleichen. Mathe-Studenten, versammelt euch!
 			+Ort ?
 
 	+Tag('Samstag', '09./16. Oktober 2021')
-		+Hinweis('2. Woche und Mädels only')
-		+Event('10:00', 'Mädelsbrunch')
+		+EventWithNote('10:00', 'Mädelsbrunch', '2. Woche und Mädels only')
 			| Ein organisierter Mädelsbrunch der Fachschaft, damit keine von euch alleine ist. Cheers!
-			+Ort Mathebau 
-			+Kartenlink(Karte_Mathebau)
-		+Hinweis('2. Woche only')
-		+Event('14:00', 'Abschlussveranstaltung')
+			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
+			
+		+EventWithNote('14:00', 'Abschlussveranstaltung', '2. Woche only')
 			| Zum Ende der O-Phase noch ein paar abschließende Worte der Fachschaft für einen guten Start in das Studium. Es werden auch die Ergebnisse der O-Rallye bekannt gegeben!
-			+Ort Hörsaal am Fasanengarten 
-			+Kartenlink(Karte_HSaF)
-		+Hinweis('Beide Wochen :)')
-		+Event('20:00', 'Cocktailabend')
+			+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten] und #[+extlink('https://o-phase.live') online]
+			
+		+EventWithNote('20:00', 'Cocktailabend', 'Beide Wochen :)')
 			| Wir präsentieren unseren hausgemachten Cocktailabend! Ob mit oder ohne, ein gemeinsames Ausklingen dieser Woche untereinander muss sein!
 
 
