@@ -66,8 +66,6 @@ block main
 			'https://www.openstreetmap.org/way/154765886']
 		const Karte_HaDiKo = ['https://www.google.de/maps/place/Hans-Dickmann-Kolleg/@49.0201791,8.4207664,17z/data=!3m1!4b1!4m5!3m4!1s0x479707cdb2e27c8f:0x909cb0a2a6e1329!8m2!3d49.0201791!4d8.4229551?hl=de',
 			'https://www.openstreetmap.org/way/356386058']
-		const Karte_HaDiKo_K4Bar = ['https://www.google.de/maps/place/49%C2%B001"14.6%22N+8%C2%B025"25.1%22E/@49.0207245,8.4234559,20z/data=!4m5!3m4!1s0x0:0x0!8m2!3d49.0207202!4d8.4236287',
-			'https://www.openstreetmap.org/directions?from=&to=49.02071%2C8.42364#map=19/49.02073/8.42370']
 		const Karte_Insterburg = ['https://www.google.de/maps/place/Insterburg/@49.0363994,8.4328968,18.75z/data=!4m5!3m4!1s0x479707dd64444147:0xe5f0e7db443810b5!8m2!3d49.03645!4d8.43354',
 			'https://www.openstreetmap.org/way/136032188']
 		const Karte_Normannia = ['https://www.google.com/maps/place/K.D.St.V.+Normannia/@49.0149153,8.4215328,17z/data=!3m1!4b1!4m5!3m4!1s0x479706328bcdc411:0x2ba47d6980ec857d!8m2!3d49.0149118!4d8.4237215', 'https://www.openstreetmap.org/way/173717520#map=18/49.01476/8.42405']
@@ -190,17 +188,16 @@ block main
 		+Event('10:00', 'Mädelsbrunch')
 			| Ein organisierter Mädelsbrunch der Fachschaft, damit keine von euch alleine ist. Cheers!
 			+Ort Mathebau 
-			//- +Kartenlink(Karte_Mathebau)
+			+Kartenlink(Karte_Mathebau)
 		+Hinweis('2. Woche only')
 		+Event('14:00', 'Abschlussveranstaltung')
 			| Zum Ende der O-Phase noch ein paar abschließende Worte der Fachschaft für einen guten Start in das Studium. Es werden auch die Ergebnisse der O-Rallye bekannt gegeben!
 			+Ort Hörsaal am Fasanengarten 
-			//- +Kartenlink(Karte_HSaF)
+			+Kartenlink(Karte_HSaF)
 		+Hinweis('Beide Wochen :)')
 		+Event('20:00', 'Cocktailabend')
 			| Wir präsentieren unseren hausgemachten Cocktailabend! Ob mit oder ohne, ein gemeinsames Ausklingen dieser Woche untereinander muss sein!
-			+Ort HaDiKo K4 Bar 
-			//- +Kartenlink(Karte_HaDiKo_K4Bar)
+			+Ort ?
 
 
 
