@@ -15,6 +15,7 @@ mixin Tutor(Name, Studiengang, Studienbeginn, Studienpause)
 	-
 		var fs = require('fs');
 		var image = 'images/tutoren/' + Name + '.jpg';
+		//- console.log(fs.existsSync(image));
 		image = fs.existsSync(image) ? '/' + image : '/images/tutoren/default.jpg';
 	.tutor
 		img(src=encodeURI(image),alt='')
@@ -96,5 +97,21 @@ block main
 			// ['Wendy Yi', 'Bachelor Informatik', 2017],
 			// ['Yussuf Khalil', 'Master Informatik', 2018]
 		]
-	each Tutorarray in Tutorenarrays.sort((t1, t2) => t1[0].localeCompare(t2[0], 'de-DE'))
+	
+	- // Sortiere Tutoren nach der Vorhandenheit eines Bildes alphabetisch
+	-
+		const sortedTutorenarrays = Tutorenarrays.sort((t1, t2) => {
+			var fs = require('fs');
+			var t1ImageExists = fs.existsSync('images/tutoren/' + t1[0] + '.jpg');
+			var t2ImageExists = fs.existsSync('images/tutoren/' + t2[0] + '.jpg');
+			if (t1ImageExists === t2ImageExists) {
+				return t1[0].localeCompare(t2[0], 'de-DE');
+			} else if (t1ImageExists) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+
+	each Tutorarray in sortedTutorenarrays
 		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2], Tutorarray[3])
