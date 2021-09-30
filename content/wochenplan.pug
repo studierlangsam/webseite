@@ -97,30 +97,35 @@ block main
 		const Karte_K1 = ['https://goo.gl/maps/Lwr55t1rgU9szKaZA', 'https://www.openstreetmap.org/relation/5320078']
 		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
 		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6','https://www.openstreetmap.org/way/155277825']
+		const Karte_Schloss = ['https://goo.gl/maps/2AidY5BKX6JJ2Tau8','https://www.openstreetmap.org/way/316433983']
+		const Karte_OxOST = ['https://g.page/oxfordost','https://www.openstreetmap.org/node/31261876']
+		const Karte_CharlesOx = ['https://g.page/CharlesOxford','https://www.openstreetmap.org/node/3686979049']
+		const Karte_Palaver = ['https://goo.gl/maps/xhoqCPk4mXxRrvZPA','https://www.openstreetmap.org/node/454975637']
+		const Karte_Stovchen = ['https://goo.gl/maps/vZTCggUAyJXRqhXM9','https://www.openstreetmap.org/node/96039200']
+
 
 	+Tag('Freitag', '01. Oktober 2021')
-		+Event('14:00', 'Eröffnungsveranstaltung der Fachschaft')
+		+Event('15:00', 'Eröffnungsveranstaltung der Fachschaft')
 			| Die offizielle Eröffnungsveranstaltung der Fachschafte Mathematik und Informatik.
 			+Ort #[+Kartenlink(Karte_Audimax) Audimax] und #[+extlink('https://o-phase.live') online]
 
 	+Tag('Montag', '04./11. Oktober 2021')
 		+Event('10:00', 'Kennenlernen')
-			| Ein kleines Kennenlernen untereinander. Studieren ist ein Mannschaftssport! 
-			+Ort ?
+			| Ihr kennt uns nicht, wir kennen euch nicht, ihr kennt euch nicht gegenseitig. Lasst uns das ändern, denn Studieren ist ein Mannschaftssport!
+			+Ort Treffpunkt: Vor dem #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('12:30', 'Pizza-Mittag')
 			| Gemeinsames füllen der leeren Mägen mit Karlsruhe's besten Pizzen :)
-			+Ort ?
+			+Ort +Ort Am #[+Kartenlink(Karte_Schloss) Schloss] oder bei schlechter Witterung im #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('15:00', 'Campustour')
-			| Die wichtigsten Orte eurer nächsten Jahre, zumindest von Montag bis Freitag.
-			+Ort ?
+			| Wir zeigen euch die wichtigsten Orte eurer nächsten Jahre, zumindest von Montag bis Freitag.
 		+Event('18:30', 'Abendessen')
-			| Eine weitere Möglichkeit sich kennen zu lernen bei unserem gemeinsamen Abendessen in Karlsruhe's beliebten und vielfältigen Restaurants! 
-			+Ort ?
+			| Eine weitere Möglichkeit sich kennen zu lernen bei unserem gemeinsamen Abendessen in Karlsruhes beliebten Restaurants! 
+			+Ort Turing: #[+Kartenlink(Karte_OxOST) Oxford OST], Lovelace/Dijkstra/Kovalevskaja: #[+Kartenlink(Karte_CharlesOx) Charles Oxford]
 
 	+Tag('Dienstag', '05./12. Oktober 2021')
 		+Event('10:00', 'Frühstück')
 			| Der frühe Vogel fängt den Wurm.. oder so. Jedenfalls startet dieser nicht mit einem leeren Magen, also warum sollten wir?
-			+Ort ?
+			+Ort Turing/Kovalevskaja: #[+Kartenlink(Karte_Palaver) Café Palaver], Lovelace/Dijkstra: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('12:00', 'FBI Master')
 			| Eine ca. 2h Veranstaltung der Fachschaft für alle Informatik-Master-Studierenden. Hier erfährst du, wie dein Studium abläuft!
 			
@@ -147,29 +152,29 @@ block main
 
 		+Event('17:00', 'Stadtführung und Abendessen')
 			| Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehen? Welche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonders gut entspannen? Mitsamt Abendessen natürlich! 
-			+Ort ?
+			+Ort Vor dem #[+Kartenlink(Karte_Audimax) Audimax]
 
 	+Tag('Mittwoch', '06./13. Oktober 2021')
 		+Event('09:30', 'Frühstück')
 			| Ein weiterer Morgen, ein weiteres Frühstück fürs Gold im Mund, diesmal zur frühen Stund'!
-			+Ort ?
+			+Ort Vor dem #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('11:00', 'O-Rallye')
-			| Nichts geht doch ohne eine gute alte Rallye!
+			| Keine O-Phase geht doch ohne eine gute alte O-Rallye!
 			+Ort ?
 		+Event('20:00', 'Kneipentour')
 			| Zuerst gezeigt bekommen und dann nicht rein? Nicht mit uns! Eine Eingeh-Tour durch sämtliche gute Kneipen Karlsruhes. Auch Non-Alc sehr gerne willkommen!
-			+Ort ?
+			+Ort Vor der #[+Kartenlink(Karte_Audimax) Audimax]
 
 	+Tag('Donnerstag', '07./14. Oktober 2021')
 		+Event('10:00', 'Frühstück')
 			| Aufstehen tu` ich nur mit gutem Grund! Dieses mal wieder zur späten Stund'.
-			+Ort ?
+			+Ort Lovelace/Dijkstra: #[+Kartenlink(Karte_Palaver) Café Palaver], Turing/Kovalevskaja: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('13:00', 'O-Lympia')
 			| Für jeden schlechten Wortwitz eine Liegestütze und ihr gewinnt uns die O-Lympia!
 			+Ort ?
 		+Event('19:30', 'Spieleabend')
 			| Spiel, Spaß und Spannung. Freunde von Gemeinschafts- und Brettspielen kennen das, dieses mal mit uns!
-			+Ort ?
+			+Ort Im #[+Kartenlink(Karte_Infobau) Infobau]
 
 	+Tag('Freitag', '08./15. Oktober 2021')
 		+Event('12:00', 'Ab in die Mensa!')
@@ -177,10 +182,10 @@ block main
 			+Ort #[+Kartenlink(Karte_Mensa) Mensa am Adenauerplatz]
 		+Event('14:00', 'Museen- und SCC-Führung')
 			| Ob still und alt oder leise und neu, unseren Führungen widmen wir heu' Nachmittag. Warnung: Bildungs- und Erstaunensgefahr, vergesst nicht euren Mund zu schließen!
-			+Ort ?
+			+Ort Vor der #[+Kartenlink(Karte_Mensa)] und dann ab ins ZKM, Naturkundemuseum und SCC!
 		+EventWithNote('18:00', 'Mathe-Treff', '2. Woche und Mathe-Studenten only')
 			| Da wir um die Schwierigkeit des Kennenlernens anderer Mathe-Studenten wissen, hier ein Treffen euresgleichen. Mathe-Studenten, versammelt euch!
-			+Ort ?
+			+Ort Folgt noch
 
 	+Tag('Samstag', '09./16. Oktober 2021')
 		+EventWithNote('10:00', 'Mädelsbrunch', '2. Woche und Mädels only')
