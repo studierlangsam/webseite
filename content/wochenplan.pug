@@ -102,7 +102,11 @@ block main
 		const Karte_CharlesOx = ['https://g.page/CharlesOxford','https://www.openstreetmap.org/node/3686979049']
 		const Karte_Palaver = ['https://goo.gl/maps/xhoqCPk4mXxRrvZPA','https://www.openstreetmap.org/node/454975637']
 		const Karte_Stovchen = ['https://goo.gl/maps/vZTCggUAyJXRqhXM9','https://www.openstreetmap.org/node/96039200']
-
+		const Karte_NeueChemie = ['https://goo.gl/maps/UR312qcKhzTWtasT6', 'https://www.openstreetmap.org/way/168265200']
+		const Karte_Tulla = ['https://goo.gl/maps/aB66coJ3epZoQt9o9', 'https://www.openstreetmap.org/way/159808700']
+		const Karte_Daimler = ['https://goo.gl/maps/XQV1sQaLRtviLtbz5', 'https://www.openstreetmap.org/way/288535409']
+		const Karte_ZKM = ['https://g.page/zkmkarlsruhe', 'https://www.openstreetmap.org/relation/2975021']
+		const Karte_Naturkundemuseum = ['https://goo.gl/maps/bGGExDWy6B4Zj9A58', 'https://www.openstreetmap.org/way/431433884']
 
 	+Tag('Freitag', '01. Oktober 2021')
 		+Event('15:00', 'Eröffnungsveranstaltung der Fachschaft')
@@ -114,8 +118,8 @@ block main
 			| Ihr kennt uns nicht, wir kennen euch nicht, ihr kennt euch nicht gegenseitig. Lasst uns das ändern, denn Studieren ist ein Mannschaftssport!
 			+Ort Treffpunkt: Vor dem #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('12:30', 'Pizza-Mittag')
-			| Gemeinsames füllen der leeren Mägen mit Karlsruhe's besten Pizzen :)
-			+Ort +Ort Am #[+Kartenlink(Karte_Schloss) Schloss] oder bei schlechter Witterung im #[+Kartenlink(Karte_Infobau) Infobau]
+			| Gemeinsames füllen der leeren Mägen mit Karlsruhes besten Pizzen :)
+			+Ort Am #[+Kartenlink(Karte_Schloss) Schloss] oder bei schlechter Witterung im #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('15:00', 'Campustour')
 			| Wir zeigen euch die wichtigsten Orte eurer nächsten Jahre, zumindest von Montag bis Freitag.
 		+Event('18:30', 'Abendessen')
@@ -127,28 +131,28 @@ block main
 			| Der frühe Vogel fängt den Wurm.. oder so. Jedenfalls startet dieser nicht mit einem leeren Magen, also warum sollten wir?
 			+Ort Turing/Kovalevskaja: #[+Kartenlink(Karte_Palaver) Café Palaver], Lovelace/Dijkstra: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('12:00', 'FBI Master')
-			| Eine ca. 2h Veranstaltung der Fachschaft für alle Informatik-Master-Studierenden. Hier erfährst du, wie dein Studium abläuft!
+			| Eine Informationsveranstaltung der Fachschaft für alle Master-Studierenden. Hier erfährst du, wie dein Studium abläuft!
 			
 			p Informatik am 05. Oktober 2021:
-				+Ort Neue Chemie
+				+Ort #[+Kartenlink(Karte_NeueChemie)]
 			p Informatik am 12. Oktober 2021:
 				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
 			p Mathematik am 05. Oktober 2021:
-				+Ort Tulla-Hörsaal 
+				+Ort #[+Kartenlink(Karte_Tulla)]
 			p Mathematik am 12. Oktober 2021:
-				+Ort Daimler-Hörsaal
+				+Ort #[+Kartenlink(Karte_Daimler)]
 
 		+Event('14:00', 'FBI Bachelor')
-			| Eine ca. 2h Veranstaltung der Fachschaft für alle Informatik-Bachelor-Studierenden. Hier erfährst du, wie dein Studium abläuft!
+			| Eine Informationsveranstaltung der Fachschaft für alle Bachelor-Studierenden. Hier erfährst du, wie dein Studium abläuft!
 			
 			p Informatik am 05. Oktober 2021:
-				+Ort Neue Chemie
+				+Ort #[+Kartenlink(Karte_NeueChemie)]
 			p Informatik am 12. Oktober 2021:
 				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
 			p Mathematik am 05. Oktober 2021:
-				+Ort Tulla-Hörsaal 
+				+Ort #[+Kartenlink(Karte_Tulla)]
 			p Mathematik am 12. Oktober 2021:
-				+Ort Daimler-Hörsaal
+				+Ort #[+Kartenlink(Karte_Daimler)]
 
 		+Event('17:00', 'Stadtführung und Abendessen')
 			| Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehen? Welche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonders gut entspannen? Mitsamt Abendessen natürlich! 
@@ -160,7 +164,7 @@ block main
 			+Ort Vor dem #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('11:00', 'O-Rallye')
 			| Keine O-Phase geht doch ohne eine gute alte O-Rallye!
-			+Ort ?
+			+Ort Vor dem #[+Kartenlink(Karte_Infobau) Infobau]
 		+Event('20:00', 'Kneipentour')
 			| Zuerst gezeigt bekommen und dann nicht rein? Nicht mit uns! Eine Eingeh-Tour durch sämtliche gute Kneipen Karlsruhes. Auch Non-Alc sehr gerne willkommen!
 			+Ort Vor der #[+Kartenlink(Karte_Audimax) Audimax]
@@ -171,20 +175,20 @@ block main
 			+Ort Lovelace/Dijkstra: #[+Kartenlink(Karte_Palaver) Café Palaver], Turing/Kovalevskaja: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('13:00', 'O-Lympia')
 			| Für jeden schlechten Wortwitz eine Liegestütze und ihr gewinnt uns die O-Lympia!
-			+Ort ?
+			+Ort Auf dem #[+Kartenlink(Karte_Forum) Forum]
 		+Event('19:30', 'Spieleabend')
 			| Spiel, Spaß und Spannung. Freunde von Gemeinschafts- und Brettspielen kennen das, dieses mal mit uns!
 			+Ort Im #[+Kartenlink(Karte_Infobau) Infobau]
 
 	+Tag('Freitag', '08./15. Oktober 2021')
 		+Event('12:00', 'Ab in die Mensa!')
-			| Die gute Mensa, ein Ort, an dem das Herz der meisten Studenten anfängt höher zu schlagen. Manch einer munkelt, das läge nur an der günstigen und guten Verpflegung, wir findens gemeinsam raus!
-			+Ort #[+Kartenlink(Karte_Mensa) Mensa am Adenauerplatz]
-		+Event('14:00', 'Museen- und SCC-Führung')
-			| Ob still und alt oder leise und neu, unseren Führungen widmen wir heu' Nachmittag. Warnung: Bildungs- und Erstaunensgefahr, vergesst nicht euren Mund zu schließen!
+			| Die gute Mensa, ein Ort, an dem das Herz der meisten Studierende anfängt höher zu schlagen. Manch einer munkelt, das läge nur an der günstigen und guten Verpflegung, wir findens gemeinsam raus!
+			+Ort #[+Kartenlink(Karte_Mensa) Mensa am Adenauerring]
+		+Event('14:00', 'Museen- und SCC-Besuch')
+			| Ob still und alt oder leise und neu, unseren Besuchen widmen wir heu' Nachmittag. Warnung: Bildungs- und Erstaunensgefahr, vergesst nicht euren Mund zu schließen!
 			+Ort Vor der #[+Kartenlink(Karte_Mensa)] und dann ab ins ZKM, Naturkundemuseum und SCC!
-		+EventWithNote('18:00', 'Mathe-Treff', '2. Woche und Mathe-Studenten only')
-			| Da wir um die Schwierigkeit des Kennenlernens anderer Mathe-Studenten wissen, hier ein Treffen euresgleichen. Mathe-Studenten, versammelt euch!
+		+EventWithNote('18:00', 'Mathe-Treff', '2. Woche und Mathe-Studierende only')
+			| Da wir um die Schwierigkeit des Kennenlernens anderer Mathe-Studierende wissen, hier ein Treffen euresgleichen. Mathe-Studierende, versammelt euch!
 			+Ort Folgt noch
 
 	+Tag('Samstag', '09./16. Oktober 2021')
