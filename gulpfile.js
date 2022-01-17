@@ -202,8 +202,7 @@ function revision() {
 		.pipe(revall.revision({
 			dontRenameFile: [
 				/^\/favicon.ico$/g, // must be called that way to be detected
-				'.html', // must rename their name on the web server
-				'analyseausschluss-frame.css' // is included by external means, must thus not be renamed
+				'.html' // must rename their name on the web server
 			],
 			dontGlobal: [/^\/google.*.html$/],
 			hashLength: 6
