@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: studierlangsam-de
-          image: dockerimages.studierlangsam.de/studierlangsam.de:${DEPLOYMENT_VERSION}
+          image: ${IMAGE}
           ports:
             - containerPort: 80
               name: web
@@ -38,7 +38,7 @@ spec:
               cpu: 100m
               memory: 64Mi
       imagePullSecrets:
-        - name: local-registry
+        - name: ghcr.io
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -62,7 +62,7 @@ spec:
     app: studierlangsam.de
 
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: studierlangsam-de
@@ -70,35 +70,21 @@ metadata:
   labels:
     app: studierlangsam.de
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
-    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    cert-manager.io/cluster-issuer: live
+    traefik.ingress.kubernetes.io/router.middlewares: ingress-https-redirect@kubernetescrd,ingress-sts@kubernetescrd
 spec:
   rules:
     - host: studierlangsam.de
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: studierlangsam-de
-              servicePort: web
+              service:
+                name: studierlangsam-de
+                port:
+                  name: web
   tls:
     - secretName: studierlangsam-de-tls
-
----
-apiVersion: cert-manager.io/v1alpha2
-kind: Certificate
-metadata:
-  name: studierlangsam-de
-  namespace: studierlangsam
-  labels:
-    app: studierlangsam.de
-spec:
-  secretName: studierlangsam-de-tls
-  renewBefore: 576h # 24d
-  commonName: studierlangsam.de
-  dnsNames:
-    - studierlangsam.de
-    - www.studierlangsam.de
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
+      hosts:
+        - studierlangsam.de
