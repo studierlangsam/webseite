@@ -21,11 +21,12 @@ const os = require('os');
 const plainresize = require('gulp-image-resize');
 const resize = options => parallel(plainresize(options), os.cpus().length);
 const run = require('gulp-run-command').default;
-const yargs = require('yargs');
+var git = require('gulp-git');
 
 
 // whether we are building a release version, as opposed to a development build.
 let release = false;
+let releaseversion = null;
 // the built page will be put into this directory for development builds.
 let builddir = 'build';
 // the built page will be put into this directory for release builds.
@@ -220,40 +221,44 @@ function setreleasemode(done) {
 }
 
 function getVersion() {
-	return yargs
-		.alias('dv', 'dversion')
-		.argv["dversion"];
-}
-
-function imageName() {
-	return `dockerimages.studierlangsam.de/studierlangsam.de:${getVersion()}`
-}
-
-function checkVersion() {
-	const version = getVersion();
-	if (!version) {
-		throw new Error("Please specify this deployment’s version by providing it via --dversion!");
+	if (releaseversion !== null) {
+		return Promise.resolve(releaseversion)
 	}
-	console.log(`Deploying version ${version}`);
-	return Promise.resolve();
+	return new Promise((resolve, reject) =>
+		git.revParse({args: '--short HEAD'}, (err, hash) => {
+			if (err) reject(err)
+			else {
+				releaseversion = hash
+				resolve(hash)
+			}
+		})
+	)
+}
+
+async function imageName() {
+	return `ghcr.io/studierlangsam/webseite:${await getVersion()}`
+}
+
+async function checkVersion() {
+	console.log(`Deploying version ${await getVersion()}`);
 }
 
 gulp.task('buildDocker',
-	run(`podman build . -t ${imageName()}`)
+	async () => await run(`docker build . -t ${await imageName()}`)()
 );
 gulp.task('pushDocker',
-	run(`podman push ${imageName()}`)
+	async () => await run(`docker push ${await imageName()}`)()
 );
 gulp.task('deployKubernetes',
-	run(`bash -c "` + (
+	async () => await run(`bash -c "` + (
 		`cat deployment.yaml`
-		+ ` | envsubst '$DEPLOYMENT_VERSION'`
-		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de`
+		+ ` | envsubst '$IMAGE'`
+		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress`
 	) + `"`, {
-			env: {
-				DEPLOYMENT_VERSION: getVersion()
-			}
-		})
+		env: {
+			IMAGE: await imageName()
+		}
+	})()
 );
 
 gulp.task('clean', cleanbuilddir);
