@@ -1,0 +1,9 @@
+namespace: studierlangsam
+commonLabels:
+  app: studierlangsam.de
+  version: live
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
