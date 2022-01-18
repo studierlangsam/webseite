@@ -224,7 +224,7 @@ function getVersion() {
 		return Promise.resolve(releaseversion)
 	}
 	return new Promise((resolve, reject) =>
-		git.revParse({args: '--short HEAD'}, (err, hash) => {
+		git.revParse({args: '--short HEAD', quiet: true}, (err, hash) => {
 			if (err) reject(err)
 			else {
 				releaseversion = hash
@@ -242,6 +242,14 @@ async function checkVersion() {
 	console.log(`Deploying version ${await getVersion()}`);
 }
 
+async function devVersionName() {
+	const versionName = process.env.DEV_VERSION_NAME
+	if (!versionName) {
+		throw new Error("please define the version name in the environment variable DEV_VERSION_NAME!")
+	}
+	return versionName
+}
+
 gulp.task('buildDocker',
 	async () => await run(`docker build . -t ${await imageName()}`)()
 );
@@ -250,12 +258,38 @@ gulp.task('pushDocker',
 );
 gulp.task('deployKubernetes',
 	async () => await run(`bash -c "` + (
-		`cat deployment.yaml`
+		`kubectl kustomize deployment/live`
 		+ ` | envsubst '$IMAGE'`
-		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress`
+		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de,version=live --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress`
 	) + `"`, {
 		env: {
 			IMAGE: await imageName()
+		}
+	})()
+);
+
+
+gulp.task('deployKubernetesDev',
+	async () => await run(`bash -c "` + (
+		`kubectl kustomize deployment/dev`
+		+ ` | envsubst '$IMAGE $DEV_VERSION_NAME'`
+		+ ` | kubectl apply -f - --prune --selector app=studierlangsam.de,version=$DEV_VERSION_NAME --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress`
+	) + `"`, {
+		env: {
+			IMAGE: await imageName(),
+			DEV_VERSION_NAME: await devVersionName()
+		}
+	})()
+);
+gulp.task('teardownKubernetesDev',
+	async () => await run(`bash -c "` + (
+		`kubectl kustomize deployment/dev`
+		+ ` | envsubst '$IMAGE $DEV_VERSION_NAME'`
+		+ ` | kubectl delete -f -`
+	) + `"`, {
+		env: {
+			IMAGE: await imageName(),
+			DEV_VERSION_NAME: await devVersionName()
 		}
 	})()
 );
@@ -266,4 +300,7 @@ gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision
 gulp.task('watch', gulp.series('clean', 'build', gulp.parallel(watch, serve)));
 gulp.task('serverelease', gulp.series('buildrelease', serve));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
-gulp.task('deploy', gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker', 'deployKubernetes'));
+const preDeploy = gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker')
+gulp.task('deploy', gulp.series(preDeploy, 'deployKubernetes'));
+gulp.task('deployDev', gulp.series(devVersionName, preDeploy, 'deployKubernetes'));
+gulp.task('removeDev', gulp.series(devVersionName, 'teardownKubernetesDev'))

@@ -1,0 +1,10 @@
+bases:
+  - ../live
+
+commonLabels:
+  version: ${DEV_VERSION_NAME}
+
+nameSuffix: -${DEV_VERSION_NAME}
+
+patchesStrategicMerge:
+  - ingress.yaml
