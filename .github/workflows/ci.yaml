@@ -52,6 +52,6 @@ jobs:
           message: >
             This Pull Request has been deployed to 
             [pr-${{ github.event.number }}.dev.studierlangsam.de](https://pr-${{ github.event.number }}.dev.studierlangsam.de).
-            You can preview it there.
+            You can preview it there :monocle_face:.
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
