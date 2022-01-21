@@ -4,7 +4,7 @@ metadata:
   name: studierlangsam-de
 spec:
   rules:
-    - host: ${DEV_VERSION_NAME}.dev.studierlangsam.de
+    - host: '${DEV_VERSION_NAME}.dev.studierlangsam.de'
       http:
         paths:
           - path: /
@@ -15,6 +15,6 @@ spec:
                 port:
                   name: web
   tls:
-    - secretName: studierlangsam-de-${DEV_VERSION_NAME}-tls
+    - secretName: 'studierlangsam-de-${DEV_VERSION_NAME}-tls'
       hosts:
-        - ${DEV_VERSION_NAME}.dev.studierlangsam.de
+        - '${DEV_VERSION_NAME}.dev.studierlangsam.de'
