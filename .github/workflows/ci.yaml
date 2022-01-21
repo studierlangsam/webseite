@@ -46,3 +46,12 @@ jobs:
         run: 'rm -f "$KUBECONFIG"'
         env:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Add Comment to PR
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: >
+            This Pull Request has been deployed to 
+            [pr-${{ github.event.number }}.dev.studierlangsam.de](https://pr-${{ github.event.number }}.dev.studierlangsam.de).
+            You can preview it there.
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]'
