@@ -42,8 +42,6 @@ $time-spacing: 1rem;
 		font-size: .9rem;
 	}
 
-
-
 	h4 {
 		display: inline-block;
 
@@ -58,8 +56,9 @@ $time-spacing: 1rem;
 	h5 {
 		margin: 0;
 		margin-top: .2em;
-		font-size: 1rem;
 		margin-left: $time-width + $time-spacing;
+
+		font-size: 1rem;
 		font-style: italic;
 	}
 
@@ -72,6 +71,10 @@ $time-spacing: 1rem;
 		display: block;
 
 		font-size: .9rem;
+
+		.alternative {
+			display: block;
+		}
 	}
 
 	.osm {
