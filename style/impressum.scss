@@ -11,7 +11,6 @@ p {
 	padding-top: .3em;
 	padding-right: 1em;
 
-
 	@include from-width(55rem) {
 		display: block;
 

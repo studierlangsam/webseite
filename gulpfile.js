@@ -9,7 +9,7 @@ const htmlmin = require('gulp-htmlmin');
 const rmrf = require('rimraf');
 const sourcemaps = require('gulp-sourcemaps');
 const w3cjs = require('gulp-w3cjs');
-const scsslint = require('gulp-scss-lint');
+const stylelint = require('gulp-stylelint');
 const cleanCss = require('gulp-clean-css');
 const parallel = require('concurrent-transform');
 const revall = require('gulp-rev-all');
@@ -182,11 +182,26 @@ function checkHTML() {
 /**
  * Lints the stylesheets.
  */
-function checkStyle() {
-	return gulp.src('style/**/*.scss')
-		.pipe(scsslint())
-		.pipe(scsslint.failReporter());
-}
+gulp.task('checkStyle', () =>
+	gulp.src('style/**/*.scss')
+		.pipe(stylelint({
+			reporters: [{
+				formatter: 'string',
+				console: true
+			}]
+		}))
+)
+
+/**
+ * Fixes the stylesheets.
+ */
+gulp.task('fixStyle', () =>
+	gulp.src('style/**/*.scss')
+		.pipe(stylelint({
+			fix: true
+		}))
+		.pipe(gulp.dest('style'))
+)
 
 /**
  * Adds revision hashes to assets and adapts links to them.
@@ -299,7 +314,7 @@ gulp.task('build', gulp.parallel(style, content, graphics, images, miscstatic));
 gulp.task('buildrelease', gulp.series(setreleasemode, 'clean', 'build', revision));
 gulp.task('watch', gulp.series('clean', 'build', gulp.parallel(watch, serve)));
 gulp.task('serverelease', gulp.series('buildrelease', serve));
-gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, checkStyle)));
+gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, 'checkStyle')));
 const preDeploy = gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker')
 gulp.task('deploy', gulp.series(preDeploy, 'deployKubernetes'));
 gulp.task('deployDev', gulp.series(devVersionName, preDeploy, 'deployKubernetes'));
