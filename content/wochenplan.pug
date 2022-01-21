@@ -1,6 +1,5 @@
 extends ../layout/page.pug
 
-
 block properties
 	- const Titel = 'Wochenplan'
 	- const Link = '/wochenplan'
@@ -10,15 +9,15 @@ block append style
 	+stylesheet('/style/wochenplan.css')
 
 block main
-	- const calendarUrlWeek1 = 'https://airtable.com/shrGa2gBYSaToeNaF/iCal?timeZone=Europe%2FBerlin&userLocale=de'
-	- const calendarUrlWeek2 = 'https://airtable.com/shrmOyHC6iUh0q7Xp/iCal?timeZone=Europe%2FBerlin&userLocale=de'
+	- const Kalender_Woche1 = 'https://airtable.com/shrGa2gBYSaToeNaF/iCal?timeZone=Europe%2FBerlin&userLocale=de'
+	- const Kalender_Woche2 = 'https://airtable.com/shrmOyHC6iUh0q7Xp/iCal?timeZone=Europe%2FBerlin&userLocale=de'
 	h1 Wochenplan
 	p Hier siehst du, was wir während der O-Phase mit euch vorhaben. Alle Veranstaltungen sind freiwillig. Wir empfehlen dir aber, möglichst viel mitzumachen – die O-Phase ist auch eine wichtige Gelegenheit, um Kommiliton:inn:en kennenzulernen. Zumindest die FBI deines Studiengangs solltest du dir aber auf jeden Fall ansehen!
 	p Unsere Termine sind auch im #[code iCal]-Format online verfügbar, sodass du sie einfach in deinen digitalen Kalender importieren kannst:
-	p Woche 1: 04. - 09. Oktober 2021
-	code.block= calendarUrlWeek1
-	p Woche 2: 11. - 16. Oktober 2021
-	code.block= calendarUrlWeek2
+	p #[strong Woche 1]: 04. &ndash; 09. Oktober 2021
+		code.block= Kalender_Woche1
+	p #[strong Woche 2]: 11. &ndash; 16. Oktober 2021
+		code.block= Kalender_Woche2
 
 	mixin Tag(Name, Datum)
 		.day
@@ -49,7 +48,6 @@ block main
 			p
 				block
 
-
 	-
 		const Karte_Gerthsen = ['https://www.google.de/maps/place/Gerthsen-H%C3%B6rsaal,+76131+Karlsruhe/@49.0125142,8.4093303,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063602b00347:0xb8e1d87ee9ea5ebb!8m2!3d49.0125401!4d8.4115629?hl=de',
 			'https://www.openstreetmap.org/way/407200529#map=19/49.01251/8.41151']
@@ -59,8 +57,7 @@ block main
 		const Karte_Vogelbraeu = ['https://www.google.com/maps/place/Vogelbr%C3%A4u+Karlsruhe/@49.0074459,8.4117799,17z/data=!3m1!4b1!4m5!3m4!1s0x479706375ff80665:0x8481b564b9038680!8m2!3d49.0074424!4d8.4139686', 'https://www.openstreetmap.org/node/534790866#map=19/49.00739/8.41401']
 		const Karte_Altes_Stadion = ['https://www.google.de/maps/place/AKK+-+Arbeitskreis+Kultur+und+Kommunikation/@49.011154,8.4124523,17z/data=!3m1!4b1!4m5!3m4!1s0x4797063259717ec1:0x343954b4efbf72b!8m2!3d49.011154!4d8.414641?hl=de',
 			'https://www.openstreetmap.org/way/37799411#map=19/49.01117/8.41460']
-		const Karte_Forum = ['https://www.google.de/maps/place/49%C2%B000"42.2%22N+8%C2%B024"55.8%22E/@49.01173,8.4143927,18z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d49.01173!4d8.415487?hl=de',
-			'https://www.openstreetmap.org/way/260318329']
+		const Karte_Forum = ['https://goo.gl/maps/3UukgeLHQ7qehTep8', 'https://www.openstreetmap.org/way/260318329']
 		const Karte_Hertz = ['https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de',
 			'https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287']
 		const Karte_Lago = ['https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de',
@@ -91,17 +88,17 @@ block main
 		const Karte_Mathebau = ['https://www.google.de/maps/place/Geb%C3%A4ude+20.30,+Englerstra%C3%9Fe+2,+76131+Karlsruhe/@49.0110813,8.4085909,19z/data=!3m1!4b1!4m5!3m4!1s0x47970649b6bc7e79:0x9feab4e37b8ca4a6!8m2!3d49.0110804!4d8.4091381?hl=de',
 			'https://www.openstreetmap.org/way/42321004#map=19/49.01108/8.40914']
 		const Karte_Infobau = ['https://www.google.com/maps/place/Informatik-Hauptgeb%C3%A4ude,+Am+Fasanengarten+5,+76131+Karlsruhe/@49.0138249,8.4190117,18z/data=!3m1!4b1!4m5!3m4!1s0x47970633960ce621:0xa47be102bfa7364!8m2!3d49.0138237!4d8.4197592', 'https://www.openstreetmap.org/way/155674961']
-		const Karte_Benz = ['https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813','https://www.openstreetmap.org/way/288535407']
+		const Karte_Benz = ['https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813', 'https://www.openstreetmap.org/way/288535407']
 		const Karte_HSaF = ['https://goo.gl/maps/6HbPJZSq2RokjL457', 'https://www.openstreetmap.org/way/37787402#map=19/49.01472/8.42037']
-		const Karte_EAS = ['https://goo.gl/maps/r4w57wyk1khrNS5L6','https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301']
+		const Karte_EAS = ['https://goo.gl/maps/r4w57wyk1khrNS5L6', 'https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301']
 		const Karte_K1 = ['https://goo.gl/maps/Lwr55t1rgU9szKaZA', 'https://www.openstreetmap.org/relation/5320078']
 		const Karte_Pfannestiel = ['https://goo.gl/maps/yiLbSChyY3YThdZM9', 'https://www.openstreetmap.org/node/538160948']
-		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6','https://www.openstreetmap.org/way/155277825']
-		const Karte_Schloss = ['https://goo.gl/maps/2AidY5BKX6JJ2Tau8','https://www.openstreetmap.org/way/316433983']
-		const Karte_OxOST = ['https://g.page/oxfordost','https://www.openstreetmap.org/node/31261876']
-		const Karte_CharlesOx = ['https://g.page/CharlesOxford','https://www.openstreetmap.org/node/3686979049']
-		const Karte_Palaver = ['https://goo.gl/maps/xhoqCPk4mXxRrvZPA','https://www.openstreetmap.org/node/454975637']
-		const Karte_Stovchen = ['https://goo.gl/maps/vZTCggUAyJXRqhXM9','https://www.openstreetmap.org/node/96039200']
+		const Karte_Studentenhaus = ['https://goo.gl/maps/QsweiMrCfzoNh3Ky6', 'https://www.openstreetmap.org/way/155277825']
+		const Karte_Schloss = ['https://goo.gl/maps/2AidY5BKX6JJ2Tau8', 'https://www.openstreetmap.org/way/316433983']
+		const Karte_OxOST = ['https://g.page/oxfordost', 'https://www.openstreetmap.org/node/31261876']
+		const Karte_CharlesOx = ['https://g.page/CharlesOxford', 'https://www.openstreetmap.org/node/3686979049']
+		const Karte_Palaver = ['https://goo.gl/maps/xhoqCPk4mXxRrvZPA', 'https://www.openstreetmap.org/node/454975637']
+		const Karte_Stovchen = ['https://goo.gl/maps/vZTCggUAyJXRqhXM9', 'https://www.openstreetmap.org/node/96039200']
 		const Karte_NeueChemie = ['https://goo.gl/maps/UR312qcKhzTWtasT6', 'https://www.openstreetmap.org/way/168265200']
 		const Karte_Tulla = ['https://goo.gl/maps/aB66coJ3epZoQt9o9', 'https://www.openstreetmap.org/way/159808700']
 		const Karte_Daimler = ['https://goo.gl/maps/XQV1sQaLRtviLtbz5', 'https://www.openstreetmap.org/way/288535409']
@@ -123,39 +120,35 @@ block main
 		+Event('15:00', 'Campustour')
 			| Wir zeigen euch die wichtigsten Orte eurer nächsten Jahre, zumindest von Montag bis Freitag.
 		+Event('18:30', 'Abendessen')
-			| Eine weitere Möglichkeit sich kennen zu lernen bei unserem gemeinsamen Abendessen in Karlsruhes beliebten Restaurants! 
-			+Ort Turing: #[+Kartenlink(Karte_OxOST) Oxford OST], Lovelace/Dijkstra/Kovalevskaja: #[+Kartenlink(Karte_CharlesOx) Charles Oxford]
+			| Eine weitere Möglichkeit sich kennen zu lernen bei unserem gemeinsamen Abendessen in Karlsruhes beliebten Restaurants!
+			+Ort
+				span.alternative Turing: #[+Kartenlink(Karte_OxOST) Oxford OST]
+				span.alternative Lovelace, Dijkstra, Kovalevskaja: #[+Kartenlink(Karte_CharlesOx) Charles Oxford]
 
 	+Tag('Dienstag', '05./12. Oktober 2021')
 		+Event('10:00', 'Frühstück')
 			| Der frühe Vogel fängt den Wurm.. oder so. Jedenfalls startet dieser nicht mit einem leeren Magen, also warum sollten wir?
-			+Ort Turing/Kovalevskaja: #[+Kartenlink(Karte_Palaver) Café Palaver], Lovelace/Dijkstra: #[+Kartenlink(Karte_Stovchen) Stövchen]
+			+Ort
+				span.alternative Turing, Kovalevskaja: #[+Kartenlink(Karte_Palaver) Café Palaver]
+				span.alternative Lovelace, Dijkstra: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('12:00', 'FBI Master')
 			| Eine Informationsveranstaltung der Fachschaft für alle Master-Studierenden. Hier erfährst du, wie dein Studium abläuft!
-			
-			p Informatik am 05. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_NeueChemie) Neue Chemie]
-			p Informatik am 12. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
-			p Mathematik am 05. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_Tulla) Tulla-Hörsaal]
-			p Mathematik am 12. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_Daimler) Daimler-Hörsaal]
+			+Ort
+				span.alternative Informatik am 05. Oktober 2021: #[+Kartenlink(Karte_NeueChemie) Neue Chemie]
+				span.alternative Informatik am 12. Oktober 2021: #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
+				span.alternative Mathematik am 05. Oktober 2021: #[+Kartenlink(Karte_Tulla) Tulla-Hörsaal]
+				span.alternative Mathematik am 12. Oktober 2021: #[+Kartenlink(Karte_Daimler) Daimler-Hörsaal]
 
 		+Event('14:00', 'FBI Bachelor')
 			| Eine Informationsveranstaltung der Fachschaft für alle Bachelor-Studierenden. Hier erfährst du, wie dein Studium abläuft!
-			
-			p Informatik am 05. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_NeueChemie) Neue Chemie]
-			p Informatik am 12. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
-			p Mathematik am 05. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_Tulla) Tulla-Hörsaal]
-			p Mathematik am 12. Oktober 2021:
-				+Ort #[+Kartenlink(Karte_Daimler) Daimler-Hörsaal]
+			+Ort
+				span.alternative Informatik am 05. Oktober 2021: #[+Kartenlink(Karte_NeueChemie) Neue Chemie]
+				span.alternative Informatik am 12. Oktober 2021: #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten]
+				span.alternative Mathematik am 05. Oktober 2021: #[+Kartenlink(Karte_Tulla) Tulla-Hörsaal]
+				span.alternative Mathematik am 12. Oktober 2021: #[+Kartenlink(Karte_Daimler) Daimler-Hörsaal]
 
 		+Event('17:00', 'Stadtführung und Abendessen')
-			| Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehen? Welche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonders gut entspannen? Mitsamt Abendessen natürlich! 
+			| Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehen? Welche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonders gut entspannen? Mitsamt Abendessen natürlich!
 			+Ort Vor dem #[+Kartenlink(Karte_Audimax) Audimax]
 
 	+Tag('Mittwoch', '06./13. Oktober 2021')
@@ -172,7 +165,9 @@ block main
 	+Tag('Donnerstag', '07./14. Oktober 2021')
 		+Event('10:00', 'Frühstück')
 			| Aufstehen tu` ich nur mit gutem Grund! Dieses mal wieder zur späten Stund'.
-			+Ort Lovelace/Dijkstra: #[+Kartenlink(Karte_Palaver) Café Palaver], Turing/Kovalevskaja: #[+Kartenlink(Karte_Stovchen) Stövchen]
+			+Ort
+				span.alternative Lovelace, Dijkstra: #[+Kartenlink(Karte_Palaver) Café Palaver]
+				span.alternative Turing, Kovalevskaja: #[+Kartenlink(Karte_Stovchen) Stövchen]
 		+Event('13:00', 'O-Lympia')
 			| Für jeden schlechten Wortwitz eine Liegestütze und ihr gewinnt uns die O-Lympia!
 			+Ort Auf dem #[+Kartenlink(Karte_Forum) Forum]
@@ -195,11 +190,11 @@ block main
 		+EventWithNote('10:00', 'Mädelsbrunch', '2. Woche und Mädels only')
 			| Ein organisierter Mädelsbrunch der Fachschaft, damit keine von euch alleine ist. Cheers!
 			+Ort #[+Kartenlink(Karte_Mathebau) Mathebau]
-			
+
 		+EventWithNote('14:00', 'Abschlussveranstaltung', '2. Woche only')
 			| Zum Ende der O-Phase noch ein paar abschließende Worte der Fachschaft für einen guten Start in das Studium. Es werden auch die Ergebnisse der O-Rallye bekannt gegeben!
 			+Ort #[+Kartenlink(Karte_HSaF) Hörsaal am Fasanengarten] und #[+extlink('https://o-phase.live') online]
-			
+
 		+EventWithNote('20:00', 'Cocktailabend', 'Beide Wochen :)')
 			| Wir präsentieren unseren hausgemachten Cocktailabend! Ob mit oder ohne, ein gemeinsames Ausklingen dieser Woche untereinander muss sein!
 
