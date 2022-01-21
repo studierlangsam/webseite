@@ -29,8 +29,10 @@ sudo npm install gulp-cli -g
 
 The project consists of these folders:
 
+ * `.github/workflows` contains the build job definitions.
  * `build` (not in git) contains the development build of the page.
  * `content` contains the content pages. These pages use the layouts from the `layout` folder. The contained `.pug` files will be rendered using [Pug](https://pugjs.org/api/getting-started.html) and be copied to the web page root. Any file `[name].pug` will be copied to `[name]/index.html` if `[name]` is not already `index`. Keep that in mind when creating links!
+ * `deployment` contains the configuration for the Kubernetes resources that are used to deploy the website.
  * `graphic` contains graphics that are part of the pages’ layout. The folder will be copied to the web page without modification. Some contained SVG pages will be inlined into the rendered HTML pages.
  * `images` contains content images in their original resolution and quality. They will be copied to the web page after being scaled as needed.
  * `layout` contains [Pug](https://pugjs.org/api/getting-started.html) files that form the page’s layout. These layouts are used in the content pages using [Pug’s Inheritance and Blocks](https://pugjs.org/language/inheritance.html) mechanism.
@@ -50,20 +52,13 @@ This will start a development server at `localhost:3000` (or the next free port 
 The page is automatically rebuilt and reloaded in the browser as you make changes to the source files.
 
 To check the source files against the coding conventions, run `gulp check` from the project folder.
+Most coding conventions issues regarding the stylesheets can be fixed automatically.
+To do so, run `gulp fixStyle`.
 
-In order to upload the site to the production server, you need to have [`podman`](https://podman.io/getting-started/installation) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
-Additionally, you have to ask Joshua Gleitze (mail@joshuagleitze.de) for credentials.
-After that, you can upload the page by running `gulp deploy --dversion <version>` from the project folder.
-The command will produce a release build, build a container image with it, and deploy a container using the image.
-Replace `<version>` in the command with the new deployment version.
-Please pick the new deployment version according to [Semantic Versioning](https://semver.org/) rules.
-You can query the currently deployed version by running:
-```
-kubectl -n studierlangsam get pod --selector app=studierlangsam.de --output "custom-columns=deployed image:.spec.containers[0].image"
-```
+When you open a Pull Request for this repository, it will automatically be deployed to a domain where it can be reviewed.
+After any merge to the `main` branch, the live version of the website will be updated automatically to reflect the `main` branch.
 
-
-If you want to preview what *exactly* will be uploaded, run `gulp serverelease`.
+If you want to preview what *exactly* will be deployed, run `gulp serverelease`.
 The command serves the release build through a local web server.
 It will however, unlike `gulp watch`, not pick up any changes to the source files.
 
