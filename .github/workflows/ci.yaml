@@ -1,0 +1,48 @@
+name: CI
+
+on: pull_request
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v2.0
+        with:
+          version: 'v1.23.1'
+      - name: Install graphicsmagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install graphicsmagick
+      - name: Download npm Dependencies
+        run: npm ci
+      - name: Check
+        run: npx gulp check
+     - name: Log in to the Container registry
+       uses: docker/login-action@v1
+       with:
+         registry: ghcr.io
+         username: ${{ github.actor }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Write Kubeconfig
+        run: 'echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"'
+        env:
+          KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Deploy Dev Version
+        run: npx gulp deployDev
+        env:
+          DEV_VERSION_NAME: ${{ github.event.number }}
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Delete Kubeconfig
+        if: always()
+        run: 'rm -f "$KUBECONFIG"'
+        env:
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
