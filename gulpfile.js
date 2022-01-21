@@ -317,5 +317,5 @@ gulp.task('serverelease', gulp.series('buildrelease', serve));
 gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, 'checkStyle')));
 const preDeploy = gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker')
 gulp.task('deploy', gulp.series(preDeploy, 'deployKubernetes'));
-gulp.task('deployDev', gulp.series(devVersionName, preDeploy, 'deployKubernetes'));
+gulp.task('deployDev', gulp.series(devVersionName, preDeploy, 'deployKubernetesDev'));
 gulp.task('teardownDev', gulp.series(devVersionName, 'teardownKubernetesDev'))
