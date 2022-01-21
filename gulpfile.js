@@ -318,4 +318,4 @@ gulp.task('check', gulp.series('clean', 'build', gulp.parallel(checkHTML, 'check
 const preDeploy = gulp.series(checkVersion, 'buildrelease', 'buildDocker', 'pushDocker')
 gulp.task('deploy', gulp.series(preDeploy, 'deployKubernetes'));
 gulp.task('deployDev', gulp.series(devVersionName, preDeploy, 'deployKubernetes'));
-gulp.task('removeDev', gulp.series(devVersionName, 'teardownKubernetesDev'))
+gulp.task('teardownDev', gulp.series(devVersionName, 'teardownKubernetesDev'))
