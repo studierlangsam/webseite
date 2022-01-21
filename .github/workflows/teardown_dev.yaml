@@ -1,0 +1,38 @@
+name: Teardown Dev
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  teardown:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v2.0
+        with:
+          version: 'v1.23.1'
+      - name: Download npm Dependencies
+        run: npm ci
+      - name: Write Kubeconfig
+        run: 'echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"'
+        env:
+          KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Teardown Dev Version
+        run: npx gulp teardownDev
+        env:
+          DEV_VERSION_NAME: pr-${{ github.event.number }}
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Delete Kubeconfig
+        if: always()
+        run: 'rm -f "$KUBECONFIG"'
+        env:
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
