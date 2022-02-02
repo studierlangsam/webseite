@@ -5,7 +5,7 @@
   "repository": "https://github.com/studierlangsam/webseite.git",
   "main": "gulpfile.js",
   "devDependencies": {
-    "@ronilaukkarinen/gulp-stylelint": "^14.0.5",
+    "@ronilaukkarinen/gulp-stylelint": "14.0.5",
     "browser-sync": "2.27.7",
     "concurrent-transform": "1.0.0",
     "emojione": "4.5.0",
