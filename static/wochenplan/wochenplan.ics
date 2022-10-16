@@ -1,0 +1,435 @@
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20221012T203602Z
+LAST-MODIFIED:20221012T203707Z
+DTSTAMP:20221012T203707Z
+UID:806b6b31-e9d9-4d6b-b692-bc534696b450
+SUMMARY:Kennenlernen
+DTSTART;TZID=Europe/Berlin:20221017T123000
+DTEND;TZID=Europe/Berlin:20221017T153000
+TRANSP:OPAQUE
+LOCATION:Schloss
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%3EIhr%20kennt%20uns%
+ 20nicht%2C%20wir%20kennen%20euch%20nicht%2C%20ihr%20kennt%20euch%20nicht%20
+ %0Agegenseitig.%20Lasst%20uns%20das%20%C3%A4ndern%2C%20denn%20Studieren%20i
+ st%20ein%20%0AMannschaftssport!%0AAnschlie%C3%9Fend%20gemeinsames%20F%C3%BC
+ llen%20der%20leeren%20M%C3%A4gen%20mit%20Karlsruhes%20besten%20%0APizzen%20
+ %3Cspan%3E%3C%2Fspan%3E%3C%2Fdiv%3E%0A%3Cdiv%3E%3Cspan%3E%3Cbr%3E%0Ahttps%3
+ A%2F%2Fstudierlangsam.de%2Fwochenplan%23Kennenlernen%3C%2Fspan%3E%3C%2Fdiv%
+ 3E%0A%3C%2Fbody%3E":Ihr kennt uns nicht\, wir kennen euch nicht\, ihr kennt
+  euch nicht gegenseitig.\nLasst uns das ändern\, denn Studieren ist ein Ma
+ nnschaftssport! Anschließend\ngemeinsames Füllen der leeren Mägen mit Ka
+ rlsruhes besten Pizzen\n\nhttps://studierlangsam.de/wochenplan#Kennenlernen
+ \n
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T203713Z
+LAST-MODIFIED:20221012T203804Z
+DTSTAMP:20221012T203804Z
+UID:48b45b82-837b-4119-ac66-1b8569d9755e
+SUMMARY:Campustour
+DTSTART;TZID=Europe/Berlin:20221017T153000
+DTEND;TZID=Europe/Berlin:20221017T190000
+TRANSP:OPAQUE
+LOCATION:Schloss
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%20style%3D%22color%3
+ A%20%23d4d4d4%3Bbackground-color%3A%20%231e1e1e%3Bfont-family%3A%20'Droid%2
+ 0Sans%20Mono'%2C%20'monospace'%2C%20monospace%3Bfont-weight%3A%20normal%3Bf
+ ont-size%3A%2014px%3Bline-height%3A%2019px%3Bwhite-space%3A%20pre%3B%22%3E%
+ 3Cdiv%3E%3Cspan%20style%3D%22color%3A%20%23d4d4d4%3B%22%3EWir%20zeigen%20eu
+ ch%20die%20wichtigsten%20Orte%20eurer%20n%C3%A4chsten%20Jahre%2C%20zumindes
+ t%20von%20Montag%20bis%20Freitag.%3C%2Fspan%3E%3C%2Fdiv%3E%0A%3Cdiv%3E%3Csp
+ an%20style%3D%22color%3A%20%23d4d4d4%3B%22%3E%3Cbr%3Ehttps%3A%2F%2Fstudierl
+ angsam.de%2Fwochenplan%23Campustour%3C%2Fspan%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C
+ %2Fbody%3E":Wir zeigen euch die wichtigsten Orte eurer nächsten Jahre\, zu
+ mindest von Montag\nbis Freitag.\n\nhttps://studierlangsam.de/wochenplan#Ca
+ mpustour
+SEQUENCE:1
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T203809Z
+LAST-MODIFIED:20221012T203927Z
+DTSTAMP:20221012T203927Z
+UID:8179f282-6eee-43e6-8a7b-b4b49f7f8042
+SUMMARY:Abendessen
+DTSTART;TZID=Europe/Berlin:20221017T190000
+DTEND;TZID=Europe/Berlin:20221017T235900
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#MOAbendessen
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%20style%3D%22color%3
+ A%20%23d4d4d4%3Bbackground-color%3A%20%231e1e1e%3Bfont-family%3A%20'Droid%2
+ 0Sans%20Mono'%2C%20'monospace'%2C%20monospace%3Bfont-weight%3A%20normal%3Bf
+ ont-size%3A%2014px%3Bline-height%3A%2019px%3Bwhite-space%3A%20pre%3B%22%3E%
+ 3Cdiv%3E%3Cspan%20style%3D%22color%3A%20%23d4d4d4%3B%22%3EEine%20weitere%20
+ M%C3%B6glichkeit%20sich%20kennen%20zu%20lernen%20bei%20unserem%20gemeinsame
+ n%20Abendessen%20in%20Karlsruhes%20beliebten%20Restaurants!%3C%2Fspan%3E%3C
+ %2Fdiv%3E%0A%3Cdiv%3E%3Cspan%20style%3D%22color%3A%20%23d4d4d4%3B%22%3E%3Cb
+ r%3Ehttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23MOAbendessen%3C%2Fspan%3
+ E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fbody%3E":Eine weitere Möglichkeit sich kenn
+ en zu lernen bei unserem gemeinsamen\nAbendessen in Karlsruhes beliebten Re
+ staurants!\n\nhttps://studierlangsam.de/wochenplan#MOAbendessen
+X-MOZ-GENERATION:2
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204125Z
+LAST-MODIFIED:20221012T204214Z
+DTSTAMP:20221012T204214Z
+UID:27ac6e60-0506-460e-9a76-dd941e42f286
+SUMMARY:KIT-Karte abholen
+DTSTART;TZID=Europe/Berlin:20221018T130000
+DTEND;TZID=Europe/Berlin:20221018T140000
+TRANSP:OPAQUE
+LOCATION:Studierendenservice
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EDieses%20Jahr%20sind%20die%20K
+ IT-Karten%20besonders%20gut%20versteckt!%20Wir%20%0Ahelfen%20euch%2C%20eure
+ %20zu%20finden!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwoch
+ enplan%23KITKarte%3C%2Fbody%3E":Dieses Jahr sind die KIT-Karten besonders g
+ ut versteckt! Wir helfen euch\, eure\nzu finden!\n\nhttps://studierlangsam.
+ de/wochenplan#KITKarte
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204218Z
+LAST-MODIFIED:20221012T204306Z
+DTSTAMP:20221012T204306Z
+UID:b923c1b9-83bd-4b34-8727-05c7c0c5401c
+SUMMARY:FBI
+DTSTART;TZID=Europe/Berlin:20221018T140000
+DTEND;TZID=Europe/Berlin:20221018T153000
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#FBI
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%3EEine%20Information
+ sveranstaltung%20der%20Fachschaft%20f%C3%BCr%20alle%20%0AErststudierende.%2
+ 0Hier%20erf%C3%A4hrst%20du%2C%20wie%20dein%20Studium%20abl%C3%A4uft!%3Cbr%3
+ E%0A%20%20%3Cbr%3E%0A%3C%2Fdiv%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwoche
+ nplan%23FBI%3C%2Fbody%3E":Eine Informationsveranstaltung der Fachschaft fü
+ r alle Erststudierende. Hier\nerfährst du\, wie dein Studium abläuft!\n\n
+ https://studierlangsam.de/wochenplan#FBI
+SEQUENCE:1
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204313Z
+LAST-MODIFIED:20221012T204416Z
+DTSTAMP:20221012T204416Z
+UID:f4321afa-9035-4390-91cf-8fd624e7e92e
+SUMMARY:Stadtführung
+DTSTART;TZID=Europe/Berlin:20221018T153000
+DTEND;TZID=Europe/Berlin:20221018T180000
+TRANSP:OPAQUE
+LOCATION:Berliner Platz
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%3EWo%20k%C3%B6nnen%2
+ 0wir%20denn%20gut%20klassisch%7Cvegetarisch%7Cvegan%7Cglutenfrei%20Essen%0A
+ %20gehen%3F%20Welche%20Kneipen%20und%20Bars%20sind%20zu%20empfehlen%3F%20Wo
+ %20k%C3%B6nnen%20wir%20denn%20%0Abesonders%20gut%20entspannen%3F%20Essen%20
+ (not%20not)%20included!%3C%2Fdiv%3E%0A%3Cdiv%3E%3Cbr%3E%0Ahttps%3A%2F%2Fstu
+ dierlangsam.de%2Fwochenplan%23Stadtf%C3%BChrung%3C%2Fdiv%3E%0A%3C%2Fbody%3E
+ ":Wo können wir denn gut klassisch|vegetarisch|vegan|glutenfrei Essen gehe
+ n?\nWelche Kneipen und Bars sind zu empfehlen? Wo können wir denn besonder
+ s gut\nentspannen? Essen (not not) included!\n\nhttps://studierlangsam.de/w
+ ochenplan#Stadtführung\n
+SEQUENCE:1
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204421Z
+LAST-MODIFIED:20221012T204500Z
+DTSTAMP:20221012T204500Z
+UID:5cad8182-ad7b-4878-bdc8-66529db3e0a4
+SUMMARY:O-Phest
+DTSTART;TZID=Europe/Berlin:20221018T180000
+DTEND;TZID=Europe/Berlin:20221018T235900
+TRANSP:OPAQUE
+LOCATION:Akk
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EEine%20letzte%20gro%C3%9Fe%20F
+ eier%20mit%20den%20anderen%20Erstis.%20Lernen%20wir%20mal%20das%0A%20AKK%20
+ kennen%20%3AD%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochen
+ plan%23OPhest%3C%2Fbody%3E":Eine letzte große Feier mit den anderen Erstis
+ . Lernen wir mal das AKK kennen :D\n\nhttps://studierlangsam.de/wochenplan#
+ OPhest
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204516Z
+LAST-MODIFIED:20221012T204608Z
+DTSTAMP:20221012T204608Z
+UID:5c9f1946-1ec4-469d-b16d-27400c95acf4
+SUMMARY:Frühstück
+DTSTART;TZID=Europe/Berlin:20221019T090000
+DTEND;TZID=Europe/Berlin:20221019T110000
+TRANSP:OPAQUE
+LOCATION:Mathebau
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EEin%20weiterer%20Morgen%2C%20e
+ in%20weiteres%20Fr%C3%BChst%C3%BCck%20f%C3%BCrs%20Gold%20im%20Mund%2C%20%0A
+ diesmal%20zur%20fr%C3%BChen%20Stund'!%20Bringt%20eure%20Teller%20und%20Mess
+ er%20mit%20%3AD%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwoch
+ enplan%23MIFr%C3%BChst%C3%BCck%3C%2Fbody%3E":Ein weiterer Morgen\, ein weit
+ eres Frühstück fürs Gold im Mund\, diesmal zur\nfrühen Stund'! Bringt e
+ ure Teller und Messer mit :D\n\nhttps://studierlangsam.de/wochenplan#MIFrü
+ hstück
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204716Z
+LAST-MODIFIED:20221012T204832Z
+DTSTAMP:20221012T204832Z
+UID:75f82983-e56d-4b8a-9a02-b9745f421c0d
+SUMMARY:Kneipentour
+DTSTART;TZID=Europe/Berlin:20221019T180000
+DTEND;TZID=Europe/Berlin:20221019T235900
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#Kneipentour
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EZuerst%20gezeigt%20bekommen%20
+ und%20dann%20nicht%20rein%3F%20Nicht%20mit%20uns!%20Eine%20%0AEingeh-Tour%2
+ 0durch%20s%C3%A4mtliche%20gute%20Kneipen%20Karlsruhes.%20Auch%20Non-Alc%20s
+ ehr%20%0Agerne%20willkommen!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlang
+ sam.de%2Fwochenplan%23Kneipentour%3C%2Fbody%3E":Zuerst gezeigt bekommen und
+  dann nicht rein? Nicht mit uns! Eine Eingeh-Tour\ndurch sämtliche gute Kn
+ eipen Karlsruhes. Auch Non-Alc sehr gerne willkommen!\n\nhttps://studierlan
+ gsam.de/wochenplan#Kneipentour
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204950Z
+LAST-MODIFIED:20221012T205040Z
+DTSTAMP:20221012T205040Z
+UID:3c4865cb-54b0-4aea-8b4e-adea6a31eb1e
+SUMMARY:O-Lympia
+DTSTART;TZID=Europe/Berlin:20221020T130000
+DTEND;TZID=Europe/Berlin:20221020T200000
+TRANSP:OPAQUE
+LOCATION:Forum
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EF%C3%BCr%20jeden%20schlechten%
+ 20Wortwitz%20eine%20Liegest%C3%BCtze%20und%20ihr%20gewinnt%20uns%0A%20die%2
+ 0O-Lympia!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenpla
+ n%23OLympia%3C%2Fbody%3E":Für jeden schlechten Wortwitz eine Liegestütze 
+ und ihr gewinnt uns die O-Lympia!\n\nhttps://studierlangsam.de/wochenplan#O
+ Lympia
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205044Z
+LAST-MODIFIED:20221012T205146Z
+DTSTAMP:20221012T205146Z
+UID:3c0ad30e-fdc2-44e2-91a0-7191e4c1536e
+SUMMARY:Spieleabend
+DTSTART;TZID=Europe/Berlin:20221020T200000
+DTEND;TZID=Europe/Berlin:20221020T235900
+TRANSP:OPAQUE
+LOCATION:Mathebau
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3ESpiel%2C%20Spa%C3%9F%20und%20S
+ pannung.%20Begeisterte%20von%20Gemeinschafts-%20und%20%0ABrettspielen%20ken
+ nen%20das%2C%20dieses%20mal%20mit%20uns!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2
+ Fstudierlangsam.de%2Fwochenplan%23Spieleabend%3C%2Fbody%3E":Spiel\, Spaß u
+ nd Spannung. Begeisterte von Gemeinschafts- und Brettspielen kennen\ndas\, 
+ dieses mal mit uns!\n\nhttps://studierlangsam.de/wochenplan#Spieleabend
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205156Z
+LAST-MODIFIED:20221012T205239Z
+DTSTAMP:20221012T205239Z
+UID:128a47da-e245-467e-8823-633b04e88134
+SUMMARY:Abschlussveranstaltung
+DTSTART;TZID=Europe/Berlin:20221021T113000
+DTEND;TZID=Europe/Berlin:20221021T124500
+TRANSP:OPAQUE
+LOCATION:Gerthsen HS
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EAlles%20gute%20hat%20ein%20End
+ e.%20Das%20offizielle%20Ende%20der%20O-Phase%20ist%20aber%20%0Anoch%20nicht
+ %20erreicht!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenp
+ lan%23Abschluss%3C%2Fbody%3E":Alles gute hat ein Ende. Das offizielle Ende 
+ der O-Phase ist aber noch nicht\nerreicht!\n\nhttps://studierlangsam.de/woc
+ henplan#Abschluss
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205247Z
+LAST-MODIFIED:20221012T205412Z
+DTSTAMP:20221012T205412Z
+UID:2f6d6a8b-4e72-4e92-a2dd-b6f823820bf1
+SUMMARY:Mensa
+DTSTART;TZID=Europe/Berlin:20221021T124500
+DTEND;TZID=Europe/Berlin:20221021T143000
+TRANSP:OPAQUE
+LOCATION:Mensa am Adenauerring
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EDie%20gute%20Mensa%2C%20ein%20
+ Ort%2C%20an%20dem%20das%20Herz%20der%20meisten%20Studierende%20%0Aanf%C3%A4
+ ngt%20h%C3%B6her%20zu%20schlagen.%20Manch%20einer%20munkelt%2C%20das%20l%C3
+ %A4ge%20nur%20an%20der%20%0Ag%C3%BCnstigen%20und%20guten%20Verpflegung%2C%2
+ 0wir%20findens%20gemeinsam%20raus!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudi
+ erlangsam.de%2Fwochenplan%23Mensa%3C%2Fbody%3E":Die gute Mensa\, ein Ort\, 
+ an dem das Herz der meisten Studierende anfängt höher\nzu schlagen. Manch
+  einer munkelt\, das läge nur an der günstigen und guten\nVerpflegung\, w
+ ir findens gemeinsam raus!\n\nhttps://studierlangsam.de/wochenplan#Mensa
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205431Z
+LAST-MODIFIED:20221012T205528Z
+DTSTAMP:20221012T205528Z
+UID:0c77e0df-86df-425e-9edf-e51af156fecd
+SUMMARY:Aktivitäten
+DTSTART;TZID=Europe/Berlin:20221021T143000
+DTEND;TZID=Europe/Berlin:20221021T200000
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#Aktivitäten
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EOb%20still%20und%20alt%20oder%
+ 20leise%20und%20neu%2C%20unseren%20Besuchen%20widmen%20wir%20%0Aheu'%20Nach
+ mittag.%20Warnung%3A%20Bildungs-%20und%20Erstaunensgefahr%2C%20vergesst%20n
+ icht%0A%20euren%20Mund%20zu%20schlie%C3%9Fen!%20Sportbegeisterte%20d%C3%BCr
+ fen%20sich%20aber%20gerne%20auch%20%0Aaustoben%20%3AD%3Cbr%3E%0A%3Cbr%3E%0A
+ https%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23Aktivit%C3%A4ten%3C%2Fbody%3
+ E":Ob still und alt oder leise und neu\, unseren Besuchen widmen wir heu'\n
+ Nachmittag. Warnung: Bildungs- und Erstaunensgefahr\, vergesst nicht euren 
+ Mund\nzu schließen! Sportbegeisterte dürfen sich aber gerne auch austoben
+  :D\n\nhttps://studierlangsam.de/wochenplan#Aktivitäten
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205632Z
+LAST-MODIFIED:20221012T205724Z
+DTSTAMP:20221012T205724Z
+UID:c227bc07-bf1e-4925-b3be-8227c7b8886d
+SUMMARY:Mädelsbrunch
+DTSTART;TZID=Europe/Berlin:20221022T100000
+DTEND;TZID=Europe/Berlin:20221022T130000
+TRANSP:OPAQUE
+LOCATION:Mathebau
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EEin%20organisierter%20M%C3%A4d
+ elsbrunch%20der%20Fachschaft%2C%20damit%20keine%20von%20%0Aeuch%20alleine%2
+ 0ist.%20Cheers!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwoch
+ enplan%23M%C3%A4delsbrunch%3C%2Fbody%3E":Ein organisierter Mädelsbrunch de
+ r Fachschaft\, damit keine von euch alleine ist.\nCheers!\n\nhttps://studie
+ rlangsam.de/wochenplan#Mädelsbrunch
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205731Z
+LAST-MODIFIED:20221012T205835Z
+DTSTAMP:20221012T205835Z
+UID:4cd65735-dec8-4157-8514-3bb3f8f3c6b5
+SUMMARY:Mathetreff
+DTSTART;TZID=Europe/Berlin:20221022T130000
+DTEND;TZID=Europe/Berlin:20221022T140000
+TRANSP:OPAQUE
+LOCATION:Mathebau
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EDa%20wir%20um%20die%20Schwieri
+ gkeit%20des%20Kennenlernens%20anderer%20%0AMathe-Studierende%20wissen%2C%20
+ hier%20ein%20Treffen%20euresgleichen.%20%0AMathe-Studierende%2C%20versammel
+ t%20euch!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan
+ %23Mathetreff%3C%2Fbody%3E":Da wir um die Schwierigkeit des Kennenlernens a
+ nderer Mathe-Studierende wissen\,\nhier ein Treffen euresgleichen. Mathe-St
+ udierende\, versammelt euch!\n\nhttps://studierlangsam.de/wochenplan#Mathet
+ reff
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T202331Z
+LAST-MODIFIED:20221013T183637Z
+DTSTAMP:20221013T183637Z
+UID:0e071f20-4775-4e7f-bdf1-931854c035f5
+SUMMARY:Begrüßungsveranstaltung
+DTSTART;TZID=Europe/Berlin:20221017T090000
+DTEND;TZID=Europe/Berlin:20221017T120000
+TRANSP:OPAQUE
+LOCATION:Audimax
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3E%0A%3Cdiv%3E%3Cdiv%3E%3Cspan%3
+ EDie%20offizielle%20Er%C3%B6ffnungsveranstaltung%20der%20Fachschaften%20%0A
+ Mathematik%20und%20Informatik.%3C%2Fspan%3E%3C%2Fdiv%3E%0A%3Cdiv%3E%3Cspan%
+ 3Ehttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23Begr%C3%BC%C3%9Fung%3C%2Fs
+ pan%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fbody%3E":Die offizielle Eröffnungsvera
+ nstaltung der Fachschaften Mathematik und Informatik.\nhttps://studierlangs
+ am.de/wochenplan#Begrüßung
+X-MOZ-GENERATION:1
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1H
+DESCRIPTION:Default Mozilla Description
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T203938Z
+LAST-MODIFIED:20221013T183718Z
+DTSTAMP:20221013T183718Z
+UID:d0be16e5-8c03-44f6-a17d-e59231d4806c
+SUMMARY:Frühstück
+DTSTART;TZID=Europe/Berlin:20221018T100000
+DTEND;TZID=Europe/Berlin:20221018T130000
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#DIFrühstück
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EDer%20fr%C3%BChe%20Vogel%20f%C
+ 3%A4ngt%20den%20Wurm...%20oder%20so.%20Jedenfalls%20startet%20%0Adieser%20n
+ icht%20mit%20einem%20leeren%20Magen%2C%20also%20warum%20sollten%20wir%3F%0A
+ %3Cdiv%3E%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23DIFr%C3%
+ BChst%C3%BCck%3C%2Fdiv%3E%0A%3C%2Fbody%3E":Der frühe Vogel fängt den Wurm
+ ... oder so. Jedenfalls startet dieser nicht mit\neinem leeren Magen\, also
+  warum sollten wir?\n\nhttps://studierlangsam.de/wochenplan#DIFrühstück\n
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204612Z
+LAST-MODIFIED:20221013T183815Z
+DTSTAMP:20221013T183815Z
+UID:b64ddf73-b399-43de-b50b-5001ed0fa98e
+SUMMARY:O-Rallye
+DTSTART;TZID=Europe/Berlin:20221019T110000
+DTEND;TZID=Europe/Berlin:20221019T180000
+TRANSP:OPAQUE
+LOCATION:ORallye
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EKeine%20O-Phase%20geht%20doch%
+ 20ohne%20eine%20gute%2C%20alte%20O-Rallye!%3Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F
+ %2Fstudierlangsam.de%2Fwochenplan%23ORallye%3C%2Fbody%3E":Keine O-Phase geh
+ t doch ohne eine gute\, alte O-Rallye!\n\nhttps://studierlangsam.de/wochenp
+ lan#ORallye
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T204846Z
+LAST-MODIFIED:20221013T183833Z
+DTSTAMP:20221013T183833Z
+UID:1c300ccd-5db3-4e42-a8e0-d5cdee76cdc8
+SUMMARY:Frühstück
+DTSTART;TZID=Europe/Berlin:20221020T100000
+DTEND;TZID=Europe/Berlin:20221020T130000
+TRANSP:OPAQUE
+LOCATION:https://studierlangsam.de/wochenplan#DOFrühstück
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EDer%20fr%C3%BChe%20Vogel%20f%C
+ 3%A4ngt%20den%20Wurm...%20oder%20so.%20Jedenfalls%20startet%20%0Adieser%20n
+ icht%20mit%20einem%20leeren%20Magen%2C%20also%20warum%20sollten%20wir%3F%3C
+ br%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23DOFr%C3%B
+ Chst%C3%BCck%3C%2Fbody%3E":Der frühe Vogel fängt den Wurm... oder so. Jed
+ enfalls startet dieser nicht mit\neinem leeren Magen\, also warum sollten w
+ ir?\n\nhttps://studierlangsam.de/wochenplan#DOFrühstück
+X-MOZ-GENERATION:1
+END:VEVENT
+BEGIN:VEVENT
+CREATED:20221012T205532Z
+LAST-MODIFIED:20221013T184030Z
+DTSTAMP:20221013T184030Z
+UID:5dd2b22a-c744-49e1-a025-89c6bf4ca345
+SUMMARY:Cocktailabend
+DTSTART;TZID=Europe/Berlin:20221021T200000
+DTEND;TZID=Europe/Berlin:20221021T235900
+TRANSP:OPAQUE
+LOCATION:TBA
+DESCRIPTION;ALTREP="data:text/html,%3Cbody%3EWir%20pr%C3%A4sentieren%20unse
+ ren%20hausgemachten%20Cocktailabend!%20Ob%20Mit%20oder%20%0AOhne%2C%20ein%2
+ 0gemeinsames%20Ausklingen%20dieser%20Woche%20untereinander%20muss%20sein!%3
+ Cbr%3E%0A%3Cbr%3E%0Ahttps%3A%2F%2Fstudierlangsam.de%2Fwochenplan%23Cocktail
+ abend%3C%2Fbody%3E":Wir präsentieren unseren hausgemachten Cocktailabend! 
+ Ob Mit oder Ohne\, ein\ngemeinsames Ausklingen dieser Woche untereinander m
+ uss sein!\n\nhttps://studierlangsam.de/wochenplan#Cocktailabend
+X-MOZ-GENERATION:1
+END:VEVENT
+END:VCALENDAR
