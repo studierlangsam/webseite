@@ -13,12 +13,11 @@ mixin Tutor(Name, Studieninfos)
 	//- [Studiengang, Studienbeginn, Studienpause]
 	//- +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
 	-
-		var fs = require('fs');
 		var image = 'images/tutoren/' + Name + '.jpg';
 		//- console.log(fs.existsSync(image));
 		image = fs.existsSync(image) ? '/' + image : '/images/tutoren/default.jpg';
 	.tutor
-		img(src=encodeURI(image),alt='')
+		img(src=encodeURI(image), alt='')
 		div
 			h3= Name
 			each Studieninfo in Studieninfos
@@ -126,7 +125,6 @@ block main
 	- // Sortiere Tutoren nach der Vorhandenheit eines Bildes alphabetisch
 	-
 		const sortedTutorenarrays = Tutorenarrays.sort((t1, t2) => {
-			var fs = require('fs');
 			var t1ImageExists = fs.existsSync('images/tutoren/' + t1[0] + '.jpg');
 			var t2ImageExists = fs.existsSync('images/tutoren/' + t2[0] + '.jpg');
 			if (t1ImageExists === t2ImageExists) {

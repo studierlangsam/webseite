@@ -1,29 +1,34 @@
-const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
+import gulp from "gulp";
+import {create as createBrowserSync} from "browser-sync";
+import gulp_sass from "gulp-sass";
+import plainSass from "sass";
+import pug from "gulp-pug";
+import rename from "gulp-rename";
+import htmlmin from "gulp-htmlmin";
+import rmrf from "rimraf";
+import sourcemaps from "gulp-sourcemaps";
+import w3cjs from "gulp-w3cjs";
+import stylelint from "@ronilaukkarinen/gulp-stylelint";
+import cleanCss from "gulp-clean-css";
+import parallel from "concurrent-transform";
+import revall from "gulp-rev-all";
+import clean from "gulp-clean";
+import read from "gulp-read";
+import gIf from "gulp-if";
+import plumber from "gulp-plumber";
+import os from "os";
+import plainresize from "gulp-image-resize";
+import gulpRunCommand from "gulp-run-command";
+import git from "gulp-git";
+import * as fs from "fs";
+import emojione from "emojione"
+
+const browserSync = createBrowserSync();
+const run = gulpRunCommand.default
 
 // load the sass compiler in node 16
-const sass = require('gulp-sass')(require('sass'));
-const pug = require('gulp-pug');
-const rename = require('gulp-rename');
-const htmlmin = require('gulp-htmlmin');
-const rmrf = require('rimraf');
-const sourcemaps = require('gulp-sourcemaps');
-const w3cjs = require('gulp-w3cjs');
-const stylelint = require('@ronilaukkarinen/gulp-stylelint');
-const cleanCss = require('gulp-clean-css');
-const parallel = require('concurrent-transform');
-const revall = require('gulp-rev-all');
-const clean = require('gulp-clean');
-const read = require('gulp-read');
-const gIf = require('gulp-if');
-const plumber = require('gulp-plumber');
-const os = require('os');
-const plainresize = require('gulp-image-resize');
+const sass = gulp_sass(plainSass);
 const resize = options => parallel(plainresize(options), os.cpus().length);
-const run = require('gulp-run-command').default;
-var git = require('gulp-git');
-
-
 // whether we are building a release version, as opposed to a development build.
 let release = false;
 let releaseversion = null;
@@ -59,9 +64,7 @@ function content() {
 	return gulp.src(contentsources)
 		.pipe(plumber())
 		.pipe(pug({
-			data: {
-				require: require
-			}
+			data: { emojione, fs }
 		}))
 		.pipe(plumber.stop())
 		.pipe(gIf(release, htmlmin({
