@@ -164,8 +164,8 @@ function serve() {
 /**
  * Cleans all build files.
  */
-function cleanbuilddir(done) {
-	rmrf(builddir, done);
+function cleanbuilddir() {
+	return rmrf(builddir);
 }
 
 /**
