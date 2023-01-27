@@ -4,6 +4,7 @@
   "description": "Website der O-Phasen-Gruppe „Studier Langsam“ am KIT",
   "repository": "https://github.com/studierlangsam/webseite.git",
   "main": "gulpfile.js",
+  "type": "module",
   "devDependencies": {
     "@ronilaukkarinen/gulp-stylelint": "14.0.9",
     "browser-sync": "2.27.11",
