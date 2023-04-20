@@ -30,7 +30,7 @@
     "rimraf": "4.4.1",
     "sass": "1.62.0",
     "stylelint": "15.5.0",
-    "stylelint-config-standard-scss": "7.0.1",
+    "stylelint-config-standard-scss": "8.0.0",
     "stylelint-order": "6.0.3"
   },
   "scripts": {
