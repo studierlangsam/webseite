@@ -5,7 +5,7 @@ import plainSass from "sass";
 import pug from "gulp-pug";
 import rename from "gulp-rename";
 import htmlmin from "gulp-htmlmin";
-import rmrf from "rimraf";
+import {rimraf as rmrf} from "rimraf";
 import sourcemaps from "gulp-sourcemaps";
 import w3cjs from "gulp-w3cjs";
 import stylelint from "@ronilaukkarinen/gulp-stylelint";
