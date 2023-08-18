@@ -29,7 +29,7 @@
     "postcss": "8.4.28",
     "rimraf": "5.0.1",
     "sass": "1.66.0",
-    "stylelint": "15.10.2",
+    "stylelint": "15.10.3",
     "stylelint-config-standard-scss": "9.0.0",
     "stylelint-order": "6.0.3"
   },
