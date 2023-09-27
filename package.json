@@ -27,7 +27,7 @@
     "gulp-sourcemaps": "3.0.0",
     "gulp-w3cjs": "1.3.2",
     "postcss": "8.4.30",
-    "rimraf": "5.0.4",
+    "rimraf": "5.0.5",
     "sass": "1.68.0",
     "stylelint": "15.10.3",
     "stylelint-config-standard-scss": "9.0.0",
