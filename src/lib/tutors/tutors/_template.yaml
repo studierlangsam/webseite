@@ -1,0 +1,10 @@
+Name: # Vorname Nachname
+Karriere: 
+  # Pro Studiengang
+  - Studiengang: # Name des Studienganges
+    Jahr: # In welchem Jahr begonnen?
+    Sommersemester: # Im Sommer angefangen? => true, sonst false
+    Urlaubssemester: # Anzahl der Urlaubssemster
+Spruch: # Ein Spruch der Angezeigt werden soll
+  
+

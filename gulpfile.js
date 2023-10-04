@@ -39,7 +39,8 @@ const releasedir = 'release';
 const stylesheets = 'style/**/*.scss';
 const scripts = 'script/**/*.js';
 const miscstaticfiles = 'static/**/*';
-const contentsources = 'content/**/*.pug';
+const pages = 'pages/**/*.pug';
+const contentfiles = 'content/**/*';
 const graphicfiles = ['graphic/**/*', 'favicon.ico'];
 const tutorenfiles = 'images/tutoren/*.jpg';
 
@@ -61,7 +62,7 @@ function style() {
  * Render the content pages.
  */
 function content() {
-	return gulp.src(contentsources)
+	return gulp.src(pages)
 		.pipe(plumber())
 		.pipe(pug({
 			data: { emojione, fs }
@@ -147,9 +148,10 @@ function stylesheetReload() {
  */
 function watch() {
 	gulp.watch(stylesheets, stylesheetReload);
-	gulp.watch([contentsources, 'layout', scripts], gulp.series(content, reload));
+	gulp.watch([pages, 'layout', scripts], gulp.series(content, reload));
 	gulp.watch(graphicfiles, gulp.series(graphics, reload));
 	gulp.watch(tutorenfiles, gulp.series(images, reload));
+	gulp.watch(contentfiles, gulp.series(content, reload))
 }
 
 /**

@@ -1,0 +1,61 @@
+@import 'colors';
+@import 'sizes';
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	> * {
+		flex-shrink: 0;
+	}
+}
+
+.banner {
+	position: relative;
+
+	margin-top: 2em;
+
+	width: 100%;
+	height: 30%;
+
+	img {
+		display: block;
+
+		margin: 0 auto;
+
+		height: 100%;
+	}
+
+	&::before {
+		display: block;
+
+		position: absolute;
+		bottom: 0;
+
+		z-index: -10;
+
+		background: $dark;
+
+		width: 100%;
+		height: 39.87%;
+
+		content: '';
+	}
+}
+
+nav {
+	padding-top: 1em;
+	padding-bottom: .4em;
+}
+
+main {
+	flex-grow: 1;
+	flex-shrink: 0;
+
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+footer {
+	height: $footer-height;
+}

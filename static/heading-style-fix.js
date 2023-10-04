@@ -7,7 +7,6 @@
  *
  * This script is inlined into the output html.
  */
-
 (function() {
 
 	/**

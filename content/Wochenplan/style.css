@@ -1,0 +1,162 @@
+@import url(palette.css);
+
+/* Layout */
+main {
+    display: grid;
+    grid-template-columns: auto repeat(6, 1fr);
+    --quarter-height: 13px;
+    grid-template-rows: 
+        [top] auto [sep t0900] var(--quarter-height) [t0915] var(--quarter-height) [t0930] var(--quarter-height) [t0945] var(--quarter-height)
+                       [t1000] var(--quarter-height) [t1015] var(--quarter-height) [t1030] var(--quarter-height) [t1045] var(--quarter-height)
+                       [t1100] var(--quarter-height) [t1115] var(--quarter-height) [t1130] var(--quarter-height) [t1145] var(--quarter-height)
+                       [t1200] var(--quarter-height) [t1215] var(--quarter-height) [t1230] var(--quarter-height) [t1245] var(--quarter-height)
+                       [t1300] var(--quarter-height) [t1315] var(--quarter-height) [t1330] var(--quarter-height) [t1345] var(--quarter-height)
+                       [t1400] var(--quarter-height) [t1415] var(--quarter-height) [t1430] var(--quarter-height) [t1445] var(--quarter-height)
+                       [t1500] var(--quarter-height) [t1515] var(--quarter-height) [t1530] var(--quarter-height) [t1545] var(--quarter-height)
+                       [t1600] var(--quarter-height) [t1615] var(--quarter-height) [t1630] var(--quarter-height) [t1645] var(--quarter-height)
+                       [t1700] var(--quarter-height) [t1715] var(--quarter-height) [t1730] var(--quarter-height) [t1745] var(--quarter-height)
+                       [t1800] var(--quarter-height) [t1815] var(--quarter-height) [t1830] var(--quarter-height) [t1845] var(--quarter-height)
+                       [t1900] var(--quarter-height) [t1915] var(--quarter-height) [t1930] var(--quarter-height) [t1945] var(--quarter-height)
+                       [t2000] var(--quarter-height) [t2015] var(--quarter-height) [t2030] var(--quarter-height) [t2045] var(--quarter-height)
+                       [t2100] var(--quarter-height) [t2115] var(--quarter-height) [t2130] var(--quarter-height) [t2145] var(--quarter-height) [t2300 bottom];
+}
+
+.left { grid-column: 1 / 2; }
+.mo { grid-column: 2 / 3; }
+.di { grid-column: 3 / 4; }
+.mi { grid-column: 4 / 5; }
+.do { grid-column: 5 / 6; }
+.fr { grid-column: 6 / 7; }
+.sa { grid-column: 7 / 8 }
+
+/* Style */
+body {
+    font-family: "Coda", Arial, sans-serif;
+}
+h1, h2, h3 {
+    font-family: "Coda", Arial Black, bold sans-serif;
+}
+
+/* Fading out open end slots */
+@media screen {
+    body {
+        padding-bottom: 16px;
+        --mask: linear-gradient(to top,
+            rgba(0,0,0, 0) 0, 
+            rgba(0,0,0, 1) 16px
+        );
+        -webkit-mask: var(--mask); 
+        mask: var(--mask);
+    }    
+}
+
+main {
+    /* margin: 16px; */
+    --outer-padding: 16px;
+    padding: var(--outer-padding);
+    border: 1px solid gray;
+    border-radius: 16px;
+}
+
+h2 {
+    font-size: 2em;
+    margin: calc(0.5em - var(--outer-padding)) 0 0.5em 0;
+}
+
+.line {
+    grid-row: top / bottom;
+    border-right: 1px solid grey;
+    position: relative;
+    top: calc(-1 * var(--outer-padding));
+    z-index: -1000;
+}
+.line::after {
+    display: block;
+    content: "";
+    border-right: 1px solid grey;
+    position: relative;
+    height: calc(2 * var(--outer-padding));
+    width: 100%;
+    top: 100%;
+}
+.hline {
+    grid-column: 1 / 8;
+    grid-row: top / sep;
+    border-bottom: 1px solid grey;
+    position: relative;
+    left: calc(-1 * var(--outer-padding));
+}
+.hline::after {
+    display: block;
+    content: "";
+    border-bottom: 1px solid grey;
+    position: relative;
+    width: calc(2 * var(--outer-padding));
+    height: 100%;
+    left: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+aside {
+    padding: 8px;
+    position: relative;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+aside:not(:last-of-type) {
+    border-bottom: 1px solid grey;
+}
+aside:not(:last-of-type):before {
+    display: block;
+    content: "";
+    border-bottom: 1px solid grey;
+    position: absolute;
+    width: var(--outer-padding);
+    height: 100%;
+    right: 100%;
+    top: 0;
+}
+
+article {
+    position: relative;
+    font-size: .9rem;
+    --color: rosybrown;
+    background-color: var(--color);
+    margin: 4px 8px;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px grey;
+}
+h3 {
+    margin: 0;
+}
+.green {
+    /* last year's color */
+    /* --color: #d6e88f; */
+    /* custom color palette */
+    /* --color: var(--color-primary-0); */
+    /* desaturated Schilid color */
+    --color: hsl(83, 60%, 60%);
+}
+.blue {
+    /* --color: #a4a7e6; */
+    /* --color: var(--color-secondary-1-0); */
+    --color: hsl(216, 60%, 75%);
+}
+.open-end {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 100vh;
+}
+
+#schildi {
+    position: absolute;
+    width: 50%;
+    bottom: 99%;
+}

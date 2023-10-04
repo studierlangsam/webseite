@@ -1,0 +1,26 @@
+@import 'responsive';
+
+p {
+	position: relative;
+}
+
+.cc-logo {
+	position: absolute;
+	right: 100%;
+
+	padding-top: .3em;
+	padding-right: 1em;
+
+	@include from-width(55rem) {
+		display: block;
+
+		position: relative;
+		right: auto;
+
+		margin: 0;
+
+		padding: 0;
+
+		text-align: center;
+	}
+}

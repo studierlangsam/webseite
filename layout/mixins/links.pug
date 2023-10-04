@@ -7,3 +7,9 @@ mixin extlink(address)
 
 mixin maillink(address) 
 	a(href=`mailto:${address}`)&attributes(attributes)= address
+
+mixin section(address, name)
+	if !!name
+		h1(id=`${address}`)= name
+	else
+		h1(id=`${address}`)= address

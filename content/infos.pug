@@ -1,9 +1,9 @@
-extends ../layout/page.pug
+//- extends ../layout/base.pug
 
-block properties
-	- const Titel = 'Informationen'
-	- const Link = '/infos'
-	- const Schlagwörter = 'Fragen,FAQ,Informationen,Antworten'
+//- block properties
+//- 	- const Titel = 'Informationen'
+//- 	- const Link = '/infos'
+//- 	- const Schlagwörter = 'Fragen,FAQ,Informationen,Antworten'
 
 mixin Frage
 	h3
@@ -13,8 +13,8 @@ mixin Antwort
 	p
 		block
 
-block main
-	h1 Fragen und Antworten
+block append main
+	+section('FAQ', 'Fragen und Antworten')
 	p Auf viele Fragen hat die Fachschaft schon auf ihrer #[+extlink('https://o-phase.com/de/faq-ws/') FAQ-Seite] Antwort gegeben. Solltest du noch Fragen haben, die hier nicht beantwortet werden, dann schreib uns unter #[+maillink('tutoren@studierlangsam.de')]!
 
 	+Frage Kann ich auch teilnehmen, wenn ich nicht nach Karlsruhe kommen kann?

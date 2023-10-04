@@ -8,3 +8,6 @@ $paragraph-indent: 1.5rem;
 $paragraph-max-width: 42rem;
 
 $text-line-height: 1.4;
+
+$max-content-width: 1000px;
+$content-width: clamp(500px, 80%, $max-content-width)

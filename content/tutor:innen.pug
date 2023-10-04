@@ -1,140 +1,130 @@
-extends ../layout/page.pug
+//- extends ../layout/page.pug
 
 
-block properties
-	- const Titel = 'Tutor:innen'
-	- const Link = '/tutor:innen'
-	- const Schlagwörter = 'Tutor:innen, Tutoren, Tutorinnen'
+//- block properties
+//- 	- const Titel = 'Tutor:innen'
+//- 	- const Link = '/tutor:innen'
+//- 	- const Schlagwörter = 'Tutor:innen, Tutoren, Tutorinnen'
 
 block append style
 	+stylesheet('/style/tutoren.css')
 
-mixin Tutor(Name, Studieninfos) 
-	//- [Studiengang, Studienbeginn, Studienpause]
-	//- +1, falls das Sommersemester (grob) vorbei ist, -1 falls das Wintersemester (grob) noch nicht vorbei ist.
+mixin Tutor(tutor) 
 	-
-		var image = 'images/tutoren/' + Name + '.jpg';
-		//- console.log(fs.existsSync(image));
-		image = fs.existsSync(image) ? '/' + image : '/images/tutoren/default.jpg';
+		var image = `/images/tutoren/${tutor.Name}.jpg`;
 	.tutor
 		img(src=encodeURI(image), alt='')
 		div
-			h3= Name
-			each Studieninfo in Studieninfos
-				- const Studiengang = Studieninfo[0]
-				- const Studienbeginn = Studieninfo[1]
-				- const Studienpause = Studieninfo[2] ?? 0
-				- const Studiendauer = Studienbeginn => (new Date().getFullYear() - Studienbeginn) * 2 + (new Date().getMonth() > 7 ? 1 : 0) - (new Date().getMonth() < 2 ? 1 : 0) - (Studienpause ? Studienpause : 0)
+			h3= tutor.Name
+			p= tutor.Spruch
+			br
+			each Studium in tutor.Karriere
+				- 
+				-
+					const Studiengang = Studium.Studiengang;
+					const Semester = Studium => {
+						const years = new Date().getFullYear() - Studium.Jahr;
+						const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0);
+						return realSemesters - (Studium.Sommersemester ? 1 : 0) - (Studium.Urlaubssemester ?? 0) + 1;
+					}
 				p #{Studiengang}
 					br
-					| #{Studiendauer(Studienbeginn)}. Semester
+					| #{Semester(Studium)}. Semester
 				br
 
 block main
-	h1 Tutor:innen
+	+section('Tutor:innen')
 	p Wir sind die Menschen, die dich durch deine O-Phase begleiten werden. Falls du irgendwelche Fragen hast, kannst du uns jederzeit eine Email an #[+maillink('tutoren@studierlangsam.de')] schreiben.
-	-
-		const Tutorenarrays = [
-			// Name, Studiengang, Jahr des Studienbeginns
-			// Alphabetisch absteigend sortiert nach: Vorname > Zweitname > Nachname
-
-			// ['Alexander von Heyden', 'Bachelor Informatik', 2015],
-			['Alina Thirolf', [['Bachelor Mathematik', 2020]]],
-			['Anh Dang', [['Bachelor Informatik', 2021]]],
-			// ['Anne Hoff', 'Bachelor Informatik', 2019],
-			// ['Annika Berger', 'Bachelor Informatik', 2014],
-			// ['Charlotte', 'Bachelor Mathematik', 2020],
-			// ['Christoph Müller', 'Bachelor Mathematik', 2018],
-			['Cián Payne', [['Bachelor Informatik', 2021]]],
-			// ['Daniel Bösch', 'Bachelor Informatik', 2016],
-			// ['David Nguyen', 'Bachelor Informatik', 2016],
-			// ['David Oberacker', 'Master Informatik', 2020],
-			['Deborah Haun', [['Bachelor Informatik', 2019]]],
-			['Dominik Rosch', [['Bachelor Informatik', 2021]]],
-			// ['Eric', 'Master Informatik', 2020],
-			// ['Fabian König', 'Bachelor Mathematik', 2015],
-			// ['Fabian Richter', 'Master Informatik', 2018],
-			['Falko Kübler', [['Bachelor Informatik', 2017]]],
-			['Florian Brendle', [['Bachelor Informatik', 2021]]],
-			['Florian Götzelmann', [['Lehramt Informatik', 2019]]],
-			// ['Henning Heister', 'Bachelor Mathematik', 2015],
-			// ['Ingo Pablo Gerner', 'Bachelor Informatik', 2018],
-			['Jakob Jarebica', [['Bachelor Informatik', 2020]]],
-			// ['Jan Christian Grünhage', 'Bachelor Informatik', 2016],
-			['Jan-Arne Sinnhuber', [['Bachelor Informatik', 2021]]],
-			['Jens Grabmaier', [['Bachelor Informatik', 2021]]],
-			// ['Johanna Greiner', 'Bachelor Mathematik & Kunst Lehramt', 2018],
-			['Johanna Siegel', [['Bachelor Informatik', 2021]]],
-			// ['Johannes Feuchter', 'Bachelor Mathematik', 2018],
-			['Jonas Ludwig', [['Master Informatik', 2021, -1], ['Bachelor Ed. Informatik', 2020, -2], ['Bachelor Ed. Philosophie', 2020]]],
-			['Jonas Seiler', [['Master Mathematik', 2021]]],
-			['Jonathan Hunz', [['Bachelor Informatik', 2019]]],
-			// ['Joshua Gleitze', 'Master Informatik', 2018],
-			// ['Joshua Sommer', 'Bachelor Informatik', 2016]
-			['Julia Lutzweiler', [['Master Informatik', 2018]]],
-			// ['Juliano Sommer', 'Bachelor Mathematik', 2015],
-			// ['Kansei Hara', 'Bachelor Informatik', 2014],
-			['Karina Schalldach', [['Bachelor Informatik', 2021]]],
-			['Katharina Biernacka', [['Bachelor Informatik', 2018]]],
-			// ['Laura Merker', 'Master Informatik', 2018],
-			['Laura Rißler', [['Bachelor Mathematik', 2021]]],
-			['Lea Kaiser', [['Bachelor Informatik', 2019]]],
-			['Leon Kießle', [['Bachelor Informatik', 2021]]],
-			['Leonhard Mannke', [['Bachelor Informatik', 2021]]],
-			['Linda Staerke', [['Bachelor Informatik', 2021]]],
-			['Linus Schöb', [['Bachelor Informatik', 2021]]],
-			// ['Lisa Weigel', 'Bachelor Informatik', 2017],
-			['Luca Buchholz', [['Bachelor Informatik', 2018]]],
-			// ['Malte Sönnichsen', 'Bachelor Informatik', 2015],
-			// ['Marco Fuchs', 'Bachelor Informatik', 2017],
-			// ['Max Göttlicher', 'Master Informatik', 2018],
-			// ['Max Scholle', 'Bachelor Mathematik & Geographie Lehramt', 2018],
-			['Max Vogel', [['Bachelor Informatik', 2021]]],
-			// ['Michael Vogt', 'Bachelor Informatik', 2013],
-			// ['Michael Zündorf', 'Master Informatik', 2019],
-			// ['Michelle Nickel', 'Bachelor Informatik', 2016],
-			// ['Moritz Halm', 'Master Informatik', 2018, 1],
-			['Nadine Merker', [['Bachelor Mathematik', 2018]]],
-			// ['Nathanael Funk', 'Bachelor Informatik', 2014],
-			// ['Norbert Kozsir', 'Bachelor Informatik', 2016],
-			// ['Ole Banning', 'Bachelor Informatik', 2019],
-			// ['Pascal Bothe', 'Bachelor Mathematik', 2015],
-			['Patrick Schneider', [['Bachelor Informatik', 2020], ['Bachelor Mathematik', 2022]]],
-			['Paul Liebsch', [['Bachelor Informatik', 2021]]],
-			// ['Paul von der Ahe', 'Bachelor Mathematik', 2015],
-			['Paul Zanner', [['Bachelor Informatik', 2019]]],
-			// ['Paul Zauner', 'Bachelor Informatik', 2019],
-			// ['Paula Klein', 'Bachelor Informatik', 2014],
-			['Peter Maucher', [['Bachelor Ed. Informatik & Mathematik', 2022, -3]]],
-			// ['Philip Andris', 'Bachelor Informatik', 2014, 1],
-			['Piotr Malkowski', [['Bachelor Informatik', 2021]]],
-			// ['Roman Langrehr', 'Master Informatik', 2017],
-			['Sarah Münch', [['Bachelor Informatik', 2020, -1]]], // Im SS 2020 begonnen
-			// ['Svenja Fellbaum', 'Bachelor Informatik', 2017],
-			// ['Tabea Friedrich', 'Bachelor Physik', 2015],
-			['Tamira Schmitt', [['Bachelor Informatik', 2020]]],
-			// ['Timo Kuch', 'Bachelor Mathematik', 2015],
-			// ['Timo Steidinger', 'Bachelor Informatik', 2014],
-			// ['Titia Gemeinhardt', 'Bachelor Informatik', 2017],
-			// ['Valentin Weber', 'Bachelor Informatik & Geographie Lehramt', 2018],
-			// ['Wendy Yi', 'Bachelor Informatik', 2017],
-			['Yannick Weiser', [['Bachelor Informatik', 2021]]],
-			// ['Yussuf Khalil', 'Master Informatik', 2018]
-		]
 	
-	- // Sortiere Tutoren nach der Vorhandenheit eines Bildes alphabetisch
-	-
-		const sortedTutorenarrays = Tutorenarrays.sort((t1, t2) => {
-			var t1ImageExists = fs.existsSync('images/tutoren/' + t1[0] + '.jpg');
-			var t2ImageExists = fs.existsSync('images/tutoren/' + t2[0] + '.jpg');
-			if (t1ImageExists === t2ImageExists) {
-				return t1[0].localeCompare(t2[0], 'de-DE');
-			} else if (t1ImageExists) {
-				return -1;
-			} else {
-				return 1;
-			}
-		});
+	- var tutors = require("./script/tutors.js");
+	each tutor in tutors.loadTutors()
+		+Tutor(tutor)
 
-	each Tutorarray in sortedTutorenarrays
-		+Tutor(Tutorarray[0], Tutorarray[1], Tutorarray[2], Tutorarray[3])
+	//- -
+	//- 	const Tutorenarrays = [
+	//- 		// Name, Studiengang, Jahr des Studienbeginns
+	//- 		// Alphabetisch absteigend sortiert nach: Vorname > Zweitname > Nachname
+
+	//- 		// ['Alexander von Heyden', 'Bachelor Informatik', 2015],
+	//- 		['Alina Thirolf', [['Bachelor Mathematik', 2020]]],
+	//- 		['Anh Dang', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Anne Hoff', 'Bachelor Informatik', 2019],
+	//- 		// ['Annika Berger', 'Bachelor Informatik', 2014],
+	//- 		// ['Charlotte', 'Bachelor Mathematik', 2020],
+	//- 		// ['Christoph Müller', 'Bachelor Mathematik', 2018],
+	//- 		['Cián Payne', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Daniel Bösch', 'Bachelor Informatik', 2016],
+	//- 		// ['David Nguyen', 'Bachelor Informatik', 2016],
+	//- 		// ['David Oberacker', 'Master Informatik', 2020],
+	//- 		['Deborah Haun', [['Bachelor Informatik', 2019]]],
+	//- 		['Dominik Rosch', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Eric', 'Master Informatik', 2020],
+	//- 		// ['Fabian König', 'Bachelor Mathematik', 2015],
+	//- 		// ['Fabian Richter', 'Master Informatik', 2018],
+	//- 		['Falko Kübler', [['Bachelor Informatik', 2017]]],
+	//- 		['Florian Brendle', [['Bachelor Informatik', 2021]]],
+	//- 		['Florian Götzelmann', [['Lehramt Informatik', 2019]]],
+	//- 		// ['Henning Heister', 'Bachelor Mathematik', 2015],
+	//- 		// ['Ingo Pablo Gerner', 'Bachelor Informatik', 2018],
+	//- 		['Jakob Jarebica', [['Bachelor Informatik', 2020]]],
+	//- 		// ['Jan Christian Grünhage', 'Bachelor Informatik', 2016],
+	//- 		['Jan-Arne Sinnhuber', [['Bachelor Informatik', 2021]]],
+	//- 		['Jens Grabmaier', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Johanna Greiner', 'Bachelor Mathematik & Kunst Lehramt', 2018],
+	//- 		['Johanna Siegel', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Johannes Feuchter', 'Bachelor Mathematik', 2018],
+	//- 		['Jonas Ludwig', [['Master Informatik', 2021, -1], ['Bachelor Ed. Informatik', 2020, -2], ['Bachelor Ed. Philosophie', 2020]]],
+	//- 		['Jonas Seiler', [['Master Mathematik', 2021]]],
+	//- 		['Jonathan Hunz', [['Bachelor Informatik', 2019]]],
+	//- 		// ['Joshua Gleitze', 'Master Informatik', 2018],
+	//- 		// ['Joshua Sommer', 'Bachelor Informatik', 2016]
+	//- 		['Julia Lutzweiler', [['Master Informatik', 2018]]],
+	//- 		// ['Juliano Sommer', 'Bachelor Mathematik', 2015],
+	//- 		// ['Kansei Hara', 'Bachelor Informatik', 2014],
+	//- 		['Karina Schalldach', [['Bachelor Informatik', 2021]]],
+	//- 		['Katharina Biernacka', [['Bachelor Informatik', 2018]]],
+	//- 		// ['Laura Merker', 'Master Informatik', 2018],
+	//- 		['Laura Rißler', [['Bachelor Mathematik', 2021]]],
+	//- 		['Lea Kaiser', [['Bachelor Informatik', 2019]]],
+	//- 		['Leon Kießle', [['Bachelor Informatik', 2021]]],
+	//- 		['Leonhard Mannke', [['Bachelor Informatik', 2021]]],
+	//- 		['Linda Staerke', [['Bachelor Informatik', 2021]]],
+	//- 		['Linus Schöb', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Lisa Weigel', 'Bachelor Informatik', 2017],
+	//- 		['Luca Buchholz', [['Bachelor Informatik', 2018]]],
+	//- 		// ['Malte Sönnichsen', 'Bachelor Informatik', 2015],
+	//- 		// ['Marco Fuchs', 'Bachelor Informatik', 2017],
+	//- 		// ['Max Göttlicher', 'Master Informatik', 2018],
+	//- 		// ['Max Scholle', 'Bachelor Mathematik & Geographie Lehramt', 2018],
+	//- 		['Max Vogel', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Michael Vogt', 'Bachelor Informatik', 2013],
+	//- 		// ['Michael Zündorf', 'Master Informatik', 2019],
+	//- 		// ['Michelle Nickel', 'Bachelor Informatik', 2016],
+	//- 		// ['Moritz Halm', 'Master Informatik', 2018, 1],
+	//- 		['Nadine Merker', [['Bachelor Mathematik', 2018]]],
+	//- 		// ['Nathanael Funk', 'Bachelor Informatik', 2014],
+	//- 		// ['Norbert Kozsir', 'Bachelor Informatik', 2016],
+	//- 		// ['Ole Banning', 'Bachelor Informatik', 2019],
+	//- 		// ['Pascal Bothe', 'Bachelor Mathematik', 2015],
+	//- 		['Patrick Schneider', [['Bachelor Informatik', 2020], ['Bachelor Mathematik', 2022]]],
+	//- 		['Paul Liebsch', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Paul von der Ahe', 'Bachelor Mathematik', 2015],
+	//- 		['Paul Zanner', [['Bachelor Informatik', 2019]]],
+	//- 		// ['Paul Zauner', 'Bachelor Informatik', 2019],
+	//- 		// ['Paula Klein', 'Bachelor Informatik', 2014],
+	//- 		['Peter Maucher', [['Bachelor Ed. Informatik & Mathematik', 2022, -3]]],
+	//- 		// ['Philip Andris', 'Bachelor Informatik', 2014, 1],
+	//- 		['Piotr Malkowski', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Roman Langrehr', 'Master Informatik', 2017],
+	//- 		['Sarah Münch', [['Bachelor Informatik', 2020, -1]]], // Im SS 2020 begonnen
+	//- 		// ['Svenja Fellbaum', 'Bachelor Informatik', 2017],
+	//- 		// ['Tabea Friedrich', 'Bachelor Physik', 2015],
+	//- 		['Tamira Schmitt', [['Bachelor Informatik', 2020]]],
+	//- 		// ['Timo Kuch', 'Bachelor Mathematik', 2015],
+	//- 		// ['Timo Steidinger', 'Bachelor Informatik', 2014],
+	//- 		// ['Titia Gemeinhardt', 'Bachelor Informatik', 2017],
+	//- 		// ['Valentin Weber', 'Bachelor Informatik & Geographie Lehramt', 2018],
+	//- 		// ['Wendy Yi', 'Bachelor Informatik', 2017],
+	//- 		['Yannick Weiser', [['Bachelor Informatik', 2021]]],
+	//- 		// ['Yussuf Khalil', 'Master Informatik', 2018]
+	//- 	]

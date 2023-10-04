@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Wochenplan Studier Langsam</title>
+
+        <style>
+            :root {
+                --color-primary-0: #7FEF2F;	/* Main Primary color */
+                --color-primary-1: #B5F886;
+                --color-primary-2: #98F357;
+                --color-primary-3: #64EB04;
+                --color-primary-4: #53C700;
+
+                --color-secondary-1-0: #2ABDCA;	/* Main Secondary color (1) */
+                --color-secondary-1-1: #7EDEE7;
+                --color-secondary-1-2: #4FCCD8;
+                --color-secondary-1-3: #06ADBC;
+                --color-secondary-1-4: #017E89;
+
+                --color-secondary-2-0: #F9FE32;	/* Main Secondary color (2) */
+                --color-secondary-2-1: #FCFF8A;
+                --color-secondary-2-2: #FAFE5B;
+                --color-secondary-2-3: #F8FE05;
+                --color-secondary-2-4: #DBE000;
+            }
+        </style>
+        <style>
+            @import url(palette.css);
+
+            /* Layout */
+            main {
+                display: grid;
+                grid-template-columns: auto repeat(6, 1fr);
+                --quarter-height: 13px;
+                grid-template-rows: 
+                    [top] auto [sep t0900] var(--quarter-height) [t0915] var(--quarter-height) [t0930] var(--quarter-height) [t0945] var(--quarter-height)
+                                [t1000] var(--quarter-height) [t1015] var(--quarter-height) [t1030] var(--quarter-height) [t1045] var(--quarter-height)
+                                [t1100] var(--quarter-height) [t1115] var(--quarter-height) [t1130] var(--quarter-height) [t1145] var(--quarter-height)
+                                [t1200] var(--quarter-height) [t1215] var(--quarter-height) [t1230] var(--quarter-height) [t1245] var(--quarter-height)
+                                [t1300] var(--quarter-height) [t1315] var(--quarter-height) [t1330] var(--quarter-height) [t1345] var(--quarter-height)
+                                [t1400] var(--quarter-height) [t1415] var(--quarter-height) [t1430] var(--quarter-height) [t1445] var(--quarter-height)
+                                [t1500] var(--quarter-height) [t1515] var(--quarter-height) [t1530] var(--quarter-height) [t1545] var(--quarter-height)
+                                [t1600] var(--quarter-height) [t1615] var(--quarter-height) [t1630] var(--quarter-height) [t1645] var(--quarter-height)
+                                [t1700] var(--quarter-height) [t1715] var(--quarter-height) [t1730] var(--quarter-height) [t1745] var(--quarter-height)
+                                [t1800] var(--quarter-height) [t1815] var(--quarter-height) [t1830] var(--quarter-height) [t1845] var(--quarter-height)
+                                [t1900] var(--quarter-height) [t1915] var(--quarter-height) [t1930] var(--quarter-height) [t1945] var(--quarter-height)
+                                [t2000] var(--quarter-height) [t2015] var(--quarter-height) [t2030] var(--quarter-height) [t2045] var(--quarter-height)
+                                [t2100] var(--quarter-height) [t2115] var(--quarter-height) [t2130] var(--quarter-height) [t2145] var(--quarter-height) [t2300 bottom];
+            }
+
+            .left { grid-column: 1 / 2; }
+            .mo { grid-column: 2 / 3; }
+            .di { grid-column: 3 / 4; }
+            .mi { grid-column: 4 / 5; }
+            .do { grid-column: 5 / 6; }
+            .fr { grid-column: 6 / 7; }
+            .sa { grid-column: 7 / 8 }
+
+            /* Style */
+            body {
+                font-family: "Coda", Arial, sans-serif;
+            }
+            h1, h2, h3 {
+                font-family: "Coda", Arial Black, bold sans-serif;
+            }
+
+            /* Fading out open end slots */
+            @media screen {
+                body {
+                    padding-bottom: 16px;
+                    --mask: linear-gradient(to top,
+                        rgba(0,0,0, 0) 0, 
+                        rgba(0,0,0, 1) 16px
+                    );
+                    -webkit-mask: var(--mask); 
+                    mask: var(--mask);
+                }    
+            }
+
+            main {
+                /* margin: 16px; */
+                --outer-padding: 16px;
+                padding: var(--outer-padding);
+                border: 1px solid gray;
+                border-radius: 16px;
+            }
+
+            h2 {
+                font-size: 2em;
+                margin: calc(0.5em - var(--outer-padding)) 0 0.5em 0;
+            }
+
+            .line {
+                grid-row: top / bottom;
+                border-right: 1px solid grey;
+                position: relative;
+                top: calc(-1 * var(--outer-padding));
+                z-index: -1000;
+            }
+            .line::after {
+                display: block;
+                content: "";
+                border-right: 1px solid grey;
+                position: relative;
+                height: calc(2 * var(--outer-padding));
+                width: 100%;
+                top: 100%;
+            }
+            .hline {
+                grid-column: 1 / 8;
+                grid-row: top / sep;
+                border-bottom: 1px solid grey;
+                position: relative;
+                left: calc(-1 * var(--outer-padding));
+            }
+            .hline::after {
+                display: block;
+                content: "";
+                border-bottom: 1px solid grey;
+                position: relative;
+                width: calc(2 * var(--outer-padding));
+                height: 100%;
+                left: 100%;
+            }
+
+            header {
+                text-align: center;
+            }
+
+            aside {
+                padding: 8px;
+                position: relative;
+
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            aside:not(:last-of-type) {
+                border-bottom: 1px solid grey;
+            }
+            aside:not(:last-of-type):before {
+                display: block;
+                content: "";
+                border-bottom: 1px solid grey;
+                position: absolute;
+                width: var(--outer-padding);
+                height: 100%;
+                right: 100%;
+                top: 0;
+            }
+
+            article {
+                position: relative;
+                font-size: .9rem;
+                --color: rosybrown;
+                background-color: var(--color);
+                margin: 4px 8px;
+                padding: 8px;
+                border-radius: 3px;
+                box-shadow: 2px 2px 6px grey;
+            }
+            h3 {
+                margin: 0;
+            }
+            .green {
+                /* last year's color */
+                /* --color: #d6e88f; */
+                /* custom color palette */
+                /* --color: var(--color-primary-0); */
+                /* desaturated Schilid color */
+                --color: hsl(83, 60%, 60%);
+            }
+            .blue {
+                /* --color: #a4a7e6; */
+                /* --color: var(--color-secondary-1-0); */
+                --color: hsl(216, 60%, 75%);
+            }
+            .open-end {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                height: 100vh;
+            }
+
+            #schildi {
+                position: absolute;
+                width: 50%;
+                bottom: 99%;
+            }
+        </style>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <header class="mo" style="grid-row: top / sep;"><h2>MO</h2></header>
+            <header class="di" style="grid-row: top / sep;"><h2>DI</h2></header>
+            <header class="mi" style="grid-row: top / sep;"><h2>MI</h2></header>
+            <header class="do" style="grid-row: top / sep;"><h2>DO</h2></header>
+            <header class="fr" style="grid-row: top / sep;"><h2>FR</h2></header>
+            <header class="sa" style="grid-row: top / sep;"><h2>SA</h2></header>
+
+            <aside class="left" style="grid-row: t0900 / t1200;">
+                <strong>Morgens</strong>
+                <span>
+                    <time>09</time> - <time>12</time> Uhr
+                </span>
+            </aside>
+            <aside class="left" style="grid-row: t1200 / t1800;">
+                <strong>Mittags</strong>
+                <span>
+                    <time>12</time> - <time>18</time> Uhr
+                </span>
+            </aside>
+            <aside class="left" style="grid-row: t1800 / bottom;">
+                <strong>Abends</strong>
+                <span>ab <time>18</time> Uhr</span>
+            </aside>
+
+            <div class="left line"></div>
+            <div class="mo line"></div>
+            <div class="di line"></div>
+            <div class="mi line"></div>
+            <div class="do line"></div>
+            <div class="fr line"></div>
+            <div class="hline"></div>
+
+            <article class="mo blue" style="grid-row: t0900 / t1200;">
+                <h3>Begrüßungs&shy;veranstaltung</h3>
+                <time>09:00</time> - <time>12:00</time>
+                <address>Audimax</address>
+            </article>
+            <article class="mo green" style="grid-row: t1230 / t1530;">
+                <h3>Kennenlernen & Pizza</h3>
+                <time>12:30</time>
+                <address>Schloss</address>
+            </article>
+            <article class="mo green" style="grid-row: t1530 / t1800;">
+                <h3>Campustour</h3>
+                <time>15:30</time>
+                <address>Schloss</address>
+            </article>
+            <article class="mo blue open-end" style="grid-row: t1900;">
+                <h3>O-Grillen</h3>
+                <time>19:00</time>
+                <address>Infobau</address>
+            </article>
+
+            <article class="di green" style="grid-row: t0900 / t1100;">
+                <h3>Frühstück</h3>
+                <time>09:00</time>
+                <address>TODO</address>
+            </article>
+            <!-- <article class="di green" style="grid-row: t1100 / t1200;">
+                <h3>TODO Füller?</h3>
+                <time>11:00</time>
+                <address>TODO</address>
+            </article> -->
+            <article class="di green" style="grid-row: t1200 / t1400;">
+                <h3>Mensa</h3>
+                <time>12:00</time>
+                <address>Mensa</address>
+            </article>
+            <article class="di blue" style="grid-row: t1400 / t1600;">
+                <h3>FBI</h3>
+                <time>14:00</time> - <time>16:00</time>
+                <!-- <address>Audimax, Neue Chemie, Infobau -101, Infobau -102</address> -->
+            </article>
+            <article class="di green" style="grid-row: t1600 / t1900;">
+                <h3>Bouldern</h3>
+                <time>16:00</time>
+                <address>TODO Treffpunkt</address>
+            </article>
+            <article class="di blue open-end" style="grid-row: t1900;">
+                <h3>O-Phest</h3>
+                <time>ca. 20:00</time>
+                <address>AKK</address>
+            </article>
+
+            <article class="mi green" style="grid-row: t0900 / t1100;">
+                <h3>Eigenes Frühstück</h3>
+                <time>09:00</time>
+                <!-- <address>Mathebau -1.009/-1.011/-1.012</address> -->
+                <address>Mathebau</address>
+            </article>
+            <article class="mi blue" style="grid-row: t1100 / t1700;">
+                <h3>O-Rallye</h3>
+                <time>11:00</time> - <time>17:00</time>
+                <!-- <address>Mathebau -1.009/-1.011/-1.012</address> -->
+                <address>Mathebau</address>
+            </article>
+            <article class="mi green open-end" style="grid-row: t1800;">
+                <h3>Kneipentour</h3>
+                <time>18:00</time>
+                <!-- TODO: Marktplatz streichen -->
+                <address>Durlacher Tor, <br>Marktplatz, <br>Europaplatz</address>
+            </article>
+
+            <article class="do green" style="grid-row: t1000 / t1300;">
+                <h3>Frühstück</h3>
+                <time>10:00</time>
+                <address>alinacafe TODO</address>
+            </article>
+            <article class="do blue" style="grid-row: t1300 / t1700;">
+                <h3>O-Lympia</h3>
+                <time>13:00</time> - <time>17:00</time>
+                <address>Forum</address>
+            </article>
+            <article class="do green" style="grid-row: t1800 / t2000;">
+                <h3>Abendessen</h3>
+                <!-- TODO: Zeit passt? -->
+                <time>18:00</time> - <time>20:00</time>
+                <address>Oxford Ost, WO noch?</address>
+            </article>
+            <article class="do green open-end" style="grid-row: t2000;">
+                <h3>Spieleabend</h3>
+                <!-- TODO: früher -->
+                <time>20:00</time>
+                <address>Mathebau</address>
+            </article>
+
+            <article class="fr blue" style="grid-row: t1130 / t1245;">
+                <h3>Abschluss</h3>
+                <time>11:30</time> - <time>12:30</time>
+                <!-- <address>Gerthsen</address> -->
+            </article>
+            <article class="fr green" style="grid-row: t1245 / t1430;">
+                <h3>Mensa</h3>
+                <time>12:45</time>
+                <address>Mensa</address>
+            </article>
+            <article class="fr green" style="grid-row: t1430 / t1800;">
+                <h3>Sport / Museen / SCC</h3>
+                <time>14:30</time>
+                <address>vor der Mensa</address>
+            </article>
+            <article class="fr green open-end" style="grid-row: t2000;">
+                <h3>Cocktailabend</h3>
+                <time>20:00</time>
+                <address>HaDiKo K1-Bar</address>
+                <img id="schildi" src="Schildkröte.svg" alt="Schildkröte">
+            </article>
+            
+            <article class="sa blue" style="grid-row: t1000 / t1300;">
+                <h3>Mädels-Brunch</h3>
+                <time>10:00</time>
+                <!-- <address>Mathebau -1.011/-1.012/-1.013/-1.014</address> -->
+                <address>Mathebau</address>
+            </article>
+            <article class="sa green" style="grid-row: t1300 / t1530;">
+                <h3>Mathe-Treff</h3>
+                <time>13:00</time>
+                <!-- <address>Mathebau -1.011/-1.012/-1.013/-1.014</address> -->
+                <address>Mathebau</address>
+            </article>
+        </main>
+    </body>
+</html>
