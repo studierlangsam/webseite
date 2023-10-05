@@ -1,8 +1,10 @@
 <script lang="ts">
     import "../app.postcss";
+    import "../app.postcss";
     import { page } from "$app/stores";
     const tags = $page.data.tags ? "," + $page.data.tags : "";
-    import logo from "$root/graphic/logo.svg?raw";
+    import logo from "$root/src/svg/logo.svg?raw";
+    import banner from "$root/src/svg/banner.svg?raw";
 </script>
 
 <svelte:head>
@@ -14,13 +16,13 @@
 
 <div class="content">
     <div class="banner">
-        <img src="/images/banner.svg">
+        <span>{@html banner}</span>
     </div>
     <nav>
         <a href="/" class="home">{@html logo}</a>
-        <a class:here={$page.url.hash === "#tutor:innen"} href="#Tutor:innen">Tutor:innen</a>
-        <a class:here={$page.url.hash === "#faq"} href="#FAQ">Infos</a>
-        <a class:here={$page.url.hash === "#wochenplan"} href="#Wochenplan">Wochenplan</a>
+        <a class:here={$page.url.hash === "#tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
+        <a class:here={$page.url.hash === "#faq"} href="/#FAQ">Infos</a>
+        <a class:here={$page.url.hash === "#wochenplan"} href="/#Wochenplan">Wochenplan</a>
     </nav>
     <main>
         <slot></slot>
@@ -45,7 +47,7 @@
 	width: 100%;
 	height: 30%;
 
-	img {
+	span {
 		display: block;
 
 		margin: 0 auto;
@@ -82,7 +84,7 @@ nav {
 
 	width: 100%;
     z-index: 100;
-
+    
     border-bottom: .4em solid $light;
 
     padding-top: $navigation-top-pad;

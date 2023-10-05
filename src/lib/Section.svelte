@@ -1,12 +1,19 @@
 <script lang="ts">
     export let address: string;
 </script>
-<h1 id={address}>
-    <slot>{address}</slot>
-</h1>
+<div>
+    <h1 id={address}>
+        <slot>{address}</slot>
+    </h1>
+    <span>
+        <slot name="append" />
+    </span>
+</div>
 
 <style lang="scss">
-    h1 {
-        margin-top: 2em;
-    }
+div {
+    display: flex;
+    align-items: center;
+    margin-top: 2em;
+}
 </style>

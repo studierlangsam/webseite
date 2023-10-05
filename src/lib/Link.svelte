@@ -5,6 +5,7 @@
     export let href: string;
     export let type: "mail"|"a"|"map" = "a";
     const isExtern = href.trim().match(/https:\/\//);
+    console.log(type, href, type === "mail");
 </script>
 {#if type === "map"}
 <span class="map">
@@ -14,11 +15,11 @@
     </a>
 </span>
 {:else if type === "mail"}
-<a href="mailto:{href}" {...$$props}>
+<a href="mailto:{href}">
     <slot />
 </a>
 {:else}
-<a href="{href}" target={isExtern ? "_blank" : "_self"} class:here={isExtern} {...$$props}>
+<a href="{href}" target={isExtern ? "_blank" : "_self"} class:here={isExtern}>
     <slot />
 </a>
 {/if}

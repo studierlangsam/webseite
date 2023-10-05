@@ -24,7 +24,7 @@ jobs:
       - name: Download npm Dependencies
         run: npm ci
       - name: Check
-        run: npx gulp check
+        run: npm run check
       - name: Log in to ghcr.io
         uses: docker/login-action@v2
         with:

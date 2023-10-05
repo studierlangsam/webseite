@@ -3,7 +3,9 @@
     import { loadWochenplan } from "./Wochenplan";
 	import Link from "../Link.svelte";
 	import Section from "../Section.svelte";
+    import schildi from "$root/src/svg/schildi.svg";
 
+    import { SlideToggle } from '@skeletonlabs/skeleton';
     type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
         ? Acc[number]
         : Enumerate<N, [...Acc, Acc['length']]>
@@ -43,7 +45,9 @@
     const endEveningSlot = timeToSlot(endHour, 0);
 </script>
 
-<Section address="Wochenplan" />
+<Section address="Wochenplan">
+    <SlideToggle slot="append" name="slider-label" checked>(label)</SlideToggle>
+</Section>
 {#await loadWochenplan() then {Wochenplan, Orte}}
 <div class="wochenplan" style="--cols: {Wochenplan.length}">
     <div class="time">
@@ -73,7 +77,7 @@
                 class:fachschaft="{event.Effekt?.Fachschaft ?? false}"
                 >
                 {#if event.Effekt.Schildi}
-                    <img class="schildi" src="/images/schildi.svg" alt="Schildi" />
+                    <img class="schildi" src="{schildi}" alt="Schildi" />
                 {/if}
                 <h4>{@html event.Titel}</h4>
                 <div class="timings">
