@@ -6,6 +6,7 @@
 	import Faq from "../lib/faq/FAQ.svelte";
 
 </script>
+
 <h2>Hallo du!</h2>
 <p>Willkommen bei Studier Langsam</p>
 <p>

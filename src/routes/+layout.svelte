@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-    <title>{$page.data.title ?? ' - '} Studier Langsam</title>
+    <title>{$page.data.title ? `${$page.data.title} - `: ""}Studier Langsam</title>
     <meta name="keywords" content="Studier Langsam,KIT,O-Phase,Studenten,Ersti{tags},Semesterbeginn,Karlsruhe,Karlsruher Institut für Technologie">
     <link rel="preload" href="https://fonts.gstatic.com/s/coda/v11/HfZzsBW2eqpsWXkIkeLL_Q.woff2" as="font" crossorigin="anonymous">
     <script type="text/javascript" src="/heading-style-fix.js"></script>

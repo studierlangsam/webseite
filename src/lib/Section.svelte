@@ -2,7 +2,7 @@
     export let address: string;
 </script>
 <div>
-    <h1 id={address}>
+    <h1 class="h1" id={address}>
         <slot>{address}</slot>
     </h1>
     <span>

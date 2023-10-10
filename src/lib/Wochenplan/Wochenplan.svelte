@@ -6,165 +6,204 @@
     import schildi from "$root/src/svg/schildi.svg";
 
     import { SlideToggle } from '@skeletonlabs/skeleton';
-    type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
-        ? Acc[number]
-        : Enumerate<N, [...Acc, Acc['length']]>
+    let gmaps = false;
 
-    type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
-
-    type Hour = IntRange<0,25>;
-    const startHour: Hour = 8;
-    const endHour: Hour = 24;
-
-    const morningHour: Hour = startHour;
-    const noonHour: Hour = 12;
-    const eveningHour: Hour = 18;
-
-    const slotsPerHour = 2;
-    const slots = (endHour - startHour) * slotsPerHour;
-    const timeToSlot = (hour: number, minute: number) => (hour - startHour) * slotsPerHour + Math.round((minute * slotsPerHour) / 60) + 1
-    const startSlot = (time: DateTime) => {
-        if (time.hour < startHour) {
-            return startHour * slotsPerHour;
+    const config = async () => {
+        const {Wochenplan, Orte, Config} = await loadWochenplan();
+        const hours = {start: Config.Start, end: Config.Ende, morning: Config.Start, noon: 12, evening: 18};
+        const timeToSlot = (hour: number, minute: number) => (hour - hours.start) * Config.SPH + Math.round((minute * Config.SPH) / 60) + 1;
+        const startSlot = {morning: timeToSlot(hours.morning, 0), noon: timeToSlot(hours.noon, 0), evening: timeToSlot(hours.evening, 0)};
+        const endSlot = {morning: startSlot.noon, noon: startSlot.evening, evening: timeToSlot(hours.evening, 0)};
+        const slots = (hours.end - hours.start) * Config.SPH;
+        const getStartSlot = (time: DateTime) => {
+            if (time.hour < hours.start) {
+                return hours.start * Config.SPH;
+            }
+            return timeToSlot(time.hour, time.minute)
         }
-        return timeToSlot(time.hour, time.minute)
-    }
-    const endSlot = (time?: DateTime) => {
-        if (!time || time.hour >= endHour) {
-            return (endHour - startHour) * slotsPerHour + 1;
+        const getEndSlot = (time?: DateTime) => {
+            if (!time || time.hour >= hours.end) {
+                return (hours.end - hours.start) * Config.SPH + 1;
+            }
+            return timeToSlot(time.hour, time.minute);
         }
-        return timeToSlot(time.hour, time.minute) + 1;
-    }
 
-    const startMorningSlot = timeToSlot(morningHour, 0);
-    const startNoonSlot = timeToSlot(noonHour, 0);
-    const startEveneningSlot = timeToSlot(eveningHour, 0);
-    
-    const endMorningSlot = startNoonSlot;
-    const endNoonSlot = startEveneningSlot;
-    const endEveningSlot = timeToSlot(endHour, 0);
+        console.log(hours, Config, slots)
+
+        return {
+            Wochenplan,
+            Orte,
+            hours,
+            timeToSlot,
+            startSlot,
+            endSlot,
+            slots,
+            getStartSlot,
+            getEndSlot,
+        }
+   }
 </script>
 
 <Section address="Wochenplan">
-    <SlideToggle slot="append" name="slider-label" checked>(label)</SlideToggle>
+    <SlideToggle slot="append" name="slider-label" bind:checked={gmaps}>
+        <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
+    </SlideToggle>
 </Section>
-{#await loadWochenplan() then {Wochenplan, Orte}}
-<div class="wochenplan" style="--cols: {Wochenplan.length}">
-    <div class="time">
-        <div class="wp-1-1 heading" />
-        <div class="wp-{startMorningSlot + 1}-{endMorningSlot + 1}">
-            <h4>Morgens</h4>
-            <p>{morningHour} - {noonHour} Uhr</p>
+{#await config() then {Wochenplan, Orte, startSlot, endSlot, hours, getStartSlot, getEndSlot, slots}}
+<div class="wochenplan-window" style="
+    --cols: {Wochenplan.length};
+    --slots: {slots};
+    --wp-height: 90rem;
+">
+    <div class="wochenplan">
+        <div class="daytime">
+            <div class="heading" />
+            <div class="time">
+                <div style="
+                    grid-row: {startSlot.morning} / {endSlot.morning};
+                ">
+                    <h4>Morgens</h4>
+                    <p>{hours.morning} - {hours.noon} Uhr</p>
+                </div>
+                <div style="
+                    grid-row: {startSlot.noon} / {endSlot.noon};
+                ">
+                    <h4>Mittags</h4>
+                    <p>{hours.noon} - {hours.evening} Uhr</p>
+                </div>
+                <div style="
+                    grid-row: {startSlot.evening} / {endSlot.evening};
+                ">
+                    <h4>Abends</h4>
+                    <p>Ab {hours.evening} Uhr</p>
+                </div>
+            </div>
         </div>
-        <div class="wp-{startNoonSlot + 1}-{endNoonSlot + 1}">
-            <h4>Mittags</h4>
-            <p>{noonHour} - {eveningHour} Uhr</p>
-        </div>
-        <div class="wp-{startEveneningSlot + 1}-{endEveningSlot}">
-            <h4>Abends</h4>
-            <p>Ab {eveningHour} Uhr</p>
-        </div>
-    </div>
-    {#each Wochenplan as Termin}
+        {#each Wochenplan as Termin}
         <div class="day">
-            <div class="wp-1-1 heading">
+            <div class="heading">
                 <h3>{Termin.Datum.weekdayLong}</h3>
             </div>
-            {#each Termin.Termine as event}
-            {@const start = startSlot(event.Start) + 1}
-            {@const end = endSlot(event.Ende)}
-            <div class="event wp-{start}-{end}"
-                class:fachschaft="{event.Effekt?.Fachschaft ?? false}"
-                >
-                {#if event.Effekt.Schildi}
-                    <img class="schildi" src="{schildi}" alt="Schildi" />
-                {/if}
-                <h4>{@html event.Titel}</h4>
-                <div class="timings">
-                    <span class="begin">{event.Start.toLocaleString(DateTime.TIME_SIMPLE)}</span>
-                    -
-                    {#if !!event.Ende}
-                        <span class="end">{event.Ende.toLocaleString(DateTime.TIME_SIMPLE)}</span>
-                    {:else}
-                        <span class="end">Offendes Ende</span>
+            <div class="events">
+                {#each Termin.Termine as event}
+                {@const start = getStartSlot(event.Start)}
+                {@const end = getEndSlot(event.Ende)}
+                <div class="event"
+                    class:fachschaft="{event.Effekt?.Fachschaft ?? false}"
+                    class:highlight="{event.Effekt?.Highlight ?? false}"
+                    class:open-end={!event.Ende}
+                    style="
+                        grid-row: {start} / {end};
+                    "
+                    >
+                    {#if event.Effekt.Schildi}
+                        <img class="schildi" src="{schildi}" alt="Schildi" />
+                    {/if}
+                    <h4>{@html event.Titel}</h4>
+                    <div class="timings">
+                        <span class="begin">{event.Start.toLocaleString(DateTime.TIME_SIMPLE)}</span>
+                        -
+                        {#if !!event.Ende}
+                            <span class="end">{event.Ende.toLocaleString(DateTime.TIME_SIMPLE)}</span>
+                        {:else}
+                            <span class="end">Offendes Ende</span>
+                        {/if}
+                    </div>
+                    {#if !!event.Treffpunkt} 
+                    <span class="location">
+                        <ul>
+                            {#each event.Treffpunkt as {Pre, Post, Ort, Link: Text}}
+                            {@const google = Orte[Ort]?.Google}
+                            {@const osm = Orte[Ort]?.OSM}
+                            <li>
+                            {#if !!osm || !!google}
+                                {#if !gmaps}
+                                    {Pre}<Link href={osm ?? google} type="map" --color-high="var(--event-color-high)">{Text}</Link>{Post}
+                                {:else}
+                                    {Pre}<Link href={google ?? google} type="map" --color-high="var(--event-color-high)">{Text}</Link>{Post}
+                                {/if}
+                            {:else}
+                                {event.Treffpunkt}
+                            {/if}
+                            </li>
+                            {/each}
+                        </ul>
+                    </span>
+                    {/if}
+                    {#if !!event.Beschreibung}
+                        <p>{event.Beschreibung}</p>
                     {/if}
                 </div>
-                {#if !!event.Treffpunkt} 
-                {@const google = Orte[event.Treffpunkt]?.Google}
-                {@const osm = Orte[event.Treffpunkt]?.OSM}
-                <span class="location">
-                    Ort:
-                    {#if !!osm}
-                        <Link href={osm} type="map">{event.Treffpunkt}</Link>
-                    {:else if !!google}
-                        <Link href={google} type="map">{event.Treffpunkt}</Link>
-                    {:else}
-                        {event.Treffpunkt}
-                    {/if}
-                </span>
-                {/if}
-                {#if !!event.Beschreibung}
-                    <p>{event.Beschreibung}</p>
-                {/if}
+                {/each}
+                {#each [...Array(slots + 1).keys()] as time}
+                <div class="wp-{time}-{time} empty"></div>
+                {/each}
             </div>
-            {/each}
-            {#each [...Array(slots + 1).keys()] as time}
-            <div class="wp-{time}-{time} empty"></div>
-            {/each}
         </div>
-    {/each}
+        {/each}
+    </div>
 </div>
 {/await}
 
 <style lang="scss">
 @use "$style/sizes";
-$start-hour: 8;
-$end-hour: 24;
-$slots-per-hour: 2; 
-$slots: ($end-hour - $start-hour) * $slots-per-hour;
-$col-width-min: 200px;
-$slot-height: calc(90rem / $slots);
+@use "$style/responsive";
+@use "sass:color";
+$slots: var(--slots);
+$col-width: clamp(200px, 20em, calc(sizes.$content-width / (var(--cols) + 1)));
+$outline-width: 1px;
+$height: var(--wp-height);
+$slot-height: min(calc($height / ($slots + 1)), calc($height / $slots));
+$header-height: max(4em, $slot-height);
 $col-pad: 0.5em;
 
+@mixin round {
+    border-radius: 0.5em;
+}
 @mixin border {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
+    outline: $outline-width solid black;
 }
 
-.slot {
-	z-index: -1;
-}
-
-@for $s from 0 to $slots + 1 {
-    @for $e from $s through $slots + 1 {
-        .wp-#{$s}-#{$e} {
-            grid-row-start: $s;
-            grid-row-end: $e;
-        }
-    }
+.gmaps {
+    width: 10em;
 }
 
 .fachschaft {
-	background-color: #99b8e6 !important;
+    --event-color: #99b8e6 !important;
+    --event-color-high: #1e447b !important;
+}
+
+.highlight {
+    --event-color: #f5b53d !important;
+    --event-color-high: #af7509 !important;
+}
+
+.open-end::after {
+    display: block;
+    height: 4 * $col-pad;
+    width: 100%;
+    margin: -$col-pad;
+    background: linear-gradient(var(--event-color), rgba(var(--color-surface-50) / 1));
+    content: "";
+    position: absolute;
+    bottom: - 2 * $col-pad;
+    z-index: 1;
+}
+
+.wochenplan-window {
+    $width: calc(clamp(sizes.$content-width, 80vw, calc((var(--cols) + 1) * $col-width + 2 * $outline-width))); 
+    margin-left: calc(-1/2 * ($width - sizes.$content-width));
+    width: $width;
+    overflow-x: scroll;
+    height: calc($height + $col-pad + $header-height);
+    @include round;
 }
 
 .wochenplan {
-    display: grid;
-    grid-auto-flow: column;
-    overflow-x: scroll;
-    width: 100%;
-    $col-width: calc(sizes.$max-content-width / (var(--cols) + 1));
-    border-radius: 0.5em;
-
-    .heading {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        z-index: 100;
-        height: $slot-height;
-        @include border;
-    }
+    display: flex;
+    width: fit-content !important;
+    border: 1px solid black;
+    @include round;
 
     h3, h4 {
         font-size: larger;
@@ -173,53 +212,47 @@ $col-pad: 0.5em;
         padding: 0.25em 0.5em 0em;
     }
 
-	.time, .day {
-		width: $col-width;
-		max-width: $col-width;
-		display: grid;
-		grid-template-rows: repeat($slots,$slot-height);
+    .heading {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        height: $header-height;
         @include border;
-	}
-
-    .time {
-        div:not(:last-child) {
-            @include border;
-        }
-        .heading {
-            border-top-left-radius: 0.5em;
-        }
-        :last-child {
-            border-bottom-left-radius: 0.5em;
-        }
     }
 
-    .day {
-        margin: 0;
-        padding: 0.5em;
+    .day, .daytime {
+        display: flex;
+        flex-direction: column;
+        width: $col-width;
+    }
 
-        &:last-child {
-            .heading {
-                border-top-right-radius: 0.5em;
-            }
-            :last-child {
-                border-bottom-right-radius: 0.5em;
-            }
-        }
+    .time, .events {
+        height: 100%;
+        display: grid;
+        grid-template-rows: repeat($slots,$slot-height);
+        @include border;
+    }
 
-        .heading {
-            margin-top: -$col-pad;
-            margin-left: -$col-pad;
-            margin-right: -$col-pad;
-            width: calc(100% + 2 * $col-pad);
-        }
+    .events {
+        padding: $col-pad;
+        padding-bottom: 0;
+        width: $col-width;
 
         .event:not(.empty) {
+            --event-color: #a7d65c;
+            --event-color-high: #689325;
             position: relative;
             border-radius: 0.5em;
-            background-color: #a7d65c;
-            margin-bottom: $col-pad;
-            width: calc(100% - 2 * $col-pad);
+            background-color: var(--event-color);
             padding: $col-pad;
+            margin-bottom: $col-pad;
+            width: calc($col-width - 2 * $col-pad);
+            z-index: 2;
+            box-shadow: 1px 1px 4px black;
+
+            *:not(h4) {
+                line-height: normal;
+            }
 
             h4 {
                 line-break: normal;
@@ -230,9 +263,9 @@ $col-pad: 0.5em;
             p {
                 margin: $col-pad 0 0;
                 font-style: italic;
+                position: relative;
             }
         }
-
     }
 }
 

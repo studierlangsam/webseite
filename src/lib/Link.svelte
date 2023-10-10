@@ -1,19 +1,18 @@
 <script lang="ts">
-    import SvgIcon from "@jamescoyle/svelte-icon";   
-    import {mdiMap} from "@mdi/js" 
+    import SvgIcon from "@jamescoyle/svelte-icon";
+    import {mdiOpenInNew} from "@mdi/js";
 
     export let href: string;
     export let type: "mail"|"a"|"map" = "a";
     const isExtern = href.trim().match(/https:\/\//);
-    console.log(type, href, type === "mail");
 </script>
 {#if type === "map"}
-<span class="map">
-    <slot/>
-    <a {href} target="_blank">
-        <SvgIcon type="mdi" path={mdiMap}/>
-    </a>
-</span>
+<a href="{href}" target="_blank" class="map">
+    <slot />
+    <div class="icon">
+        <SvgIcon type="mdi" path={mdiOpenInNew}/>
+    </div>
+</a>
 {:else if type === "mail"}
 <a href="mailto:{href}">
     <slot />
@@ -26,23 +25,19 @@
 
 <style lang="scss">
 @use "$style/colors";
+@use "sass:color";
 
 .map {
     display: inline-flex;
-    gap: 0.5rem;
-    a {
-        display: inline-flex;
-        align-items: center;
-        width: fit-content;
-    }
 }
 
 a {
     text-decoration: none;
-	transition: color .3s;
+	transition: text-shadow .3s;
+    color: color.adjust(colors.$lowlight, $lightness: -40%);
 
 	&:hover {
-		color: colors.$highlight;
+        text-shadow: 0em 0em 3px var(--color-high);
 	}
 
 	// disable outline on click
