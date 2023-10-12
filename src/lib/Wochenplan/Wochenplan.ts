@@ -19,11 +19,13 @@ type Treffpunkt = {
     Ort: string;
 }
 
+type DT = Required<ReturnType<DateTime['toObject']>>;
+
 type Event = {
     Titel: string;
     Beschreibung: string;
-    Start: DateTime;
-    Ende: DateTime | undefined;
+    Start: DT;
+    Ende: DT | undefined;
     Treffpunkt: Treffpunkt[];
     Effekt: Partial<Effekt>;
 };
@@ -42,7 +44,7 @@ type ReadTermin = {
 }
 
 type Termin = {
-    Datum: DateTime;
+    Datum: DT;
     Termine: Event[];
 };
 
@@ -58,7 +60,7 @@ type ReadWochenplan = {
     Orte: Orte;
 }
 
-type Wochenplan = {
+export type Wochenplan = {
     Config: {
         Start: number;
         Ende: number;
@@ -144,13 +146,13 @@ export const loadWochenplan: () => Promise<Wochenplan> = async () => {
                         return {
                             ...event,
                             Effekt,
-                            Start: DateTime.fromISO(event.Start, {locale: "de-DE"}),
-                            Ende: !!event.Ende ? DateTime.fromISO(event.Ende, {locale: "de-DE"}) : undefined,
+                            Start: DateTime.fromISO(event.Start, {locale: "de-DE"}).toObject() as DT,
+                            Ende: !!event.Ende ? DateTime.fromISO(event.Ende, {locale: "de-DE"}).toObject() as DT : undefined,
                             Treffpunkt
                         }
                     });
                     return {
-                        Datum: DateTime.fromJSDate(Datum).setLocale("de-DE"),
+                        Datum: DateTime.fromJSDate(Datum).setLocale("de-DE").toObject() as DT,
                         Termine
                     }
                 })

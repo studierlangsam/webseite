@@ -1,47 +1,33 @@
 <script lang="ts">
     import { DateTime } from "luxon";
-    import { loadWochenplan } from "./Wochenplan";
+    import type { Wochenplan } from "./Wochenplan";
 	import Link from "../Link.svelte";
 	import Section from "../Section.svelte";
     import schildi from "$root/src/svg/schildi.svg";
 
     import { SlideToggle } from '@skeletonlabs/skeleton';
+    
+    export let wochenplan: Wochenplan;
     let gmaps = false;
 
-    const config = async () => {
-        const {Wochenplan, Orte, Config} = await loadWochenplan();
-        const hours = {start: Config.Start, end: Config.Ende, morning: Config.Start, noon: 12, evening: 18};
-        const timeToSlot = (hour: number, minute: number) => (hour - hours.start) * Config.SPH + Math.round((minute * Config.SPH) / 60) + 1;
-        const startSlot = {morning: timeToSlot(hours.morning, 0), noon: timeToSlot(hours.noon, 0), evening: timeToSlot(hours.evening, 0)};
-        const endSlot = {morning: startSlot.noon, noon: startSlot.evening, evening: timeToSlot(hours.evening, 0)};
-        const slots = (hours.end - hours.start) * Config.SPH;
-        const getStartSlot = (time: DateTime) => {
-            if (time.hour < hours.start) {
-                return hours.start * Config.SPH;
-            }
-            return timeToSlot(time.hour, time.minute)
+    const {Wochenplan, Orte, Config} = wochenplan;
+    const hours = {start: Config.Start, end: Config.Ende, morning: Config.Start, noon: 12, evening: 18};
+    const timeToSlot = (hour: number, minute: number) => (hour - hours.start) * Config.SPH + Math.round((minute * Config.SPH) / 60) + 1;
+    const startSlot = {morning: timeToSlot(hours.morning, 0), noon: timeToSlot(hours.noon, 0), evening: timeToSlot(hours.evening, 0)};
+    const endSlot = {morning: startSlot.noon, noon: startSlot.evening, evening: timeToSlot(hours.evening, 0)};
+    const slots = (hours.end - hours.start) * Config.SPH;
+    const getStartSlot = (time: DateTime) => {
+        if (time.hour < hours.start) {
+            return hours.start * Config.SPH;
         }
-        const getEndSlot = (time?: DateTime) => {
-            if (!time || time.hour >= hours.end) {
-                return (hours.end - hours.start) * Config.SPH + 1;
-            }
-            return timeToSlot(time.hour, time.minute);
+        return timeToSlot(time.hour, time.minute)
+    }
+    const getEndSlot = (time?: DateTime) => {
+        if (!time || time.hour >= hours.end) {
+            return (hours.end - hours.start) * Config.SPH + 1;
         }
-
-        console.log(hours, Config, slots)
-
-        return {
-            Wochenplan,
-            Orte,
-            hours,
-            timeToSlot,
-            startSlot,
-            endSlot,
-            slots,
-            getStartSlot,
-            getEndSlot,
-        }
-   }
+        return timeToSlot(time.hour, time.minute);
+    }
 </script>
 
 <Section address="Wochenplan">
@@ -49,7 +35,6 @@
         <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
     </SlideToggle>
 </Section>
-{#await config() then {Wochenplan, Orte, startSlot, endSlot, hours, getStartSlot, getEndSlot, slots}}
 <div class="wochenplan-window" style="
     --cols: {Wochenplan.length};
     --slots: {slots};
@@ -82,12 +67,14 @@
         {#each Wochenplan as Termin}
         <div class="day">
             <div class="heading">
-                <h3>{Termin.Datum.weekdayLong}</h3>
+                <h3>{DateTime.fromObject(Termin.Datum).weekdayLong}</h3>
             </div>
             <div class="events">
                 {#each Termin.Termine as event}
-                {@const start = getStartSlot(event.Start)}
-                {@const end = getEndSlot(event.Ende)}
+                {@const startDT = DateTime.fromObject(event.Start, { locale: "de-DE" })}
+                {@const endDT = !!event.Ende ? DateTime.fromObject(event.Ende, { locale: "de-DE" }) : undefined}
+                {@const start = getStartSlot(startDT)}
+                {@const end = getEndSlot(endDT)}
                 <div class="event"
                     class:fachschaft="{event.Effekt?.Fachschaft ?? false}"
                     class:highlight="{event.Effekt?.Highlight ?? false}"
@@ -101,10 +88,10 @@
                     {/if}
                     <h4>{@html event.Titel}</h4>
                     <div class="timings">
-                        <span class="begin">{event.Start.toLocaleString(DateTime.TIME_SIMPLE)}</span>
+                        <span class="begin">{startDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         -
-                        {#if !!event.Ende}
-                            <span class="end">{event.Ende.toLocaleString(DateTime.TIME_SIMPLE)}</span>
+                        {#if !!endDT}
+                            <span class="end">{endDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         {:else}
                             <span class="end">Offendes Ende</span>
                         {/if}
@@ -143,7 +130,6 @@
         {/each}
     </div>
 </div>
-{/await}
 
 <style lang="scss">
 @use "$style/sizes";

@@ -5,6 +5,7 @@
 	import Wochenplan from "../lib/Wochenplan/Wochenplan.svelte";
 	import Faq from "../lib/faq/FAQ.svelte";
 
+    export let data;
 </script>
 
 <h2>Hallo du!</h2>
@@ -19,7 +20,7 @@
 <p>
     Auf dieser Seite findest du Informationen über uns, die O-Phase und das Studium am KIT.
 </p>
-<Wochenplan />
+<Wochenplan wochenplan={data.wochenplan}/>
 <Tutors />
 <Faq />
 
