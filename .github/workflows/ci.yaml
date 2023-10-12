@@ -36,11 +36,27 @@ jobs:
         env:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
           KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
-      - name: Deploy Dev Version
-        run: npx gulp deployDev
+      - name: Build dev release
+        run: |
+          npm clean
+          npm build
+      # - name: Revision files?
+      - name: Build and push container
+        run: |
+          docker build . -t ${{DEV_CONTAINER_NAME}}
+          docker push ${{DEV_CONTAINER_NAME}}
         env:
-          DEV_VERSION_NAME: pr-${{ github.event.number }}
+          DEV_CONTAINER_NAME: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
+      - name: Deploy Container
+        run: kubectl kustomize deployment/dev | envsubst '$(git rev-parse --short "${{GITHUB_SHA}}") ${{DEV_CONTAINER_NAME}} | kubectl apply -f - --prune --selector app=studierlangsam.de,version=${{DEV_CONTAINER_NAME}} --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress'
+        env:
+          DEV_CONTAINER_NAME: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
           KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      # - name: Deploy Dev Version
+      #   run: npx gulp deployDev
+      #   env:
+      #     DEV_VERSION_NAME: pr-${{ github.event.number }}
+      #     KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
       - name: Delete Kubeconfig
         if: always()
         run: 'rm -f "$KUBECONFIG"'

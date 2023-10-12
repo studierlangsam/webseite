@@ -27,10 +27,15 @@ jobs:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
           KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
       - name: Teardown Dev Version
-        run: npx gulp teardownDev
+        run: kubectl kustomize deployment/dev | envsubst '$(git rev-hash --SHORT "${{GITHUB_SHA}}") $DEV_CONTAINER_NAME' | kubectl delete -f -
         env:
-          DEV_VERSION_NAME: pr-${{ github.event.number }}
+          DEV_CONTAINER_NAME: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
           KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      # - name: Teardown Dev Version
+      #   run: npx gulp teardownDev
+      #   env:
+      #     DEV_VERSION_NAME: pr-${{ github.event.number }}
+      #     KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
       - name: Delete Kubeconfig
         if: always()
         run: 'rm -f "$KUBECONFIG"'
