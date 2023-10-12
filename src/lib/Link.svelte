@@ -1,4 +1,5 @@
 <script lang="ts">
+    /** @ts-ignore */
     import SvgIcon from "@jamescoyle/svelte-icon";
     import {mdiOpenInNew} from "@mdi/js";
 
@@ -7,18 +8,18 @@
     const isExtern = href.trim().match(/https:\/\//);
 </script>
 {#if type === "map"}
-<a href="{href}" target="_blank" class="map">
+<a href="{href}" target="_blank" class="map" {...$$props}>
     <slot />
     <div class="icon">
         <SvgIcon type="mdi" path={mdiOpenInNew}/>
     </div>
 </a>
 {:else if type === "mail"}
-<a href="mailto:{href}">
+<a href="mailto:{href}" {...$$props}>
     <slot />
 </a>
 {:else}
-<a href="{href}" target={isExtern ? "_blank" : "_self"} class:here={isExtern}>
+<a href="{href}" target={isExtern ? "_blank" : "_self"} class:here={isExtern} {...$$props}>
     <slot />
 </a>
 {/if}
