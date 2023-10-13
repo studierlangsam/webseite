@@ -8,17 +8,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: Live
+    env:
+      KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Setup Node.JS
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: lts/*
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3.2
         with:
-          version: 'v1.23.1'
+          version: v1.23.1
       - name: Install graphicsmagick
         run: |
           sudo apt-get update
@@ -31,18 +33,28 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set Image Name
+        run: |
+          echo "IMAGE=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Write Kubeconfig
-        run: 'echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"'
+        run: |
+          echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"
         env:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      - name: Build Release
+        run: |
+          npm run clean
+          npm run build
+      - name: Build and Push Container
+        run: |
+          docker build . -t $IMAGE
+          docker push $IMAGE
       - name: Deploy to Live
-        run: npx gulp deploy
-        env:
-          DEV_VERSION_NAME: pr-${{ github.event.number }}
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+        run: |
+          kubectl kustomize deployment/live |
+          	envsubst '$IMAGE' |
+          	kubectl apply -f - --prune --selector app=studierlangsam.de,version=live --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress
       - name: Delete Kubeconfig
         if: always()
-        run: 'rm -f "$KUBECONFIG"'
-        env:
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+        run: |
+          rm -f "$KUBECONFIG"

@@ -10,31 +10,32 @@ jobs:
     environment: Dev
     env:
       KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
-      DEV_CONTAINER_NAME: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
+      DEV_VERSION_NAME: pr-${{ github.event.number }}
+      IMAGE: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Setup Node.JS
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: lts/*
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3.2
         with:
-          version: 'v1.23.1'
+          version: v1.23.1
       - name: Download npm Dependencies
         run: npm ci
       - name: Write Kubeconfig
-        run: 'echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"'
+        run: |
+          echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"
         env:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
       - name: Teardown Dev Version
-        run: kubectl kustomize deployment/dev | envsubst '$(git rev-hash --SHORT "$GITHUB_SHA") $DEV_CONTAINER_NAME' | kubectl delete -f -
-      # - name: Teardown Dev Version
-      #   run: npx gulp teardownDev
-      #   env:
-      #     DEV_VERSION_NAME: pr-${{ github.event.number }}
-      #     KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+        run: |
+          kubectl kustomize deployment/dev | 
+            envsubst '$IMAGE $DEV_VERSION_NAME' | 
+            kubectl delete -f -
       - name: Delete Kubeconfig
         if: always()
-        run: 'rm -f "$KUBECONFIG"'
+        run: |
+          rm -f "$KUBECONFIG"
