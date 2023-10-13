@@ -1,3 +1,5 @@
+@use 'responsive';
+
 $footer-height: 1.5rem;
 
 $navigation-height: 3rem;
@@ -10,4 +12,4 @@ $paragraph-max-width: 42rem;
 $text-line-height: 1.4;
 
 $max-content-width: 1000px;
-$content-width: clamp(500px, 80vw, $max-content-width)
+$content-width: clamp(responsive.$mobile, 80vw, $max-content-width)

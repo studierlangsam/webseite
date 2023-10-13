@@ -20,9 +20,9 @@
     </div>
     <nav>
         <a href="/" class="home">{@html logo}</a>
-        <a class:here={$page.url.hash === "#tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
-        <a class:here={$page.url.hash === "#faq"} href="/#FAQ">Infos</a>
-        <a class:here={$page.url.hash === "#wochenplan"} href="/#Wochenplan">Wochenplan</a>
+        <a class:here={$page.url.hash === "#Tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
+        <a class:here={$page.url.hash === "#FAQ"} href="/#FAQ">Infos</a>
+        <a class:here={$page.url.hash === "#Wochenplan"} href="/#Wochenplan">Wochenplan</a>
     </nav>
     <main>
         <slot></slot>
@@ -36,13 +36,16 @@
 <style lang="scss">
 @use 'sass:color';
 @use "$style/sizes";
+@use "$style/responsive";
 @import "$style/page";
 @import '$style/base';
 
 .banner {
 	position: relative;
 
-	margin-top: 2em;
+	padding-top: 16px;
+    background-color: rgb(var(--color-surface-400));
+    z-index: -1;
 
 	width: 100%;
 	height: 30%;
@@ -51,7 +54,12 @@
 		display: block;
 
 		margin: 0 auto;
-        width: clamp(200px,50%,600px)
+        width: 500px;
+
+        @include responsive.from-width(responsive.$mobile) {
+            width: 360px;
+        }
+        
     }
 
 	&::before {
@@ -62,25 +70,25 @@
 
 		z-index: -10;
 
-		background: $dark;
+		background: rgb(var(--color-primary-600));
 
 		width: 100%;
-		height: 39.87%;
+		height: calc(39.87% - 16px);
 
 		content: '';
 	}
 }
 
 .here {
-    background-color: $light;
+    background-color: rgb(var(--color-surface-50)) !important;
 
-    color: $dark;
+    color: rgb(var(--color-primary-600)) !important;
 }
 
 nav {
     position: sticky;
     top: 0;
-	background-color: $dark;
+	background-color: rgb(var(--color-primary-600));
 
 	width: 100%;
     z-index: 100;
