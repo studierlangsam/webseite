@@ -67,7 +67,5 @@ jobs:
             You can preview it there :monocle_face:.
           message-failure: >
             Failed to deploy this PR because the pipeline failed :astonished:.
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]'
           find: $DEV_VERSION_NAME
           replace: ${{ env.DEV_VERSION_NAME }}
