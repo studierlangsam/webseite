@@ -1,13 +1,11 @@
 export type FAQ = {
-    Allgemein: {
-        Frage: string,
-        Antwort: string
-    }[],
-    Wichtig: {
+    Frage: string,
+    Antwort: string,
+    Fragen: {
         Frage: string,
         Antwort: string
     }[]
-}
+}[];
 export const loadFAQ: () => Promise<FAQ> = async () => {
     const files = await import.meta.glob("./faq.yaml");
     const filePromises: Promise<{ default: FAQ}>[] = [];

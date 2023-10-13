@@ -28,7 +28,6 @@
 
 	@include from-width(600px) {
 		margin: 0.5em;
-		padding-top: 0;
 	}
 
 	width: min(calc(100% - 1em), sizes.$content-width);

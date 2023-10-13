@@ -8,8 +8,6 @@
         const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0);
         return realSemesters - (Studium.Sommersemester ? 1 : 0) - (Studium.Urlaubssemester ?? 0) + 1;
     }
-
-	console.log(tutor);
 </script>
 
 <div class="tutor">

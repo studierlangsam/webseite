@@ -13,16 +13,28 @@
     Solltest du noch Fragen haben, die hier nicht beantwortet werden,
     dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
 </p>
-{#each faq.Allgemein as qa}
+{#each faq as qa}
+<section>
     <h3>{@html qa.Frage}</h3>
     <p>{@html qa.Antwort}</p>
+    {#if !!qa.Fragen} 
+    <ul>
+        {#each qa.Fragen as subqa}
+            <li>
+                <p><b>{@html subqa.Frage}</b></p>
+                <p>{@html subqa.Antwort}</p>
+            </li>
+        {/each}
+    </ul>
+{/if}
+</section>
 {/each}
 <br>
-<ul>
-{#each faq.Wichtig as qa}
-    <li>
-        <p><b>{@html qa.Frage}</b></p>
-        <p>{@html qa.Antwort}</p>
-    </li>
-{/each}
-</ul>
+
+
+<style lang="scss">
+ul {
+    list-style-type: disc !important;
+    margin-left: 4em;
+}
+</style>

@@ -11,7 +11,6 @@
     <title>{$page.data.title ? `${$page.data.title} - `: ""}Studier Langsam</title>
     <meta name="keywords" content="Studier Langsam,KIT,O-Phase,Studenten,Ersti{tags},Semesterbeginn,Karlsruhe,Karlsruher Institut für Technologie">
     <link rel="preload" href="https://fonts.gstatic.com/s/coda/v11/HfZzsBW2eqpsWXkIkeLL_Q.woff2" as="font" crossorigin="anonymous">
-    <script type="text/javascript" src="/heading-style-fix.js"></script>
 </svelte:head>
 
 <div class="content">
@@ -37,7 +36,6 @@
 @use 'sass:color';
 @use "$style/sizes";
 @use "$style/responsive";
-@import "$style/page";
 @import '$style/base';
 
 .banner {
@@ -95,10 +93,10 @@ nav {
     
     border-bottom: .4em solid rgb(var(--color-surface-50));
 
-    padding-top: $navigation-top-pad;
-    padding-bottom: $navigation-bottom-pad;
+    padding-top: sizes.$navigation-top-pad;
+    padding-bottom: sizes.$navigation-bottom-pad;
 
-    height: $navigation-height;
+    height: sizes.$navigation-height;
 
 	text-align: center;
 
@@ -134,13 +132,13 @@ nav {
 
     margin-top: 0;
     margin-bottom: -.5em;
-    margin-left: -.7 * ($navigation-height - $navigation-top-pad - $navigation-bottom-pad) + .5rem;
+    margin-left: -.7 * (sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad) + .5rem;
 
     padding-top: .2em;
     padding-bottom: .5em;
 
-    height: $navigation-height - $navigation-top-pad - $navigation-bottom-pad !important;
-    width: calc(0.75 * ($navigation-height - $navigation-top-pad - $navigation-bottom-pad));
+    height: sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad !important;
+    width: calc(0.75 * (sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad));
 
     fill: $light;
 
@@ -159,7 +157,7 @@ nav {
 
 footer {
 	width: 100%;
-	height: $footer-height;
+	height: sizes.$footer-height;
 
 	text-align: center;
 
