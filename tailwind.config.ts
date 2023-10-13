@@ -5,6 +5,7 @@ import type { Config } from 'tailwindcss';
 
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
+import { studierlangsamTheme } from "./src/style/theme";
 
 const config = {
 	// 2. Opt for dark mode to be handled via the class method
@@ -23,7 +24,9 @@ const config = {
 	plugins: [
 		// 4. Append the Skeleton plugin (after other plugins)
     skeleton({
-      themes: { preset: [ "skeleton" ] }
+      themes: { custom: [
+		studierlangsamTheme
+	  ] }
     })
 	]
 } satisfies Config;

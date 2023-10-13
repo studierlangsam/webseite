@@ -1,3 +1,4 @@
+@use 'responsive';
 @import 'colors';
 @import 'sizes';
 
@@ -54,6 +55,10 @@ main {
 
 	padding-top: $navigation-height + 3rem;
 	padding-bottom: $footer-height + 4rem;
+
+	@include responsive.from-width(responsive.$mobile) {
+		padding-top: $navigation-height;
+	}
 
 	box-sizing: border-box;
 	min-height: 100%;

@@ -5,7 +5,7 @@
 	import Section from "../Section.svelte";
     import schildi from "$root/src/svg/schildi.svg";
 
-    import { SlideToggle } from '@skeletonlabs/skeleton';
+    import { RadioGroup, RadioItem, SlideToggle } from '@skeletonlabs/skeleton';
     
     export let wochenplan: Wochenplan;
     let gmaps = false;
@@ -28,13 +28,19 @@
         }
         return timeToSlot(time.hour, time.minute);
     }
+    let selectedDay: number = 0;
 </script>
 
-<Section address="Wochenplan">
-    <SlideToggle slot="append" name="slider-label" bind:checked={gmaps}>
-        <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
-    </SlideToggle>
-</Section>
+<Section address="Wochenplan" />
+
+<div class="day-selector">
+    <RadioGroup rounded="rounded-container-token" display="flex-col">
+    {#each Wochenplan as Termin, index}
+            <RadioItem bind:group={selectedDay} value={index} name="jusitfy">{DateTime.fromObject(Termin.Datum, {locale: "de-DE"}).weekdayLong}</RadioItem>
+    {/each}
+    </RadioGroup>
+</div>
+
 <div class="wochenplan-window" style="
     --cols: {Wochenplan.length};
     --slots: {slots};
@@ -42,7 +48,11 @@
 ">
     <div class="wochenplan">
         <div class="daytime">
-            <div class="heading" />
+            <div class="heading">
+                <SlideToggle slot="append" name="slider-label" bind:checked={gmaps}>
+                    <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
+                </SlideToggle>
+            </div>
             <div class="time">
                 <div style="
                     grid-row: {startSlot.morning} / {endSlot.morning};
@@ -64,10 +74,10 @@
                 </div>
             </div>
         </div>
-        {#each Wochenplan as Termin}
-        <div class="day">
+        {#each Wochenplan as Termin, index}
+        <div class="day" class:activeDay={selectedDay === null || selectedDay === index}>
             <div class="heading">
-                <h3>{DateTime.fromObject(Termin.Datum).weekdayLong}</h3>
+                <h3>{DateTime.fromObject(Termin.Datum, {locale: "de-DE"}).weekdayLong}</h3>
             </div>
             <div class="events">
                 {#each Termin.Termine as event}
@@ -150,8 +160,21 @@ $col-pad: 0.5em;
     outline: $outline-width solid black;
 }
 
+.day-selector {
+    display: none;
+    @include responsive.from-width(responsive.$mobile) {
+        display: block;
+    }
+    margin-bottom: 1em;
+}
+
+.activeDay {
+    display: flex !important;
+}
+
 .gmaps {
-    width: 10em;
+    width: calc(0.5 * $col-width);
+    margin: auto;
 }
 
 .fachschaft {
@@ -177,7 +200,11 @@ $col-pad: 0.5em;
 }
 
 .wochenplan-window {
-    $width: calc(clamp(sizes.$content-width, 80vw, calc((var(--cols) + 1) * $col-width + 2 * $outline-width))); 
+    --wochenplan-width: calc(clamp(sizes.$content-width, 80vw, calc((var(--cols) + 1) * $col-width + 2 * $outline-width))); 
+    @include responsive.from-width(responsive.$mobile) {
+        --wochenplan-width: sizes.$content-width;
+    }
+    $width: var(--wochenplan-width);
     margin-left: calc(-1/2 * ($width - sizes.$content-width));
     width: $width;
     overflow-x: scroll;
@@ -188,6 +215,9 @@ $col-pad: 0.5em;
 .wochenplan {
     display: flex;
     width: fit-content !important;
+    @include responsive.from-width(responsive.$mobile) {
+        width: 100% !important;
+    }
     border: 1px solid black;
     @include round;
 
@@ -210,6 +240,15 @@ $col-pad: 0.5em;
         display: flex;
         flex-direction: column;
         width: $col-width;
+        @include responsive.from-width(responsive.$mobile) {
+            width: 50%;
+        }
+    }
+
+    .day {
+        @include responsive.from-width(responsive.$mobile) {
+            display: none;
+        }
     }
 
     .time, .events {
@@ -223,6 +262,9 @@ $col-pad: 0.5em;
         padding: $col-pad;
         padding-bottom: 0;
         width: $col-width;
+        @include responsive.from-width(responsive.$mobile) {
+            width: 100%;
+        }
 
         .event:not(.empty) {
             --event-color: #a7d65c;
@@ -233,6 +275,9 @@ $col-pad: 0.5em;
             padding: $col-pad;
             margin-bottom: $col-pad;
             width: calc($col-width - 2 * $col-pad);
+            @include responsive.from-width(responsive.$mobile) {
+                width: 100%;
+            }
             z-index: 2;
             box-shadow: 1px 1px 4px black;
 

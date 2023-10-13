@@ -51,7 +51,7 @@
 		display: block;
 
 		margin: 0 auto;
-        width: clamp(200px,50%,1000px)
+        width: clamp(200px,50%,600px)
     }
 
 	&::before {
@@ -85,7 +85,7 @@ nav {
 	width: 100%;
     z-index: 100;
     
-    border-bottom: .4em solid $light;
+    border-bottom: .4em solid rgb(var(--color-surface-50));
 
     padding-top: $navigation-top-pad;
     padding-bottom: $navigation-bottom-pad;
