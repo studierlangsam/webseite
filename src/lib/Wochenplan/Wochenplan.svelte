@@ -48,7 +48,7 @@
 ">
     <div class="wochenplan">
         <div class="daytime">
-            <div class="heading">
+            <div class="heading maps-toggle">
                 <SlideToggle slot="append" name="slider-label" bind:checked={gmaps}>
                     <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
                 </SlideToggle>
@@ -175,6 +175,10 @@ $col-pad: 0.5em;
 .gmaps {
     width: calc(0.5 * $col-width);
     margin: auto;
+}
+
+.maps-toggle {
+    justify-content: center;
 }
 
 .fachschaft {

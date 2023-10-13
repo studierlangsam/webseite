@@ -8,7 +8,7 @@
 </script>
 
 <h1>Hallo du!</h1>
-<p>Willkommen bei Studier Langsam</p>
+<p>Willkommen bei Studier Langsam!</p>
 <p>
     Bei uns erwartet dich eine abwechslungsreiche O-Phase mit Spiele- sowie Cocktailabend, 
     gemeinsamem Essen und weiteren spannenden Aktivitäten in Karlsruhe und um den Campus. 
@@ -25,6 +25,4 @@
 
 <style lang="scss">
 @use '$style/base';
-// @use '$style/page';
-@use '$style/index';
 </style>

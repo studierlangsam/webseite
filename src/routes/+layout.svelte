@@ -170,4 +170,8 @@ footer {
 		color: inherit;
 	}
 }
+
+main {
+    padding-top: 1em;
+}
 </style>

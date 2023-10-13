@@ -39,7 +39,6 @@ $layout-change: 36em;
 	align-items: flex-start;
 
 	margin-top: -8%;
-
 	min-height: 15em;
 
 	@include from-width(40em) {
@@ -50,12 +49,14 @@ $layout-change: 36em;
 		margin-top: 2em;
 	}
 
+
 	&:first-of-type {
 		margin-top: 3rem;
 	}
 
 	img {
 		border-radius: .5em;
+		box-shadow: 1px 1px 4px black;
 
 		width: 30%;
 
