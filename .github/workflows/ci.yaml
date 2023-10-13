@@ -40,8 +40,8 @@ jobs:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
       - name: Build dev release
         run: |
-          npm clean
-          npm build
+          npm run clean
+          npm run build
       # - name: Revision files?
       - name: Build and push container
         run: |
