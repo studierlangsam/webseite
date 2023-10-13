@@ -9,7 +9,6 @@ jobs:
     env:
       KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
       DEV_VERSION_NAME: pr-${{ github.event.number }}
-      IMAGE: ghcr.io/studierlangsam/webseite:pr-${{ github.event.number }}
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
@@ -35,6 +34,9 @@ jobs:
          registry: ghcr.io
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set Image Tag
+        run: |
+          echo "IMAGE=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Write Kubeconfig
         run: |
           echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"

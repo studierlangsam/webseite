@@ -33,7 +33,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set Image Name
+      - name: Set Image Tag
         run: |
           echo "IMAGE=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Write Kubeconfig
