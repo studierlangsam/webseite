@@ -1,12 +1,14 @@
 <script>
 
 	import Tutors from "$lib/tutors/Tutors.svelte";
+	import Section from "../lib/Section.svelte";
 	import Wochenplan from "../lib/Wochenplan/Wochenplan.svelte";
 	import Faq from "../lib/faq/FAQ.svelte";
 
     export let data;
 </script>
 
+<!-- <Section address=""> -->
 <h1>Hallo du!</h1>
 <p>Willkommen bei Studier Langsam!</p>
 <p>
@@ -19,6 +21,7 @@
 <p>
     Auf dieser Seite findest du Informationen über uns, die O-Phase und das Studium am KIT.
 </p>
+<!-- </Section> -->
 <Wochenplan wochenplan={data.wochenplan}/>
 <Tutors tutors={data.tutors}/>
 <Faq faq={data.faq}/>

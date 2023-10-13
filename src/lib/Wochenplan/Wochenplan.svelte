@@ -31,8 +31,7 @@
     let selectedDay: number = 0;
 </script>
 
-<Section address="Wochenplan" />
-
+<Section address="Wochenplan">
 <div class="day-selector">
     <RadioGroup rounded="rounded-container-token" display="flex-col">
     {#each Wochenplan as Termin, index}
@@ -49,9 +48,9 @@
     <div class="wochenplan">
         <div class="daytime">
             <div class="heading maps-toggle">
-                <SlideToggle slot="append" name="slider-label" bind:checked={gmaps}>
-                    <img class="gmaps" src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Google_Maps_Logo.svg" alt="Google Maps">
-                </SlideToggle>
+                <img class="maps" src="https://wiki.openstreetmap.org/w/images/7/79/Public-images-osm_logo.svg" alt="OpenStreetMap" />
+                <SlideToggle slot="append" name="slider-label" bind:checked={gmaps} />
+                <img class="maps" src="https://lh3.googleusercontent.com/V0Lu6YzAVaCVcjSJ_4Qb0mR_idw-GApETGbkodvDKTH-rpDvHuD6J84jshR_FvXdl5mJxqbIHVdebYCCbQMJNxIxRaIHYFSq6z7laA" alt="Google Maps">
             </div>
             <div class="time">
                 <div style="
@@ -140,6 +139,7 @@
         {/each}
     </div>
 </div>
+</Section>
 
 <style lang="scss">
 @use "$style/sizes";
@@ -172,13 +172,19 @@ $col-pad: 0.5em;
     display: flex !important;
 }
 
-.gmaps {
-    width: calc(0.5 * $col-width);
+.maps {
+    max-width: calc(0.5 * $col-width);
     margin: auto;
 }
 
 .maps-toggle {
     justify-content: center;
+    display: flex;
+
+    .maps {
+        max-width: 4em;
+        max-height: 2em;
+    }
 }
 
 .fachschaft {

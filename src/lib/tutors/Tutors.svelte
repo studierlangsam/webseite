@@ -5,7 +5,7 @@
     export let tutors: T[];
 </script>
 
-<Section address="Tutor:innen" />
+<Section address="Tutor:innen">
 <p>
     Wir sind die Menschen, die dich durch deine O-Phase begleiten werden. 
     Falls du irgendwelche Fragen hast, kannst du uns jederzeit eine Email an 
@@ -16,7 +16,7 @@
     <Tutor {tutor} />
 {/each}
 </div>
-
+</Section>
 <style lang="scss">
 @use "$style/base";
 </style>

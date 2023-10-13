@@ -1,17 +1,24 @@
 <script lang="ts">
+    import { inview } from 'svelte-inview';
+	import { visibleSectionHash } from './stores';
     export let address: string;
 </script>
-<div>
-    <h1 id={address}>
-        <slot>{address}</slot>
-    </h1>
-    <span>
-        <slot name="append" />
-    </span>
+<div
+    use:inview
+    on:inview_enter={() => {
+        visibleSectionHash.set(address)
+    }}
+>
+    <div class="section">
+        <h1 id={address}>
+            <slot name="title">{address}</slot>
+        </h1>
+    </div>
+    <slot />
 </div>
 
 <style lang="scss">
-div {
+.section {
     display: flex;
     align-items: center;
     margin-top: 2em;

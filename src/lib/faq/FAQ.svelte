@@ -5,7 +5,10 @@
     export let faq: FAQ;
 </script>
 
-<Section address="FAQ">Fragen und Antworten</Section>
+<Section address="FAQ">
+<svelte:fragment slot="title">
+    Fragen und Antworten
+</svelte:fragment>
 <p>
 	Auf viele Fragen hat die Fachschaft schon auf ihrer 
     <Link href='https://o-phase.com/de/faq-ws/'> FAQ-Seite</Link>
@@ -29,7 +32,7 @@
 {/if}
 </section>
 {/each}
-<br>
+</Section>
 
 
 <style lang="scss">

@@ -30,6 +30,11 @@
 <p>
     Das Studierlangsam-Logo und -Banner wurde von <Link href='http://www.artbuexxe.de/'> Artbüxxe</Link> gestaltet und ist urheberrechtlich geschützt.
 </p>
+<p>
+    Das <Link href='https://wiki.openstreetmap.org/wiki/File:Public-images-osm_logo.svg'>Open Street Map Logo</Link> 
+    steht unter den 
+    <Link href='https://creativecommons.org/licenses/by-sa/3.0/de/'>CC-BY-SA</Link>.
+</p>
 
 <style lang="scss">
 @import "$style/base";

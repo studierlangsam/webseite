@@ -1,10 +1,10 @@
 <script lang="ts">
     import "../app.postcss";
-    import "../app.postcss";
     import { page } from "$app/stores";
     const tags = $page.data.tags ? "," + $page.data.tags : "";
     import logo from "$root/src/svg/logo.svg?raw";
     import banner from "$root/src/svg/banner.svg?raw";
+    import { visibleSectionHash } from "../lib/stores";
 </script>
 
 <svelte:head>
@@ -18,10 +18,10 @@
         <span>{@html banner}</span>
     </div>
     <nav>
-        <a href="/" class="home">{@html logo}</a>
-        <a class:here={$page.url.hash === "#Tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
-        <a class:here={$page.url.hash === "#FAQ"} href="/#FAQ">Infos</a>
-        <a class:here={$page.url.hash === "#Wochenplan"} href="/#Wochenplan">Wochenplan</a>
+        <a class:here={$visibleSectionHash === ""} href="/" class="home">{@html logo}</a>
+        <a class:here={$visibleSectionHash === "Wochenplan"} href="/#Wochenplan">Wochenplan</a>
+        <a class:here={$visibleSectionHash === "Tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
+        <a class:here={$visibleSectionHash === "FAQ"} href="/#FAQ">Infos</a>
     </nav>
     <main>
         <slot></slot>
@@ -71,7 +71,7 @@
 		background: rgb(var(--color-primary-600));
 
 		width: 100%;
-		height: calc(39.87% - 16px);
+		height: calc(32.87% - 16px);
 
 		content: '';
 	}
@@ -81,9 +81,18 @@
     background-color: rgb(var(--color-surface-50)) !important;
 
     color: rgb(var(--color-primary-600)) !important;
+    
+    :global(svg) {
+        fill: rgb(var(--color-primary-600)) !important;
+        stroke: rgb(var(--color-primary-600)) !important;
+    }
 }
 
 nav {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
     position: sticky;
     top: 0;
 	background-color: rgb(var(--color-primary-600));
@@ -103,7 +112,7 @@ nav {
 	a {
 		display: inline-block;
 
-		margin-bottom: .1em;
+		margin-bottom: .25em;
 		margin-left: .4em;
 		margin-right: .4em;
 
@@ -131,18 +140,17 @@ nav {
     transition: fill .3s;
 
     margin-top: 0;
-    margin-bottom: -.5em;
+    margin-bottom: -.25em;
     margin-left: -.7 * (sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad) + .5rem;
 
-    padding-top: .2em;
-    padding-bottom: .5em;
+    // padding-top: .2em;
+    // padding-bottom: .5em;
 
     height: sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad !important;
     width: calc(0.75 * (sizes.$navigation-height - sizes.$navigation-top-pad - sizes.$navigation-bottom-pad));
 
-    fill: $light;
-
-    stroke: $light;
+    fill: rgb(var(--color-surface-50));
+    stroke: rgb(var(--color-surface-50));
     stroke-width: 10;
 
     &:hover {
