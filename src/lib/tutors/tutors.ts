@@ -1,5 +1,6 @@
 export type Tutor = {
     Name: string,
+    Spitzname: string,
     Spruch: string,
     Karriere: {
         Studiengang: string,

@@ -8,13 +8,17 @@
         const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0);
         return realSemesters - (Studium.Sommersemester ? 1 : 0) - (Studium.Urlaubssemester ?? 0) + 1;
     }
+
+	console.log(tutor);
 </script>
 
 <div class="tutor">
     <img {src} alt="" />
     <div>
-        <h3>{tutor.Name}</h3>
-        <p>{tutor.Spruch}</p>
+        <h3>{tutor.Spitzname}</h3>
+		{#if tutor.Spruch}
+        	<p>{tutor.Spruch}</p>
+		{/if}
         <br>
         {#each tutor.Karriere as Studium}
             <p>

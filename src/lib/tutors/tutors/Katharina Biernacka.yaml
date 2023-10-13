@@ -1,0 +1,9 @@
+Name: Katharina Biernacka
+Spitzname: Katharina Biernacka
+Karriere: 
+  # Pro Studiengang
+  - Studiengang: Informatik
+    Jahr: 2023
+    Sommersemester: false # Im Sommer angefangen? => true, sonst false
+    Urlaubssemester: 0 # Anzahl der Urlaubssemster
+Spruch: Breaking stereotypes, one line of code at a time✨ # Ein Spruch der Angezeigt werden soll
