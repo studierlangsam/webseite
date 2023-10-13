@@ -35,6 +35,7 @@ jobs:
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Image Tag
+        id: imageTag
         run: |
           echo "IMAGE=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Write Kubeconfig
@@ -50,11 +51,15 @@ jobs:
         run: |
           docker build . -t $IMAGE
           docker push $IMAGE
+        env:
+          IMAGE: ${{ steps.imageTag.outputs.image }}
       - name: Deploy to Dev
         run: |
           kubectl kustomize deployment/dev |
             envsubst '$IMAGE $DEV_VERSION_NAME' | 
             kubectl apply -f - --prune --selector app=studierlangsam.de,version=$DEV_VERSION_NAME --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress
+        env:
+          IMAGE: ${{ steps.imageTag.outputs.image }}
       - name: Delete Kubeconfig
         if: always()
         run: |
