@@ -10,7 +10,7 @@
 
 <h1>Impressum</h1>
 <h3>Kontakt</h3>
-<p>Wir sind für alle Fragen unter <Link href="tutoren@studierlangsam.de" type="mail" /> erreichbar. </p>
+<p>Wir sind für alle Fragen unter <a href="mailto:tutoren@studierlangsam.de">tutoren@studierlangsam.de</a> erreichbar. </p>
 
 <h3>Rechte</h3>
 <p>

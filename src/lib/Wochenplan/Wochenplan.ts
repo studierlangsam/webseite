@@ -165,7 +165,6 @@ export const loadWochenplan: () => Promise<Wochenplan> = async () => {
             SPH: Math.max(...Termine.map(({Start, Ende}) => Math.max((Start.minute > 0 ? 60/gcd(60,Start.minute) : 1), (Ende?.minute ?? 0 > 0 ? 60/gcd(60, Ende?.minute!) : 1))))
         }
     }).reduce((acc, val) => {
-        console.log(acc, val)
         return {
             Start: Math.min(acc.Start, val.Start),
             Ende: Math.max(acc.Ende, val.Ende),

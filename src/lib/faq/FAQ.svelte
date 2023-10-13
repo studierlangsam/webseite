@@ -10,7 +10,7 @@
     <Link href='https://o-phase.com/de/faq-ws/'> FAQ-Seite</Link>
     Antwort gegeben. 
     Solltest du noch Fragen haben, die hier nicht beantwortet werden,
-    dann schreib uns unter <Link href='tutoren@studierlangsam.de' type="mail">tutoren@studierlangsam.de</Link>!
+    dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
 </p>
 {#await loadFAQ() then faq}
 {#each faq.Allgemein as qa}

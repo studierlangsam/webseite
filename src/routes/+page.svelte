@@ -8,7 +8,7 @@
     export let data;
 </script>
 
-<h2>Hallo du!</h2>
+<h1>Hallo du!</h1>
 <p>Willkommen bei Studier Langsam</p>
 <p>
     Bei uns erwartet dich eine abwechslungsreiche O-Phase mit Spiele- sowie Cocktailabend, 
