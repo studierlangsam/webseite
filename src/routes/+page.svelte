@@ -20,8 +20,8 @@
     Auf dieser Seite findest du Informationen über uns, die O-Phase und das Studium am KIT.
 </p>
 <Wochenplan wochenplan={data.wochenplan}/>
-<Tutors />
-<Faq />
+<Tutors tutors={data.tutors}/>
+<Faq faq={data.faq}/>
 
 <style lang="scss">
 @use '$style/base';
