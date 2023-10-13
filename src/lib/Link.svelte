@@ -1,6 +1,4 @@
 <script lang="ts">
-    /** @ts-ignore */
-    import SvgIcon from "@jamescoyle/svelte-icon";
     import {mdiOpenInNew} from "@mdi/js";
 
     export let href: string;
@@ -11,7 +9,9 @@
 <a href="{href}" target="_blank" class="map" {...$$props}>
     <slot />
     <div class="icon">
-        <SvgIcon type="mdi" path={mdiOpenInNew}/>
+        <svg height="24" width="24" viewBox="0 0 24 24" style="--sx: 1; --sy: 1; --r: 0deg">
+            <path d={mdiOpenInNew}></path>
+        </svg>
     </div>
 </a>
 {:else if type === "mail"}
@@ -35,7 +35,9 @@
 a {
     text-decoration: none;
 	transition: text-shadow .3s;
+	transition: fill .3s;
     color: color.adjust(colors.$lowlight, $lightness: -40%);
+    fill: color.adjust(colors.$lowlight, $lightness: -40%);
 
 	&:hover {
         text-shadow: 0em 0em 3px var(--color-high);
