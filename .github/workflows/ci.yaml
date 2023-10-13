@@ -48,7 +48,7 @@ jobs:
         run: |
           docker build . -t $IMAGE
           docker push $IMAGE
-      - name: Deploy Container
+      - name: Deploy to Dev
         run: |
           kubectl kustomize deployment/dev |
             envsubst '$IMAGE $DEV_VERSION_NAME' | 
@@ -59,6 +59,7 @@ jobs:
           rm -f "$KUBECONFIG"
       - name: Add Comment to PR
         uses: mshick/add-pr-comment@v2
+        if: always()
         with:
           message: >
             This Pull Request has been deployed to 
