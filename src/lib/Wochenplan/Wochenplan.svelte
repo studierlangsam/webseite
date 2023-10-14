@@ -131,9 +131,6 @@
                     {/if}
                 </div>
                 {/each}
-                {#each [...Array(slots + 1).keys()] as time}
-                <div class="wp-{time}-{time} empty"></div>
-                {/each}
             </div>
         </div>
         {/each}
