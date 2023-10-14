@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Tutor } from "./tutors";
     export let tutor: Tutor;
-    const src = `/images/tutoren/${tutor.Name}.jpg`;
+    const src = `/images/tutoren/${tutor.Name}.webp`;
 
 	const SS_START = 3; // April, zero-based
 	const WS_START = 9; // October, zero-based
