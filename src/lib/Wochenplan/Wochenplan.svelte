@@ -49,26 +49,26 @@
         <div class="daytime">
             <div class="heading maps-toggle">
                 <img class="maps" src="https://wiki.openstreetmap.org/w/images/7/79/Public-images-osm_logo.svg" alt="OpenStreetMap" />
-                <SlideToggle slot="append" name="slider-label" bind:checked={gmaps} />
+                <SlideToggle slot="append" name="slider-label" bind:checked={gmaps} aria-description="Toggle links between OpenStreetMap or Google Maps"/>
                 <img class="maps" src="https://lh3.googleusercontent.com/V0Lu6YzAVaCVcjSJ_4Qb0mR_idw-GApETGbkodvDKTH-rpDvHuD6J84jshR_FvXdl5mJxqbIHVdebYCCbQMJNxIxRaIHYFSq6z7laA" alt="Google Maps">
             </div>
             <div class="time">
                 <div style="
                     grid-row: {startSlot.morning} / {endSlot.morning};
                 ">
-                    <h4>Morgens</h4>
+                    <p class="time-title">Morgens</p>
                     <p>{hours.morning} - {hours.noon} Uhr</p>
                 </div>
                 <div style="
                     grid-row: {startSlot.noon} / {endSlot.noon};
                 ">
-                    <h4>Mittags</h4>
+                    <p class="time-title">Mittags</p>
                     <p>{hours.noon} - {hours.evening} Uhr</p>
                 </div>
                 <div style="
                     grid-row: {startSlot.evening} / {endSlot.evening};
                 ">
-                    <h4>Abends</h4>
+                    <p class="time-title">Abends</p>
                     <p>Ab {hours.evening} Uhr</p>
                 </div>
             </div>
@@ -267,6 +267,12 @@ $col-pad: 0.5em;
             display: none;
             width: inherit;
         }
+    }
+
+    .time .time-title {
+        font-weight: 800;
+        font-size: large;
+        margin-left: 0.5em;
     }
 
     .time, .events {

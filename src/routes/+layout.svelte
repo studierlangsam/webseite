@@ -68,7 +68,7 @@
 
 		z-index: -10;
 
-		background: rgb(var(--color-primary-600));
+		background: rgb(var(--color-primary-700));
 
 		width: 100%;
 		height: calc(32.87% - 16px);
@@ -80,11 +80,11 @@
 .here {
     background-color: rgb(var(--color-surface-50)) !important;
 
-    color: rgb(var(--color-primary-600)) !important;
+    color: rgb(var(--color-primary-700)) !important;
     
     :global(svg) {
-        fill: rgb(var(--color-primary-600)) !important;
-        stroke: rgb(var(--color-primary-600)) !important;
+        fill: rgb(var(--color-primary-700)) !important;
+        stroke: rgb(var(--color-primary-700)) !important;
     }
 }
 
@@ -95,7 +95,7 @@ nav {
 
     position: sticky;
     top: 0;
-	background-color: rgb(var(--color-primary-600));
+	background-color: rgb(var(--color-primary-700));
 
 	width: 100%;
     z-index: 100;
@@ -169,7 +169,7 @@ footer {
 
 	text-align: center;
 
-	color: color.adjust($light, $lightness: -30%);
+	color: black;
 	font-size: .8rem;
 
 	a {
