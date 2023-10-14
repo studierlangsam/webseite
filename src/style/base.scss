@@ -50,8 +50,23 @@
 
 	:global(a) {
 		text-decoration: none;
+		position: relative;
 
-		color: color.adjust($lowlight, $lightness: -40%);
+		&::after {
+			content: "";
+			background-color: rgb(var(--color-warning-500));
+			height: .5em;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			transition: height 0.25s;
+		}
+
+		&:hover::after {
+			height: 1em;
+		}
 	}
 }
 
