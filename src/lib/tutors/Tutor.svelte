@@ -16,7 +16,7 @@
 </script>
 
 <div class="tutor">
-    <img {src} alt="" />
+    <img {src} alt="" loading="lazy" decoding="async"/>
     <div>
         <h3>{tutor.Spitzname}</h3>
 		{#if tutor.Spruch}
