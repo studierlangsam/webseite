@@ -3,19 +3,16 @@
 	import { visibleSectionHash } from './stores';
     export let address: string;
 </script>
-<div
+    <div class="section"
     use:inview
     on:inview_enter={() => {
         visibleSectionHash.set(address)
-    }}
->
-    <div class="section">
+    }}>
         <h1 id={address}>
             <slot name="title">{address}</slot>
         </h1>
     </div>
     <slot />
-</div>
 
 <style lang="scss">
 .section {

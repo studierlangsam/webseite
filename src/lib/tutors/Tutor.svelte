@@ -5,7 +5,7 @@
     const src = `/images/tutoren/${tutor.Name}.jpg`;
     const Semester = (Studium: Tutor['Karriere'][number]) => {
         const years = new Date().getFullYear() - Studium.Jahr;
-        const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0);
+        const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0) + 1;
         return realSemesters - (Studium.Sommersemester ? 1 : 0) - (Studium.Urlaubssemester ?? 0) + 1;
     }
 </script>

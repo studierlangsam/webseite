@@ -55,7 +55,7 @@
         width: 500px;
 
         @include responsive.from-width(responsive.$mobile) {
-            width: 360px;
+            width: min(100vw, 360px);
         }
         
     }

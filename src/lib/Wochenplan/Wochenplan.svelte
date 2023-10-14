@@ -210,13 +210,13 @@ $col-pad: 0.5em;
 }
 
 .wochenplan-window {
-    --wochenplan-width: calc(clamp(sizes.$content-width, 80vw, calc((var(--cols) + 1) * $col-width + 2 * $outline-width))); 
-    @include responsive.from-width(responsive.$mobile) {
-        --wochenplan-width: sizes.$content-width;
-    }
-    $width: var(--wochenplan-width);
-    margin-left: calc(-1/2 * ($width - sizes.$content-width));
+    $width: calc(clamp(sizes.$content-width, 80vw, calc((var(--cols) + 1) * $col-width + 2 * $outline-width))); 
     width: $width;
+    @include responsive.from-width(responsive.$mobile) {
+        width: 100%;
+        margin-left: 0
+    }
+    margin-left: calc(-1/2 * ($width - sizes.$content-width));
     overflow-x: scroll;
     height: calc($height + $col-pad + $header-height);
     @include round;
