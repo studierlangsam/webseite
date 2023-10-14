@@ -102,7 +102,7 @@
                         {#if !!endDT}
                             <span class="end">{endDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         {:else}
-                            <span class="end">Offendes Ende</span>
+                            <span class="end">Offenes Ende</span>
                         {/if}
                     </div>
                     {#if !!event.Treffpunkt} 
