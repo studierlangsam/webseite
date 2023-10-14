@@ -1,12 +1,17 @@
 <script lang="ts">
     import type { Tutor } from "./tutors";
     export let tutor: Tutor;
-
     const src = `/images/tutoren/${tutor.Name}.jpg`;
+
+	const SS_START = 3; // April, zero-based
+	const WS_START = 9; // October, zero-based
+	const NOW = new Date();
+	// Common Era Semester™: WS that starts in year 0 is semester 0
+	const nowSemester = NOW.getFullYear() * 2 - (NOW.getMonth() < WS_START ? 1 : 0) - (NOW.getMonth() < SS_START ? 1 : 0);
+
     const Semester = (Studium: Tutor['Karriere'][number]) => {
-        const years = new Date().getFullYear() - Studium.Jahr;
-        const realSemesters = 2 * years - (new Date().getMonth() < 10 ? 1 : 0) + 1;
-        return realSemesters - (Studium.Sommersemester ? 1 : 0) - (Studium.Urlaubssemester ?? 0) + 1;
+		const startSemester = Studium.Jahr * 2 - (Studium.Sommersemester ? 1 : 0);
+        return nowSemester - startSemester + 1 - (Studium.Urlaubssemester ?? 0);
     }
 </script>
 
