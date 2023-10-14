@@ -244,6 +244,10 @@ $col-pad: 0.5em;
         align-items: center;
         height: $header-height;
         @include border;
+
+        h3 {
+            padding-top: 0.5rem !important;
+        }
     }
 
     .day, .daytime {
