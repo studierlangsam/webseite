@@ -18,9 +18,15 @@
 </div>
 
 <style lang="scss">
+@use "$style/sizes";
 .section {
     display: flex;
     align-items: center;
     margin-top: 2em;
+
+    h1 {
+        padding-top: calc(sizes.$navigation-total-height - sizes.$navigation-top-pad);
+        margin-top: calc(sizes.$navigation-top-pad - sizes.$navigation-total-height);
+    }
 }
 </style>

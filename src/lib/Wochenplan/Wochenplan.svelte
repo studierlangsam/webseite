@@ -250,18 +250,22 @@ $col-pad: 0.5em;
         }
     }
 
+    .daytime {
+        @include responsive.from-width(responsive.$mobile) {
+            width: 10em;
+        }
+    }
+
     .day, .daytime {
         display: flex;
         flex-direction: column;
         width: $col-width;
-        @include responsive.from-width(responsive.$mobile) {
-            width: 50%;
-        }
     }
 
     .day {
         @include responsive.from-width(responsive.$mobile) {
             display: none;
+            width: inherit;
         }
     }
 
@@ -269,6 +273,7 @@ $col-pad: 0.5em;
         height: 100%;
         display: grid;
         grid-template-rows: repeat($slots,$slot-height);
+        color: black !important;
         @include border;
     }
 

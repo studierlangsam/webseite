@@ -18,7 +18,7 @@
         <span>{@html banner}</span>
     </div>
     <nav>
-        <a class:here={$visibleSectionHash === ""} href="/" class="home">{@html logo}</a>
+        <!-- <a class:here={$visibleSectionHash === ""} href="/" class="home">{@html logo}</a> -->
         <a class:here={$visibleSectionHash === "Wochenplan"} href="/#Wochenplan">Wochenplan</a>
         <a class:here={$visibleSectionHash === "Tutor:innen"} href="/#Tutor:innen">Tutor:innen</a>
         <a class:here={$visibleSectionHash === "FAQ"} href="/#FAQ">FAQ</a>
