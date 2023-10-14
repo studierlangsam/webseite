@@ -36,8 +36,8 @@ a {
     text-decoration: none;
 	transition: text-shadow .3s;
 	transition: fill .3s;
-    color: color.adjust(colors.$lowlight, $lightness: -40%);
-    fill: color.adjust(colors.$lowlight, $lightness: -40%);
+    // color: color.adjust(colors.$lowlight, $lightness: -40%);
+    // fill: color.adjust(colors.$lowlight, $lightness: -40%);
 
 	&:hover {
         text-shadow: 0em 0em 3px var(--color-high);
