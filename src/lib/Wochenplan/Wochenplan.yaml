@@ -15,6 +15,7 @@ Wochenplan:
       Treffpunkt: Schloss
       Effekt:
         Highlight: true
+        Icon: pizza-slice
     - Titel: Schnitzeljagd
       Beschreibung: Lernt den Campus kennen
       Start: 15:30
@@ -22,6 +23,7 @@ Wochenplan:
       Treffpunkt: Schloss
       Effekt:
         Highlight: true
+        Icon: compass
     - Titel: O-Grillen
       Beschreibung:
       Start: 19:00
@@ -46,7 +48,7 @@ Wochenplan:
         - Text: vor der [Mensa]
           Ort: Mensa
     - Titel: FBI
-      Beschreibung:
+      Beschreibung: Profis erklären Studium
       Start: 14:00
       Ende: 16:00
       Treffpunkt: 
@@ -62,6 +64,7 @@ Wochenplan:
       Treffpunkt: Forum
       Effekt:
         Highlight: true
+        Boulderschildi: true
     - Titel: O-Phest
       Beschreibung:
       Start: 20:00
@@ -92,6 +95,7 @@ Wochenplan:
         - Europaplatz
       Effekt:
         Highlight: true
+        Icon: route
   - Datum: 2023-10-19
     Termine:
     - Titel: Frühstück
@@ -123,13 +127,13 @@ Wochenplan:
       Treffpunkt: Mathebau
       Effekt:
         Highlight: true
-
+        Icon: dice
   - Datum: 2023-10-20
     Termine:
     - Titel: Abschluss
       Beschreibung:
       Start: 11:30
-      Ende: 12:30
+      Ende: 12:45 # this is a lie but it better fits the layout
       Treffpunkt: Gerthsen-Hörsaal
       Effekt:
         Fachschaft: true
@@ -155,6 +159,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Schildi: true
+        Icon: martini-glass-citrus
   - Datum: 2023-10-21
     Termine:
     - Titel: Mädels-Brunch
@@ -171,6 +176,7 @@ Wochenplan:
       Treffpunkt: Mathebau
       Effekt:
         Highlight: true
+        Icon: square-root-variable
 
 Orte:
   AKK:

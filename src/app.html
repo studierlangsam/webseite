@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<!-- This has to be here. It breaks when used in <svelte:head> -->
+		<script src="https://kit.fontawesome.com/d3f5a97893.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="/heading-style-fix.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%

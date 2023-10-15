@@ -43,7 +43,7 @@
 <div class="wochenplan-window" style="
     --cols: {Wochenplan.length};
     --slots: {slots};
-    --wp-height: 90rem;
+    --wp-height: 75em;
 ">
     <div class="wochenplan">
         <div class="daytime">
@@ -94,6 +94,12 @@
                     >
                     {#if event.Effekt.Schildi}
                         <img class="schildi" src="{schildi}" alt="Schildi" />
+                    {/if}
+                    {#if event.Effekt.Boulderschildi}
+                        <img class="boulder-schildi" src="{schildi}" alt="Schildi" />
+                    {/if}
+                    {#if !!event.Effekt.Icon}
+                        <i class="fa-solid fa-{event.Effekt.Icon}" class:shifted={!!event.Beschreibung}></i>
                     {/if}
                     <h4>{@html event.Titel}</h4>
                     <div class="timings">
@@ -318,6 +324,18 @@ $col-pad: 0.5em;
                 font-style: italic;
                 position: relative;
             }
+
+            i {
+                position: absolute;
+                font-size: 3rem;
+                top: 5rem;
+                right: 1rem;
+                color: hsla(83, 90%, 28%);
+
+                &.shifted {
+                    translate: 0 2rem;
+                }
+            }
         }
     }
 }
@@ -325,9 +343,16 @@ $col-pad: 0.5em;
 .schildi {
     $pad: 1em;
     position: absolute;
-    width: calc(100% - 2 * $pad);
+    width: min(calc(100% - 2 * $pad), 10rem);
     padding: 0 $pad 0;
     translate: 0 -100%;
+}
+.boulder-schildi {
+    position: absolute;
+    width: 35%;
+    right: $col-pad;
+    bottom: 1rem;
+    transform: rotate(-90deg);
 }
 
 .empty {

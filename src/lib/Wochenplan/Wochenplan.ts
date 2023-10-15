@@ -3,8 +3,10 @@ import { gcd } from "@algorithm.ts/gcd";
 
 type Effekt = {
     Schildi: boolean;
+    Boulderschildi: boolean;
     Fachschaft: boolean;
     Highlight: boolean;
+    Icon: string;
 };
 
 type ReadTreffpunkt = {
