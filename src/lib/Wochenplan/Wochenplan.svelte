@@ -116,7 +116,7 @@
                                 {#if !gmaps}
                                     {Pre}<Link href={osm ?? google} type="map" --color-high="var(--event-color-high)">{Text}</Link>{Post}
                                 {:else}
-                                    {Pre}<Link href={google ?? google} type="map" --color-high="var(--event-color-high)">{Text}</Link>{Post}
+                                    {Pre}<Link href={google ?? osm} type="map" --color-high="var(--event-color-high)">{Text}</Link>{Post}
                                 {/if}
                             {:else}
                                 {event.Treffpunkt}
