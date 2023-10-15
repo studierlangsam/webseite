@@ -100,12 +100,11 @@ nav {
 	width: 100%;
     z-index: 100;
     
-    border-bottom: .4em solid rgb(var(--color-surface-50));
-
     padding-top: sizes.$navigation-top-pad;
     padding-bottom: sizes.$navigation-bottom-pad;
-
-    height: sizes.$navigation-height;
+    
+    height: calc(sizes.$navigation-height - .4em);
+    // border-bottom: .4em solid rgb(var(--color-surface-50));
 
 	text-align: center;
 
