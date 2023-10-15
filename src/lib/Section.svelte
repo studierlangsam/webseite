@@ -20,7 +20,7 @@
 <style lang="scss">
 @use "$style/sizes";
 .section {
-    display: flex;
+    // display: flex;
     align-items: center;
     margin-top: 2em;
 
