@@ -1,5 +1,0 @@
-- emojione.imageType = 'svg'
-
-mixin emoji(name)
-	// emojione uses the standby attribute, which is deprecated
-	span!= emojione.shortnameToImage(`:${name}:`).replace(/standby=".*?"/, '')

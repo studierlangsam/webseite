@@ -1,0 +1,10 @@
+$dark: #000;
+$light: #fff;
+$lowlight: #deaa87;
+$highlight: #bcd35f;
+
+
+@mixin color($color) {
+    --color: #{$color};
+    --color-high: color.adjust(#{$color}, $hue: 30deg);
+}

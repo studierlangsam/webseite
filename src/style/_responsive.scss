@@ -1,0 +1,7 @@
+@mixin from-width($width) {
+	@media only screen and (max-width: $width) {
+		@content;
+	}
+}
+
+$mobile: 600px;

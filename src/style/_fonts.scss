@@ -1,0 +1,26 @@
+@mixin impact {
+	display: inline-block;
+
+	transform: scale(1, 1.5);
+
+	font-family: 'Coda', sans-serif;
+	font-weight: 800;
+
+	transform-origin: bottom;
+}
+
+@mixin text-font {
+	// See https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		'Roboto',
+		'Oxygen',
+		'Ubuntu',
+		'Cantarell',
+		'Fira Sans',
+		'Droid Sans',
+		'Helvetica Neue',
+		sans-serif;
+}

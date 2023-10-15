@@ -6,17 +6,20 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     environment: Dev
+    env:
+      KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+      DEV_VERSION_NAME: pr-${{ github.event.number }}
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Setup Node.JS
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: lts/*
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3.2
         with:
-          version: 'v1.23.1'
+          version: v1.23.1
       - name: Install graphicsmagick
         run: |
           sudo apt-get update
@@ -24,34 +27,52 @@ jobs:
       - name: Download npm Dependencies
         run: npm ci
       - name: Check
-        run: npx gulp check
+        run: npm run check
       - name: Log in to ghcr.io
         uses: docker/login-action@v2
         with:
          registry: ghcr.io
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set Image Tag
+        id: imageTag
+        run: |
+          echo "IMAGE=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Write Kubeconfig
-        run: 'echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"'
+        run: |
+          echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"
         env:
           KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
-      - name: Deploy Dev Version
-        run: npx gulp deployDev
+      - name: Build Dev Release
+        run: |
+          npm run clean
+          npm run build
+      - name: Build and Push Container
+        run: |
+          docker build . -t $IMAGE
+          docker push $IMAGE
         env:
-          DEV_VERSION_NAME: pr-${{ github.event.number }}
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+          IMAGE: ${{ steps.imageTag.outputs.image }}
+      - name: Deploy to Dev
+        run: |
+          kubectl kustomize deployment/dev |
+            envsubst '$IMAGE $DEV_VERSION_NAME' | 
+            kubectl apply -f - --prune --selector app=studierlangsam.de,version=$DEV_VERSION_NAME --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress
+        env:
+          IMAGE: ${{ steps.imageTag.outputs.image }}
       - name: Delete Kubeconfig
         if: always()
-        run: 'rm -f "$KUBECONFIG"'
-        env:
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
+        run: |
+          rm -f "$KUBECONFIG"
       - name: Add Comment to PR
         uses: mshick/add-pr-comment@v2
+        if: always()
         with:
           message: >
             This Pull Request has been deployed to 
-            [pr-${{ github.event.number }}.dev.studierlangsam.de](https://pr-${{ github.event.number }}.dev.studierlangsam.de).
+            [$DEV_VERSION_NAME.dev.studierlangsam.de](https://$DEV_VERSION_NAME.dev.studierlangsam.de).
             You can preview it there :monocle_face:.
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]'
+          message-failure: >
+            Failed to deploy this PR because the pipeline failed :astonished:.
+          find: $DEV_VERSION_NAME
+          replace: ${{ env.DEV_VERSION_NAME }}

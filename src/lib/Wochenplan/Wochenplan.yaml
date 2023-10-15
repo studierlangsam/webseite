@@ -1,0 +1,341 @@
+Wochenplan:
+  - Datum: 2023-10-16
+    Termine:
+    - Titel: Begrüßungs&#173;veranstaltung
+      Beschreibung: Hier geht's los
+      Start: 09:00
+      Ende: 12:00
+      Treffpunkt: Audimax
+      Effekt:
+        Fachschaft: true
+    - Titel: Kennenlernen & Pizza
+      Beschreibung:
+      Start: 12:30
+      Ende: 15:30
+      Treffpunkt: Schloss
+      Effekt:
+        Highlight: true
+        Icon: pizza-slice
+    - Titel: Schnitzeljagd
+      Beschreibung: Lernt den Campus kennen
+      Start: 15:30
+      Ende: 18:00
+      Treffpunkt: Schloss
+      Effekt:
+        Highlight: true
+        Icon: compass
+    - Titel: O-Grillen
+      Beschreibung:
+      Start: 19:00
+      Ende:
+      Treffpunkt: Infobau
+      Effekt:
+        Fachschaft: true
+  - Datum: 2023-10-17
+    Termine:
+    - Titel: Frühstück
+      Beschreibung:
+      Start: 09:00
+      Ende: 11:00
+      Treffpunkt: 
+        - Text: "Turing: [alina café]"
+          Ort: alina café
+        - Text: "Lovelace: [Coffee Box]"
+          Ort: Coffee Box
+    - Titel: Mensa
+      Beschreibung:
+      Start: 12:00
+      Ende: 14:00
+      Treffpunkt: 
+        - Text: vor der [Mensa]
+          Ort: Mensa
+    - Titel: FBI
+      Beschreibung: Profis erklären Studium
+      Start: 14:00
+      Ende: 16:00
+      Treffpunkt: 
+        - Text: "Info: [Audimax]"
+          Ort: Audimax
+        - Text: "Mathe: [Neue Chemie]"
+          Ort: Neue Chemie
+        - Text: "Master: [Infobau]"
+          Ort: Infobau
+      Effekt:
+        Fachschaft: true
+    - Titel: Bouldern
+      Beschreibung:
+      Start: 16:00
+      Ende: 19:00
+      Treffpunkt: Forum
+      Effekt:
+        Highlight: true
+        Boulderschildi: true
+    - Titel: O-Phest
+      Beschreibung:
+      Start: 20:00
+      Ende:
+      Treffpunkt: AKK
+      Effekt:
+        Fachschaft: true
+  - Datum: 2023-10-18
+    Termine:
+    - Titel: Eigenes Frühstück
+      Beschreibung:
+      Start: 09:00
+      Ende: 11:00
+      Treffpunkt: Mathebau
+    - Titel: O-Rallye
+      Beschreibung:
+      Start: 11:00
+      Ende: 17:00
+      Effekt:
+        Fachschaft: true
+      Treffpunkt: Mathebau
+    - Titel: Kneipentour
+      Beschreibung:
+      Start: 18:00
+      Ende:
+      Treffpunkt: 
+        - Durlacher Tor
+        - Europaplatz
+      Effekt:
+        Highlight: true
+        Icon: route
+  - Datum: 2023-10-19
+    Termine:
+    - Titel: Frühstück
+      Beschreibung:
+      Start: 10:00
+      Ende: 13:00
+      Treffpunkt:
+        - Text: "Turing: [Café Palaver]"
+          Ort: Café Palaver
+        - Text: "Lovelace: [alina café]"
+          Ort: alina café
+    - Titel: O-Lympia
+      Beschreibung:
+      Start: 13:00
+      Ende: 17:00
+      Treffpunkt: Forum
+      Effekt:
+        Fachschaft: true
+    - Titel: Abendessen
+      Beschreibung:
+      Start: 18:00
+      Ende: 20:00
+      Treffpunkt: 
+        - Text: "Turing: [Vietaroma]"
+          Ort: Vietaroma
+        - Text: "Lovelace: [Veggiezz]"
+          Ort: Veggiezz
+        - Oxford Ost
+    - Titel: Spieleabend
+      Beschreibung:
+      Start: 20:00
+      Ende:
+      Treffpunkt: Mathebau
+      Effekt:
+        Highlight: true
+        Icon: dice
+  - Datum: 2023-10-20
+    Termine:
+    - Titel: Abschluss
+      Beschreibung:
+      Start: 11:30
+      Ende: 12:45 # this is a lie but it better fits the layout
+      Treffpunkt: Gerthsen-Hörsaal
+      Effekt:
+        Fachschaft: true
+    - Titel: Mensa
+      Beschreibung:
+      Start: 12:45
+      Ende: 14:30
+      Treffpunkt: 
+        - Text: vor der [Mensa]
+          Ort: Mensa
+    - Titel: Sport / Museen / SCC
+      Beschreibung: Programm nach Wahl
+      Start: 14:30
+      Ende: 18:00
+      Treffpunkt:
+        - Text: vor der [Mensa]
+          Ort: Mensa
+    - Titel: Cocktailabend
+      Beschreibung: Die besten Cock- und Mocktails
+      Start: 20:00
+      Ende: 
+      Treffpunkt: HaDiKo K1-Bar
+      Effekt:
+        Highlight: true
+        Schildi: true
+        Icon: martini-glass-citrus
+  - Datum: 2023-10-21
+    Termine:
+    - Titel: Mädels-Brunch
+      Beschreibung: 
+      Start: 10:00
+      Ende: 13:00
+      Treffpunkt: Mathebau
+      Effekt:
+        Fachschaft: true
+    - Titel: Mathe-Treff
+      Beschreibung: 
+      Start: 13:00
+      Ende: 15:30
+      Treffpunkt: Mathebau
+      Effekt:
+        Highlight: true
+        Icon: square-root-variable
+
+Orte:
+  AKK:
+    Google: https://maps.app.goo.gl/S1ciTQgv6kjptPhe6
+    OSM: https://www.openstreetmap.org/node/427730736
+  alina café:
+    Google: https://maps.app.goo.gl/zx84SsEMLEcndmjt9
+    OSM: https://www.openstreetmap.org/node/2285186109
+  Audimax:
+    Google: https://maps.app.goo.gl/2dfm3iFwvwr81pJT6
+    OSM: https://www.openstreetmap.org/way/167867872
+  Benz:
+    Google: https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813
+    OSM: https://www.openstreetmap.org/way/288535407
+  BerlinerPlatz:
+    Google: https://goo.gl/maps/1F753Q3GxCP95xbw7
+    OSM: https://www.openstreetmap.org/node/9332558374
+  Bleu:
+    Google: https://www.google.com/maps/place/Caf%C3%A9+Bleu/@49.0099555,8.3824693,17z/data=!3m1!4b1!4m5!3m4!1s0x479706f806ddd73f:0x67b8118f64337f0a!8m2!3d49.009952!4d8.384658
+    OSM: https://www.openstreetmap.org/node/289245159
+  Brauhaus:
+    Google: https://www.google.de/maps/place/Badisch+Brauhaus/@49.008726,8.3933296,17z/data=!4m8!1m2!2m1!1sbrauhaus!3m4!1s0x47970650e027dfef:0x8669971215d642bd!8m2!3d49.0118517!4d8.3939437?hl=de
+    OSM: https://www.openstreetmap.org/way/90626454
+  Café Palaver:
+    Google: https://maps.app.goo.gl/Z8RFLLk66wzWKKJV6
+    OSM: https://www.openstreetmap.org/node/454975637
+  Coffee Box:
+    Google: https://maps.app.goo.gl/6EyN7Cr4cLeUeFhL7
+    OSM: https://www.openstreetmap.org/node/1193906016
+  Daimler:
+    Google: https://goo.gl/maps/XQV1sQaLRtviLtbz5
+    OSM: https://www.openstreetmap.org/way/288535409
+  Durlacher Tor:
+    Google: https://goo.gl/maps/AqmwtUY1icdgA1oG9
+    OSM: https://www.openstreetmap.org/relation/140285
+  EAS:
+    Google: https://goo.gl/maps/r4w57wyk1khrNS5L6
+    OSM: https://www.openstreetmap.org/way/309066194#map=18/49.01078/8.41301
+  Emaille:
+    Google: https://www.google.de/maps/place/Cafe+Emaille/@49.009953,8.3931562,17z/data=!4m5!3m4!1s0x479706506723051b:0xcc0568a06fe0430e!8m2!3d49.0101677!4d8.3954093
+    OSM: https://www.openstreetmap.org/node/259777680
+  Europaplatz:
+    Google: https://www.google.com/maps/place/Europaplatz,+76133+Karlsruhe/@49.0099302,8.3920218,17z/data=!3m1!4b1!4m8!1m2!2m1!1sEuropaplatz!3m4!1s0x479706508f790955:0x6ba7b951b59d896!8m2!3d49.0099421!4d8.3946948
+    OSM: https://www.openstreetmap.org/relation/4208150#map=19/49.00997/8.39421
+  Extrablatt:
+    Google: https://g.page/cafe-extrablatt-karlsruhe?share
+    OSM: https://www.openstreetmap.org/node/412731682
+  Forum:
+    Google: https://maps.app.goo.gl/NaY628vC6qa9dDRq8
+    OSM: https://www.openstreetmap.org/way/260318329
+  Gerthsen-Hörsaal:
+    Google: https://maps.app.goo.gl/L8vzsVVk3Yq475ZA7
+    OSM: https://www.openstreetmap.org/way/1134006199
+  HaDiKo:
+    Google: https://www.google.de/maps/place/Hans-Dickmann-Kolleg/@49.0201791,8.4207664,17z/data=!3m1!4b1!4m5!3m4!1s0x479707cdb2e27c8f:0x909cb0a2a6e1329!8m2!3d49.0201791!4d8.4229551?hl=de
+    OSM: https://www.openstreetmap.org/way/356386058
+  HaDiKo K1-Bar:
+    Google: https://maps.app.goo.gl/5eHgjPQe7NJARAWu5
+    OSM: https://www.openstreetmap.org/node/9945476536
+  Hertz:
+    Google: https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de
+    OSM: https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287
+  HSaF:
+    Google: https://goo.gl/maps/6HbPJZSq2RokjL457
+    OSM: https://www.openstreetmap.org/way/37787402#map=19/49.01472/8.42037
+  Infobau:
+    Google: https://maps.app.goo.gl/E8fUUokbGxPwWXk28
+    OSM: https://www.openstreetmap.org/way/155674961
+  Insterburg:
+    Google: https://www.google.de/maps/place/Insterburg/@49.0363994,8.4328968,18.75z/data=!4m5!3m4!1s0x479707dd64444147:0xe5f0e7db443810b5!8m2!3d49.03645!4d8.43354
+    OSM: https://www.openstreetmap.org/way/136032188
+  IntroCafe:
+    Google: https://g.page/introcafekarlsruhe?share
+    OSM: https://www.openstreetmap.org/node/8688553072
+  K1:
+    Google: https://goo.gl/maps/Lwr55t1rgU9szKaZA
+    OSM: https://www.openstreetmap.org/relation/5320078
+  Lago:
+    Google: https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de
+    OSM: https://www.openstreetmap.org/way/96860719
+  Lehmann:
+    Google: https://www.google.de/maps/place/Lehmann-H%C3%B6rsaal,+76131+Karlsruhe/@49.0124216,8.4096434,18.25z/data=!4m5!3m4!1s0x47970649ee32439f:0x24f80d5924828f46!8m2!3d49.0124468!4d8.4104233
+    OSM: https://www.openstreetmap.org/node/2666061092
+  Marktplatz:
+    Google: https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de
+    OSM: https://www.openstreetmap.org/relation/5559765
+  Mathebau:
+    Google: https://maps.app.goo.gl/mfrUmKaBKvL6ZEF88
+    OSM: https://www.openstreetmap.org/way/42321004
+  Mensa:
+    Google: https://maps.app.goo.gl/J9X6X5J1z4xppwap7
+    OSM: https://www.openstreetmap.org/node/442956482
+  Naturkundemuseum:
+    Google: https://goo.gl/maps/bGGExDWy6B4Zj9A58
+    OSM: https://www.openstreetmap.org/way/431433884
+  Neue Chemie:
+    Google: https://maps.app.goo.gl/be9D4cmp9jzEyZnd7
+    OSM: https://www.openstreetmap.org/way/168265200
+  Normannia:
+    Google: https://www.google.com/maps/place/K.D.St.V.+Normannia/@49.0149153,8.4215328,17z/data=!3m1!4b1!4m5!3m4!1s0x479706328bcdc411:0x2ba47d6980ec857d!8m2!3d49.0149118!4d8.4237215
+    OSM: https://www.openstreetmap.org/way/173717520#map=18/49.01476/8.42405
+  Ox:
+    Google: https://www.google.com/maps/place/Oxford+Pub/@49.0086606,8.4125303,19z/data=!4m13!1m7!3m6!1s0x479706379b45b279:0x7584e25c70a262f4!2sFasanenstra%C3%9Fe+6,+76131+Karlsruhe,+Deutschland!3b1!8m2!3d49.0086606!4d8.4130775!3m4!1s0x0:0x823aadf9ebe8bb1d!8m2!3d49.0085683!4d8.4129196
+    OSM: https://www.openstreetmap.org/node/2334081402
+  Oxford Ost:
+    Google: https://maps.app.goo.gl/GZaWNbaH7v25tN4fA
+    OSM: https://www.openstreetmap.org/node/31261876
+  Palaver:
+    Google: https://goo.gl/maps/xhoqCPk4mXxRrvZPA
+    OSM: https://www.openstreetmap.org/node/454975637
+  Pfannestiel:
+    Google: https://goo.gl/maps/yiLbSChyY3YThdZM9
+    OSM: https://www.openstreetmap.org/node/538160948
+  Plank:
+    Google: https://www.google.de/maps/place/Plank-H%C3%B6rsaal,+76131+Karlsruhe/@49.014428,8.4160806,18z/data=!3m1!4b1!4m12!1m6!3m5!1s0x4797064d7da356a3:0xbdaeb296b0747bed!2sKarlsruher+Institut+f%C3%BCr+Technologie!8m2!3d49.0119199!4d8.4170303!3m4!1s0x4797063468da3b09:0xbe1d55cee6996c0f!8m2!3d49.014518!4d8.4173264?hl=de
+    OSM: https://www.openstreetmap.org/way/196917733
+  Redtenbacher:
+    Google: https://www.google.de/maps/place/Redtenbacher+H%C3%B6rsaal,+76131+Karlsruhe/@49.0099248,8.411487,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a91445f5:0xa785a73eefe7c8af!8m2!3d49.0099434!4d8.4136681?hl=de
+    OSM: https://www.openstreetmap.org/way/244951291
+  SCC:
+    Google: https://www.google.de/maps/place/Steinbuch+Centre+for+Computing+(SCC)/@49.0122915,8.4058661,17z/data=!3m1!4b1!4m5!3m4!1s0x4797064975dddd03:0x5249774f83c382a2!8m2!3d49.0122915!4d8.4080548?hl=de
+    OSM: https://www.openstreetmap.org/way/154765886
+  Schloss:
+    Google: https://maps.app.goo.gl/VFAyj8PxTnrjUrFr6
+    OSM: https://www.openstreetmap.org/way/106732847
+  Stovchen:
+    Google: https://goo.gl/maps/vZTCggUAyJXRqhXM9
+    OSM: https://www.openstreetmap.org/node/96039200
+  Studentenhaus:
+    Google: https://goo.gl/maps/QsweiMrCfzoNh3Ky6
+    OSM: https://www.openstreetmap.org/way/155277825
+  Studierendenservice:
+    Google: https://goo.gl/maps/3Jhtw13GauTVm98d7
+    OSM: https://www.openstreetmap.org/way/405742834
+  Tulla:
+    Google: https://goo.gl/maps/aB66coJ3epZoQt9o9
+    OSM: https://www.openstreetmap.org/way/159808700
+  Veggiezz:
+    Google: https://goo.gl/maps/EmqKjcpCS6EKEYkm6
+    OSM: https://www.openstreetmap.org/node/340370586
+  Vietaroma:
+    Google: https://maps.app.goo.gl/ePeoVhnXiLNswCpP9
+    OSM: https://www.openstreetmap.org/node/3756408396
+  Vogelbraeu:
+    Google: https://www.google.com/maps/place/Vogelbr%C3%A4u+Karlsruhe/@49.0074459,8.4117799,17z/data=!3m1!4b1!4m5!3m4!1s0x479706375ff80665:0x8481b564b9038680!8m2!3d49.0074424!4d8.4139686
+    OSM: https://www.openstreetmap.org/node/534790866#map=19/49.00739/8.41401
+  ZKM:
+    Google: https://g.page/zkmkarlsruhe
+    OSM: https://www.openstreetmap.org/relation/2975021
+  ZooMinigolf:
+    Google: https://goo.gl/maps/7PYjwAUcs73Eb6yk8
+    OSM: https://www.openstreetmap.org/way/147494720
+
