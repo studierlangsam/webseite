@@ -4,7 +4,7 @@
     export let address: string;
 </script>
 <div
-    use:inview
+    use:inview={{rootMargin: "-40%"}}
     on:inview_enter={() => {
         visibleSectionHash.set(address)
     }}
