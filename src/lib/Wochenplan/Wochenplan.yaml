@@ -38,8 +38,10 @@ Wochenplan:
       Start: 09:00
       Ende: 11:00
       Treffpunkt: 
-        - alina café
-        - Coffee Box
+        - Text: "Turing: [alina café]"
+          Ort: alina café
+        - Text: "Lovelace: [Coffee Box]"
+          Ort: Coffee Box
     - Titel: Mensa
       Beschreibung:
       Start: 12:00
@@ -52,9 +54,12 @@ Wochenplan:
       Start: 14:00
       Ende: 16:00
       Treffpunkt: 
-        - Audimax
-        - Infobau
-        - Neue Chemie
+        - Text: "Info: [Audimax]"
+          Ort: Audimax
+        - Text: "Mathe: [Neue Chemie]"
+          Ort: Neue Chemie
+        - Text: "Master: [Infobau]"
+          Ort: Infobau
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
@@ -103,8 +108,10 @@ Wochenplan:
       Start: 10:00
       Ende: 13:00
       Treffpunkt:
-        - Café Palaver
-        - alina café
+        - Text: "Turing: [Café Palaver]"
+          Ort: Café Palaver
+        - Text: "Lovelace: [alina café]"
+          Ort: alina café
     - Titel: O-Lympia
       Beschreibung:
       Start: 13:00
@@ -117,8 +124,10 @@ Wochenplan:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Veggiezz
-        - Vietaroma
+        - Text: "Turing: [Vietaroma]"
+          Ort: Vietaroma
+        - Text: "Lovelace: [Veggiezz]"
+          Ort: Veggiezz
         - Oxford Ost
     - Titel: Spieleabend
       Beschreibung:

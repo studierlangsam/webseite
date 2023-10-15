@@ -324,6 +324,10 @@ $col-pad: 0.5em;
                 font-style: italic;
                 position: relative;
             }
+            
+            .location li {
+                white-space: nowrap;
+            }
 
             i {
                 position: absolute;
