@@ -29,6 +29,9 @@
         return timeToSlot(time.hour, time.minute);
     }
     let selectedDay: number = 0;
+    if (DateTime.now().day >= Wochenplan[0].Datum.day && DateTime.now().day <= Wochenplan.at(-1)!.Datum.day) {
+        selectedDay = DateTime.now().day - Wochenplan[0].Datum.day;
+    }
 </script>
 
 <Section address="Wochenplan">
