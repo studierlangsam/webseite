@@ -1,4 +1,4 @@
-FROM httpd:2.4.57-alpine
+FROM httpd:2.4.58-alpine
 COPY build /var/www/
 COPY httpd.conf /etc/httpd-extra.conf
 RUN cat /etc/httpd-extra.conf >> /usr/local/apache2/conf/httpd.conf \
