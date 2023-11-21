@@ -74,5 +74,5 @@ jobs:
             You can preview it there :monocle_face:.
           message-failure: >
             Failed to deploy this PR because the pipeline failed :astonished:.
-          find: $DEV_VERSION_NAME
+          find: \$DEV_VERSION_NAME
           replace: ${{ env.DEV_VERSION_NAME }}
