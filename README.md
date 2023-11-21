@@ -1,38 +1,36 @@
-# create-svelte
+# studierlangsam.de Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This website is written using [Svelte](https://svelte.dev/), a component language that compiles to static HTML as much as possible.
+Styling is done in [SCSS](http://sass-lang.com/).
+The site can is built by [vite](https://vitejs.dev/), using [SvelteKit](https://kit.svelte.dev/).
+The setup is based on [create-svelte](https://github.com/sveltejs/kit/tree/master/packages/create-svelte)
 
-## Creating a project
+## Getting started
 
-If you're seeing this, you've probably already done this step. Congrats!
+To build the page, you need to install Node JS.
+See [the official download page](https://nodejs.org/en/download/) for Windows and Mac and the [official documentation for package managers](https://nodejs.org/en/download/package-manager/) for Linux distributions.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Then you can install all dependencies by running `npm install` from the project folder.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### Important commands
+ * `npm run dev` to start a development server on `localhost:5179` that automatically updates the site as you make changes to the source code.
+ * `npm run build` to create a production build of the site in the `build` folder.
+ * `npm run preview` to start a server on `localhost:4173` for the production build. The server will not update automatically. You need to run `npm run build` again and re-start `npm run preview` to see changes.
+ * `npm run check` to check the source files against the coding conventions.
+ * `npm run list` to check the source files’ formatting.
+ * `npm run format` to fix the source files’ formatting.
 
-## Developing
+## Project structure
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The project consists of these folders:
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+* `.github/workflows` contains the build job definitions.
+* `.svelte-kit` (not in git) contains generated biuld files.
+* `build` (not in git) contains the production build of the page.
+* `deployment` contains the configuration for the Kubernetes resources that are used to deploy the website.
+* `node_modules` (not in git) is used by `npm` to store dependencies.
+* `src` contains the source code:
+  * `src/lib` contains the Svelte components and their logic.
+  * `src/routes` defines the pages of the website.
+  * `src/style` contains the externalized style definitions.
+  * `src/svg` contains graphics in the SVG format.
