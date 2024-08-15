@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2023-10-16
+  - Datum: 2023-10-14
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       Beschreibung: Hier geht's los
@@ -16,14 +16,21 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: pizza-slice
-    - Titel: Schnitzeljagd
+    - Titel: Campustour
       Beschreibung: Lernt den Campus kennen
       Start: 15:30
-      Ende: 18:00
-      Treffpunkt: Schloss
+      Ende: 17:00
+      Treffpunkt: Campus ;)
       Effekt:
         Highlight: true
         Icon: compass
+    - Titel: Spiele im Park
+      Beschreibung: Quadball, Frisbee, Wikingerschach und co
+      Start: 17:00
+      Ende: 19:00
+      Treffpunkt: Fasanengarten
+      Effekt: 
+        Highlight: true
     - Titel: O-Grillen
       Beschreibung:
       Start: 19:00
@@ -31,24 +38,17 @@ Wochenplan:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-17
+  - Datum: 2023-10-15
     Termine:
     - Titel: Frühstück
       Beschreibung:
-      Start: 09:00
-      Ende: 11:00
+      Start: 10:00
+      Ende: 12:00
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
         - Text: "Lovelace: [Coffee Box]"
           Ort: Coffee Box
-    - Titel: Mensa
-      Beschreibung:
-      Start: 12:00
-      Ende: 14:00
-      Treffpunkt: 
-        - Text: vor der [Mensa]
-          Ort: Mensa
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       Start: 14:00
@@ -77,7 +77,7 @@ Wochenplan:
       Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-18
+  - Datum: 2023-10-16
     Termine:
     - Titel: Eigenes Frühstück
       Beschreibung:
@@ -96,12 +96,11 @@ Wochenplan:
       Start: 18:00
       Ende:
       Treffpunkt: 
-        - Durlacher Tor
-        - Europaplatz
+        - Berliner Platz
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2023-10-19
+  - Datum: 2023-10-17
     Termine:
     - Titel: Frühstück
       Beschreibung:
@@ -137,7 +136,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2023-10-20
+  - Datum: 2023-10-18
     Termine:
     - Titel: Abschluss
       Beschreibung:
@@ -169,7 +168,7 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2023-10-21
+  - Datum: 2023-10-19
     Termine:
     - Titel: Mädels-Brunch
       Beschreibung: 
