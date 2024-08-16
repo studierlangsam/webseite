@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2023-10-14
+  - Datum: 2024-10-14
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       Beschreibung: Hier geht's los
@@ -33,7 +33,7 @@ Wochenplan:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-15
+  - Datum: 2024-10-15
     Termine:
     - Titel: Frühstück
       Beschreibung:
@@ -77,7 +77,7 @@ Wochenplan:
       Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-16
+  - Datum: 2024-10-16
     Termine:
     - Titel: Eigenes Frühstück
       Beschreibung:
@@ -99,7 +99,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2023-10-17
+  - Datum: 2024-10-17
     Termine:
     - Titel: Frühstück
       Beschreibung:
@@ -134,7 +134,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2023-10-18
+  - Datum: 2024-10-18
     Termine:
     - Titel: Abschluss
       Beschreibung:
@@ -166,7 +166,7 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2023-10-19
+  - Datum: 2024-10-19
     Termine:
     - Titel: Mädels-Brunch
       Beschreibung: 
