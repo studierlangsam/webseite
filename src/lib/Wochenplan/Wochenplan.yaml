@@ -16,7 +16,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: pizza-slice
-    - Titel: Campustour
+    - Titel: Campustour #todo: wie lange?
       Beschreibung: Lernt den Campus kennen
       Start: 15:30
       Ende: 17:00
@@ -31,6 +31,7 @@ Wochenplan:
       Treffpunkt: Fasanengarten
       Effekt: 
         Highlight: true
+        Icon: futbol
     - Titel: O-Grillen
       Beschreibung:
       Start: 19:00
@@ -47,8 +48,8 @@ Wochenplan:
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
-        - Text: "Lovelace: [Coffee Box]"
-          Ort: Coffee Box
+        - Text: "Lovelace: [Café Palaver]"
+          Ort: Café Palaver
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       Start: 14:00
@@ -95,8 +96,7 @@ Wochenplan:
       Beschreibung:
       Start: 18:00
       Ende:
-      Treffpunkt: 
-        - Berliner Platz
+      Treffpunkt: BerlinerPlatz
       Effekt:
         Highlight: true
         Icon: route
