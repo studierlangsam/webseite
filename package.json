@@ -33,7 +33,7 @@
 		"luxon": "3.4.4",
 		"postcss": "8.4.24",
 		"postcss-load-config": "4.0.2",
-		"prettier": "2.8.8",
+		"prettier": "3.3.3",
 		"prettier-plugin-svelte": "3.2.7",
 		"sass": "^1.79.5",
 		"svelte": "4.2.17",
