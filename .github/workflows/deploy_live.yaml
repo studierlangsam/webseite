@@ -17,16 +17,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v3.2
-        with:
-          version: v1.23.1
-      - name: Install graphicsmagick
-        run: |
-          sudo apt-get update
-          sudo apt-get install graphicsmagick
       - name: Download npm Dependencies
         run: npm ci
+      - name: Check
+        run: npm run check
+      - name: Build Release
+        run: |
+          npm run clean
+          npm run build
+          
       - name: Log in to ghcr.io
         uses: docker/login-action@v2
         with:
@@ -37,21 +36,22 @@ jobs:
         id: imageTag
         run: |
           echo "image=ghcr.io/studierlangsam/webseite:$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
-      - name: Write Kubeconfig
-        run: |
-          echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"
-        env:
-          KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
-      - name: Build Release
-        run: |
-          npm run clean
-          npm run build
       - name: Build and Push Container
         run: |
           docker build . -t $IMAGE
           docker push $IMAGE
         env:
           IMAGE: ${{ steps.imageTag.outputs.image }}
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3.2
+        with:
+          version: v1.23.1
+      - name: Write Kubeconfig
+        run: |
+          echo "$KUBECONFIG_CONTENT" > "$KUBECONFIG"
+        env:
+          KUBECONFIG_CONTENT: ${{ secrets.DEPLOYMENT_KUBECONFIG }}
       - name: Deploy to Live
         run: |
           kubectl kustomize deployment/live |
