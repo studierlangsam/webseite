@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2023-10-16
+  - Datum: 2024-10-14
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       Beschreibung: Hier geht's los
@@ -16,39 +16,34 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: pizza-slice
-    - Titel: Schnitzeljagd
+    - Titel: Campustour #todo: wie lange?
       Beschreibung: Lernt den Campus kennen
       Start: 15:30
-      Ende: 18:00
-      Treffpunkt: Schloss
-      Effekt:
-        Highlight: true
-        Icon: compass
-    - Titel: O-Grillen
+      Ende: 17:00
+      Treffpunkt: Forum
+    - Titel: Spiele im Park
+      Beschreibung: Quadball, Frisbee, Wikingerschach und co
+      Start: 17:00
+      Ende: 19:00
+      Treffpunkt: Fasanengarten
+    - Titel: O-Essen
       Beschreibung:
       Start: 19:00
       Ende:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-17
+  - Datum: 2024-10-15
     Termine:
-    - Titel: Frühstück
+    - Titel: Frühstück im Café
       Beschreibung:
-      Start: 09:00
-      Ende: 11:00
+      Start: 10:00
+      Ende: 13:00
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
-        - Text: "Lovelace: [Coffee Box]"
-          Ort: Coffee Box
-    - Titel: Mensa
-      Beschreibung:
-      Start: 12:00
-      Ende: 14:00
-      Treffpunkt: 
-        - Text: vor der [Mensa]
-          Ort: Mensa
+        - Text: "Lovelace: [Café Palaver]"
+          Ort: Café Palaver
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       Start: 14:00
@@ -65,21 +60,25 @@ Wochenplan:
     - Titel: Bouldern
       Beschreibung:
       Start: 16:00
-      Ende: 19:00
+      Ende: 18:00
       Treffpunkt: Forum
       Effekt:
         Highlight: true
         Boulderschildi: true
-    - Titel: O-Phest
+    - Titel: O-Phest / O-Philm
       Beschreibung:
       Start: 20:00
       Ende:
-      Treffpunkt: AKK
+      Treffpunkt: 
+        - Text: "Phest: [AKK]"
+          Ort: AKK
+        - Text: "Philm: [Hertz]"
+          Ort: Hertz
       Effekt:
         Fachschaft: true
-  - Datum: 2023-10-18
+  - Datum: 2024-10-16
     Termine:
-    - Titel: Eigenes Frühstück
+    - Titel: Mitbring-Frühstück
       Beschreibung:
       Start: 09:00
       Ende: 11:00
@@ -95,15 +94,13 @@ Wochenplan:
       Beschreibung:
       Start: 18:00
       Ende:
-      Treffpunkt: 
-        - Durlacher Tor
-        - Europaplatz
+      Treffpunkt: Berliner Platz
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2023-10-19
+  - Datum: 2024-10-17
     Termine:
-    - Titel: Frühstück
+    - Titel: Frühstück im Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
@@ -128,7 +125,6 @@ Wochenplan:
           Ort: Vietaroma
         - Text: "Lovelace: [Veggiezz]"
           Ort: Veggiezz
-        - Oxford Ost
     - Titel: Spieleabend
       Beschreibung:
       Start: 20:00
@@ -137,7 +133,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2023-10-20
+  - Datum: 2024-10-18
     Termine:
     - Titel: Abschluss
       Beschreibung:
@@ -169,7 +165,7 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2023-10-21
+  - Datum: 2024-10-19
     Termine:
     - Titel: Mädels-Brunch
       Beschreibung: 
@@ -178,13 +174,13 @@ Wochenplan:
       Treffpunkt: Mathebau
       Effekt:
         Fachschaft: true
-    - Titel: Mathe-Treff
-      Beschreibung: 
+    - Titel: Mathe-Treff und Lehramts-Treff
+      Beschreibung:
       Start: 13:00
       Ende: 15:30
       Treffpunkt: Mathebau
       Effekt:
-        Highlight: true
+        Fachschaft: true
         Icon: square-root-variable
 
 Orte:
@@ -200,7 +196,7 @@ Orte:
   Benz:
     Google: https://www.google.de/maps/place/KIT+Benz+H%C3%B6rsaal/@49.0096194,8.4110926,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637a5b2d193:0x6269eedeac2ee5d!8m2!3d49.0096159!4d8.4132813
     OSM: https://www.openstreetmap.org/way/288535407
-  BerlinerPlatz:
+  Berliner Platz:
     Google: https://goo.gl/maps/1F753Q3GxCP95xbw7
     OSM: https://www.openstreetmap.org/node/9332558374
   Bleu:
@@ -233,6 +229,9 @@ Orte:
   Extrablatt:
     Google: https://g.page/cafe-extrablatt-karlsruhe?share
     OSM: https://www.openstreetmap.org/node/412731682
+  Fasanengarten:
+    Google: https://maps.app.goo.gl/AQeHQxbKMQNaVCbbA
+    OSM: https://www.openstreetmap.org/#map=19/49.01385/8.41231
   Forum:
     Google: https://maps.app.goo.gl/NaY628vC6qa9dDRq8
     OSM: https://www.openstreetmap.org/way/260318329
