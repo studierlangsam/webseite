@@ -121,10 +121,10 @@ Wochenplan:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Text: "Turing: [Vietaroma]"
-          Ort: Vietaroma
-        - Text: "Lovelace: [Veggiezz]"
+        - Text: "Turing: [Veggiezz]"
           Ort: Veggiezz
+        - Text: "Lovelace: [Vietaroma]"
+          Ort: Vietaroma
     - Titel: Spieleabend
       Beschreibung:
       Start: 20:00
