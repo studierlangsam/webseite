@@ -42,8 +42,6 @@ Wochenplan:
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
-        - Text: "Lovelace: [Café Palaver]"
-          Ort: Café Palaver
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       Start: 14:00
@@ -107,8 +105,6 @@ Wochenplan:
       Treffpunkt:
         - Text: "Turing: [Café Palaver]"
           Ort: Café Palaver
-        - Text: "Lovelace: [alina café]"
-          Ort: alina café
     - Titel: O-Lympia
       Beschreibung:
       Start: 13:00
@@ -121,9 +117,7 @@ Wochenplan:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Text: "Turing: [Veggiezz]"
-          Ort: Veggiezz
-        - Text: "Lovelace: [Vietaroma]"
+        - Text: "Turing: [Vietaroma]"
           Ort: Vietaroma
     - Titel: Spieleabend
       Beschreibung:
