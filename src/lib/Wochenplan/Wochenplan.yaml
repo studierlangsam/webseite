@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2024-10-14
+  - Datum: 2025-10-20
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       Beschreibung: Hier geht's los
@@ -22,37 +22,31 @@ Wochenplan:
       Ende: 17:00
       Treffpunkt: Forum
     - Titel: Spiele im Park
-      Beschreibung: Quadball, Frisbee, Wikingerschach und co
+      Beschreibung: Frisbee, Wikingerschach und co
       Start: 17:00
       Ende: 19:00
       Treffpunkt: Fasanengarten
     - Titel: O-Essen
       Beschreibung:
-      Start: 19:00
+      Start: 18:00
       Ende:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-15
+  - Datum: 2024-10-21
     Termine:
     - Titel: Frühstück im Café
       Beschreibung:
       Start: 10:00
+
       Ende: 13:00
       Treffpunkt: 
-        - Text: "Turing: [alina café]"
+        - Text: "Turing: [alina café]" #TODO
           Ort: alina café
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       Start: 14:00
       Ende: 16:00
-      Treffpunkt: 
-        - Text: "Info: [Audimax]"
-          Ort: Audimax
-        - Text: "Mathe: [Neue Chemie]"
-          Ort: Neue Chemie
-        - Text: "Master: [Infobau]"
-          Ort: Infobau
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
@@ -63,18 +57,19 @@ Wochenplan:
       Effekt:
         Highlight: true
         Boulderschildi: true
-    - Titel: O-Phest / O-Philm
+    - Titel: Gemeinsames Abendessen
+      Beschreibung:
+      Start: 18:30
+      Ende: 20:00
+      Treffpunkt: Mathebau
+    - Titel: O-Phest
       Beschreibung:
       Start: 20:00
       Ende:
-      Treffpunkt: 
-        - Text: "Phest: [AKK]"
-          Ort: AKK
-        - Text: "Philm: [Hertz]"
-          Ort: Hertz
+      Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-16
+  - Datum: 2024-10-22
     Termine:
     - Titel: Mitbring-Frühstück
       Beschreibung:
@@ -96,14 +91,14 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2024-10-17
+  - Datum: 2024-10-23
     Termine:
     - Titel: Frühstück im Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
       Treffpunkt:
-        - Text: "Turing: [Café Palaver]"
+        - Text: "Turing: [Café Palaver]" #TODO
           Ort: Café Palaver
     - Titel: O-Lympia
       Beschreibung:
@@ -117,8 +112,14 @@ Wochenplan:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Text: "Turing: [Vietaroma]"
+        - Text: "[Vietaroma]"
           Ort: Vietaroma
+        - Text: "[Oxford Pub]"
+          Ort: Ox
+        - Text: "[Mamma Lina]"
+          Ort: Mamma Lina
+        - Text: "[Henderson's]"
+          Ort: Henderson
     - Titel: Spieleabend
       Beschreibung:
       Start: 20:00
@@ -127,7 +128,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2024-10-18
+  - Datum: 2024-10-24
     Termine:
     - Titel: Abschluss
       Beschreibung:
@@ -143,7 +144,7 @@ Wochenplan:
       Treffpunkt: 
         - Text: vor der [Mensa]
           Ort: Mensa
-    - Titel: Sport / Museen / SCC
+    - Titel: Sport / Museen
       Beschreibung: Programm nach Wahl
       Start: 14:30
       Ende: 18:00
@@ -159,7 +160,7 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2024-10-19
+  - Datum: 2024-10-25
     Termine:
     - Titel: Mädels-Brunch
       Beschreibung: 
@@ -171,11 +172,18 @@ Wochenplan:
     - Titel: Mathe-Treff und Lehramts-Treff
       Beschreibung:
       Start: 13:00
-      Ende: 15:30
-      Treffpunkt: Mathebau
+      Ende: 15:00
+      Treffpunkt: Mathebau #TODO could be wrong
       Effekt:
         Fachschaft: true
         Icon: square-root-variable
+    - Titel: Internationals Q&A
+      Beschreibung:
+      Start: 15:00
+      Ende: 17:00
+      Treffpunkt: Infobau
+      Effekt:
+        Fachschaft: true
 
 Orte:
   AKK:
@@ -238,6 +246,9 @@ Orte:
   HaDiKo K1-Bar:
     Google: https://maps.app.goo.gl/5eHgjPQe7NJARAWu5
     OSM: https://www.openstreetmap.org/node/9945476536
+  Henderson:
+    Google: https://maps.app.goo.gl/8MXY6uq43TiQBv5K8
+    OSM: https://www.openstreetmap.org/?#map=19/49.010184/8.420381
   Hertz:
     Google: https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de
     OSM: https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287
@@ -262,6 +273,9 @@ Orte:
   Lehmann:
     Google: https://www.google.de/maps/place/Lehmann-H%C3%B6rsaal,+76131+Karlsruhe/@49.0124216,8.4096434,18.25z/data=!4m5!3m4!1s0x47970649ee32439f:0x24f80d5924828f46!8m2!3d49.0124468!4d8.4104233
     OSM: https://www.openstreetmap.org/node/2666061092
+  Mamma Lina:
+    Google: https://maps.app.goo.gl/r9SN2KLEmdrhyAMW8
+    OSM: https://www.openstreetmap.org/?#map=19/49.010612/8.392461
   Marktplatz:
     Google: https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de
     OSM: https://www.openstreetmap.org/relation/5559765
