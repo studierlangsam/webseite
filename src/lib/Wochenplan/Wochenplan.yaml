@@ -33,7 +33,7 @@ Wochenplan:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-21
+  - Datum: 2025-10-21
     Termine:
     - Titel: Frühstück im Café
       Beschreibung:
@@ -69,7 +69,7 @@ Wochenplan:
       Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-22
+  - Datum: 2025-10-22
     Termine:
     - Titel: Mitbring-Frühstück
       Beschreibung:
@@ -91,7 +91,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2024-10-23
+  - Datum: 2025-10-23
     Termine:
     - Titel: Frühstück im Café
       Beschreibung:
@@ -128,7 +128,7 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2024-10-24
+  - Datum: 2025-10-24
     Termine:
     - Titel: Abschluss
       Beschreibung:
@@ -160,7 +160,7 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2024-10-25
+  - Datum: 2025-10-25
     Termine:
     - Titel: Mädels-Brunch
       Beschreibung: 
