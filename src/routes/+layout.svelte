@@ -193,12 +193,12 @@
 	main {
 		padding-top: 1em;
 	}
-	
-	.language-button {
-		position:absolute;
-		right:0pt;
-		::before{
-			content: "\e917";
+
+	@media (orientation: landscape) {
+		.language-button {
+			display: inline-block;
+			position: absolute;
+			right: 0;
 		}
 	}
 		
