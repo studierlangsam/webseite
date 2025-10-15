@@ -4,6 +4,7 @@
 	import Link from "../Link.svelte";
 	import Section from "../Section.svelte";
     import schildi from "$root/src/svg/schildi.svg";
+	import { language } from '../stores';
 
     import { RadioGroup, RadioItem, SlideToggle } from '@skeletonlabs/skeleton';
     
@@ -56,19 +57,19 @@
                 <div style="
                     grid-row: {startSlot.morning} / {endSlot.morning};
                 ">
-                    <p class="time-title">Morgens</p>
+                    <p class="time-title">{$language.german ? 'Morgens' : 'Morning'}</p>
                     <p>{hours.morning} - {hours.noon} Uhr</p>
                 </div>
                 <div style="
                     grid-row: {startSlot.noon} / {endSlot.noon};
                 ">
-                    <p class="time-title">Mittags</p>
+                    <p class="time-title">{$language.german ? 'Mittags' : 'Afternoon'}</p>
                     <p>{hours.noon} - {hours.evening} Uhr</p>
                 </div>
                 <div style="
                     grid-row: {startSlot.evening} / {endSlot.evening};
                 ">
-                    <p class="time-title">Abends</p>
+                    <p class="time-title">{$language.german ? 'Abends' : 'Evening'}</p>
                     <p>Ab {hours.evening} Uhr</p>
                 </div>
             </div>
@@ -76,7 +77,11 @@
         {#each Wochenplan as Termin, index}
         <div class="day" class:activeDay={selectedDay === null || selectedDay === index}>
             <div class="heading">
+                {#if $language.german}
                 <h3>{DateTime.fromObject(Termin.Datum, {locale: "de-DE"}).weekdayLong}</h3>
+                {:else}
+                <h3>{DateTime.fromObject(Termin.Datum, {locale: "en-US"}).weekdayLong}</h3>
+                {/if}
             </div>
             <div class="events">
                 {#each Termin.Termine as event}
@@ -101,7 +106,7 @@
                     {#if !!event.Effekt.Icon}
                         <i class="fa-solid fa-{event.Effekt.Icon}" class:shifted={!!event.Beschreibung}></i>
                     {/if}
-                    <h4>{@html event.Titel}</h4>
+                    <h4>{@html $language.german || !event.TitelEnglisch ? event.Titel:event.TitelEnglisch}</h4>
                     <div class="timings">
                         <span class="begin">{startDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         -
@@ -133,7 +138,7 @@
                     </span>
                     {/if}
                     {#if !!event.Beschreibung}
-                        <p>{event.Beschreibung}</p>
+                        <p>{$language.german || !event.BeschreibungEnglisch ? event.Beschreibung:event.BeschreibungEnglisch}</p>
                     {/if}
                 </div>
                 {/each}

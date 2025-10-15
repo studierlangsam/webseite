@@ -25,12 +25,12 @@
 		<a  class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Wochenplan</a>
 		<a class:here={$visibleSectionHash === 'Tutor:innen'} href="/#Tutor:innen">Tutor:innen</a>
 		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
-		<a style="position:absolute;right:0pt" on:click={() => $language.german = false}>English</a>
+		<a class="language-button" on:click={() => $language.german = false}>English</a>
         {:else}
 		<a class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Schedule</a>
 		<a class:here={$visibleSectionHash === 'Tutor:innen'} href="/#Tutor:innen">Tutors</a>
 		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
-		<a style="position:absolute;right:0pt" on:click={()=> $language.german = true}>Deutsch</a>
+		<a class="language-button"  on:click={()=> $language.german = true}>Deutsch</a>
         {/if}
 	</nav>
 	<main>
@@ -193,4 +193,13 @@
 	main {
 		padding-top: 1em;
 	}
+	
+	.language-button {
+		position:absolute;
+		right:0pt;
+		::before{
+			content: "\e917";
+		}
+	}
+		
 </style>

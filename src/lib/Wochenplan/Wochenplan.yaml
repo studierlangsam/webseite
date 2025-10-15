@@ -2,13 +2,16 @@ Wochenplan:
   - Datum: 2024-10-14
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
+      TitelEnglisch: Welcome Event
       Beschreibung: Hier geht's los
+      BeschreibungEnglisch: This is where it starts
       Start: 09:00
       Ende: 12:00
       Treffpunkt: Audimax
       Effekt:
         Fachschaft: true
     - Titel: Kennenlernen & Pizza
+      TitelEnglisch: Get to know each other & Pizza
       Beschreibung:
       Start: 12:30
       Ende: 15:30
@@ -17,16 +20,19 @@ Wochenplan:
         Highlight: true
         Icon: pizza-slice
     - Titel: Campustour #todo: wie lange?
+      TitelEnglisch: Campus Tour
       Beschreibung: Lernt den Campus kennen
       Start: 15:30
       Ende: 17:00
       Treffpunkt: Forum
     - Titel: Spiele im Park
+      TitelEnglisch: Games in the Park
       Beschreibung: Quadball, Frisbee, Wikingerschach und co
       Start: 17:00
       Ende: 19:00
       Treffpunkt: Fasanengarten
     - Titel: O-Essen
+      TitelEnglisch: O-Essen (Dinner)
       Beschreibung:
       Start: 19:00
       Ende:
@@ -36,6 +42,7 @@ Wochenplan:
   - Datum: 2024-10-15
     Termine:
     - Titel: Frühstück im Café
+      TitelEnglisch: Breakfast at the Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
@@ -44,6 +51,7 @@ Wochenplan:
           Ort: alina café
     - Titel: FBI
       Beschreibung: Profis erklären Studium
+      BeschreibungEnglisch: Pros explain studying
       Start: 14:00
       Ende: 16:00
       Treffpunkt: 
@@ -56,6 +64,7 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
+      TitelEnglisch: Bouldering
       Beschreibung:
       Start: 16:00
       Ende: 18:00
@@ -77,6 +86,7 @@ Wochenplan:
   - Datum: 2024-10-16
     Termine:
     - Titel: Mitbring-Frühstück
+      TitelEnglisch: Bring-your-own Breakfast
       Beschreibung:
       Start: 09:00
       Ende: 11:00
@@ -89,6 +99,7 @@ Wochenplan:
         Fachschaft: true
       Treffpunkt: Mathebau
     - Titel: Kneipentour
+      TitelEnglisch: Pub Crawl
       Beschreibung:
       Start: 18:00
       Ende:
@@ -99,6 +110,7 @@ Wochenplan:
   - Datum: 2024-10-17
     Termine:
     - Titel: Frühstück im Café
+      TitelEnglisch: Breakfast at the Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
@@ -113,6 +125,7 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Abendessen
+      TitelEnglisch: Dinner
       Beschreibung:
       Start: 18:00
       Ende: 20:00
@@ -120,6 +133,7 @@ Wochenplan:
         - Text: "Turing: [Vietaroma]"
           Ort: Vietaroma
     - Titel: Spieleabend
+      TitelEnglisch: Game Night
       Beschreibung:
       Start: 20:00
       Ende:
@@ -130,6 +144,7 @@ Wochenplan:
   - Datum: 2024-10-18
     Termine:
     - Titel: Abschluss
+      TitelEnglisch: Closing Event
       Beschreibung:
       Start: 11:30
       Ende: 12:45 # this is a lie but it better fits the layout
@@ -144,14 +159,18 @@ Wochenplan:
         - Text: vor der [Mensa]
           Ort: Mensa
     - Titel: Sport / Museen / SCC
+      TitelEnglisch: Sports / Museums / SCC
       Beschreibung: Programm nach Wahl
+      BeschreibungEnglisch: Program of your choice
       Start: 14:30
       Ende: 18:00
       Treffpunkt:
         - Text: vor der [Mensa]
           Ort: Mensa
     - Titel: Cocktailabend
+      TitelEnglisch: Cocktail Night
       Beschreibung: Die besten Cock- und Mocktails
+      BeschreibungEnglisch: The best Cock- and Mocktails
       Start: 20:00
       Ende: 
       Treffpunkt: HaDiKo K1-Bar
@@ -162,6 +181,7 @@ Wochenplan:
   - Datum: 2024-10-19
     Termine:
     - Titel: Mädels-Brunch
+      TitelEnglisch: Girls' Brunch
       Beschreibung: 
       Start: 10:00
       Ende: 13:00
@@ -169,6 +189,7 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Mathe-Treff und Lehramts-Treff
+      TitelEnglisch: Mathematicians’ Afternoon
       Beschreibung:
       Start: 13:00
       Ende: 15:30
