@@ -21,23 +21,17 @@
 	</div>
 	<nav>
 		<!-- <a class:here={$visibleSectionHash === ""} href="/" class="home">{@html logo}</a> -->
-		<a class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Wochenplan</a>
+        {#if $language.german}
+		<a  class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Wochenplan</a>
 		<a class:here={$visibleSectionHash === 'Tutor:innen'} href="/#Tutor:innen">Tutor:innen</a>
 		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
-	<div class="heading maps-toggle">
-		English
-		<SlideToggle
-			slot="append"
-			name="slider-label"
-			bind:checked={$language.german}
-			aria-description="Toggle between English and German."
-		/>
-        {#if $language.german}
-        <span>DEUTSCH</span>
+		<a style="position:absolute;right:0pt" on:click={() => $language.german = false}>English</a>
         {:else}
-		<span>Deutsch</span>
+		<a class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Schedule</a>
+		<a class:here={$visibleSectionHash === 'Tutor:innen'} href="/#Tutor:innen">Tutors</a>
+		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
+		<a style="position:absolute;right:0pt" on:click={()=> $language.german = true}>Deutsch</a>
         {/if}
-	</div>
 	</nav>
 	<main>
 		<slot />
