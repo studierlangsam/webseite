@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2024-10-14
+  - Datum: 2025-10-20
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       TitelEnglisch: Welcome Event
@@ -11,23 +11,28 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Kennenlernen & Pizza
-      TitelEnglisch: Get to know each other & Pizza
+      TitelEnglisch: Getting to know each other & Pizza
       Beschreibung:
       Start: 12:30
       Ende: 15:30
-      Treffpunkt: Schloss
+      Treffpunkt:
+        - Text: "Schloss"
+          #TextEnglisch: "Karlsruhe Palace"
+          Ort: Schloss
       Effekt:
         Highlight: true
         Icon: pizza-slice
     - Titel: Campustour #todo: wie lange?
       TitelEnglisch: Campus Tour
       Beschreibung: Lernt den Campus kennen
+      BeschreibungEnglisch: Find your way around campus
       Start: 15:30
       Ende: 17:00
       Treffpunkt: Forum
     - Titel: Spiele im Park
       TitelEnglisch: Games in the Park
-      Beschreibung: Quadball, Frisbee, Wikingerschach und co
+      Beschreibung: Frisbee, Wikingerschach und co.
+      BeschreibungEnglisch: Frisbee, kubb, etc.
       Start: 17:00
       Ende: 19:00
       Treffpunkt: Fasanengarten
@@ -39,7 +44,7 @@ Wochenplan:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-15
+  - Datum: 2025-10-21
     Termine:
     - Titel: Frühstück im Café
       TitelEnglisch: Breakfast at the Café
@@ -49,6 +54,8 @@ Wochenplan:
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
+        - Text: "Lovelace: [Palaver]"
+          Ort: Palaver
     - Titel: FBI
       Beschreibung: Profis erklären Studium
       BeschreibungEnglisch: Pros explain studying
@@ -59,8 +66,7 @@ Wochenplan:
           Ort: Audimax
         - Text: "Mathe: [Neue Chemie]"
           Ort: Neue Chemie
-        - Text: "Master: [Infobau]"
-          Ort: Infobau
+      #TODO
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
@@ -72,18 +78,22 @@ Wochenplan:
       Effekt:
         Highlight: true
         Boulderschildi: true
-    - Titel: O-Phest / O-Philm
-      Beschreibung:
+    - Titel: Abendessen
+      TitelEnglisch: Dinner
+      Beschreibung: Selbstgemacht
+      BeschreibungEnglisch: Self-made
+      Start: 18:00
+      Ende: 20:00
+      Treffpunkt: Mathebau
+    - Titel: O-Phest
+      Beschreibung: Party
+      BeschreibungEnglisch: Party
       Start: 20:00
       Ende:
-      Treffpunkt: 
-        - Text: "Phest: [AKK]"
-          Ort: AKK
-        - Text: "Philm: [Hertz]"
-          Ort: Hertz
+      Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-16
+  - Datum: 2025-10-22
     Termine:
     - Titel: Mitbring-Frühstück
       TitelEnglisch: Bring-your-own Breakfast
