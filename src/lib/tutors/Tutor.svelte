@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Tutor } from "./tutors";
+    import { language } from '../stores';
     export let tutor: Tutor;
     const src = `/images/tutoren/${tutor.Name}.webp`;
 
@@ -27,7 +28,19 @@
             <p>
                 {Studium.Studiengang}
                 <br>
-                {Semester(Studium)}. Semester
+				{#if $language.german}
+                	{Semester(Studium)}. Semester
+				{:else}
+					{#if Semester(Studium) == 1}
+						{Semester(Studium)}st Semester
+					{:else if Semester(Studium) == 2}
+						{Semester(Studium)}nd semester
+					{:else if Semester(Studium) == 3}
+						{Semester(Studium)}rd semester
+					{:else}
+						{Semester(Studium)}th semester
+					{/if}
+				{/if}
             </p>
             <br>
         {/each}
