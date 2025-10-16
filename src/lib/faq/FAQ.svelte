@@ -2,20 +2,34 @@
 	import Link from "../Link.svelte";
 	import Section from "../Section.svelte";
 	import type { FAQ } from "./faq";
+    import { language } from "../stores";
     export let faq: FAQ;
 </script>
 
 <Section address="FAQ">
 <svelte:fragment slot="title">
-    Fragen und Antworten
+    {#if $language.german}
+        Fragen und Antworten
+    {:else}
+        Questions and Answers
+    {/if}
 </svelte:fragment>
-<p>
-	Auf viele Fragen hat die Fachschaft schon auf ihrer 
-    <Link href='https://o-phase.com/de/faq-ws/'> FAQ-Seite</Link>
-    Antwort gegeben. 
-    Solltest du noch Fragen haben, die hier nicht beantwortet werden,
-    dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
-</p>
+{#if $language.german}
+    <p>
+        Auf viele Fragen hat die Fachschaft schon auf ihrer 
+        <Link href='https://o-phase.com/de/ws2526/faq/'> FAQ-Seite</Link>
+        Antwort gegeben. 
+        Solltest du noch Fragen haben, die hier nicht beantwortet werden,
+        dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
+    </p>
+{:else}
+    <p>
+        The Fachschaft already has the answers to many questions on their
+        <Link href='https://o-phase.com/en/ws2526/faq/'> FAQ page</Link>.
+        If you have any questions which aren't answered here, write to us at
+        <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
+    </p>
+{/if}
 {#each faq as qa}
 <section>
     <h3>{@html qa.Frage}</h3>
