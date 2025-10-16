@@ -26,7 +26,7 @@
 	<p>Welcome to Studier Langsam (Study Slowly)!</p>
 	<p>
 		With us, you can expect a varied O-Phase (introduction week) with a games night, a cocktail night,
-		eating out together and more exciting activities on the university campus and around Karlsruhe.
+		eating out together and other exciting activities on the university campus and around Karlsruhe.
 		You'll get to know your fellow students and make friends. After the O-Phase, we have weekly games nights
 		which we complement with conversations, discussions and bad word play.
 		But above all: We have cookies! 🍪
