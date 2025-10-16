@@ -32,7 +32,7 @@
     let selectedDay: number = 0;
 </script>
 
-<Section address="Wochenplan">
+<Section address={$language.german ? "Wochenplan" : "Schedule"}>
 <div class="day-selector">
     <RadioGroup rounded="rounded-container-token" display="flex-col">
     {#each Wochenplan as Termin, index}
@@ -58,19 +58,31 @@
                     grid-row: {startSlot.morning} / {endSlot.morning};
                 ">
                     <p class="time-title">{$language.german ? 'Morgens' : 'Morning'}</p>
-                    <p>{hours.morning} - {hours.noon} Uhr</p>
+                    {#if $language.german}
+                        <p>{hours.morning} - {hours.noon} Uhr</p>
+                    {:else}
+                        <p>9 am to 12 pm</p>
+                    {/if}
                 </div>
                 <div style="
                     grid-row: {startSlot.noon} / {endSlot.noon};
                 ">
                     <p class="time-title">{$language.german ? 'Mittags' : 'Afternoon'}</p>
-                    <p>{hours.noon} - {hours.evening} Uhr</p>
+                    {#if $language.german}
+                        <p>{hours.noon} - {hours.evening} Uhr</p>
+                    {:else}
+                        <p>12 pm to 6 pm</p>
+                    {/if}
                 </div>
                 <div style="
                     grid-row: {startSlot.evening} / {endSlot.evening};
                 ">
                     <p class="time-title">{$language.german ? 'Abends' : 'Evening'}</p>
-                    <p>Ab {hours.evening} Uhr</p>
+                    {#if $language.german}
+                        <p>Ab {hours.evening} Uhr</p>
+                    {:else}
+                        <p>From 6 pm</p>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -113,7 +125,7 @@
                         {#if !!endDT}
                             <span class="end">{endDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         {:else}
-                            <span class="end">Offenes Ende</span>
+                            <span class="end">{$language.german ? "Offenes Ende" : "open end"}</span>
                         {/if}
                     </div>
                     {#if !!event.Treffpunkt} 
