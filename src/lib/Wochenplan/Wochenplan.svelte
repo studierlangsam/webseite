@@ -59,7 +59,7 @@
                 ">
                     <p class="time-title">{$language.german ? 'Morgens' : 'Morning'}</p>
                     {#if $language.german}
-                        <p>{hours.morning} - {hours.noon} Uhr</p>
+                        <p>{hours.morning} &ndash; {hours.noon} Uhr</p>
                     {:else}
                         <p>9 am to 12 pm</p>
                     {/if}
@@ -69,7 +69,7 @@
                 ">
                     <p class="time-title">{$language.german ? 'Mittags' : 'Afternoon'}</p>
                     {#if $language.german}
-                        <p>{hours.noon} - {hours.evening} Uhr</p>
+                        <p>{hours.noon} &ndash; {hours.evening} Uhr</p>
                     {:else}
                         <p>12 pm to 6 pm</p>
                     {/if}
@@ -121,7 +121,7 @@
                     <h4>{@html $language.german || !event.TitelEnglisch ? event.Titel:event.TitelEnglisch}</h4>
                     <div class="timings">
                         <span class="begin">{startDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
-                        -
+                        &ndash;
                         {#if !!endDT}
                             <span class="end">{endDT.toLocaleString(DateTime.TIME_SIMPLE)}</span>
                         {:else}
