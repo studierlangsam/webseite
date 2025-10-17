@@ -2,6 +2,7 @@ export type Tutor = {
     Name: string,
     Spitzname: string,
     Spruch: string,
+    Quote?: string,
     Karriere: {
         Studiengang: string,
         Jahr: number,

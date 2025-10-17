@@ -20,8 +20,11 @@
     <img {src} alt="" loading="lazy" decoding="async"/>
     <div>
         <h3>{tutor.Spitzname}</h3>
-		{#if tutor.Spruch}
+		{#if tutor.Spruch && $language.german}
         	<p>{tutor.Spruch}</p>
+		{/if}
+		{#if tutor.Quote && !$language.german}
+        	<p>{tutor.Quote}</p>
 		{/if}
         <br>
         {#each tutor.Karriere as Studium}
