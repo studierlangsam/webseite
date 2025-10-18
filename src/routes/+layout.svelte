@@ -27,8 +27,8 @@
 		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
 		<a class="language-button" on:click={() => $language.german = false}>English</a>
         {:else}
-		<a class:here={$visibleSectionHash === 'Wochenplan'} href="/#Wochenplan">Schedule</a>
-		<a class:here={$visibleSectionHash === 'Tutor:innen'} href="/#Tutor:innen">Tutors</a>
+		<a class:here={$visibleSectionHash === 'Schedule'} href="/#Schedule">Schedule</a>
+		<a class:here={$visibleSectionHash === 'Tutors'} href="/#Tutors">Tutors</a>
 		<a class:here={$visibleSectionHash === 'FAQ'} href="/#FAQ">FAQ</a>
 		<a class="language-button"  on:click={()=> $language.german = true}>Deutsch</a>
         {/if}
@@ -192,6 +192,10 @@
 
 	main {
 		padding-top: 1em;
+	}
+
+	.language-button {
+		cursor: pointer;
 	}
 
 	@media (orientation: landscape) {
