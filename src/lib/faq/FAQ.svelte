@@ -45,8 +45,8 @@
     <ul>
         {#each qa.Fragen as subqa}
             <li>
-                <p><b>{@html $language.german ? subqa.Frage : qa.Question}</b></p>
-                <p>{@html $language.german ? subqa.Antwort : qa.Answer}</p>
+                <p><b>{@html $language.german ? subqa.Frage : subqa.Question}</b></p>
+                <p>{@html $language.german ? subqa.Antwort : subqa.Answer}</p>
             </li>
         {/each}
     </ul>
