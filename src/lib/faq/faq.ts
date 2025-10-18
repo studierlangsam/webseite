@@ -1,8 +1,8 @@
 export type FAQ = {
     Frage: string,
     Antwort: string,
-    Question: string,
-    Answer: string,
+    Question?: string,
+    Answer?: string,
     Fragen: {
         Frage: string,
         Antwort: string

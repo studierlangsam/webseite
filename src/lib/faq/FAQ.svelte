@@ -34,8 +34,13 @@
 {/if}
 {#each faq as qa}
 <section>
-    <h3>{@html $language.german ? qa.Frage : qa.Question}</h3>
-    <p>{@html $language.german ? qa.Antwort : qa.Answer}</p>
+    {#if $language.german}
+        <h3>{qa.Frage}</h3>
+        <p>{qa.Antwort}</p>
+    {:else if !!qa.Question}
+        <h3>{@html qa.Question}</h3>   
+        <p>{@html qa.Answer}</p>
+    {/if}
     {#if !!qa.Fragen} 
     <ul>
         {#each qa.Fragen as subqa}
