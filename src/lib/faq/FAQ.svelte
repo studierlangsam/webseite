@@ -3,7 +3,9 @@
 	import Section from "../Section.svelte";
 	import type { FAQ } from "./faq";
     import { language } from "../stores";
+	import exp from "constants";
     export let faq: FAQ;
+    export let faq_en: FAQ;
 </script>
 
 <Section address="FAQ">
@@ -32,14 +34,14 @@
 {/if}
 {#each faq as qa}
 <section>
-    <h3>{@html qa.Frage}</h3>
-    <p>{@html qa.Antwort}</p>
+    <h3>{@html $language.german ? qa.Frage : qa.Question}</h3>
+    <p>{@html $language.german ? qa.Antwort : qa.Question}</p>
     {#if !!qa.Fragen} 
     <ul>
         {#each qa.Fragen as subqa}
             <li>
-                <p><b>{@html subqa.Frage}</b></p>
-                <p>{@html subqa.Antwort}</p>
+                <p><b>{@html $language.german ? subqa.Frage : qa.Question}</b></p>
+                <p>{@html $language.german ? subqa.Antwort : qa.Answer}</p>
             </li>
         {/each}
     </ul>

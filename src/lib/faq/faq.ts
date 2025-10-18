@@ -1,9 +1,13 @@
 export type FAQ = {
     Frage: string,
     Antwort: string,
+    Question: string,
+    Answer: string,
     Fragen: {
         Frage: string,
         Antwort: string
+        Question: string,
+        Answer: string
     }[]
 }[];
 export const loadFAQ: () => Promise<FAQ> = async () => {
