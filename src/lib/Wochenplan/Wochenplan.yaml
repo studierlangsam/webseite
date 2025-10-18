@@ -128,7 +128,7 @@ Wochenplan:
         - Text: "Turing: [Café Palaver]"
           Ort: Café Palaver
         - Text: "Lovelace: [alina café]"
-          Ort: Palaver
+          Ort: alina café
     - Titel: O-Lympia
       Beschreibung:
       Start: 13:00
@@ -239,7 +239,7 @@ Orte:
     OSM: https://www.openstreetmap.org/way/288535407
   Berliner Platz:
     Google: https://goo.gl/maps/1F753Q3GxCP95xbw7
-    OSM: https://www.openstreetmap.org/node/9332558374
+    OSM: https://www.openstreetmap.org/relation/6046598
   Bleu:
     Google: https://www.google.com/maps/place/Caf%C3%A9+Bleu/@49.0099555,8.3824693,17z/data=!3m1!4b1!4m5!3m4!1s0x479706f806ddd73f:0x67b8118f64337f0a!8m2!3d49.009952!4d8.384658
     OSM: https://www.openstreetmap.org/node/289245159
@@ -272,7 +272,7 @@ Orte:
     OSM: https://www.openstreetmap.org/node/412731682
   Fasanengarten:
     Google: https://maps.app.goo.gl/AQeHQxbKMQNaVCbbA
-    OSM: https://www.openstreetmap.org/#map=19/49.01385/8.41231
+    OSM: https://www.openstreetmap.org/node/3809126162
   Forum:
     Google: https://maps.app.goo.gl/NaY628vC6qa9dDRq8
     OSM: https://www.openstreetmap.org/way/260318329
@@ -287,7 +287,7 @@ Orte:
     OSM: https://www.openstreetmap.org/node/9945476536
   Henderson:
     Google: https://maps.app.goo.gl/8MXY6uq43TiQBv5K8
-    OSM: https://www.openstreetmap.org/?#map=19/49.010184/8.420381
+    OSM: https://www.openstreetmap.org/node/3186215065
   Hertz:
     Google: https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de
     OSM: https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287
@@ -314,7 +314,7 @@ Orte:
     OSM: https://www.openstreetmap.org/node/2666061092
   Mamma Lina:
     Google: https://maps.app.goo.gl/r9SN2KLEmdrhyAMW8
-    OSM: https://www.openstreetmap.org/?#map=19/49.010612/8.392461
+    OSM: https://www.openstreetmap.org/node/6365858710
   Marktplatz:
     Google: https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de
     OSM: https://www.openstreetmap.org/relation/5559765
