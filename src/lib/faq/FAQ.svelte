@@ -5,7 +5,6 @@
     import { language } from "../stores";
 	import exp from "constants";
     export let faq: FAQ;
-    export let faq_en: FAQ;
 </script>
 
 <Section address="FAQ">
@@ -26,8 +25,8 @@
     </p>
 {:else}
     <p>
-        The Fachschaft already has the answers to many questions on their
-        <Link href='https://o-phase.com/en/ws2526/faq/'> FAQ page</Link>.
+        The Fachschaft already have the answers to many questions on their
+        <Link href='https://o-phase.com/en/ws2526/faq/'> FAQ page</Link> (which may or may not be up to date).
         If you have any questions which aren't answered here, write to us at
         <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
     </p>
