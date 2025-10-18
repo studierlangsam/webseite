@@ -35,7 +35,7 @@
 {#each faq as qa}
 <section>
     <h3>{@html $language.german ? qa.Frage : qa.Question}</h3>
-    <p>{@html $language.german ? qa.Antwort : qa.Question}</p>
+    <p>{@html $language.german ? qa.Antwort : qa.Answer}</p>
     {#if !!qa.Fragen} 
     <ul>
         {#each qa.Fragen as subqa}
