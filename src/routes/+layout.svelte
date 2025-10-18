@@ -194,6 +194,10 @@
 		padding-top: 1em;
 	}
 
+	.language-button {
+		cursor: pointer;
+	}
+
 	@media (orientation: landscape) {
 		.language-button {
 			display: inline-block;
