@@ -4,9 +4,15 @@
 	const tags = $page.data.tags ? ',' + $page.data.tags : '';
 	import logo from '$root/src/svg/logo.svg?raw';
 	import banner from '$root/src/svg/banner.svg?raw';
+
+	export let isGerman = true; //loads german page
 	import { visibleSectionHash, language } from '../lib/stores';
 
 	import {SlideToggle} from '@skeletonlabs/skeleton';
+
+	
+	// Initialize the language                                    
+	$: language.set({ german: isGerman });
 </script>
 
 <svelte:head>
