@@ -150,7 +150,7 @@
                     </span>
                     {/if}
                     {#if !!event.Beschreibung}
-                        <p>{$language.german || !event.BeschreibungEnglisch ? event.Beschreibung:event.BeschreibungEnglisch}</p>
+                        <p>{@html $language.german || !event.BeschreibungEnglisch ? event.Beschreibung:event.BeschreibungEnglisch}</p>
                     {/if}
                 </div>
                 {/each}
@@ -343,7 +343,7 @@ $col-pad: 0.5em;
             }
             
             .location li {
-                white-space: nowrap;
+                white-space: normal;
             }
 
             i {

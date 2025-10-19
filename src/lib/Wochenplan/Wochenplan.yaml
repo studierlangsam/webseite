@@ -57,16 +57,11 @@ Wochenplan:
         - Text: "Lovelace: [Café Palaver]"
           Ort: Palaver
     - Titel: FBI
-      Beschreibung: Profis erklären Studium
-      BeschreibungEnglisch: Pros Explain Studying
+      Beschreibung: Profis erklären Studium. Orte siehe <a href='https://o-phase.com/de/ws2526/schedule/'>Fachschafts-Wochenplan</a>
+      BeschreibungEnglisch: Pros Explain Studying. For locations, see the <a href='https://o-phase.com/en/ws2526/schedule/'>Fachschaft's schedule</a>
       Start: 14:00
       Ende: 16:00
-      Treffpunkt:
-        - Text: "Info: [Audimax]"
-          Ort: Audimax
-        - Text: "Mathe: [Neue Chemie]"
-          Ort: Neue Chemie
-      #TODO
+      Treffpunkt: KIT
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
@@ -171,21 +166,18 @@ Wochenplan:
         Fachschaft: true
     - Titel: Mensa
       TitelEnglisch: Canteen
-      Beschreibung:
+      Beschreibung: (vor dem Haupteingang)
+      BeschreibungEnglisch: (outside the main entrance)
       Start: 12:45
       Ende: 14:30
-      Treffpunkt: 
-        - Text: vor der [Mensa]
-          Ort: Mensa
+      Treffpunkt: Mensa
     - Titel: Sport / Museen
       TitelEnglisch: Sports / Museums
       Beschreibung: Programm nach Wahl
       BeschreibungEnglisch: Program of your choice
       Start: 14:30
       Ende: 18:00
-      Treffpunkt:
-        - Text: vor der [Mensa]
-          Ort: Mensa
+      Treffpunkt: Mensa
     - Titel: Cocktailabend
       TitelEnglisch: Cocktail Night
       Beschreibung: Die besten Cock- und Mocktails
@@ -309,6 +301,9 @@ Orte:
   kap:
     Google: https://maps.app.goo.gl/xVoXL9ZBPsSVbTW88
     OSM: https://www.openstreetmap.org/way/108793480
+  KIT:
+    Google: https://maps.app.goo.gl/zsgUayQnx4PZkqjT6
+    OSM: https://www.openstreetmap.org/relation/3350207
   Lago:
     Google: https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de
     OSM: https://www.openstreetmap.org/way/96860719
