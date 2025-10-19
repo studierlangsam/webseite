@@ -19,7 +19,7 @@
     <p>
         Viele Fragen hat die Fachschaft schon auf ihrer
         <Link href='https://o-phase.com/de/ws2526/faq/'> FAQ-Seite</Link>
-        beantwortet. 
+        beantwortet.
         Solltest du noch Fragen haben, die hier nicht beantwortet werden,
         dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
     </p>

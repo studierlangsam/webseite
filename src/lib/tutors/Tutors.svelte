@@ -9,7 +9,7 @@
 <Section address={$language.german ? "Tutor:innen" : "Tutors"}>
     {#if $language.german}
         <p>
-            Wir sind die Menschen, die dich durch deine O-Phase begleiten werden. 
+            Wir sind die Menschen, die dich durch deine O-Phase begleiten werden.
             Falls du irgendwelche Fragen hast, kannst du uns jederzeit eine Email an
             <a href="mailto:tutoren@studierlangsam.de">tutoren@studierlangsam.de</a> schreiben.
         </p>
