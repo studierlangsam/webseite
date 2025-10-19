@@ -25,7 +25,9 @@ type DT = Required<ReturnType<DateTime['toObject']>>;
 
 type Event = {
     Titel: string;
+    TitelEnglisch?: string;
     Beschreibung: string;
+    BeschreibungEnglisch?: string;
     Start: DT;
     Ende: DT | undefined;
     Treffpunkt: Treffpunkt[];
@@ -34,6 +36,8 @@ type Event = {
 type ReadEvent = {
     Titel: Event['Titel'];
     Beschreibung: Event['Beschreibung'];
+    TitelEnglisch?: Event['TitelEnglisch'];
+    BeschreibungEnglisch?: Event['BeschreibungEnglisch'];
     Start: string;
     Ende?: string;
     Treffpunkt: ReadTreffpunkt[];

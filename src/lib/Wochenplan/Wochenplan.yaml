@@ -1,61 +1,71 @@
 Wochenplan:
-  - Datum: 2024-10-14
+  - Datum: 2025-10-20
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
+      TitelEnglisch: Welcome Event
       Beschreibung: Hier geht's los
+      BeschreibungEnglisch: This is where it starts
       Start: 09:00
       Ende: 12:00
       Treffpunkt: Audimax
       Effekt:
         Fachschaft: true
     - Titel: Kennenlernen & Pizza
+      TitelEnglisch: Getting to Know Each Other & Pizza
       Beschreibung:
       Start: 12:30
       Ende: 15:30
-      Treffpunkt: Schloss
+      Treffpunkt:
+        - Text: "Schloss"
+          #TextEnglisch: "Karlsruhe Palace"
+          Ort: Schloss
       Effekt:
         Highlight: true
         Icon: pizza-slice
     - Titel: Campustour #todo: wie lange?
+      TitelEnglisch: Campus Tour
       Beschreibung: Lernt den Campus kennen
+      BeschreibungEnglisch: Find your way around campus
       Start: 15:30
       Ende: 17:00
       Treffpunkt: Forum
     - Titel: Spiele im Park
-      Beschreibung: Quadball, Frisbee, Wikingerschach und co
+      TitelEnglisch: Games in the Park
+      Beschreibung: Frisbee, Wikingerschach und co.
+      BeschreibungEnglisch: Frisbee, kubb, etc.
       Start: 17:00
       Ende: 19:00
       Treffpunkt: Fasanengarten
     - Titel: O-Essen
+      TitelEnglisch: O-Essen (Dinner)
       Beschreibung:
       Start: 19:00
       Ende:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-15
+  - Datum: 2025-10-21
     Termine:
     - Titel: Frühstück im Café
+      TitelEnglisch: Breakfast at the Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
       Treffpunkt: 
         - Text: "Turing: [alina café]"
           Ort: alina café
+        - Text: "Lovelace: [Café Palaver]"
+          Ort: Palaver
     - Titel: FBI
-      Beschreibung: Profis erklären Studium
+      Beschreibung: Profis erklären Studium. Orte siehe <a href='https://o-phase.com/de/ws2526/schedule/'>Fachschafts-Wochenplan</a>
+      BeschreibungEnglisch: Pros Explain Studying. For locations, see the <a href='https://o-phase.com/en/ws2526/schedule/'>Fachschaft's schedule</a>
       Start: 14:00
       Ende: 16:00
-      Treffpunkt: 
-        - Text: "Info: [Audimax]"
-          Ort: Audimax
-        - Text: "Mathe: [Neue Chemie]"
-          Ort: Neue Chemie
-        - Text: "Master: [Infobau]"
-          Ort: Infobau
+      Treffpunkt: KIT
       Effekt:
         Fachschaft: true
     - Titel: Bouldern
+      TitelEnglisch: Bouldering
       Beschreibung:
       Start: 16:00
       Ende: 18:00
@@ -63,20 +73,25 @@ Wochenplan:
       Effekt:
         Highlight: true
         Boulderschildi: true
-    - Titel: O-Phest / O-Philm
-      Beschreibung:
+    - Titel: Abendessen
+      TitelEnglisch: Dinner
+      Beschreibung: Von Schildi zubereitet
+      BeschreibungEnglisch: Made by Schildi
+      Start: 18:00
+      Ende: 20:00
+      Treffpunkt: Mathebau
+    - Titel: O-Phest
+      Beschreibung: Party
+      BeschreibungEnglisch: Party
       Start: 20:00
       Ende:
-      Treffpunkt: 
-        - Text: "Phest: [AKK]"
-          Ort: AKK
-        - Text: "Philm: [Hertz]"
-          Ort: Hertz
+      Treffpunkt: AKK
       Effekt:
         Fachschaft: true
-  - Datum: 2024-10-16
+  - Datum: 2025-10-22
     Termine:
     - Titel: Mitbring-Frühstück
+      TitelEnglisch: Bring your Own Breakfast
       Beschreibung:
       Start: 09:00
       Ende: 11:00
@@ -89,6 +104,7 @@ Wochenplan:
         Fachschaft: true
       Treffpunkt: Mathebau
     - Titel: Kneipentour
+      TitelEnglisch: Pub Crawl
       Beschreibung:
       Start: 18:00
       Ende:
@@ -96,15 +112,18 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2024-10-17
+  - Datum: 2025-10-23
     Termine:
     - Titel: Frühstück im Café
+      TitelEnglisch: Breakfast at the Café
       Beschreibung:
       Start: 10:00
       Ende: 13:00
       Treffpunkt:
         - Text: "Turing: [Café Palaver]"
           Ort: Café Palaver
+        - Text: "Lovelace: [alina café]"
+          Ort: alina café
     - Titel: O-Lympia
       Beschreibung:
       Start: 13:00
@@ -113,13 +132,21 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Abendessen
+      TitelEnglisch: Dinner
       Beschreibung:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Text: "Turing: [Vietaroma]"
+        - Text: "Vietaroma"
           Ort: Vietaroma
+        - Text: "Oxford Pub"
+          Ort: Ox
+        - Text: "Mamma Lina"
+          Ort: Mamma Lina
+        - Text: "kap"
+          Ort: kap
     - Titel: Spieleabend
+      TitelEnglisch: Games Night
       Beschreibung:
       Start: 20:00
       Ende:
@@ -127,9 +154,10 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2024-10-18
+  - Datum: 2025-10-24
     Termine:
     - Titel: Abschluss
+      TitelEnglisch: Closing Event
       Beschreibung:
       Start: 11:30
       Ende: 12:45 # this is a lie but it better fits the layout
@@ -137,21 +165,23 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Mensa
-      Beschreibung:
+      TitelEnglisch: Canteen
+      Beschreibung: (vor dem Haupteingang)
+      BeschreibungEnglisch: (outside the main entrance)
       Start: 12:45
       Ende: 14:30
-      Treffpunkt: 
-        - Text: vor der [Mensa]
-          Ort: Mensa
-    - Titel: Sport / Museen / SCC
+      Treffpunkt: Mensa
+    - Titel: Sport / Museen
+      TitelEnglisch: Sports / Museums
       Beschreibung: Programm nach Wahl
+      BeschreibungEnglisch: Program of your choice
       Start: 14:30
       Ende: 18:00
-      Treffpunkt:
-        - Text: vor der [Mensa]
-          Ort: Mensa
+      Treffpunkt: Mensa
     - Titel: Cocktailabend
+      TitelEnglisch: Cocktail Night
       Beschreibung: Die besten Cock- und Mocktails
+      BeschreibungEnglisch: The best cocktails and mocktails
       Start: 20:00
       Ende: 
       Treffpunkt: HaDiKo K1-Bar
@@ -159,9 +189,10 @@ Wochenplan:
         Highlight: true
         Schildi: true
         Icon: martini-glass-citrus
-  - Datum: 2024-10-19
+  - Datum: 2025-10-25
     Termine:
     - Titel: Mädels-Brunch
+      TitelEnglisch: Girls' Brunch
       Beschreibung: 
       Start: 10:00
       Ende: 13:00
@@ -169,13 +200,21 @@ Wochenplan:
       Effekt:
         Fachschaft: true
     - Titel: Mathe-Treff und Lehramts-Treff
+      TitelEnglisch: Mathematicians’ Afternoon
       Beschreibung:
       Start: 13:00
-      Ende: 15:30
+      Ende: 15:00
       Treffpunkt: Mathebau
       Effekt:
         Fachschaft: true
         Icon: square-root-variable
+    - Titel: Internationals Q&A
+      Start: 15:00
+      Ende: 17:00
+      Treffpunkt: Infobau
+      Effekt:
+        Fachschaft: true
+
 
 Orte:
   AKK:
@@ -192,7 +231,7 @@ Orte:
     OSM: https://www.openstreetmap.org/way/288535407
   Berliner Platz:
     Google: https://goo.gl/maps/1F753Q3GxCP95xbw7
-    OSM: https://www.openstreetmap.org/node/9332558374
+    OSM: https://www.openstreetmap.org/relation/6046598
   Bleu:
     Google: https://www.google.com/maps/place/Caf%C3%A9+Bleu/@49.0099555,8.3824693,17z/data=!3m1!4b1!4m5!3m4!1s0x479706f806ddd73f:0x67b8118f64337f0a!8m2!3d49.009952!4d8.384658
     OSM: https://www.openstreetmap.org/node/289245159
@@ -225,7 +264,7 @@ Orte:
     OSM: https://www.openstreetmap.org/node/412731682
   Fasanengarten:
     Google: https://maps.app.goo.gl/AQeHQxbKMQNaVCbbA
-    OSM: https://www.openstreetmap.org/#map=19/49.01385/8.41231
+    OSM: https://www.openstreetmap.org/node/3809126162
   Forum:
     Google: https://maps.app.goo.gl/NaY628vC6qa9dDRq8
     OSM: https://www.openstreetmap.org/way/260318329
@@ -238,6 +277,9 @@ Orte:
   HaDiKo K1-Bar:
     Google: https://maps.app.goo.gl/5eHgjPQe7NJARAWu5
     OSM: https://www.openstreetmap.org/node/9945476536
+  Henderson:
+    Google: https://maps.app.goo.gl/8MXY6uq43TiQBv5K8
+    OSM: https://www.openstreetmap.org/node/3186215065
   Hertz:
     Google: https://www.google.de/maps/place/Hertz-H%C3%B6rsaal,+76131+Karlsruhe/@49.0095125,8.4107269,17z/data=!3m1!4b1!4m5!3m4!1s0x47970637bb5c80bd:0x255cc712c99bb777!8m2!3d49.0095125!4d8.4129156?hl=de
     OSM: https://www.openstreetmap.org/way/46834831#map=19/49.00953/8.41287
@@ -256,12 +298,21 @@ Orte:
   K1:
     Google: https://goo.gl/maps/Lwr55t1rgU9szKaZA
     OSM: https://www.openstreetmap.org/relation/5320078
+  kap:
+    Google: https://maps.app.goo.gl/xVoXL9ZBPsSVbTW88
+    OSM: https://www.openstreetmap.org/way/108793480
+  KIT:
+    Google: https://maps.app.goo.gl/zsgUayQnx4PZkqjT6
+    OSM: https://www.openstreetmap.org/relation/3350207
   Lago:
     Google: https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de
     OSM: https://www.openstreetmap.org/way/96860719
   Lehmann:
     Google: https://www.google.de/maps/place/Lehmann-H%C3%B6rsaal,+76131+Karlsruhe/@49.0124216,8.4096434,18.25z/data=!4m5!3m4!1s0x47970649ee32439f:0x24f80d5924828f46!8m2!3d49.0124468!4d8.4104233
     OSM: https://www.openstreetmap.org/node/2666061092
+  Mamma Lina:
+    Google: https://maps.app.goo.gl/r9SN2KLEmdrhyAMW8
+    OSM: https://www.openstreetmap.org/node/6365858710
   Marktplatz:
     Google: https://www.google.de/maps/place/Karlsruhe,+Marktplatz/@49.0091928,8.4037639,20z/data=!4m5!3m4!1s0x4797065cc37a18d1:0x92d420d2df72ca26!8m2!3d49.0092205!4d8.4039116?hl=de
     OSM: https://www.openstreetmap.org/relation/5559765
