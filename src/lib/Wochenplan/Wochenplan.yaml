@@ -61,7 +61,7 @@ Wochenplan:
       BeschreibungEnglisch: Pros Explain Studying
       Start: 14:00
       Ende: 16:00
-      Treffpunkt: 
+      Treffpunkt:
         - Text: "Info: [Audimax]"
           Ort: Audimax
         - Text: "Mathe: [Neue Chemie]"
@@ -148,8 +148,8 @@ Wochenplan:
           Ort: Ox
         - Text: "Mamma Lina"
           Ort: Mamma Lina
-        - Text: "Henderson's"
-          Ort: Henderson
+        - Text: "kap"
+          Ort: kap
     - Titel: Spieleabend
       TitelEnglisch: Games Night
       Beschreibung:
@@ -306,6 +306,9 @@ Orte:
   K1:
     Google: https://goo.gl/maps/Lwr55t1rgU9szKaZA
     OSM: https://www.openstreetmap.org/relation/5320078
+  kap:
+    Google: https://maps.app.goo.gl/xVoXL9ZBPsSVbTW88
+    OSM: https://www.openstreetmap.org/way/108793480
   Lago:
     Google: https://www.google.de/maps/place/Lago/@49.024847,8.3512507,17z/data=!3m1!4b1!4m5!3m4!1s0x47970727adc149a3:0x76fa8867b10feb24!8m2!3d49.024847!4d8.3534394?hl=de
     OSM: https://www.openstreetmap.org/way/96860719
