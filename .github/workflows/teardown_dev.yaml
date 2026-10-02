@@ -22,7 +22,7 @@ jobs:
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3.2
         with:
-          version: v1.23.1
+          version: v1.37.1
       - name: Download npm Dependencies
         run: npm ci
       - name: Write Kubeconfig
