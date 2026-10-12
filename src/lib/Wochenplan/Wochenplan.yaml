@@ -1,5 +1,5 @@
 Wochenplan:
-  - Datum: 2025-10-20
+  - Datum: 2026-10-19
     Termine:
     - Titel: Begrüßungs&#173;veranstaltung
       TitelEnglisch: Welcome Event
@@ -7,7 +7,11 @@ Wochenplan:
       BeschreibungEnglisch: This is where it starts
       Start: 09:00
       Ende: 12:00
-      Treffpunkt: Audimax
+      Treffpunkt:
+        - Text: "Bachelor: [Audimax]"
+          Ort: Audimax
+        - Text: "Master: [Hörsaal am Fasanengarten]"
+          Ort: HSaF
       Effekt:
         Fachschaft: true
     - Titel: Kennenlernen & Pizza
@@ -44,21 +48,23 @@ Wochenplan:
       Treffpunkt: Infobau
       Effekt:
         Fachschaft: true
-  - Datum: 2025-10-21
+  - Datum: 2026-10-20
     Termine:
-    - Titel: Frühstück im Café
-      TitelEnglisch: Breakfast at the Café
+    - Titel: Frühstück
+      TitelEnglisch: Breakfast
       Beschreibung:
       Start: 10:00
+      Ende: 11:30
+      Treffpunkt: Mathebau
+    - Titel: Stadttour
+      TitelEnglisch: City Tour
+      Beschreibung:
+      Start: 11:30
       Ende: 13:00
-      Treffpunkt: 
-        - Text: "Turing: [alina café]"
-          Ort: alina café
-        - Text: "Lovelace: [Café Palaver]"
-          Ort: Palaver
+      Treffpunkt: Marktplatz
     - Titel: FBI
-      Beschreibung: Profis erklären Studium. Orte siehe <a href='https://o-phase.com/de/ws2526/schedule/'>Fachschafts-Wochenplan</a>
-      BeschreibungEnglisch: Pros Explain Studying. For locations, see the <a href='https://o-phase.com/en/ws2526/schedule/'>Fachschaft's schedule</a>
+      Beschreibung: Profis erklären Studium. Orte siehe <a href='https://o-phase.com/de/ws2627/schedule/'>Fachschafts-Wochenplan</a>
+      BeschreibungEnglisch: Pros explain studying. For locations, see the <a href='https://o-phase.com/en/ws2627/schedule/'>Fachschaft's schedule</a>
       Start: 14:00
       Ende: 16:00
       Treffpunkt: KIT
@@ -78,31 +84,30 @@ Wochenplan:
       Beschreibung: Von Schildi zubereitet
       BeschreibungEnglisch: Made by Schildi
       Start: 18:00
-      Ende: 20:00
-      Treffpunkt: Mathebau
-    - Titel: O-Phest
-      Beschreibung: Party
-      BeschreibungEnglisch: Party
-      Start: 20:00
       Ende:
-      Treffpunkt: AKK
-      Effekt:
-        Fachschaft: true
-  - Datum: 2025-10-22
-    Termine:
-    - Titel: Mitbring-Frühstück
-      TitelEnglisch: Bring your Own Breakfast
-      Beschreibung:
-      Start: 09:00
-      Ende: 11:00
       Treffpunkt: Mathebau
-    - Titel: O-Rallye
+  - Datum: 2026-10-21
+    Termine:
+    - Titel: Brunch
+      TitelEnglisch: Brunch
       Beschreibung:
-      Start: 11:00
+      Start: 10:00
+      Ende: 13:00
+      Treffpunkt: Mathebau
+    - Titel: O-Lympia
+      Beschreibung: Für Masterstudis ist zwischendrin (14:30) das Meet-the-Chairs (Info) bzw. Faculty Meet-and-Greet (Mathe), um Lehrstühle kennenzulernen!
+      BeschreibungEnglisch: At 13:30, there's a Q&A for international students followed by Meet-the-Chairs (Computer Science)/Faculty Meet-and-Greet (Mathematics)
+      Start: 13:00
       Ende: 17:00
       Effekt:
         Fachschaft: true
-      Treffpunkt: Mathebau
+      Treffpunkt: 
+        - Text: "[Forum]"
+          Ort: Forum
+        - Text: "(Internationals Q&A, Meet-the-Chairs: [InformatiKOM 1]"
+          Ort: Infokom
+        - Text: "Faculty Meet-and-Greet: [Mathebau])"
+          Ort: Mathebau
     - Titel: Kneipentour
       TitelEnglisch: Pub Crawl
       Beschreibung:
@@ -112,23 +117,19 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: route
-  - Datum: 2025-10-23
+  - Datum: 2026-10-22
     Termine:
-    - Titel: Frühstück im Café
-      TitelEnglisch: Breakfast at the Café
+    - Titel: Mitbringfrühstück
+      TitelEnglisch: Bring Your Own Breakfast
       Beschreibung:
-      Start: 10:00
-      Ende: 13:00
-      Treffpunkt:
-        - Text: "Turing: [Café Palaver]"
-          Ort: Café Palaver
-        - Text: "Lovelace: [alina café]"
-          Ort: alina café
-    - Titel: O-Lympia
+      Start: 09:00
+      Ende: 11:00
+      Treffpunkt: Mathebau
+    - Titel: O-Rallye
       Beschreibung:
-      Start: 13:00
+      Start: 11:00
       Ende: 17:00
-      Treffpunkt: Forum
+      Treffpunkt: Mathebau
       Effekt:
         Fachschaft: true
     - Titel: Abendessen
@@ -137,14 +138,14 @@ Wochenplan:
       Start: 18:00
       Ende: 20:00
       Treffpunkt: 
-        - Text: "Vietaroma"
+        - Text: "[VietAroma]"
           Ort: Vietaroma
-        - Text: "Oxford Pub"
+        - Text: "[Oxford Pub]"
           Ort: Ox
-        - Text: "Mamma Lina"
-          Ort: Mamma Lina
-        - Text: "kap"
+        - Text: "[Kap]"
           Ort: kap
+        - Text: "[L'Osteria]"
+          Ort: Osteria
     - Titel: Spieleabend
       TitelEnglisch: Games Night
       Beschreibung:
@@ -154,30 +155,16 @@ Wochenplan:
       Effekt:
         Highlight: true
         Icon: dice
-  - Datum: 2025-10-24
+  - Datum: 2026-10-23
     Termine:
-    - Titel: Abschluss
-      TitelEnglisch: Closing Event
+    - Titel: Wochenrückblick und Scotland Yard
+      TitelEnglisch: Week Review and Scotland Yard
       Beschreibung:
       Start: 11:30
-      Ende: 12:45 # this is a lie but it better fits the layout
+      Ende: 16:30
       Treffpunkt: Gerthsen-Hörsaal
       Effekt:
         Fachschaft: true
-    - Titel: Mensa
-      TitelEnglisch: Canteen
-      Beschreibung: (vor dem Haupteingang)
-      BeschreibungEnglisch: (outside the main entrance)
-      Start: 12:45
-      Ende: 14:30
-      Treffpunkt: Mensa
-    - Titel: Sport / Museen
-      TitelEnglisch: Sports / Museums
-      Beschreibung: Programm nach Wahl
-      BeschreibungEnglisch: Program of your choice
-      Start: 14:30
-      Ende: 18:00
-      Treffpunkt: Mensa
     - Titel: Cocktailabend
       TitelEnglisch: Cocktail Night
       Beschreibung: Die besten Cock- und Mocktails
@@ -199,7 +186,7 @@ Wochenplan:
       Treffpunkt: Mathebau
       Effekt:
         Fachschaft: true
-    - Titel: Mathe-Treff und Lehramts-Treff
+    - Titel: Mathe- und Lehramts-Treff
       TitelEnglisch: Mathematicians’ Afternoon
       Beschreibung:
       Start: 13:00
@@ -208,12 +195,6 @@ Wochenplan:
       Effekt:
         Fachschaft: true
         Icon: square-root-variable
-    - Titel: Internationals Q&A
-      Start: 15:00
-      Ende: 17:00
-      Treffpunkt: Infobau
-      Effekt:
-        Fachschaft: true
 
 
 Orte:
@@ -289,6 +270,9 @@ Orte:
   Infobau:
     Google: https://maps.app.goo.gl/E8fUUokbGxPwWXk28
     OSM: https://www.openstreetmap.org/way/155674961
+  Infokom:
+    Google: https://maps.app.goo.gl/gTV9iRnVgngtKoydA
+    OSM: https://www.openstreetmap.org/way/937998754
   Insterburg:
     Google: https://www.google.de/maps/place/Insterburg/@49.0363994,8.4328968,18.75z/data=!4m5!3m4!1s0x479707dd64444147:0xe5f0e7db443810b5!8m2!3d49.03645!4d8.43354
     OSM: https://www.openstreetmap.org/way/136032188
@@ -331,6 +315,9 @@ Orte:
   Normannia:
     Google: https://www.google.com/maps/place/K.D.St.V.+Normannia/@49.0149153,8.4215328,17z/data=!3m1!4b1!4m5!3m4!1s0x479706328bcdc411:0x2ba47d6980ec857d!8m2!3d49.0149118!4d8.4237215
     OSM: https://www.openstreetmap.org/way/173717520#map=18/49.01476/8.42405
+  Osteria:
+    Google: https://maps.app.goo.gl/fQDBq1S5abkJekmQ7
+    OSM: https://www.openstreetmap.org/node/8912958938
   Ox:
     Google: https://www.google.com/maps/place/Oxford+Pub/@49.0086606,8.4125303,19z/data=!4m13!1m7!3m6!1s0x479706379b45b279:0x7584e25c70a262f4!2sFasanenstra%C3%9Fe+6,+76131+Karlsruhe,+Deutschland!3b1!8m2!3d49.0086606!4d8.4130775!3m4!1s0x0:0x823aadf9ebe8bb1d!8m2!3d49.0085683!4d8.4129196
     OSM: https://www.openstreetmap.org/node/2334081402

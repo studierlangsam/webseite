@@ -18,17 +18,16 @@
 {#if $language.german}
     <p>
         Viele Fragen hat die Fachschaft schon auf ihrer
-        <Link href='https://o-phase.com/de/ws2526/faq/'> FAQ-Seite</Link>
+        <Link href='https://o-phase.com/de/ws2627/faq/'> FAQ-Seite</Link>
         beantwortet.
         Solltest du noch Fragen haben, die hier nicht beantwortet werden,
-        dann schreib uns unter <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
+        dann schreib uns auf Discord (oder frag uns in Person, falls du gerade in der O-Phase vor Ort bist)!
     </p>
 {:else}
     <p>
         The Fachschaft already have the answers to many questions on their
-        <Link href='https://o-phase.com/en/ws2526/faq/'> FAQ page</Link> (which may or may not be up to date).
-        If you have any questions which aren't answered here, write to us at
-        <a href='mailto:tutoren@studierlangsam.de'>tutoren@studierlangsam.de</a>!
+        <Link href='https://o-phase.com/en/ws2627/faq/'> FAQ page</Link>.
+        If you have any questions which aren't answered here, you can write to us on Discord (or ask in person in case you are currently "on-site" at the O-Phase).
     </p>
 {/if}
 {#each faq as qa}
