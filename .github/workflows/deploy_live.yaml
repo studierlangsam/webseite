@@ -56,7 +56,7 @@ jobs:
         run: |
           kubectl kustomize deployment/live |
           	envsubst '$IMAGE' |
-          	kubectl apply -f - --prune --selector app=studierlangsam.de,version=live --prune-whitelist=apps/v1/Deployment --prune-whitelist=/v1/Service --prune-whitelist=networking.k8s.io/v1/Ingress
+          	kubectl apply -f - --prune --selector app=studierlangsam.de,version=live --prune-allowlist=apps/v1/Deployment --prune-allowlist=/v1/Service --prune-allowlist=networking.k8s.io/v1/Ingress
         env:
           IMAGE: ${{ steps.imageTag.outputs.image }}
       - name: Delete Kubeconfig
