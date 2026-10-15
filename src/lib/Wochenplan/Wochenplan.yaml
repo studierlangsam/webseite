@@ -119,7 +119,7 @@ Wochenplan:
         Icon: route
   - Datum: 2026-10-22
     Termine:
-    - Titel: Mitbringfrühstück
+    - Titel: Mitbring&#173;Frühstück
       TitelEnglisch: Bring Your Own Breakfast
       Beschreibung:
       Start: 09:00
@@ -157,6 +157,12 @@ Wochenplan:
         Icon: dice
   - Datum: 2026-10-23
     Termine:
+    - Titel: Frühstück
+      TitelEnglisch: Breakfast
+      Beschreibung:
+      Start: 09:00
+      Ende: 11:30
+      Treffpunkt: Mathebau
     - Titel: Wochenrückblick und Scotland Yard
       TitelEnglisch: Week Review and Scotland Yard
       Beschreibung:
