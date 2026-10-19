@@ -84,8 +84,17 @@ Wochenplan:
       Beschreibung: Von Schildi zubereitet
       BeschreibungEnglisch: Made by Schildi
       Start: 18:00
+      Ende: 20:00
+      Treffpunkt: Mathebau
+    - Titel: Film
+      TitelEnglisch: Film
+      Beschreibung: Filmabend in den Gruppenräumen
+      BeschreibungEnglisch: Movie night in the Mathebau
+      Start: 20:00
       Ende:
       Treffpunkt: Mathebau
+      Effekt:
+        Highlight: true
   - Datum: 2026-10-21
     Termine:
     - Titel: Brunch
@@ -110,7 +119,8 @@ Wochenplan:
           Ort: Mathebau
     - Titel: Kneipentour
       TitelEnglisch: Pub Crawl
-      Beschreibung:
+      Beschreibung: Essen beim ersten Stopp
+      BeschreibungEnglisch: Dinner at the first stop
       Start: 18:00
       Ende:
       Treffpunkt: Berliner Platz
