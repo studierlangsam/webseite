@@ -111,8 +111,8 @@ Wochenplan:
       Effekt:
         Fachschaft: true
       Treffpunkt: 
-        - Text: "[Forum]"
-          Ort: Forum
+        - Text: "[Freilufthalle]"
+          Ort: Freilufthalle
         - Text: "(Internationals Q&A, Meet-the-Chairs: [InformatiKOM 1]"
           Ort: Infokom
         - Text: "Faculty Meet-and-Greet: [Mathebau])"
@@ -265,6 +265,9 @@ Orte:
   Forum:
     Google: https://maps.app.goo.gl/NaY628vC6qa9dDRq8
     OSM: https://www.openstreetmap.org/way/260318329
+  Freilufthalle:
+    Google: https://maps.app.goo.gl/kFxbbVSnT2aseancA
+    OSM: https://www.openstreetmap.org/way/771874346
   Gerthsen-Hörsaal:
     Google: https://maps.app.goo.gl/L8vzsVVk3Yq475ZA7
     OSM: https://www.openstreetmap.org/way/1134006199
