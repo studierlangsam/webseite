@@ -15,7 +15,7 @@
 		"clean": "rm -rf build/"
 	},
 	"devDependencies": {
-		"@algorithm.ts/gcd": "^3.1.1",
+		"@algorithm.ts/gcd": "^4.0.0",
 		"@mdi/js": "^7.2.96",
 		"@modyfi/vite-plugin-yaml": "^1.0.4",
 		"@skeletonlabs/skeleton": "^2.2.0",
